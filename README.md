@@ -12,5 +12,5 @@ Voit jättää kohdistettuja kommentteja rajapintakuvauksista GitHubissa. Yleise
 * Tulisiko jotain kuvauksissa selventää?
 * Riittävätkö rajapintakuvaukset kuntatietojärjestelmien kehittäjille?
 
-# OpenApi kuvaukset
+## OpenApi kuvaukset
 Rajapintojen kuvaukset löytyvät kansiosta OpenApi. OpenApi kuvaukset ovat JSON muodossa ja niitä voi katsella esim. https://editor.swagger.io/ sivuston avulla kopioimalla json tiedoston sisällön sinne.
