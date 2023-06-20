@@ -11,3 +11,10 @@ Voit jättää kohdistettuja kommentteja rajapintakuvauksista GitHubissa. Yleise
 * Ovatko rajapintakuvaukset riittävän ymmärrettäviä?
 * Tulisiko jotain kuvauksissa selventää?
 * Riittävätkö rajapintakuvaukset kuntatietojärjestelmien kehittäjille?
+
+# OpenApi kuvaukset
+Rajapintojen kuvaukset löytyvät kansiosta OpenApi. OpenApi kuvaukset ovat JSON muodossa ja niitä voi katsella esim. https://editor.swagger.io/ sivuston avulla.
+
+Suorat linkit joilla kuvaukset aukeavat Swagger editorissa
+* [Kaavoituksen OpenApi kuvaus](https://editor.swagger.io/?url=https://github.com/sykefi/Ryhti-rajapintakuvaukset/blob/main/OpenApi/Kaavoitus/Palveluv%C3%A4yl%C3%A4/Kaavoitus_OpenApi_v0.1.json)
+* [Rakentamisen OpenApi kuvaus](https://editor.swagger.io/?url=https://github.com/sykefi/Ryhti-rajapintakuvaukset/blob/main/OpenApi/Rakentaminen/Palveluv%C3%A4yl%C3%A4/Rakentamisen_OpenApi_v0.1.json)
