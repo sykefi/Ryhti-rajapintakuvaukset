@@ -2714,7 +2714,7 @@
         }
       }
     },
-    "/api/BuildingPermit": {
+    "/api/BuildingPermit/{buildingPermitId}": {
       "post": {
         "tags": [
           "BuildingPermit"
@@ -3089,9 +3089,7 @@
             }
           }
         }
-      }
-    },
-    "/api/BuildingPermit/{buildingPermitId}": {
+      },
       "put": {
         "tags": [
           "BuildingPermit"
