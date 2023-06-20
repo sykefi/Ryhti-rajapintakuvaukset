@@ -364,909 +364,7 @@
         }
       }
     },
-    "/api/Building/Validate": {
-      "post": {
-        "tags": [
-          "Building"
-        ],
-        "summary": "Validoi rakennuksen tiedot",
-        "requestBody": {
-          "content": {
-            "application/json;odata.metadata=minimal;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=minimal;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=minimal": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=full": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=none": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "text/plain": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Validointi onnistui."
-          },
-          "400": {
-            "description": "Validointi epäonnistui.",
-            "content": {
-              "application/json;odata.metadata=minimal;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/octet-stream": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validointi epäonnistui.",
-            "content": {
-              "application/json;odata.metadata=minimal;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/octet-stream": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Building": {
-      "post": {
-        "tags": [
-          "Building"
-        ],
-        "summary": "Tallentaa uuden rakennuksen tiedot.",
-        "requestBody": {
-          "description": "Rakennuksen tiedot kokonaisuudessaan.",
-          "content": {
-            "application/json;odata.metadata=minimal;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=minimal;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=minimal": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=full": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.metadata=none": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "text/plain": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Building"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Rakennuksen luonti onnistui. Paluuarvona Uri luotuun resurssiin.",
-            "content": {
-              "application/json;odata.metadata=minimal;odata.streaming=true": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "application/json;odata.metadata=minimal;odata.streaming=false": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "application/json;odata.metadata=minimal": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=true": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=false": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "application/json;odata.metadata=full": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=true": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=false": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "application/json;odata.metadata=none": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "application/json;odata.streaming=true": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "application/json;odata.streaming=false": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "application/octet-stream": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json;odata.metadata=minimal;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/octet-stream": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Client Error",
-            "content": {
-              "application/json;odata.metadata=minimal;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/octet-stream": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/BuildingObject/Validate/CompleteBuildingUpdate": {
-      "post": {
-        "tags": [
-          "BuildingObject"
-        ],
-        "summary": "Validoi päivitettävän rakennuskohteen.",
-        "requestBody": {
-          "description": "Päivitettävän rakennsukohteen tiedot",
-          "content": {
-            "application/json;odata.metadata=minimal;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "application/json;odata.metadata=minimal;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "application/json;odata.metadata=minimal": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "application/json;odata.metadata=full": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "application/json;odata.metadata=none": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "application/json;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "application/json;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "text/plain": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingObjectIssue"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Validointi onnistui."
-          },
-          "400": {
-            "description": "Validointi epäonnistui.",
-            "content": {
-              "application/json;odata.metadata=minimal;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/octet-stream": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validointi epäonnistui.",
-            "content": {
-              "application/json;odata.metadata=minimal;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/octet-stream": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/BuildingObject/Validate/BuildingWithoutPermit": {
+    "/api/BuildingObject/Validate": {
       "post": {
         "tags": [
           "BuildingObject"
@@ -1360,10 +458,10 @@
         },
         "responses": {
           "200": {
-            "description": "Validation was successful."
+            "description": "Rakennuskohteen validointi onnisti."
           },
           "400": {
-            "description": "Validation failed due to invalid request.",
+            "description": "Rakennuskohteen validointi epäonnistui virheellisen kutsun johdosta.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -1448,7 +546,7 @@
             }
           },
           "422": {
-            "description": "Validation failed due to invalid data.",
+            "description": "Rakennuskohteen validointi epäonnistui virheellisen tiedon johdosta.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -1540,12 +638,12 @@
         "tags": [
           "BuildingObject"
         ],
-        "summary": "Rakennuskohteen tallentaminen Ryhtiin.",
+        "summary": "Tallenna rakennuskohde ilman lupaa.",
         "parameters": [
           {
             "name": "buildingObjectId",
             "in": "path",
-            "description": "Rakennuskohteen tunnus.",
+            "description": "Rakennuskohteen pysyvä yksilöivä tunnus.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1553,7 +651,7 @@
           }
         ],
         "requestBody": {
-          "description": "Rakennuskohteen tiedot.",
+          "description": "Rakennuskohde-asian tiedot.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -1640,7 +738,7 @@
         },
         "responses": {
           "201": {
-            "description": "Saving building object was successful.",
+            "description": "Rakennuskohteen tallentaminen onnistui.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -1741,7 +839,7 @@
             }
           },
           "400": {
-            "description": "Saving failed due to invalid request.",
+            "description": "Rakennuskohteen tallentaminen epäonnistui virheellisen kutsun johdosta.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -1826,7 +924,657 @@
             }
           },
           "422": {
-            "description": "Savin failed due to invalid data.",
+            "description": "Rakennuskohteen tallentaminen epäonnistui virheellisen tiedon johdosta.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "BuildingObject"
+        ],
+        "summary": "Hae rakennuskohde ilman lupaa.",
+        "parameters": [
+          {
+            "name": "buildingObjectId",
+            "in": "path",
+            "description": "Rakennuskohteen pysyvä yksilöivä tunnus.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rakennuskohteen hakeminen onnistui.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingObjectIssue"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Rakennuskohteen hakeminen epäonnistui virheellisen kutsun johdosta.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Rakennuskohteen hakeminen epäonnistui virheellisen tiedon johdosta.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "BuildingObject"
+        ],
+        "summary": "Päivitä rakennuskohde ilman lupaa.",
+        "parameters": [
+          {
+            "name": "buildingObjectId",
+            "in": "path",
+            "description": "Rakennuskohteen tunnus.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Rakennuskohde-asian tiedot.",
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingObjectIssue"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Rakennuskohteen päivittäminen onnistui.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Rakennuskohteen päivittäminen epäonnistui virheellisen kutsun johdosta.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Rakennuskohteen päivittäminen epäonnistui virheellisen tiedon johdosta.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -1913,12 +1661,12 @@
         }
       }
     },
-    "/api/BuildingPermit/Validate/buildingpermit": {
+    "/api/BuildingPermit/Validate": {
       "post": {
         "tags": [
           "BuildingPermit"
         ],
-        "summary": "Validates a complete building permit request",
+        "summary": "Validoi uuden rakentamislupa-asian.",
         "requestBody": {
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
@@ -2005,10 +1753,10 @@
         },
         "responses": {
           "200": {
-            "description": "Validation was successful."
+            "description": "Validointi onnistuin"
           },
           "400": {
-            "description": "Validation failed due to invalid request.",
+            "description": "Rakentamislupa-asian validointi epäonnistui virheellisen kutsun johdosta..",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -2093,541 +1841,7 @@
             }
           },
           "422": {
-            "description": "Validation failed due to invalid data.",
-            "content": {
-              "application/json;odata.metadata=minimal;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/octet-stream": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/BuildingPermit/validate/DeviationPermitIssue": {
-      "post": {
-        "tags": [
-          "BuildingPermit"
-        ],
-        "summary": "Validates a new deviation permit",
-        "requestBody": {
-          "content": {
-            "application/json;odata.metadata=minimal;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=minimal;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=minimal": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=full": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=none": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "application/json;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "application/json;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "text/plain": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeviationPermitIssue"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Validation was successful."
-          },
-          "400": {
-            "description": "Validation failed due to invalid request.",
-            "content": {
-              "application/json;odata.metadata=minimal;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/octet-stream": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation failed due to invalid data.",
-            "content": {
-              "application/json;odata.metadata=minimal;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/octet-stream": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/BuildingPermit/validate/LandscapeWorkPermit": {
-      "post": {
-        "tags": [
-          "BuildingPermit"
-        ],
-        "summary": "Validates a new landscape work permit",
-        "requestBody": {
-          "content": {
-            "application/json;odata.metadata=minimal;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=minimal;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=minimal": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=full": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=none": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "application/json;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "application/json;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "text/plain": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Validation was successful."
-          },
-          "400": {
-            "description": "Validation failed due to invalid request.",
-            "content": {
-              "application/json;odata.metadata=minimal;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/octet-stream": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation failed due to invalid data.",
+            "description": "Rakentamislupa-asian validointi epäonnistui virheellisen tiedon johdosta.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -2719,12 +1933,12 @@
         "tags": [
           "BuildingPermit"
         ],
-        "summary": "Tallenna uusi rakennuslupa-asia.",
+        "summary": "Tallenna uusi rakentamislupa-asia.",
         "parameters": [
           {
             "name": "buildingPermitId",
             "in": "path",
-            "description": "Pysyvä lupatunnus.",
+            "description": "Pysyvä yksilöivä lupatunnus.",
             "required": true,
             "schema": {
               "type": "string"
@@ -2732,7 +1946,7 @@
           }
         ],
         "requestBody": {
-          "description": "Building permit that needs to saved.",
+          "description": "Rakentamislupa-asia kokonaisuudessaan.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -2818,7 +2032,7 @@
         },
         "responses": {
           "201": {
-            "description": "Saving building permit was successful.",
+            "description": "Rakentamislupa-asian tallentaminen onnistui.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -2919,7 +2133,7 @@
             }
           },
           "400": {
-            "description": "Saving failed due to invalid request.",
+            "description": "Rakentamislupa-asian tallentaminen epäonnistui",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -3004,7 +2218,7 @@
             }
           },
           "422": {
-            "description": "Saving failed due to invalid data.",
+            "description": "Rakentamislupa-asian tallentaminen epäonnistui",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -3090,110 +2304,25 @@
           }
         }
       },
-      "put": {
+      "get": {
         "tags": [
           "BuildingPermit"
         ],
-        "summary": "Updates existing building permit.",
+        "summary": "Hae rakentamislupa-asia.",
         "parameters": [
           {
             "name": "buildingPermitId",
             "in": "path",
-            "description": "Pysyvä lupatunnus.",
+            "description": "Rakennuslupa-asian pysyvä yksilöivä lupatunnus.",
             "required": true,
             "schema": {
               "type": "string"
             }
           }
         ],
-        "requestBody": {
-          "description": "Building permit that needs to saved.",
-          "content": {
-            "application/json;odata.metadata=minimal;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=minimal;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=minimal": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=full": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "application/json;odata.metadata=none": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "application/json;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "application/json;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "text/plain": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/BuildingPermitIssue"
-              }
-            }
-          }
-        },
         "responses": {
-          "200": {
-            "description": "Saving building permit was successful.",
+          "201": {
+            "description": "Created",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -3294,7 +2423,7 @@
             }
           },
           "400": {
-            "description": "Saving failed due to invalid request.",
+            "description": "Rakennusluvan hakeminen epäonnistui virheellisen kutsun johdosta.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -3379,7 +2508,385 @@
             }
           },
           "422": {
-            "description": "Saving failed due to invalid data.",
+            "description": "Rakennusluvan hakeminen epäonnistui virheellisen tiedon johdosta.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "20": {
+            "description": "Rakennusluvan hakeminen onnistui."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "BuildingPermit"
+        ],
+        "summary": "Päivitä rakentamislupa-asiaa.",
+        "parameters": [
+          {
+            "name": "buildingPermitId",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus rakentamislupa-asia.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Rakennuslupa-asia kokonaisuudessaan. Huom. Tiedot jotka puuttuvat sanomasta poistetaan Ryhdistä.",
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Rakentamislupa-asia tallentaminen onnistui.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Rakentamislupa-asia tallentaminen epäonnistui",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "rakentamislupa-asia tallentaminen epäonnistui",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -3466,12 +2973,292 @@
         }
       }
     },
-    "/api/DemolitionPermit": {
+    "/api/DemolitionPermit/Validate": {
       "post": {
         "tags": [
           "DemolitionPermit"
         ],
-        "summary": "Tallentaa uuden purkamislupa-asiaa.",
+        "summary": "Validoin uuden purkamislupa-asiaa.",
+        "requestBody": {
+          "description": "Purkamislupa-asia kokonaisuudessaan",
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuildingPermitIssue"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Purkamislupa-asian validointi onnistui."
+          },
+          "400": {
+            "description": "Purkamsilupa-asian validointi epäonnistui virheellisen kutsun johdosta.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Purkamislupa-asian validointi epäonnistui virheellisten tietojen johdosta.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DemolitionPermit/{demolitionPermitId}": {
+      "post": {
+        "tags": [
+          "DemolitionPermit"
+        ],
+        "summary": "Tallenna uusi purkamislupa-asia.",
+        "parameters": [
+          {
+            "name": "demolitionPermitId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
         "requestBody": {
           "description": "Purkamislupa-asia kokonaisuudessaan",
           "content": {
@@ -3832,11 +3619,298 @@
           }
         }
       },
+      "get": {
+        "tags": [
+          "DemolitionPermit"
+        ],
+        "summary": "Hae purkamislupa-asia.",
+        "parameters": [
+          {
+            "name": "demolitionPermitId",
+            "in": "path",
+            "description": "Purkamisluvan yksilöivä pysyvä tunnus",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Purkamislupa löytyi ja se palautettiin",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuildingPermitIssue"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Purkamisluvan hakeminen epäonnistui",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Purkamisluvan haku epäonnistui virheellisten tietojen johdosta.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
       "put": {
         "tags": [
           "DemolitionPermit"
         ],
-        "summary": "Päivittää olemassa olevaa purkamislupa-asiaa.",
+        "summary": "Päivitä purkamislupa-asiaa.",
+        "parameters": [
+          {
+            "name": "demolitionPermitId",
+            "in": "path",
+            "description": "Purkamisluvan yksilöivä pysyvä tunnus",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
         "requestBody": {
           "description": "Purkamislupa-asia kokonaisuudessaan",
           "content": {
@@ -4100,112 +4174,102 @@
         }
       }
     },
-    "/api/DemolitionPermit/{demolitionPermitId}": {
-      "get": {
+    "/api/DeviationPermit/Validate": {
+      "post": {
         "tags": [
-          "DemolitionPermit"
+          "DeviationPermit"
         ],
-        "summary": "Palauttaa purkamislupa-asian halutulla tunnuksella.",
-        "parameters": [
-          {
-            "name": "demolitionPermitId",
-            "in": "path",
-            "description": "Purkamisluvan yksilöivä pysyvä tunnus",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Purkamisluvan löytyi ja se palautettiin",
-            "content": {
-              "application/json;odata.metadata=minimal;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "application/json;odata.metadata=minimal;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "application/json;odata.metadata=minimal": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "application/json;odata.metadata=full": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "application/json;odata.metadata=none": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "application/json;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "application/json;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "application/octet-stream": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BuildingPermitIssue"
-                }
+        "summary": "Validoi uusi poikkeamislupa-asia",
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviationPermitIssue"
               }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Validointi onnistui."
           },
           "400": {
-            "description": "Purkamisluvan hakeminen epäonnistui",
+            "description": "Poikkeamisluvan validointi epäonnistui virheellisen kutsun johdosta.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -4290,7 +4354,7 @@
             }
           },
           "422": {
-            "description": "Purkamisluvan haku epäonnistui virheellisten tietojen johdosta.",
+            "description": "Poikkeamisluvan validointi epäonnistui virheellisen tiedon johdosta.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -4382,7 +4446,7 @@
         "tags": [
           "DeviationPermit"
         ],
-        "summary": "Tallentaa uuden poikkeamislupa-asian",
+        "summary": "Tallenna uusi poikkeamislupa-asia.",
         "parameters": [
           {
             "name": "deviationPermitId",
@@ -4759,7 +4823,7 @@
         "tags": [
           "DeviationPermit"
         ],
-        "summary": "Palauttaa poikkeamislupa-asian.",
+        "summary": "Hae poikkeamislupa-asia.",
         "parameters": [
           {
             "name": "deviationPermitId",
@@ -5028,14 +5092,22 @@
             }
           }
         }
-      }
-    },
-    "/api/DeviationPermit": {
+      },
       "put": {
         "tags": [
           "DeviationPermit"
         ],
-        "summary": "Päivittää olemassa olevaa poikkeamislupa-asiaa.",
+        "summary": "Päivitä poikkeamislupa-asiaa.",
+        "parameters": [
+          {
+            "name": "deviationPermitId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "description": "Poikkeamislupa-asia kokonaisuudessaan. Puuttuvat tiedot poistetaan.",
           "content": {
@@ -5987,25 +6059,293 @@
         }
       }
     },
+    "/api/LandscapeWorkPermit/Validate": {
+      "post": {
+        "tags": [
+          "LandscapeWorkPermit"
+        ],
+        "summary": "Validoi uusi maisematyölupa-asia.",
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "text/plain": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Maisematyölupa-asian validointi onnistui."
+          },
+          "400": {
+            "description": "Maisematyölupa-asian validointi epäonnistui virheellisen kutsun johdosta.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Maisematyölupa-asian validointi epäonnistui virheellisen tiedon johdosta.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/LandscapeWorkPermit/{landscapeWorkPermitIssueId}": {
       "post": {
         "tags": [
           "LandscapeWorkPermit"
         ],
-        "summary": "Tallentaa uuden maisematyölupa-asian",
+        "summary": "Tallenna uusi maisematyölupa-asia.",
         "parameters": [
           {
             "name": "landscapeWorkPermitIssueId",
             "in": "path",
+            "description": "Maisematyölupa-asian pysyvä tunniste.",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             }
           }
         ],
         "requestBody": {
-          "description": "Maisematyölupa-asian pysyvä tunniste.",
+          "description": "Maisematyölupa-asia kokonaisuudessaan.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -6368,7 +6708,7 @@
         "tags": [
           "LandscapeWorkPermit"
         ],
-        "summary": "Palauttaa maisematyölupa-asian.",
+        "summary": "Hae maisematyölupa-asia.",
         "parameters": [
           {
             "name": "landscapeWorkPermitIssueId",
@@ -6376,8 +6716,7 @@
             "description": "Maisematyölupa-asian pysyvä yksilöivä tunnus",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             }
           }
         ],
@@ -6638,14 +6977,23 @@
             }
           }
         }
-      }
-    },
-    "/api/LandscapeWorkPermit": {
+      },
       "put": {
         "tags": [
           "LandscapeWorkPermit"
         ],
-        "summary": "Päivittää olemassa olevaa maisematyölupa-asiaa.",
+        "summary": "Päivitä maisematyölupa-asiaa.",
+        "parameters": [
+          {
+            "name": "landscapeWorkPermitIssueId",
+            "in": "path",
+            "description": "Maisematyölupa-asian pysyvä yksilöivä tunnus",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "description": "Maisematyölupa-asia kokonaisuudessaan. Puuttuvat tiedot poistetaan.",
           "content": {
@@ -7101,7 +7449,7 @@
         },
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Pysyvän rakennuksen tunniste luotu ja varattu onnistuneesti."
           },
           "400": {
             "description": "Pysyvän rakennustunnuksen luonti epäonnistui.",
@@ -7274,7 +7622,7 @@
             }
           },
           "200": {
-            "description": "Pysyvän rakennuksen tunnisteen varaaminen onnistui."
+            "description": "Pysyvän rakennuksen tunnisteen palautuminen onnistui."
           }
         }
       }
@@ -7372,8 +7720,11 @@
           }
         },
         "responses": {
+          "200": {
+            "description": "Huoneistotunnus palautettu onnistuneesti."
+          },
           "201": {
-            "description": "Created"
+            "description": "Pysyvän huoneistotunnus luotu ja varattu onnistuneesti."
           },
           "400": {
             "description": "Pysyvän huoneistotunnuksen luonti epäonnistui.",
@@ -7544,9 +7895,6 @@
                 }
               }
             }
-          },
-          "200": {
-            "description": "Huoneistotunnus varattu onnistuneesti."
           }
         }
       }
@@ -7644,8 +7992,11 @@
           }
         },
         "responses": {
+          "200": {
+            "description": "Lupatunnus palautettu onnistuneesti."
+          },
           "201": {
-            "description": "Created"
+            "description": "Pysyvän lupatunnus luotu ja varattu onnistuneesti."
           },
           "400": {
             "description": "Pysyvän lupatunnuksen luonti epäonnistui.",
@@ -7816,109 +8167,111 @@
                 }
               }
             }
-          },
-          "200": {
-            "description": "Lupatunnus varattu onnistuneesti."
           }
         }
       }
     },
-    "/api/Structure/Validate": {
+    "/api/PermanentIdenfiers/StructureIdentifier": {
       "post": {
         "tags": [
-          "Structure"
+          "PermanentIdenfiers"
         ],
-        "summary": "Validates a complete Structure request",
+        "summary": "Luo uusi pysyvä rakennelmatunnus (PRKT)",
+        "description": "Rajapinta on idempotenttinen eli se palauttaa saman tunnuksen samoilla parametreilla.",
         "requestBody": {
+          "description": "Parametrit, jotka tarvitaan pysyvän rakennelmatunnuksen varaamiseen.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "application/json;odata.metadata=minimal;odata.streaming=false": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "application/json;odata.metadata=minimal": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "application/json;odata.metadata=full;odata.streaming=true": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "application/json;odata.metadata=full;odata.streaming=false": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "application/json;odata.metadata=full": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "application/json;odata.metadata=none;odata.streaming=true": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "application/json;odata.metadata=none;odata.streaming=false": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "application/json;odata.metadata=none": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "application/json;odata.streaming=true": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "application/json;odata.streaming=false": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "application/xml": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "text/plain": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Structure"
+                "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Rakennelmatunnus palautettu onnistuneesti."
+          },
+          "201": {
+            "description": "Rakennelmatunnus luotu ja varattu onnistuneesti."
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Pysyvän rakennelmatunnuksen luonti epäonnistui.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -8003,275 +8356,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
-            "content": {
-              "application/json;odata.metadata=minimal;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/octet-stream": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Structure": {
-      "post": {
-        "tags": [
-          "Structure"
-        ],
-        "summary": "Obsolete?",
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json;odata.metadata=minimal;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "application/json;odata.metadata=minimal;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "application/json;odata.metadata=minimal": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "application/json;odata.metadata=full;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "application/json;odata.metadata=full": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "application/json;odata.metadata=none;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "application/json;odata.metadata=none": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "application/json;odata.streaming=true": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "application/json;odata.streaming=false": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "text/plain": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Structure"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json;odata.metadata=minimal;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=minimal": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=full": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.metadata=none": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=true": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json;odata.streaming=false": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/octet-stream": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Client Error",
+            "description": "Pysyvän rakennelmatunnuksen luonti epäonnistui.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
