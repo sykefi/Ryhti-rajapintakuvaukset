@@ -14,3 +14,7 @@ Voit jättää kohdistettuja kommentteja rajapintakuvauksista GitHubissa. Yleise
 
 ## OpenApi kuvaukset
 Rajapintojen kuvaukset löytyvät kansiosta OpenApi. OpenApi kuvaukset ovat JSON muodossa ja niitä voi katsella esim. https://editor.swagger.io/ sivuston avulla kopioimalla json tiedoston sisällön sinne.
+
+Suorat linkit kuvauksiin
+* [Kaavoitus OpenApi DRAFT.json](https://github.com/sykefi/Ryhti-rajapintakuvaukset/blob/Dev/OpenApi/Kaavoitus/Palveluv%C3%A4yl%C3%A4/Kaavoitus%20OpenApi%20DRAFT.json)
+* [Rakentaminen OpanApi DRAFT.json](https://github.com/sykefi/Ryhti-rajapintakuvaukset/blob/Dev/OpenApi/Rakentaminen/Palveluv%C3%A4yl%C3%A4/Rakentaminen%20OpenApi%20DRAFT.json)
