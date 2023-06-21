@@ -1,0 +1,1 @@
+Open Api kuvaukset löytyvät tällä hetkellä vain Dev haarasta.
