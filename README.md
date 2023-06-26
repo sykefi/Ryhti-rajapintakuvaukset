@@ -1,4 +1,3 @@
-![logo-ryhti](https://github.com/sykefi/Ryhti-rajapintakuvaukset/assets/98800724/4be27c4c-0cfc-45d1-bfc2-0c637a5eeb94)
 # Ryhti-rajapintakuvaukset
 Rakennetun ympäristön tietojärjestelmän rajapintojen kuvaukset. Ensimmäiset kesäkuussa 2023 julkaistut kuvaukset kertovat tietojärjestelmän validointi- ja tallennusrajapintojen toteutustavasta.
 
