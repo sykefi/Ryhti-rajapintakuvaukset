@@ -1,6 +1,35 @@
 # Ryhti-rajapintakuvauksista esitetyt kysymykset ja vastaukset niihin
 Kommentit kronologisessa järjestyksessä vanhimmasta uusimpaan.
 
+## Sisällys
+  * [Vuorovaikutus- ja käsittelytapahtuman lisääminen kaava-asialle](#vuorovaikutus--ja-k%C3%A4sittelytapahtuman-lis%C3%A4%C3%A4minen-kaava-asialle)
+  * [Epäloogisuus terminologiassa: InteractionEvent ja HandlingEvent](#ep%C3%A4loogisuus-terminologiassa-interactionevent-ja-handlingevent)
+  * [Metodien kuvaukset englanniksi ja kirjoitusvirhe](#metodien-kuvaukset-englanniksi-ja-kirjoitusvirhe)
+  * [Koodistojen pitkät merkkijonot](#koodistojen-pitk%C3%A4t-merkkijonot)
+  * [VTJ:n validointien huomioiminen](#vtjn-validointien-huomioiminen)
+  * [String-kentät ja koodistot](#string-kent%C3%A4t-ja-koodistot)
+  * [Katselmukset](#katselmukset)
+  * [Lupamääräysten rakenteellisuus ja ohjeet hierarkioiden käyttöön](#lupam%C3%A4%C3%A4r%C3%A4ysten-rakenteellisuus-ja-ohjeet-hierarkioiden-k%C3%A4ytt%C3%B6%C3%B6n)
+  * [Toimitetaanko ilmastoselvitys ja materiaaliluettelo rajapinnan kautta?](#toimitetaanko-ilmastoselvitys-ja-materiaaliluettelo-rajapinnan-kautta)
+  * [Siirtyykö rakennuslupatunnusten luonti Ryhtiin?](#siirtyyk%C3%B6-rakennuslupatunnusten-luonti-ryhtiin)
+  * [Miten versionhallinta toimii Ryhdin päässä?](#miten-versionhallinta-toimii-ryhdin-p%C3%A4%C3%A4ss%C3%A4)
+  * [Tietorakenteiden kuvaukset, tietojen pakollisuudet, operaatiot ja serialisointi](#tietorakenteiden-kuvaukset-tietojen-pakollisuudet-operaatiot-ja-serialisointi)
+  * [Kaavayksikön puuttuminen rajapintakuvauksista](#kaavayksik%C3%B6n-puuttuminen-rajapintakuvauksista)
+  * [Vähäinen asemakaavan muutos](#v%C3%A4h%C3%A4inen-asemakaavan-muutos)
+  * [Selvennetäänkö OpenAPI-kuvauksia kaavioilla?](#selvennet%C3%A4%C3%A4nk%C3%B6-openapi-kuvauksia-kaavioilla)
+  * [GeoJSON vai JSON-FG?](#geojson-vai-json-fg)
+  * [JSOn Schema -tiedostot](#json-schema--tiedostot)
+  * [Viittaukset ODataan](#viittaukset-odataan)
+  * [String vai koodisto?](#string-vai-koodisto)
+  * [Selite koodiarvojen lisäksi](#selite-koodiarvojen-lis%C3%A4ksi)
+  * [Rakennuksen validointisäännöt ja Suomi.fi-koodistot](#rakennuksen-validointis%C3%A4%C3%A4nn%C3%B6t-ja-suomifi-koodistot)
+  * [Miten yksilöivä lupatunnus haetaan?](#miten-yksil%C3%B6iv%C3%A4-lupatunnus-haetaan)
+  * [Ohje tunnistautumiseen ja erilaisiin käyttötarkoituksiin](#ohje-tunnistautumiseen-ja-erilaisiin-k%C3%A4ytt%C3%B6tarkoituksiin)
+  * [Miten rakennus koostetaan osista?](#miten-rakennus-koostetaan-osista)
+  * [Rajapinnan kielet](#rajapinnan-kielet)
+  * [Miten toimitaan lupatyypin vaihtuessa?](#miten-toimitaan-lupatyypin-vaihtuessa)
+  * [Toive UML-malleista](#toive-uml-malleista)
+
 ## Vuorovaikutus- ja käsittelytapahtuman lisääminen kaava-asialle
 Kommentti jätetty 7.7.2023: Vuorovaikutus- ja käsittelytapahtuman lisääminen kaava-asialle jää ehkä hieman epäselväksi:
 Vuorovaikutustapahtuma: (POST) /api/InteractionEvent/{landUseCaseId}/LifeCycleStatus/{lifeCycleStatus}
