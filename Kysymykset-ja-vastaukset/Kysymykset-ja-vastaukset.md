@@ -29,6 +29,38 @@ Kommentti jätetty 7.7.2023: Tämä ei liity suoraan tähän rajanpintakuvauksee
 
 **Kuvaukset eivät voi muuttua. Jos lisäyksiä tulee, tehdään uusi koodi ja koodistosta uusi versio. Olemassa oleva URI ei muutu.** 
 
+## VTJ:n validointien huomioiminen
+Kommentti jätetty 8.7.2023: Nykyisin RH-tiedot tarkastetaan asiointipalvelun käyttöliittymällä niitä kerättäessä ns perinteisillä ”VRK-tarkastuksilla”, esim tilavuuksien ja pinta-alojen suhteet tarkastetaan, liitynnät ja varusteet tarkastetaan, rakennus- ja julkisivumateriaalit tarkastetaan ja lämmitystapa ja lämmönlähde tarkastetaan jne. Onko tämä tarkoitus siirtää kokonaan RYHTI-validointiin vai tuleeko valtakunnallinen ohjeistus, mitä kenttäkohtaisia validointeja jatkossa tehdään ennen luvan myöntämistä?
+
+**Vastaus 11.9.2023: Kyllä, VTJ:n olemassa olevat validoinnit huomioidaan.**
+
+## String-kentät ja koodistot
+Kommentti jätetty 8.7.2023: Rajapintakuvauksessa on lukuisia puuttuvia koodistoja, jotta tieto saadaan kerättyä oikein. Paljon uusia ”string”-tyyppisiä kenttiä, joihin voi laittaa mitä vain. Samoin rakenteista monimutkaisempaa tietoa on laitettu vain yhdeksi tekstikentäksi. Voin näistä kerätä yksityiskohtaisempaa listaa myös.
+
+**Vastaus 11.9.2023: Osa string-tyyppisistä kentistä on todellisuudessa koodistoja. Nämä päivitetään seuraavaan rajapintakuvauksen versioon.**
+
+## Katselmukset
+Kommentti jätetty 8.7.2023: Katselmuksista ei ole mielestäni riittävästi tietoa rajapinnassa
+
+**Vastaus 11.9.2023: Katselmukset ovat olleet vielä kesken.**
+
+## Lupamääräysten rakenteellisuus ja ohjeet hierarkioiden käyttöön 
+Kommentti jätetty 8.7.2023: Lupamääräysten ja -ehtojen määrittelyssä olisi mielestäni hyvä olla rakenteellisuutta. Se on ollut myös KuntaGML-mallin yksi heikkoja kohtia imo.
+
+Perinteisen rakennus-huoneisto -hierarkian sijaan tässä mallissa on rakennus-rakennuksen osa-huoneisto-huone-tila -rakenne, ja siihen vielä kuvattuna erikseen hissit, sisäänkäynnit, energialähteet, liitynnät, jne. Tämä pitää selventää auki, miten käytetään, koska tapoja on ääretön määrä ja kaikkien tapojen salliminen johtaa datan hyödyntämisen ja tilastoinnin mahdottomuuteen. Suunnittelijoiden suuntaan ollaan antamassa yhtä ohjeistusta yleisten tietomallivaatimusten myötä, mutta tämä vaatisi yksikäsitteisen ohjeistuksen myös, miten hieman erilaista RYTJ-mallia käytetään tiedonvälityksessä eteenpäin.
+
+**Vastaus 11.9.2023: Tämä tulee tarkentumaan. Teemme asiaa selventäviä JSON-esimerkkejä.**
+
+## Toimitetaanko ilmastoselvitys ja materiaaliluettelo rajapinnan kautta?
+Kommentti jätetty 8.7.2023: Oliko niin, että ilmastoselvitystä tai materiaaliluetteloa ei toimiteta rajapinnan kautta? Ne ovat rytj-raklun tietomallissa, muuta eivät rajapintakuvauksissa.
+
+**Vastaus 11.9.2023: Ne toimitetaan rajapinnan kautta, mutta ilmastoselvityksen ja materiaaliselvityksen osalta rajapintojen kuvaaminen on vielä kesken. Tästä syystä ne eivät näy vielä rajapintakuvauksissa.**
+
+## Siirtyykö rakennuslupatunnusten luonti Ryhtiin?
+Kommentti jätetty 8.7.2023: Siirtyykö rakennuslupatunnusten luonti myös RYHTIin? Onko pysyvä rakennuslupatunnus jokin tekninen tunnus, vai tulisiko sen korvata kunnan oman järjestelmän luoma asiankäsittelynumero (diaari), josta rakennuslupatunnus tänä päivänä otetaan?
+
+**Vastaus 11.9.2023: Siirtyy, tunnuksen saa haettua Ryhti-järjestelmän kautta. Kunnan rakennuslupatunnusta ei ole pakko korvata pysyvällä rakennuslupatunnuksella. Pysyvän rakennuslupatunnuksen on kuitenkin tarkoitus toimia valtakunnallisena tunnuksena.**
+
 ## Miten versionhallinta toimii Ryhdin päässä?
 Kommentti jätetty 28.7.2023: Eli jos vaikka alueidenkäyttöasia on jo olemassa Ryhdissä, ja vie koko asian uudelleen funktiolla "POST/api/LandUseCase/{landUseCaseidentifier}", mitä tapahtuu? Kumoutuuko vanha kokonaan, tehdäänkö merge, jääkö vanha Ryhtiin talteen?
 
@@ -81,14 +113,64 @@ OData on sinänsä varsin toimiva rajapintateknologia silloin, kun kaikki tietom
 
 **Vastaus 8.9.2023: Ensimmäisessä julkaistussa versiossa rajapintakuvauksista on viitteitä OData-tuesta. OData-tukea ei kuitenkaan ole tulossa rajapintojen ensimmäisissä versioissa, ja viitteet ODataan on tarkoitus poistaa. OData-viittausten poistamisen yhteydessä tullaan poistamaan myös kaikki muut siirtoformaatit/mediatypet paitsi JSON.**
 
+## String vai koodisto?
+Kommentti jätetty 11.8.2023: Kaikissa koodiarvoilta vaikuttavissa attribuuteissa ei ole tietoa koodistosta, tyyppinä on vain string.
+esim. kitchenTyp attribuutilta puuttuu viittaus koodistoon, apartmentType attribuutilla se taas on.
+
+**Vastaus 11.9.2023: Tämä liittyy siihen, että osa string-kentistä on oikeasti koodistoja.** 
+
+## Selite koodiarvojen lisäksi
+Kommentti jätetty 11.8.2023: Rakennuksen validointisäännöissä osassa virhetekstejä on vain koodiarvo, ei selitettä. Selite parantaa käytettävyyttä. Esim. 
+![image](https://github.com/sykefi/Ryhti-rajapintakuvaukset/assets/98800724/2f84fbc7-bf19-4907-b1b7-2d28771387d8)
+
+**Vastaus 11.9.2023: Dokumentaatio tulee tarkentumaan muun muassa selitteiden osalta.**
+
+## Rakennuksen validointisäännöt ja Suomi.fi-koodistot
+Kommentti jätetty 11.8.2023: Rakennuksen validointisääntöihin liittyen toiveena on linkit suomi.fi koodistoon.
+
+**Vastaus 11.9.2023: Kiitos huomiosta. Lisäämme linkit koodistoihin.**
+
+## Miten yksilöivä lupatunnus haetaan?
+Kommentti jätetty 11.8.2023: Olisi hyvä opastaa miten pysyvä yksilöivä lupatunnus haetaan. Varmaankin /api/PermanentIdenfiers/BuildingIdentifier kutsulla?
+
+**Vastaus 11.9.2023: Dokumentointi tulee tarkentumaan.**
+
+## Ohje tunnistautumiseen ja erilaisiin käyttötarkoituksiin
+Kommentti jätetty 11.8.2023: Toiveena saada tunnistautumisesta ohje sovelluskehittäjiä varten.
+
+Yleisesti: ohje erilaisiin käyttötarkoituksiin esim. uuden luvan lisäys
+•	tunnistaudu
+•	hae pysyvä yksilöivä lupatunnus
+•	hae pysyvä rakennustunnus
+•	hae pysyvä huoneistotunnus
+•	tallenna lupa 
+•	… 
+
+**Vastaus 11.9.2023: Pyrimme tekemään ohjeen tunnistautumiseen. Rajapintoihin liittyvä dokumentaatio tulee myös vielä täydentymään**
+
+## Miten rakennus koostetaan osista?
+Kysymys jätetty 11.8.2023: Rakennuksen osat vs. rakennus
+•	Miten rakennuksen tiedot koostetaan rakennuksen osista?
+•	VTJ:ssä kuntien käyttäjät näkevät vain rakennuksen tiedot (ei osien tietoja)
+
+**Vastaus 11.9.2023: Rajapintojen liittyvä dokumentaatio tulee tältäkin osalta vielä päivittymään. Rakennuksen osista koostetaan rakennus VTJ:tä varten Ryhti-järjestelmässä.**
+
+## Rajapinnan kielet
+Kysymys jätetty 11.8.2023: Rajapintakuvaus on suomeksi. Rajapinta on englanniksi.
+•	Voisiko tietomallissa on myös englanninkieliset termit luokille ja attribuuteille?
+
+**Vastaus 11.9.2023: Tietomalli tullaan kääntämään myös englanninkieliseksi.**
+
+## Miten toimitaan lupatyypin vaihtuessa?
+Kysymys jätetty 11.8.2023: Miten toimitaan, jos lupatyyppi vaihtuu sen jälkeen kun pysyvä lupatunnus (PLT) on haettu?
+
+**Vastaus 11.9.2023: Ryhtijärjestelmän näkökulmasta ei ole väliä, vaikka kunnassa hanke muuttuu PLT:n hakemisen jälkeen.**
+
 ## Toive UML-malleista
 Kommentti jätetty 23.8.2023: Pyysitte palautetta Ryhdin rajapintakuvauksiin liittyen. OpenApi-kuvaukset ovet varsin toimivat kehittäjille, mutta ainakin meillä ja kuntien edustajissa on paljon asian kanssa työskenteleviä joiden asiantuntemus on lähinnä substanssiosaamisen puolella - siis vaikka kaavoituksessa. Tätä silmälläpitäen näkisin että olisi tärkeää että tietomallista ja rajapinnoista olisi olemassa myös UML-kaavioita joista voisi nähdä tiedon rakenteen jatkossakin, kuten vaikka aiemmin tehdyn Kaatio-hankkeen puitteissa oli saatavilla. Nämä kuitenkin avaavat asiaa huomattavasti paremmin maankäytön- ja rakentamisen asiantuntijoille joiden on myös keskeistä ymmärtää tietomallien ja tiedonsiirron sisältö.
 
 **Vastaus 8.9.2023: UML-mallien päivittämisestä on luovuttu, koska pitkälti saman asian ajavat Suomi.fi-yhteentoimivuusalustalta löytyvät mallit. Järjestelmään liittyvät tietomallit kuvaavat tietoja ja niiden välisiä suhteita. 
 Olemme koonneet malleista tietoa [tietomallit-verkkosivulle](https://ryhti.syke.fi/ohjeet-ja-tuki/tietomallit/).**
-
-
-
 
 
 
