@@ -17,8 +17,8 @@ Voit jättää kohdistettuja kommentteja rajapintakuvauksista GitHubissa. Yleise
 Rajapintojen kuvaukset löytyvät kansiosta OpenApi. OpenApi-kuvaukset ovat JSON-muodossa ja niitä voi katsella esim. https://editor.swagger.io/ sivuston avulla kopioimalla JSON-tiedoston sisällön sinne.
 
 Suorat linkit kuvauksiin
-* [Kaavoitus OpenApi DRAFT.json](https://github.com/sykefi/Ryhti-rajapintakuvaukset/blob/Dev/OpenApi/Kaavoitus/Palveluv%C3%A4yl%C3%A4/Kaavoitus%20OpenApi%20Beta.json)
-* [Rakentaminen OpanApi DRAFT.json](https://github.com/sykefi/Ryhti-rajapintakuvaukset/blob/Dev/OpenApi/Rakentaminen/Palveluv%C3%A4yl%C3%A4/Rakentaminen%20OpenApi%20Beta.json)
+* [Kaavoitus OpenApi Beta.json](https://github.com/sykefi/Ryhti-rajapintakuvaukset/blob/Dev/OpenApi/Kaavoitus/Palveluv%C3%A4yl%C3%A4/Kaavoitus%20OpenApi%20Beta.json)
+* [Rakentaminen OpanApi Beta.json](https://github.com/sykefi/Ryhti-rajapintakuvaukset/blob/Dev/OpenApi/Rakentaminen/Palveluv%C3%A4yl%C3%A4/Rakentaminen%20OpenApi%20Beta.json)
 
 OpenAPI-spesifikaatio on määrittelykieli APIen kuvaamiseen. OpenAPI-kuvaus on standardoitu tapa määritellä API, mikä auttaa muita ymmärtämään APIn toimintaa ja kyvykkyyksiä. OpenAPI on riippumaton ohjelmointikielestä. 
 * [Lue lisää: What is OpenAPI?](https://www.openapis.org/what-is-openapi)
