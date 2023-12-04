@@ -1,12 +1,12 @@
 # Ryhti-rajapintakuvaukset
-Rakennetun ympäristön tietojärjestelmän rajapintojen kuvaukset. Ensimmäiset kesäkuussa 2023 julkaistut kuvaukset kertovat tietojärjestelmän validointi- ja tallennusrajapintojen toteutustavasta.
+Rakennetun ympäristön tietojärjestelmän rajapintojen kuvaukset, jotka kertovat tietojärjestelmän validointi- ja tallennusrajapintojen toteutustavasta. Kuvaukset päivitettiin joulukuun 2023 alussa, jolloin niihin tuli merkittäviä muutoksia. Ensimmäiset kehitysversiot julkaistiin kesäkuussa 2023.
 
-Rajapintakuvaukset ovat ensimmäisiä kehitysversioita, joita tullaan täydentämään. Kehitysversiota ei versioida, vaan muutokset näkyvät GitHub-repositoryn muutoshistoriasta. Myös kuvauksiin liittyvä dokumentaatio täydentyy. 
+Rajapintakuvaukset ovat kehitysversioita, joita tullaan täydentämään. Kehitysversiota ei versioida, vaan muutokset näkyvät GitHub-repositoryn muutoshistoriasta. Myös kuvauksiin liittyvä dokumentaatio täydentyy. 
 
 Rajapintakuvauksiin tutustuminen edellyttää aiempaa kokemusta rajapintojen toteutuksesta ja JSON-tiedostoista. Kuvaukset on tarkoitettu erityisesti teknisille järjestelmäkehittäjille yrityksissä, kunnissa ja muissa organisaatioissa.
 
 ## Kommentointi
-Voit jättää kohdistettuja kommentteja rajapintakuvauksista GitHubissa. Yleiset kommentit tai kysymykset voi lähettää osoitteeseen ryhti@syke.fi. Suomen ympäristökeskuksen tiimi käy saapuneet kommentit läpi syyskuun alussa.
+Voit lähettää palautetta ja kysymyksiä rajapintakuvauksista osoitteeseen ryhti@syke.fi.
  
 ### Ryhti-tiimiä kiinnostaa erityisesti:
 * Ovatko rajapintakuvaukset riittävän ymmärrettäviä?
