@@ -22,3 +22,35 @@ Suorat linkit kuvauksiin
 
 OpenAPI-spesifikaatio on määrittelykieli APIen kuvaamiseen. OpenAPI-kuvaus on standardoitu tapa määritellä API, mikä auttaa muita ymmärtämään APIn toimintaa ja kyvykkyyksiä. OpenAPI on riippumaton ohjelmointikielestä. 
 * [Lue lisää: What is OpenAPI?](https://www.openapis.org/what-is-openapi)
+
+## Testirajapintojen aikataulu
+Alla olevan aikataulun avulla pystyy seuraamaan testirajapintojen valmistumista ja arvioimaan, milloin ne ovat testattavissa. 
+
+### Rakennustieto
+| Endpoint  | Status | Status päivitetty |
+| ------------- | ------------- | ------------- |
+| BuildingObject | Hyväksymistestauksessa | 5.12.2023 |
+| BuildingPermit | Hyväksymistestauksessa | 5.12.2023 |
+| DemolitionPermit | Kesken | 5.12.2023 |
+| DeviationPermit | Kesken | 5.12.2023 |
+| LandscapeWorkPermit | Kesken | 5.12.2023 |
+| PermanentIdentifiers | Valmis | 5.12.2023 |
+
+### Alueidenkäytön suunnitelmatieto
+| Endpoint  | Status | Status päivitetty |
+| ------------- | ------------- | ------------- |
+| LocalDetailedPlanMatter | Hyväksymistestauksessa | 11.12.2023 |
+| LocalMasterPlanMatter | Hyväksymistestauksessa | 11.12.2023 |
+| RegionalPlanMatter | Hyväksymistestauksessa | 11.12.2023 |
+
+### Yhteiset
+| Endpoint  | Status | Status päivitetty |
+| ------------- | ------------- | ------------- |
+| Document | Valmis | 5.12.2023 |
+| Status | Valmis | 5.12.2023 |
+
+### Muut kehitettävät
+Tonttijakojen ja maankäyttörajoitusten kehitystyö on kesken. Rajapintakuvaukset valmistuvat Q2/2024. 
+
+### Käyttöliittymät
+Kaavatietojen käyttöliittymä on hyväksymistestauksessa (11.12.2023).
