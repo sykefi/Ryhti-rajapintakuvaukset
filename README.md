@@ -23,6 +23,9 @@ Suorat linkit kuvauksiin
 OpenAPI-spesifikaatio on määrittelykieli APIen kuvaamiseen. OpenAPI-kuvaus on standardoitu tapa määritellä API, mikä auttaa muita ymmärtämään APIn toimintaa ja kyvykkyyksiä. OpenAPI on riippumaton ohjelmointikielestä. 
 * [Lue lisää: What is OpenAPI?](https://www.openapis.org/what-is-openapi)
 
+## Rajapintoihin tutustumista tukevat dokumentit
+* [Rakentamislupa ja rakennuskohde, rajapintojen toiminnallisuudet](https://ryhti.syke.fi/wp-content/uploads/sites/2/2023/12/Rakentamislupa-ja-rakennuskohde.pdf)
+
 ## Testirajapintojen aikataulu
 Alla olevan aikataulun avulla pystyy seuraamaan testirajapintojen valmistumista ja arvioimaan, milloin kehitystyö muissa järjestelmissä kannattaa aloittaa.
 
