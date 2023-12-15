@@ -24,7 +24,7 @@ OpenAPI-spesifikaatio on määrittelykieli APIen kuvaamiseen. OpenAPI-kuvaus on 
 * [Lue lisää: What is OpenAPI?](https://www.openapis.org/what-is-openapi)
 
 ## Testirajapintojen aikataulu
-Alla olevan aikataulun avulla pystyy seuraamaan testirajapintojen valmistumista ja arvioimaan, milloin ne ovat testattavissa. 
+Alla olevan aikataulun avulla pystyy seuraamaan testirajapintojen valmistumista ja arvioimaan, milloin kehitystyö muissa järjestelmissä kannattaa aloittaa.
 
 ### Rakennustieto
 | Endpoint  | Status | Status päivitetty |
