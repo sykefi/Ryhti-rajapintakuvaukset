@@ -34,9 +34,9 @@ Alla olevan aikataulun avulla pystyy seuraamaan testirajapintojen valmistumista 
 | ------------- | ------------- | ------------- |
 | BuildingObject | Hyväksymistestauksessa | 5.12.2023 |
 | BuildingPermit | Hyväksymistestauksessa | 5.12.2023 |
-| DemolitionPermit | Kesken | 5.12.2023 |
-| DeviationPermit | Kesken | 5.12.2023 |
-| LandscapeWorkPermit | Kesken | 5.12.2023 |
+| DemolitionPermit | Hyväksymistestauksessa | 12.1.2024 |
+| DeviationPermit | Hyväksymistestauksessa | 12.1.2024 |
+| LandscapeWorkPermit | Hyväksymistestauksessa | 12.1.2024 |
 | PermanentIdentifiers | Valmis | 5.12.2023 |
 
 ### Alueidenkäytön suunnitelmatieto
