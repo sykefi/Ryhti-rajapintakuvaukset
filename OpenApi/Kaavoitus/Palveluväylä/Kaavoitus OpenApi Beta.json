@@ -11157,6 +11157,14 @@
             "description": "Osallistumis- ja arviointisuunnitelma",
             "nullable": true
           },
+          "sourceDatas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanSourceData"
+            },
+            "description": "Lähtötietoaineisto",
+            "nullable": true
+          },
           "planMatterPhases": {
             "type": "array",
             "items": {
@@ -11225,23 +11233,6 @@
               "$ref": "#/components/schemas/InteractionEvent"
             },
             "description": "Vuorovaikutustapahtuma",
-            "nullable": true
-          },
-          "attachmentDocument": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/PlanAttachmentDocument"
-              }
-            ],
-            "description": "Asian liite",
-            "nullable": true
-          },
-          "sourceDatas": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PlanSourceData"
-            },
-            "description": "Lähtötietoaineisto",
             "nullable": true
           },
           "planDecisions": {
@@ -11378,6 +11369,14 @@
               }
             ],
             "description": "Osallistumis- ja arviointisuunnitelma",
+            "nullable": true
+          },
+          "sourceDatas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanSourceData"
+            },
+            "description": "Lähtötietoaineisto",
             "nullable": true
           }
         },
