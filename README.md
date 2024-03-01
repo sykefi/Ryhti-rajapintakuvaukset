@@ -40,34 +40,48 @@ OpenAPI-spesifikaatio on määrittelykieli APIen kuvaamiseen. OpenAPI-kuvaus on 
 * [Kaavatietomallin tietomääritykset](https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-kaavoitus/kaavatietomallin-tietomaaritykset/)
 * [Kaavatietomallin elinkaari- ja laatusäännöt](https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-kaavoitus/kaavatietomallin-elinkaari-ja-laatusaannot/)
 
-## Testirajapintojen aikataulu
-Alla olevan aikataulun avulla pystyy seuraamaan testirajapintojen valmistumista ja arvioimaan, milloin kehitystyö muissa järjestelmissä kannattaa aloittaa.
+## Aikataulu: milloin rajapinnat ja käyttöliittymät ovat testattavissa?
+Alla olevan aikataulun avulla pystyt seuraamaan Ryhti-järjestelmän rajapintojen ja käyttöliittymäpalveluiden valmistumista. Taulukko auttaa myös arvioimaan, milloin kehitys- ja testaustyö muissa järjestelmissä kannattaa aloittaa.
 
-### Rakennustieto
-| Endpoint  | Status | Status päivitetty |
-| ------------- | ------------- | ------------- |
-| BuildingObject | Hyväksymistestauksessa | 5.12.2023 |
-| BuildingPermit | Hyväksymistestauksessa | 5.12.2023 |
-| DemolitionPermit | Hyväksymistestauksessa | 12.1.2024 |
-| DeviationPermit | Hyväksymistestauksessa | 12.1.2024 |
-| LandscapeWorkPermit | Hyväksymistestauksessa | 12.1.2024 |
-| PermanentIdentifiers | Valmis | 5.12.2023 |
+### Alueidenkäytön rajapintakäyttö
+| Rajapinta |	Endpoint | Ryhti-kehitystiimin status	| Kumppaneiden testattavissa |Status päivitetty |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| Asemakaava | LocalDetailedPlanMatter | Tuotantoversio julkaistu | Heti | 29.2.2024 |
+| Yleiskaava | LocalMasterPlanMatter | Tuotantoversio julkaistu	| Heti | 29.2.2024 |
+| Maakuntakaava | RegionalPlanMatter | Tuotantoversio julkaistu | Heti | 29.2.2024 |
+| Tiedostojen lataaminen | UploadedFile | Tuotantoversio julkaistu | Heti	| 29.2.2024 |
+| Tonttijako | BindingPlotDivisionMatter | Kehityksessä | Q2/2024	| 29.2.2024 |
+| Maankäyttörajoitukset | - |	Määrittelyssä	| Q3-Q4/2024 | 29.2.2024 |
+| Kaavojen validointipalvelu | Ryhti Plan Public Validate API | Tuotantoversio julkaistu | Heti |	29.2.2024 |
 
-### Alueidenkäytön suunnitelmatieto
-| Endpoint  | Status | Status päivitetty |
-| ------------- | ------------- | ------------- |
-| LocalDetailedPlanMatter | Tuotantovalmius | 30.1.2024 |
-| LocalMasterPlanMatter | Tuotantovalmius | 30.1.2024 |
-| RegionalPlanMatter | Tuotantovalmius | 30.1.2024 |
+### Alueidenkäytön käyttöliittymäkäyttö
+| Rajapinta |	Ryhti-kehitystiimin status	| Kumppaneiden testattavissa | Status päivitetty |
+| ------------- | ------------- | ------------- | ------------- |
+| Kaavojen sisääntuontikäyttöliittymä: asemakaava | Kehityksessä | Yksittäisen suunnitelmatiedoston tuominen testattavissa heti. Lomake asiakirjoihin ja päätöksiin liittyvien tietojen tuomiseen tulossa Q2/2024. | 29.2.2024 |
+| Kaavojen sisääntuontikäyttöliittymä: yleiskaava | Kehityksessä | Yksittäisen suunnitelmatiedoston tuominen testattavissa heti. Lomake asiakirjoihin ja päätöksiin liittyvien tietojen tuomiseen tulossa Q2/2024.	| 29.2.2024 |
+| Kaavojen sisääntuontikäyttöliittymä: maakuntakaava | Kehityksessä | Yksittäisen suunnitelmatiedoston tuominen testattavissa heti. Lomake asiakirjoihin ja päätöksiin liittyvien tietojen tuomiseen tulossa Q2/2024. | 29.2.2024 |
+| Tiedostojen lataaminen | Tuotannossa | Heti	| 29.2.2024 |
+| Karttapalvelu | Kehityksessä | Q3-Q4/2024 | 29.2.2024 |
+| Kaavojen validointipalvelu | Tuotannossa |	Heti	| 29.2.2024 |
 
-### Yhteiset
-| Endpoint  | Status | Status päivitetty |
-| ------------- | ------------- | ------------- |
-| Document | Valmis | 5.12.2023 |
-| Status | Valmis | 5.12.2023 |
+### Rakennusluvituksen rajapintakäyttö
+| Rajapinta |	Endpoint | Ryhti-kehitystiimin status	| Kumppaneiden testattavissa |Status päivitetty |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| Rakennuskohde | BuildingObject | Hyväksymistestauksessa | Maaliskuun 2024 lopussa | 29.2.2024 |
+| Rakentamislupa | BuildingPermit | Hyväksymistestauksessa	| Maaliskuun 2024 lopussa | 29.2.2024 |
+| Purkamislupa | DemolitionPermit | Hyväksymistestauksessa | Maaliskuun 2024 lopussa | 29.2.2024 |
+| Poikkeamislupa | DeviationPermit | Hyväksymistestauksessa | Maaliskuun 2024 lopussa	| 29.2.2024 |
+| Maisematyölupa | LandscapeWorkPermit | Hyväksymistestauksessa | Maaliskuun 2024 lopussa	| 29.2.2024 |
+| Pysyvät tunnukset | PermanentIdentifiers |	Valmis | Heti | 29.2.2024 |
+| Tiedostojen lataaminen | - | - | - |	29.2.2024 |
 
-### Muut kehitettävät
+### Rakennusluvituksen käyttöliittymäkäyttö
+| Rajapinta |	Ryhti-kehitystiimin status	| Kumppaneiden testattavissa | Status päivitetty |
+| ------------- | ------------- | ------------- | ------------- |
+| Karttapalvelu | Kehityksessä | Q3-Q4/2024 | 29.2.2024 |
+| Rakennustietojen muokkauskäyttöliittymä | - | -	| 29.2.2024 |
+
+### Huomioita
 Tonttijakojen ja maankäyttörajoitusten kehitystyö on kesken. Rajapintakuvaukset valmistuvat Q2/2024. 
 
-### Käyttöliittymät
 Ensimmäinen versio kaavatietojen käyttöliittymästä on valmistunut. Käyttöliittymän kehitystä jatketaan siten, että ennen kesää julkaistavassa versiossa voi lomakenäkymän kautta tuoda asiakirjoihin ja päätöksiin liittyvät tiedot, jolloin vain kaavasuunnitelma pitää olla JSON-muodossa.
