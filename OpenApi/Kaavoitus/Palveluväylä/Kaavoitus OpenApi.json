@@ -13,6 +13,11 @@
     },
     "version": "1"
   },
+  "servers": [
+    {
+      "url": "/plan"
+    }
+  ],
   "paths": {
     "/api/BindingPlotDivisionMatter/PermanentBindingPlotDivisionIdentifier": {
       "post": {
@@ -20,7 +25,7 @@
           "BindingPlotDivisionMatter"
         ],
         "summary": "Rajapinta sitovan tonttijaon pysyvän tunnuksen varaamiseen.",
-        "description": "Voit kutsua rajapintaa useita kertoja samoilla parametreilla, ja se palauttaa saman tunnisteen.",
+        "description": "Endpoint on idempotentti. Voit kutsua rajapintaa useita kertoja samoilla parametreilla, ja se palauttaa saman tunnisteen.",
         "requestBody": {
           "description": "Tiedot jotka tarvitaan pysyvän tunnuksen varaamiseen.",
           "content": {
@@ -359,7 +364,7 @@
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -444,7 +449,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -537,7 +542,7 @@
           "LocalDetailedPlanMatter"
         ],
         "summary": "Rajapinta asemakaavojen pysyvien ihmisluettavien tunnusten varaamiseen.",
-        "description": "Voit kutsua rajapintaa useita kertoja samoilla parametreilla, ja se palauttaa saman tunnisteen.",
+        "description": "Endpoint on idempotentti. Voit kutsua rajapintaa useita kertoja samoilla parametreilla, ja se palauttaa saman tunnisteen.",
         "requestBody": {
           "description": "Tiedot jotka tarvitaan pysyvän kaavatunnuksen varaamiseen.",
           "content": {
@@ -876,7 +881,7 @@
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -961,7 +966,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -1067,7 +1072,7 @@
           }
         ],
         "requestBody": {
-          "description": "Kaava-asia sisältäen ensimmäisen elinkaarivaiheen. Ensimmäinen elinkaarivaihe (planMatterPhases) on pakollinen tieto.",
+          "description": "Tallennettava kaava-asia sisältäen ensimmäisen kaava-asian vaiheen.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -1218,108 +1223,92 @@
         },
         "responses": {
           "201": {
-            "description": "Kaava-asia tallennettu, paluuarvona uri tallennettuun resurssiin.",
+            "description": "Kaava-asia tallennettu.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/octet-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -1404,7 +1393,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -1495,6 +1484,7 @@
           "LocalDetailedPlanMatter"
         ],
         "summary": "Rajapinta kaava-asian (asemakaava) päivittämiseen.",
+        "description": "Rajapinnalla voi päivittää kaava-asian tietoja. Pysyvää kaavatunnusta, hallinnollisen alueen tunnusta ja kaava-asian vaiheita ei voi päivittää tällä rajapinnalla.",
         "parameters": [
           {
             "name": "permanentPlanIdentifier",
@@ -1507,7 +1497,7 @@
           }
         ],
         "requestBody": {
-          "description": "Päivitetty kaava-asia ilman elinkaarivaiheita (planMatterPhases).",
+          "description": "Päivitetty kaava-asia ilman kaava-asian vaiheita (planMatterPhases).",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -1658,108 +1648,92 @@
         },
         "responses": {
           "200": {
-            "description": "Kaava-asia päivitetty, paluuarvona uri tallennettuun resurssiin.",
+            "description": "Kaava-asia päivitetty.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/octet-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -1844,7 +1818,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -1939,7 +1913,8 @@
         "tags": [
           "LocalDetailedPlanMatter"
         ],
-        "summary": "Rajapinta ensimmäisen kaava-asian validoimiseen ilman tallentamista.",
+        "summary": "Rajapinta kaava-asian (asemakaava) validoimiseen ilman tallentamista.",
+        "description": "Rajapinta validoi kaava-asian kokonaisuudessaan, sisältäen ensimmäisen vaiheen ja kaikki sen tiedot.",
         "parameters": [
           {
             "name": "permanentPlanIdentifier",
@@ -1952,7 +1927,7 @@
           }
         ],
         "requestBody": {
-          "description": "Kaava-asia kokonaisuudessaan, sisältäen päätökset, kaavat jne.",
+          "description": "Validoitava kaava-asia sisältäen ensimmäisen kaava-asian vaiheen.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -2103,10 +2078,92 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Kaava-asiassa ei virheitä.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -2191,7 +2248,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -2283,8 +2340,8 @@
         "tags": [
           "LocalDetailedPlanMatter"
         ],
-        "summary": "Rajapinta uuden elinkaarivaiheen lisäämiseen olemassa olevalle kaava-asialle.",
-        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi elinkaarivaihe lisätään edellisen perään.",
+        "summary": "Rajapinta uuden vaiheen lisäämiseen olemassa olevalle kaava-asialle (asemakaava).",
+        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi vaihe lisätään edellisen perään.",
         "parameters": [
           {
             "name": "permanentPlanIdentifier",
@@ -2298,7 +2355,7 @@
           {
             "name": "planMatterPhaseKey",
             "in": "path",
-            "description": "Pysyvä yksilöivä tunnus asian elinkaarivaiheelle.",
+            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
             "required": true,
             "schema": {
               "type": "string",
@@ -2307,7 +2364,7 @@
           }
         ],
         "requestBody": {
-          "description": "Lisättävä kaava-asian elinkaarivaihe kokonaisuudessaan, sisältäen päätökset, kaavat jne.",
+          "description": "Lisättävä kaava-asian vaihe kokonaisuudessaan.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -2474,108 +2531,92 @@
         },
         "responses": {
           "201": {
-            "description": "Kaava-asia tallennettu, paluuarvona uri tallennettuun resurssiin.",
+            "description": "Kaava-asian vaihe tallennettu.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/octet-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -2660,7 +2701,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -2752,8 +2793,8 @@
         "tags": [
           "LocalDetailedPlanMatter"
         ],
-        "summary": "Rajapinta uuden elinkaarivaiheen validointiin olemassa olevalle kaava-asialle.",
-        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi elinkaarivaihe lisätään edellisen perään.",
+        "summary": "Rajapinta uuden kaava-asian (asemakaava) vaiheen validoimiseen ilman tallentamista .",
+        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään.",
         "parameters": [
           {
             "name": "permanentPlanIdentifier",
@@ -2767,7 +2808,7 @@
           {
             "name": "planMatterPhaseKey",
             "in": "path",
-            "description": "Pysyvä yksilöivä tunnus asian elinkaarivaiheelle.",
+            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
             "required": true,
             "schema": {
               "type": "string",
@@ -2776,7 +2817,7 @@
           }
         ],
         "requestBody": {
-          "description": "Lisättävä kaava-asian elinkaarivaihe kokonaisuudessaan, sisältäen päätökset, kaavat jne.",
+          "description": "Validoitava kaava-asian vaihe kokonaisuudessaan.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -2943,10 +2984,92 @@
         },
         "responses": {
           "200": {
-            "description": "Ei virheitä validoinnissa"
+            "description": "Kaava-asiassa vaiheessa ei virheitä.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -3031,7 +3154,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -3463,7 +3586,7 @@
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -3548,7 +3671,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -3654,7 +3777,7 @@
           }
         ],
         "requestBody": {
-          "description": "Kaava-asia sisältäen ensimmäisen elinkaarivaiheen. Ensimmäinen elinkaarivaihe (planMatterPhases) on pakollinen tieto.",
+          "description": "Tallennettava kaava-asia sisältäen ensimmäisen kaava-asian vaiheen.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -3805,108 +3928,92 @@
         },
         "responses": {
           "201": {
-            "description": "Kaava-asia tallennettu, paluuarvona uri tallennettuun resurssiin.",
+            "description": "Kaava-asia tallennettu.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/octet-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -3991,7 +4098,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -4082,6 +4189,7 @@
           "LocalMasterPlanMatter"
         ],
         "summary": "Rajapinta kaava-asian (yleiskaava) päivittämiseen.",
+        "description": "Rajapinnalla voi päivittää kaava-asian tietoja. Pysyvää kaavatunnusta, hallinnollisen alueen tunnusta ja kaava-asian vaiheita ei voi päivittää tällä rajapinnalla.",
         "parameters": [
           {
             "name": "permanentPlanIdentifier",
@@ -4094,7 +4202,7 @@
           }
         ],
         "requestBody": {
-          "description": "Päivitetty kaava-asia ilman elinkaarivaiheita (planMatterPhases).",
+          "description": "Päivitetty kaava-asia ilman kaava-asian vaiheita (planMatterPhases).",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -4245,108 +4353,92 @@
         },
         "responses": {
           "200": {
-            "description": "Kaava-asia päivitetty, paluuarvona uri tallennettuun resurssiin.",
+            "description": "Kaava-asia päivitetty.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/octet-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -4431,7 +4523,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -4526,7 +4618,8 @@
         "tags": [
           "LocalMasterPlanMatter"
         ],
-        "summary": "Rajapinta ensimmäisen kaava-asian validoimiseen ilman tallentamista.",
+        "summary": "Rajapinta ensimmäisen kaava-asian (yleiskaava) validoimiseen ilman tallentamista.",
+        "description": "Rajapinta validoi kaava-asian kokonaisuudessaan, sisältäen ensimmäisen vaiheen ja kaikki sen tiedot.",
         "parameters": [
           {
             "name": "permanentPlanIdentifier",
@@ -4539,7 +4632,7 @@
           }
         ],
         "requestBody": {
-          "description": "Kaava-asia kokonaisuudessaan, sisältäen päätökset, kaavat jne.",
+          "description": "Validoitava kaava-asia sisältäen ensimmäisen kaava-asian vaiheen.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -4690,10 +4783,92 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Kaava-asiassa ei virheitä.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -4778,7 +4953,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -4870,8 +5045,8 @@
         "tags": [
           "LocalMasterPlanMatter"
         ],
-        "summary": "Rajapinta uuden elinkaarivaiheen lisäämiseen olemassa olevalle kaava-asian vaiheelle.",
-        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi elinkaarivaihe lisätään edellisen perään.",
+        "summary": "Rajapinta uuden vaiheen lisäämiseen olemassa olevalle kaava-asialle (yleiskaava).",
+        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi vaihe lisätään edellisen perään.",
         "parameters": [
           {
             "name": "permanentPlanIdentifier",
@@ -4885,7 +5060,7 @@
           {
             "name": "planMatterPhaseKey",
             "in": "path",
-            "description": "Pysyvä yksilöivä tunnus asian elinkaarivaiheelle.",
+            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
             "required": true,
             "schema": {
               "type": "string",
@@ -4894,7 +5069,7 @@
           }
         ],
         "requestBody": {
-          "description": "Lisättävä kaava-asian elinkaarivaihe kokonaisuudessaan, sisältäen päätökset, kaavat jne.",
+          "description": "Lisättävä kaava-asian vaihe kokonaisuudessaan.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -5061,108 +5236,92 @@
         },
         "responses": {
           "201": {
-            "description": "Kaava-asia tallennettu, paluuarvona uri tallennettuun resurssiin.",
+            "description": "Kaava-asian vaihe tallennettu.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/octet-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -5247,7 +5406,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -5339,8 +5498,8 @@
         "tags": [
           "LocalMasterPlanMatter"
         ],
-        "summary": "Rajapinta uuden elinkaarivaiheen validoimiseen ilman tallentamista.",
-        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi elinkaarivaihe lisätään edellisen perään.",
+        "summary": "Rajapinta uuden kaava-asian (yleiskaava) vaiheen validoimiseen ilman tallentamista .",
+        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään.",
         "parameters": [
           {
             "name": "permanentPlanIdentifier",
@@ -5354,7 +5513,7 @@
           {
             "name": "planMatterPhaseKey",
             "in": "path",
-            "description": "Pysyvä yksilöivä tunnus asian elinkaarivaiheelle.",
+            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
             "required": true,
             "schema": {
               "type": "string",
@@ -5363,7 +5522,7 @@
           }
         ],
         "requestBody": {
-          "description": "Lisättävä kaava-asian elinkaarivaihe kokonaisuudessaan, sisältäen päätökset, kaavat jne.",
+          "description": "Validoitava kaava-asian vaihe kokonaisuudessaan.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -5530,10 +5689,92 @@
         },
         "responses": {
           "200": {
-            "description": "Ei virheitä validoinnissa"
+            "description": "Kaava-asiassa vaiheessa ei virheitä.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -5618,7 +5859,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -6050,7 +6291,7 @@
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -6135,7 +6376,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä..",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -6241,7 +6482,7 @@
           }
         ],
         "requestBody": {
-          "description": "Kaava-asia sisältäen ensimmäisen elinkaarivaiheen. Ensimmäinen elinkaarivaihe (planMatterPhases) on pakollinen tieto.",
+          "description": "Tallennettava kaava-asia sisältäen ensimmäisen kaava-asian vaiheen.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -6392,108 +6633,92 @@
         },
         "responses": {
           "201": {
-            "description": "Kaava-asia tallennettu, paluuarvona uri tallennettuun resurssiin.",
+            "description": "Kaava-asia tallennettu.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/octet-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -6578,7 +6803,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -6669,6 +6894,7 @@
           "RegionalPlanMatter"
         ],
         "summary": "Rajapinta kaava-asian (maakuntakaava) päivittämiseen.",
+        "description": "Rajapinnalla voi päivittää kaava-asian tietoja. Pysyvää kaavatunnusta, hallinnollisen alueen tunnusta ja kaava-asian vaiheita ei voi päivittää tällä rajapinnalla.",
         "parameters": [
           {
             "name": "permanentPlanIdentifier",
@@ -6681,7 +6907,7 @@
           }
         ],
         "requestBody": {
-          "description": "Päivitetty kaava-asia ilman elinkaarivaiheita (planMatterPhases).",
+          "description": "Päivitetty kaava-asia ilman kaava-asian vaiheita (planMatterPhases).",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -6832,108 +7058,92 @@
         },
         "responses": {
           "200": {
-            "description": "Kaava-asia päivitetty, paluuarvona uri tallennettuun resurssiin.",
+            "description": "Kaava-asia päivitetty.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/octet-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -7018,7 +7228,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -7113,7 +7323,8 @@
         "tags": [
           "RegionalPlanMatter"
         ],
-        "summary": "Rajapinta ensimmäisen kaava-asian validoimiseen ilman tallentamista.",
+        "summary": "Rajapinta ensimmäisen kaava-asian (maakuntakaava) validoimiseen ilman tallentamista.",
+        "description": "Rajapinta validoi kaava-asian kokonaisuudessaan, sisältäen ensimmäisen vaiheen ja kaikki sen tiedot.",
         "parameters": [
           {
             "name": "permanentPlanIdentifier",
@@ -7126,7 +7337,7 @@
           }
         ],
         "requestBody": {
-          "description": "Kaava-asia kokonaisuudessaan, sisältäen päätökset, kaavat jne.",
+          "description": "Validoitava kaava-asia sisältäen ensimmäisen kaava-asian vaiheen.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -7277,10 +7488,92 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Kaava-asiassa ei virheitä.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -7365,7 +7658,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -7457,8 +7750,8 @@
         "tags": [
           "RegionalPlanMatter"
         ],
-        "summary": "Rajapinta uuden elinkaarivaiheen lisäämiseen olemassa olevalle kaava-asialle.",
-        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi elinkaarivaihe lisätään edellisen perään.",
+        "summary": "Rajapinta uuden vaiheen lisäämiseen olemassa olevalle kaava-asialle (maakuntakaava).",
+        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi vaihe lisätään edellisen perään.",
         "parameters": [
           {
             "name": "permanentPlanIdentifier",
@@ -7472,7 +7765,7 @@
           {
             "name": "planMatterPhaseKey",
             "in": "path",
-            "description": "Pysyvä yksilöivä tunnus asian elinkaarivaiheelle.",
+            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
             "required": true,
             "schema": {
               "type": "string",
@@ -7481,7 +7774,7 @@
           }
         ],
         "requestBody": {
-          "description": "Lisättävä kaava-asian elinkaarivaihe kokonaisuudessaan, sisältäen päätökset, kaavat jne.",
+          "description": "Lisättävä kaava-asian vaihe kokonaisuudessaan.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -7648,108 +7941,92 @@
         },
         "responses": {
           "201": {
-            "description": "Kaava-asia tallennettu, paluuarvona uri tallennettuun resurssiin.",
+            "description": "Kaava-asian vaihe tallennettu.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=minimal": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=full": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.metadata=none": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=true": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json;odata.streaming=false": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "application/octet-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uri"
+                  "$ref": "#/components/schemas/SuccessResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -7834,7 +8111,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -7926,8 +8203,8 @@
         "tags": [
           "RegionalPlanMatter"
         ],
-        "summary": "Rajapinta uuden elinkaarivaiheen validoimiseen ilman tallentamista.",
-        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi elinkaarivaihe lisätään edellisen perään.",
+        "summary": "Rajapinta uuden kaava-asian (maakuntakaava) vaiheen validoimiseen ilman tallentamista .",
+        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään.",
         "parameters": [
           {
             "name": "permanentPlanIdentifier",
@@ -7941,7 +8218,7 @@
           {
             "name": "planMatterPhaseKey",
             "in": "path",
-            "description": "Pysyvä yksilöivä tunnus asian elinkaarivaiheelle.",
+            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
             "required": true,
             "schema": {
               "type": "string",
@@ -7950,7 +8227,7 @@
           }
         ],
         "requestBody": {
-          "description": "Lisättävä kaava-asian elinkaarivaihe kokonaisuudessaan, sisältäen päätökset, kaavat jne.",
+          "description": "Validoitava kaava-asian vaihe kokonaisuudessaan.",
           "content": {
             "application/json;odata.metadata=minimal;odata.streaming=true": {
               "schema": {
@@ -8117,10 +8394,92 @@
         },
         "responses": {
           "200": {
-            "description": "Ei virheitä validoinnissa"
+            "description": "Kaava-asiassa vaiheessa ei virheitä.",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -8205,7 +8564,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -8297,11 +8656,11 @@
         "tags": [
           "Status"
         ],
-        "summary": "Get service health report",
-        "description": "Provides an indication about the health of the API",
+        "summary": "Rajapinnan toimivuuden tarkistus.",
+        "description": "Antaa tiedon rajapinnan toimivuudesta.",
         "responses": {
           "200": {
-            "description": "API is healthy or in a degraded but functional state",
+            "description": "Rajapinta toimii oletetusti.",
             "content": {
               "application/json;odata.metadata=minimal;odata.streaming=true": {
                 "schema": {
@@ -8386,7 +8745,7 @@
             }
           },
           "503": {
-            "description": "API is unhealthy"
+            "description": "Rajapinnan toiminnassa ongelmia."
           }
         }
       }
@@ -8587,12 +8946,48 @@
             "description": "Määräystä täydentävä tieto, jolla ohjataan alueidenkäyttöä ja rakentamista. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji\">http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji</a>"
           },
           "value": {
-            "allOf": [
+            "oneOf": [
               {
-                "$ref": "#/components/schemas/AttributeValue"
+                "$ref": "#/components/schemas/CodeValue"
+              },
+              {
+                "$ref": "#/components/schemas/NumericValue"
+              },
+              {
+                "$ref": "#/components/schemas/NumericRange"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveNumericValue"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveNumericRange"
+              },
+              {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
+              {
+                "$ref": "#/components/schemas/DecimalRange"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveDecimalValue"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveDecimalRange"
+              },
+              {
+                "$ref": "#/components/schemas/SpotElevation"
+              },
+              {
+                "$ref": "#/components/schemas/IdentifierValue"
+              },
+              {
+                "$ref": "#/components/schemas/LocalizedTextValue"
+              },
+              {
+                "$ref": "#/components/schemas/TextValue"
               }
             ],
-            "description": "Accepted values for Attribute Value:<br />\r\n{\"dataType\": \"code\", \"code\":string, \"codeList\":string}<br />\r\n{\"dataType\": \"numeric\", \"number\": int, \"unitOfMeasure\":string}<br />\r\n{\"dataType\": \"numericRange\", \"minimumValue\": int, \"maximumValue\": int, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"positiveNumeric\", \"number\": uint, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"positiveNumericRange\", \"minimumValue\": uint, \"maximumValue\": uint, \"unitOfMeasure\": string }<br />\r\n{\"dataType\": \"decimal\", \"number\": decimal, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"decimalRange\", \"minimumValue\": decimal, \"maximumValue\": decimal, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"positiveDecimal\", \"number\": decimal, \"unitOfMeasure\": string }<br />\r\n{\"dataType\": \"positiveDecimalRange\", \"minimumValue\": decimal, \"maximumValue\": decimal, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"SpotElevation\", \"number\":int, \"unitOfMeasure\": string, \"referencePoint\": RyhtiGeometry}<br />\r\n{\"dataType\": \"VerticalLimit\", \"minimumValue\": double, \"maximumValue\": double, \"unitOfMeasure\": string, \"referencePoint\": RyhtiGeometry}<br />\r\n{\"dataType\": \"Identifier\", \"identifier\": string, \"registerIdentifier\": string, \"registerName\": LanguageString}<br />\r\n{\"dataType\": \"LocalizedText\", \"text\": LanguageString, \"syntax\": string }<br />\r\n{\"dataType\": \"text\", \"text\": string, \"syntax\": string}<br />",
+            "description": "Arvo",
             "nullable": true
           }
         },
@@ -8723,16 +9118,13 @@
               "PositiveDecimalRange",
               "Code",
               "Identifier",
-              "SpotElevation",
-              "VerticalLimit"
+              "SpotElevation"
             ],
             "type": "string",
-            "description": "Enum defining all the supported Domain.ValueObjects.AttributeValue DataTypes.\r\nEach concrete class implementing Domain.ValueObjects.AttributeValue should have exactly one\r\nmatching value in the enum.",
-            "readOnly": true
+            "description": "Enumeraatio joka määrittää Arvo-luokkien (Domain.ValueObjects.AttributeValue) tyypin.\r\nJokaisella konkreettisella Arvo-luokan (Domain.ValueObjects.AttributeValue) toteutuksella tulee olla sitä vastaava DataType enumeraation arvo."
           }
         },
-        "additionalProperties": false,
-        "description": "Accepted values for Attribute Value:<br />\r\n{\"dataType\": \"code\", \"code\":string, \"codeList\":string}<br />\r\n{\"dataType\": \"numeric\", \"number\": int, \"unitOfMeasure\":string}<br />\r\n{\"dataType\": \"numericRange\", \"minimumValue\": int, \"maximumValue\": int, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"positiveNumeric\", \"number\": uint, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"positiveNumericRange\", \"minimumValue\": uint, \"maximumValue\": uint, \"unitOfMeasure\": string }<br />\r\n{\"dataType\": \"decimal\", \"number\": decimal, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"decimalRange\", \"minimumValue\": decimal, \"maximumValue\": decimal, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"positiveDecimal\", \"number\": decimal, \"unitOfMeasure\": string }<br />\r\n{\"dataType\": \"positiveDecimalRange\", \"minimumValue\": decimal, \"maximumValue\": decimal, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"SpotElevation\", \"number\":int, \"unitOfMeasure\": string, \"referencePoint\": RyhtiGeometry}<br />\r\n{\"dataType\": \"VerticalLimit\", \"minimumValue\": double, \"maximumValue\": double, \"unitOfMeasure\": string, \"referencePoint\": RyhtiGeometry}<br />\r\n{\"dataType\": \"Identifier\", \"identifier\": string, \"registerIdentifier\": string, \"registerName\": LanguageString}<br />\r\n{\"dataType\": \"LocalizedText\", \"text\": LanguageString, \"syntax\": string }<br />\r\n{\"dataType\": \"text\", \"text\": string, \"syntax\": string}<br />"
+        "additionalProperties": false
       },
       "CancelledGroupRelations": {
         "required": [
@@ -8756,6 +9148,56 @@
         },
         "additionalProperties": false,
         "description": "KumottavanRyhmänKohdistus"
+      },
+      "CodeValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Koodiston arvo (uri)"
+          },
+          "codeList": {
+            "type": "string",
+            "description": "Koodisto"
+          },
+          "title": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Nimi"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"code\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Koodiston arvo"
       },
       "ConstructorInfo": {
         "type": "object",
@@ -9051,6 +9493,115 @@
           }
         },
         "additionalProperties": false
+      },
+      "CustomValidationError": {
+        "type": "object",
+        "properties": {
+          "ruleId": {
+            "type": "string",
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DecimalRange": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "minimumValue": {
+            "type": "number",
+            "description": "Minimiarvo",
+            "format": "double"
+          },
+          "maximumValue": {
+            "type": "number",
+            "description": "Maksimiarvo",
+            "format": "double"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"decimalRange\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Desimaaliarvoväli"
+      },
+      "DecimalValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "number": {
+            "type": "number",
+            "description": "Desimaaliluku",
+            "format": "double"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"decimal\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Desimaaliluku"
       },
       "Descriptor": {
         "type": "object",
@@ -9455,8 +10006,271 @@
       },
       "GeoJsonGeometry": {
         "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "Point",
+              "MultiPoint",
+              "LineString",
+              "MultiLineString",
+              "Polygon",
+              "MultiPolygon"
+            ],
+            "type": "string",
+            "description": "Tuetut geometriatyypit"
+          }
+        },
         "additionalProperties": false,
-        "description": "Geometry primitives: https://en.wikipedia.org/wiki/GeoJSON\r\nDynamic GeoJson object. Here are the accepted formats:<br />\r\n{\"type\": \"point\", \"coordinates\": [src,y]}<br />\r\n{\"type\": \"lineString\", \"coordinates\": [ [src,y], [src,y] ]}<br />\r\n1 polygon: {\"type\": \"polygon\", \"coordinates\": [ [[src,y], [src,y], [src,y], [src,y]] ]} <br />\r\n1 polygon with a hole: {\"type\": \"polygon\", \"coordinates\": [ [[src,y], [src,y], [src,y], [src,y], [src,y], [src,y], [src,y], [src,y]] ]} <br />\r\n1 multipolygon: {\"type\": \"multiPolygon\", \"coordinates\": [ [[[src,y], [src,y], [src,y], [src,y]]] ]}<br />\r\n2 multipolygons: {\"type\": \"multiPolygon\", \"coordinates\": [ [[[src,y], [src,y], [src,y], [src,y]]], [[[src,y], [src,y], [src,y], [src,y]]] ]}<br />\r\n1 multipolygon and 1 multipolygon with a hole with a hole: {\"type\": \"MultiPolygon\",\"coordinates\": [[[[src,y], [src,y], [src,y], [src,y]]], [[[src,y], [src,y], [src,y], [src,y]], [[src,y], [src,y], [src,y], [src,y]]]]}"
+        "description": "GeoJson geometria (abstrakti luokka, katso toteutukset)"
+      },
+      "GeoJsonLineStringGeometry": {
+        "required": [
+          "coordinates",
+          "type"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GeoJsonGeometry"
+          }
+        ],
+        "properties": {
+          "coordinates": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "description": "Koordinaatit",
+            "example": "[ [100.0, 0.0], [101.0, 1.0] ]"
+          },
+          "type": {
+            "enum": [
+              "Point",
+              "MultiPoint",
+              "LineString",
+              "MultiLineString",
+              "Polygon",
+              "MultiPolygon"
+            ],
+            "type": "string",
+            "description": "Geometriatyyppi. Pakollinen arvo: \"lineString\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "LineString GeoJson<br />\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+      },
+      "GeoJsonMultiLineStringGeometry": {
+        "required": [
+          "coordinates",
+          "type"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GeoJsonGeometry"
+          }
+        ],
+        "properties": {
+          "coordinates": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            },
+            "description": "Koordinaatit",
+            "example": "[ [[100.0, 0.0], [101.0, 1.0]], [[101.0, 1.0], [100.0, 1.0]] ]"
+          },
+          "type": {
+            "enum": [
+              "Point",
+              "MultiPoint",
+              "LineString",
+              "MultiLineString",
+              "Polygon",
+              "MultiPolygon"
+            ],
+            "type": "string",
+            "description": "Geometriatyyppi. Pakollinen arvo: \"lineString\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "LineString GeoJson<br />\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+      },
+      "GeoJsonMultiPointGeometry": {
+        "required": [
+          "coordinates",
+          "type"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GeoJsonGeometry"
+          }
+        ],
+        "properties": {
+          "coordinates": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "description": "Koordinaatit",
+            "example": "[ [100.0, 0.0], [101.0, 1.0] ]"
+          },
+          "type": {
+            "enum": [
+              "Point",
+              "MultiPoint",
+              "LineString",
+              "MultiLineString",
+              "Polygon",
+              "MultiPolygon"
+            ],
+            "type": "string",
+            "description": "Geometriatyyppi. Pakollinen arvo: \"multiPoint\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "MultiPoint GeoJson<br />\r\nEsimerkki: { \"type\": \"multiPoint\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+      },
+      "GeoJsonMultiPolygonGeometry": {
+        "required": [
+          "coordinates",
+          "type"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GeoJsonGeometry"
+          }
+        ],
+        "properties": {
+          "coordinates": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "format": "double"
+                  }
+                }
+              }
+            },
+            "description": "Koordinaatit",
+            "example": "[ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ]"
+          },
+          "type": {
+            "enum": [
+              "Point",
+              "MultiPoint",
+              "LineString",
+              "MultiLineString",
+              "Polygon",
+              "MultiPolygon"
+            ],
+            "type": "string",
+            "description": "Geometriatyyppi. Pakollinen arvo: \"multiPolygon\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "MultiPolygon GeoJson<br />\r\nEsimerkki: { \"type\": \"multiPolygon\", \"coordinates\": [ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ] }"
+      },
+      "GeoJsonPointGeometry": {
+        "required": [
+          "coordinates",
+          "type"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GeoJsonGeometry"
+          }
+        ],
+        "properties": {
+          "coordinates": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "description": "Koordinaatit",
+            "example": "[100.0, 0.0]"
+          },
+          "type": {
+            "enum": [
+              "Point",
+              "MultiPoint",
+              "LineString",
+              "MultiLineString",
+              "Polygon",
+              "MultiPolygon"
+            ],
+            "type": "string",
+            "description": "Geometriatyyppi. Pakollinen arvo: \"point\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Point GeoJson<br />\r\nEsimerkki: { \"type\": \"point\", \"coordinates\": [100.0, 0.0] }"
+      },
+      "GeoJsonPolygonGeometry": {
+        "required": [
+          "coordinates",
+          "type"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GeoJsonGeometry"
+          }
+        ],
+        "properties": {
+          "coordinates": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            },
+            "description": "Koordinaatit",
+            "example": " [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
+          },
+          "type": {
+            "enum": [
+              "Point",
+              "MultiPoint",
+              "LineString",
+              "MultiLineString",
+              "Polygon",
+              "MultiPolygon"
+            ],
+            "type": "string",
+            "description": "Geometriatyyppi. Pakollinen arvo: \"polygon\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Polygon GeoJson<br />\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
       },
       "HealthReport": {
         "type": "object",
@@ -9533,6 +10347,56 @@
       "ICustomAttributeProvider": {
         "type": "object",
         "additionalProperties": false
+      },
+      "IdentifierValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "description": "Tunnus"
+          },
+          "registerIdentifier": {
+            "type": "string",
+            "description": "Järjestelmän tunnus"
+          },
+          "registerName": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Järjestelmän nimi"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"identifier\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Tunnus"
       },
       "IntPtr": {
         "type": "object",
@@ -9655,6 +10519,52 @@
         },
         "additionalProperties": false,
         "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
+      },
+      "LocalizedTextValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "text": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Kielistetty teksti"
+          },
+          "syntax": {
+            "type": "string",
+            "description": "Syntaksi"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"localizedText\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Lokalisoitu teksti"
       },
       "MemberInfo": {
         "type": "object",
@@ -10242,6 +11152,97 @@
         },
         "additionalProperties": false
       },
+      "NumericRange": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "minimumValue": {
+            "type": "integer",
+            "description": "Minimiarvo",
+            "format": "int32"
+          },
+          "maximumValue": {
+            "type": "integer",
+            "description": "Maksimiarvo",
+            "format": "int32"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"numericRange\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Numeerinen arvoväli"
+      },
+      "NumericValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "number": {
+            "type": "integer",
+            "description": "Numero",
+            "format": "int32"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"numeric\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Numeerinen arvo"
+      },
       "OtherPlanMaterial": {
         "required": [
           "categoryOfPublicity",
@@ -10552,22 +11553,6 @@
             "description": "Kaavaselostus",
             "nullable": true
           },
-          "planObjects": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PlanObject"
-            },
-            "description": "Kaavakohteet",
-            "nullable": true
-          },
-          "planRegulationGroups": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PlanRegulationGroup"
-            },
-            "description": "Kaavakohteen määräysryhmät",
-            "nullable": true
-          },
           "generalRegulationGroups": {
             "type": "array",
             "items": {
@@ -10581,6 +11566,7 @@
             "items": {
               "$ref": "#/components/schemas/PlanRegulationGroupRelations"
             },
+            "description": "Kaavakohteiden ja määräysryhmien relaatiot",
             "nullable": true
           },
           "periodOfValidity": {
@@ -10612,6 +11598,22 @@
               "$ref": "#/components/schemas/PartiallyCancellationPlanObjectInfo"
             },
             "description": "// Osittain kumottavat kaavakohteet",
+            "nullable": true
+          },
+          "planObjects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanObject"
+            },
+            "description": "Kaavakohteet",
+            "nullable": true
+          },
+          "planRegulationGroups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanRegulationGroup"
+            },
+            "description": "Kaavakohteen määräysryhmät",
             "nullable": true
           }
         },
@@ -11127,7 +12129,12 @@
             "description": "Hallinnollisen alueen tunnus. Kuntatunnus tai maakuntatunnus."
           },
           "digitalOrigin": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera/code/01",
+              "http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera/code/02",
+              "http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera/code/03",
+              "http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera/code/04"
+            ],
             "type": "string",
             "description": "Tieto kaavan digitaalisen muodon tuotantotavasta ja siihen liittyvästä juridisuuden asteesta. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera\">http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera</a>"
           },
@@ -11341,7 +12348,12 @@
             "description": "Hallinnollisen alueen tunnus. Kuntatunnus tai maakuntatunnus."
           },
           "digitalOrigin": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera/code/01",
+              "http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera/code/02",
+              "http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera/code/03",
+              "http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera/code/04"
+            ],
             "type": "string",
             "description": "Tieto kaavan digitaalisen muodon tuotantotavasta ja siihen liittyvästä juridisuuden asteesta. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera\">http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera</a>"
           },
@@ -11453,10 +12465,10 @@
           "verticalLimit": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/VerticalLimit"
+                "$ref": "#/components/schemas/DecimalRange"
               }
             ],
-            "description": "PystysuuntainenRajaus",
+            "description": "Desimaaliarvoväli",
             "nullable": true
           },
           "relatedPlanSourceDataKeys": {
@@ -11625,15 +12637,51 @@
         "properties": {
           "planRegulationKey": {
             "type": "string",
+            "description": "Arvo",
             "format": "uuid"
           },
           "value": {
-            "allOf": [
+            "oneOf": [
               {
-                "$ref": "#/components/schemas/AttributeValue"
+                "$ref": "#/components/schemas/CodeValue"
+              },
+              {
+                "$ref": "#/components/schemas/NumericValue"
+              },
+              {
+                "$ref": "#/components/schemas/NumericRange"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveNumericValue"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveNumericRange"
+              },
+              {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
+              {
+                "$ref": "#/components/schemas/DecimalRange"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveDecimalValue"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveDecimalRange"
+              },
+              {
+                "$ref": "#/components/schemas/SpotElevation"
+              },
+              {
+                "$ref": "#/components/schemas/IdentifierValue"
+              },
+              {
+                "$ref": "#/components/schemas/LocalizedTextValue"
+              },
+              {
+                "$ref": "#/components/schemas/TextValue"
               }
             ],
-            "description": "Accepted values for Attribute Value:<br />\r\n{\"dataType\": \"code\", \"code\":string, \"codeList\":string}<br />\r\n{\"dataType\": \"numeric\", \"number\": int, \"unitOfMeasure\":string}<br />\r\n{\"dataType\": \"numericRange\", \"minimumValue\": int, \"maximumValue\": int, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"positiveNumeric\", \"number\": uint, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"positiveNumericRange\", \"minimumValue\": uint, \"maximumValue\": uint, \"unitOfMeasure\": string }<br />\r\n{\"dataType\": \"decimal\", \"number\": decimal, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"decimalRange\", \"minimumValue\": decimal, \"maximumValue\": decimal, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"positiveDecimal\", \"number\": decimal, \"unitOfMeasure\": string }<br />\r\n{\"dataType\": \"positiveDecimalRange\", \"minimumValue\": decimal, \"maximumValue\": decimal, \"unitOfMeasure\": string}<br />\r\n{\"dataType\": \"SpotElevation\", \"number\":int, \"unitOfMeasure\": string, \"referencePoint\": RyhtiGeometry}<br />\r\n{\"dataType\": \"VerticalLimit\", \"minimumValue\": double, \"maximumValue\": double, \"unitOfMeasure\": string, \"referencePoint\": RyhtiGeometry}<br />\r\n{\"dataType\": \"Identifier\", \"identifier\": string, \"registerIdentifier\": string, \"registerName\": LanguageString}<br />\r\n{\"dataType\": \"LocalizedText\", \"text\": LanguageString, \"syntax\": string }<br />\r\n{\"dataType\": \"text\", \"text\": string, \"syntax\": string}<br />",
             "nullable": true
           },
           "lifeCycleStatus": {
@@ -11972,15 +13020,6 @@
             },
             "nullable": true
           },
-          "name": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LanguageString"
-              }
-            ],
-            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
-            "nullable": true
-          },
           "relatedDocuments": {
             "type": "array",
             "items": {
@@ -12176,6 +13215,188 @@
         },
         "additionalProperties": false,
         "description": "Lähtötietoaineisto"
+      },
+      "PositiveDecimalRange": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "minimumValue": {
+            "type": "number",
+            "description": "Minimiarvo",
+            "format": "double"
+          },
+          "maximumValue": {
+            "type": "number",
+            "description": "Maksimiarvo",
+            "format": "double"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"positiveDecimalRange\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Positiivinen desimaaliarvoväli"
+      },
+      "PositiveDecimalValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "number": {
+            "type": "number",
+            "description": "Desimaali",
+            "format": "double"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"positiveDecimal\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Positiivinen desimaali"
+      },
+      "PositiveNumericRange": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "minimumValue": {
+            "type": "integer",
+            "description": "Minimiarvo",
+            "format": "int32"
+          },
+          "maximumValue": {
+            "type": "integer",
+            "description": "Maksimiarvo",
+            "format": "int32"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"positiveNumericRange\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Positiivinen arvoväli"
+      },
+      "PositiveNumericValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "number": {
+            "type": "integer",
+            "description": "Numero",
+            "format": "int32"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"positiveNumeric\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Positiivinen numeerinen arvo"
       },
       "ProblemDetails": {
         "type": "object",
@@ -12457,18 +13678,76 @@
               "3885"
             ],
             "type": "string",
-            "description": "Gauss Krüger projection central meridian; JHS recommended SRID code; SRID name<br />\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873<br />\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874<br />\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875<br />\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876<br />\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877<br />\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878<br />\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879<br />\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880<br />\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881<br />\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882<br />\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883<br />\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884<br />\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885<br />\r\n   Transverse Mercator projection uniform grid system<br />\r\n   3067 TM35FIN<br />"
+            "description": "Gauss Krüger projektio; SRID koodi; SRID nimi<br />\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873<br />\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874<br />\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875<br />\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876<br />\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877<br />\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878<br />\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879<br />\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880<br />\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881<br />\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882<br />\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883<br />\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884<br />\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885<br />\r\n   3067 TM35FIN<br />"
           },
           "geometry": {
-            "allOf": [
+            "oneOf": [
               {
-                "$ref": "#/components/schemas/GeoJsonGeometry"
+                "$ref": "#/components/schemas/GeoJsonPointGeometry"
+              },
+              {
+                "$ref": "#/components/schemas/GeoJsonMultiPointGeometry"
+              },
+              {
+                "$ref": "#/components/schemas/GeoJsonLineStringGeometry"
+              },
+              {
+                "$ref": "#/components/schemas/GeoJsonMultiLineStringGeometry"
+              },
+              {
+                "$ref": "#/components/schemas/GeoJsonPolygonGeometry"
+              },
+              {
+                "$ref": "#/components/schemas/GeoJsonMultiPolygonGeometry"
               }
             ],
-            "description": "Geometry primitives: https://en.wikipedia.org/wiki/GeoJSON\r\nDynamic GeoJson object. Here are the accepted formats:<br />\r\n{\"type\": \"point\", \"coordinates\": [src,y]}<br />\r\n{\"type\": \"lineString\", \"coordinates\": [ [src,y], [src,y] ]}<br />\r\n1 polygon: {\"type\": \"polygon\", \"coordinates\": [ [[src,y], [src,y], [src,y], [src,y]] ]} <br />\r\n1 polygon with a hole: {\"type\": \"polygon\", \"coordinates\": [ [[src,y], [src,y], [src,y], [src,y], [src,y], [src,y], [src,y], [src,y]] ]} <br />\r\n1 multipolygon: {\"type\": \"multiPolygon\", \"coordinates\": [ [[[src,y], [src,y], [src,y], [src,y]]] ]}<br />\r\n2 multipolygons: {\"type\": \"multiPolygon\", \"coordinates\": [ [[[src,y], [src,y], [src,y], [src,y]]], [[[src,y], [src,y], [src,y], [src,y]]] ]}<br />\r\n1 multipolygon and 1 multipolygon with a hole with a hole: {\"type\": \"MultiPolygon\",\"coordinates\": [[[[src,y], [src,y], [src,y], [src,y]]], [[[src,y], [src,y], [src,y], [src,y]], [[src,y], [src,y], [src,y], [src,y]]]]}"
+            "description": "Geometria GeoJson rakenteella: https://geojson.org/"
           }
         },
         "additionalProperties": false
+      },
+      "SpotElevation": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "number": {
+            "type": "integer",
+            "description": "Arvo",
+            "format": "int32"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation"
+            ],
+            "type": "string",
+            "description": "Enumeraatio joka määrittää Arvo-luokkien (Domain.ValueObjects.AttributeValue) tyypin.\r\nJokaisella konkreettisella Arvo-luokan (Domain.ValueObjects.AttributeValue) toteutuksella tulee olla sitä vastaava DataType enumeraation arvo."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Korkeuspiste"
       },
       "Statute": {
         "required": [
@@ -12553,6 +13832,66 @@
           }
         },
         "additionalProperties": false
+      },
+      "SuccessResponse": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "uri": {
+            "type": "string"
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomValidationError"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "TextValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Teksti"
+          },
+          "syntax": {
+            "type": "string",
+            "description": "Syntaksi"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"text\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Teksti"
       },
       "TimePeriod": {
         "type": "object",
@@ -13538,30 +14877,6 @@
           }
         },
         "additionalProperties": { }
-      },
-      "VerticalLimit": {
-        "type": "object",
-        "properties": {
-          "minimumValue": {
-            "type": "number",
-            "format": "double"
-          },
-          "maximumValue": {
-            "type": "number",
-            "format": "double"
-          },
-          "unitOfMeasure": {
-            "type": "string"
-          },
-          "referencePoint": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/RyhtiGeometry"
-              }
-            ]
-          }
-        },
-        "additionalProperties": false
       }
     },
     "securitySchemes": {
