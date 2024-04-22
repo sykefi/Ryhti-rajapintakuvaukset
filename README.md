@@ -50,36 +50,36 @@ Alla olevan aikataulun avulla pystyt seuraamaan Ryhti-järjestelmän rajapintoje
 | Yleiskaava | LocalMasterPlanMatter | Tuotantoversio julkaistu	| Heti | 29.2.2024 |
 | Maakuntakaava | RegionalPlanMatter | Tuotantoversio julkaistu | Heti | 29.2.2024 |
 | Tiedostojen lataaminen | UploadedFile | Tuotantoversio julkaistu | Heti	| 29.2.2024 |
-| Tonttijako | BindingPlotDivisionMatter | Kehityksessä | Q2/2024	| 29.2.2024 |
-| Maankäyttörajoitukset | - |	Määrittelyssä	| Q3-Q4/2024 | 29.2.2024 |
+| Tonttijako | BindingPlotDivisionMatter | Kehityksessä | Kesäkuu 2024	| 22.4.2024 |
+| Maankäyttörajoitukset | - |	Määrittelyssä	| Q4/2024 | 22.4.2024 |
 | Kaavojen validointipalvelu | Ryhti Plan Public Validate API | Tuotantoversio julkaistu | Heti |	29.2.2024 |
 
 ### Alueidenkäytön käyttöliittymäkäyttö
 | Rajapinta |	Ryhti-kehitystiimin status	| Kumppaneiden testattavissa | Status päivitetty |
 | ------------- | ------------- | ------------- | ------------- |
-| Kaavojen sisääntuontikäyttöliittymä: asemakaava | Kehityksessä | Yksittäisen suunnitelmatiedoston tuominen testattavissa heti. Lomake asiakirjoihin ja päätöksiin liittyvien tietojen tuomiseen tulossa Q2/2024. | 29.2.2024 |
-| Kaavojen sisääntuontikäyttöliittymä: yleiskaava | Kehityksessä | Yksittäisen suunnitelmatiedoston tuominen testattavissa heti. Lomake asiakirjoihin ja päätöksiin liittyvien tietojen tuomiseen tulossa Q2/2024.	| 29.2.2024 |
-| Kaavojen sisääntuontikäyttöliittymä: maakuntakaava | Kehityksessä | Yksittäisen suunnitelmatiedoston tuominen testattavissa heti. Lomake asiakirjoihin ja päätöksiin liittyvien tietojen tuomiseen tulossa Q2/2024. | 29.2.2024 |
+| Kaavojen sisääntuontikäyttöliittymä: asemakaava | Kehityksessä | Yksittäisen suunnitelmatiedoston tuominen testattavissa heti. Lomake asiakirjoihin ja päätöksiin liittyvien tietojen tuomiseen tulossa kesäkuussa 2024. | 22.4.2024 |
+| Kaavojen sisääntuontikäyttöliittymä: yleiskaava | Kehityksessä | Yksittäisen suunnitelmatiedoston tuominen testattavissa heti. Lomake asiakirjoihin ja päätöksiin liittyvien tietojen tuomiseen tulossa kesäkuussa 2024.	| 22.4.2024 |
+| Kaavojen sisääntuontikäyttöliittymä: maakuntakaava | Kehityksessä | Yksittäisen suunnitelmatiedoston tuominen testattavissa heti. Lomake asiakirjoihin ja päätöksiin liittyvien tietojen tuomiseen tulossa kesäkuussa 2024. | 22.4.2024 |
 | Tiedostojen lataaminen | Tuotannossa | Heti	| 29.2.2024 |
-| Karttapalvelu | Kehityksessä | Q3-Q4/2024 | 29.2.2024 |
+| Karttapalvelu | Kehityksessä | Q3-Q4/2024 | 22.4.2024 |
 | Kaavojen validointipalvelu | Tuotannossa |	Heti	| 29.2.2024 |
 
 ### Rakennusluvituksen rajapintakäyttö
 | Rajapinta |	Endpoint | Ryhti-kehitystiimin status	| Kumppaneiden testattavissa |Status päivitetty |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Rakennuskohde | BuildingObject | Hyväksymistestauksessa | Maaliskuun 2024 lopussa | 29.2.2024 |
-| Rakentamislupa | BuildingPermit | Hyväksymistestauksessa	| Maaliskuun 2024 lopussa | 29.2.2024 |
-| Purkamislupa | DemolitionPermit | Hyväksymistestauksessa | Maaliskuun 2024 lopussa | 29.2.2024 |
-| Poikkeamislupa | DeviationPermit | Hyväksymistestauksessa | Maaliskuun 2024 lopussa	| 29.2.2024 |
-| Maisematyölupa | LandscapeWorkPermit | Hyväksymistestauksessa | Maaliskuun 2024 lopussa	| 29.2.2024 |
+| Rakennuskohde | BuildingObject | Hyväksymistestattu | Heti | 22.4.2024 |
+| Rakentamislupa | BuildingPermit | Hyväksymistestattu	| Heti | 22.4.2024 |
+| Purkamislupa | DemolitionPermit | Hyväksymistestattu | Heti | 22.4.2024 |
+| Poikkeamislupa | DeviationPermit | Hyväksymistestattu | Heti	| 22.4.2024 |
+| Maisematyölupa | LandscapeWorkPermit | Hyväksymistestattu | Heti	| 22.4.2024 |
 | Pysyvät tunnukset | PermanentIdentifiers |	Valmis | Heti | 29.2.2024 |
 | Tiedostojen lataaminen | - | - | - |	29.2.2024 |
 
 ### Rakennusluvituksen käyttöliittymäkäyttö
 | Rajapinta |	Ryhti-kehitystiimin status	| Kumppaneiden testattavissa | Status päivitetty |
 | ------------- | ------------- | ------------- | ------------- |
-| Karttapalvelu | Kehityksessä | Q3-Q4/2024 | 29.2.2024 |
-| Rakennustietojen muokkauskäyttöliittymä | - | -	| 29.2.2024 |
+| Karttapalvelu | Kehityksessä | Q3-Q4/2024 | 22.4.2024 |
+| Rakennustietojen muokkauskäyttöliittymä | Ei toteuteta vuonna 2024 | -	| 22.4.2024 |
 
 ### Huomioita
 Tonttijakojen ja maankäyttörajoitusten kehitystyö on kesken. Rajapintakuvaukset valmistuvat Q2/2024. 
