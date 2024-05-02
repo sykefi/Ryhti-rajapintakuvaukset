@@ -19,6 +19,87 @@
     }
   ],
   "paths": {
+    "/api/Authenticate": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Hae OAuth2 -token käyttäen client credentials tunnusta ja salaisuutta.",
+        "description": "ClientId välitetään querysting parametrina ja clientSecrect http bodyssä. <b>X-Token-Expires-In</b> http headerissa palautuu tokenin voimassaoloaika sekunneissa.",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "query",
+            "description": "OAuth clientId.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "OAuth clientSecret välitetään http bodyssä heittomerkkien sisällä. Esim. ```\"minunsalaisuus\"```",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OAuth token, joka pitää välittää Authorization headerissä muissa api-kutsuissa.\r\n            ```X-Token-Expires-In``` http header kertoo sekunneissa tokeninen voimassaoloajan.\r\n            Muita api-rajapintoja kutsuttaessa lisää kutsuun Authorization header seuraavasti: ```Authorization: Bearer [token]```",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/BuildingObject/Validate": {
       "post": {
         "tags": [
@@ -3482,8 +3563,8 @@
       "BuildingObjectOwner": {
         "required": [
           "buildingObjectOwnerKey",
-          "ownerOperator",
-          "updateProhibition"
+          "differentOwner",
+          "ownerOperator"
         ],
         "type": "object",
         "properties": {
@@ -3501,17 +3582,18 @@
             ],
             "description": ""
           },
-          "updateProhibition": {
+          "differentOwner": {
             "type": "boolean",
             "description": ""
           },
-          "updateProhibitionReason": {
+          "tenureStatus": {
             "allOf": [
               {
                 "$ref": "#/components/schemas/LanguageString"
               }
             ],
-            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
           },
           "ownerContactOperator": {
             "allOf": [
@@ -4114,14 +4196,17 @@
             "items": {
               "$ref": "#/components/schemas/VentilationMethod"
             },
+            "description": "",
             "nullable": true
           },
           "sewerageMethodType": {
             "type": "string",
+            "description": "Jätevesien käsittelyn laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/jatevesienkasittely\">http://uri.suomi.fi/codelist/rytj/jatevesienkasittely</a>",
             "nullable": true
           },
           "householdWaterType": {
             "type": "string",
+            "description": "Talousveden laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/talousvesi\">http://uri.suomi.fi/codelist/rytj/talousvesi</a>",
             "nullable": true
           },
           "networkConnection": {
@@ -4129,10 +4214,12 @@
             "items": {
               "$ref": "#/components/schemas/NetworkConnection"
             },
+            "description": "",
             "nullable": true
           },
           "stormWaterTreatmentType": {
             "type": "string",
+            "description": "Huleveden käsittelyn laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/hulevedenkasittely\">http://uri.suomi.fi/codelist/rytj/hulevedenkasittely</a>",
             "nullable": true
           }
         },
@@ -4510,7 +4597,6 @@
           "constructionActionKey",
           "constructionActionType",
           "descriptionOfAction",
-          "dvvPermitIdentifier",
           "renovation",
           "statusOfConstructionAction"
         ],
@@ -4695,9 +4781,9 @@
             "nullable": true
           },
           "dvvPermitIdentifier": {
-            "minLength": 1,
             "pattern": "^[0-9]{8}[-][0-9]{11}$",
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "expiryDate": {
             "type": "string",
@@ -8245,10 +8331,6 @@
             "format": "double"
           },
           "basementArea": {
-            "maximum": 10000000,
-            "exclusiveMaximum": true,
-            "minimum": 0,
-            "exclusiveMinimum": true,
             "type": "integer",
             "format": "int32",
             "nullable": true
