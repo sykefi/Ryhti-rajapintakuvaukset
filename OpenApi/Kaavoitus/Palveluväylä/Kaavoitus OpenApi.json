@@ -19,6 +19,87 @@
     }
   ],
   "paths": {
+    "/api/Authenticate": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Hae OAuth2 -token käyttäen client credentials tunnusta ja salaisuutta.",
+        "description": "ClientId välitetään querysting parametrina ja clientSecrect http bodyssä. <b>X-Token-Expires-In</b> http headerissa palautuu tokenin voimassaoloaika sekunneissa.",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "query",
+            "description": "OAuth clientId.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "OAuth clientSecret välitetään http bodyssä heittomerkkien sisällä. Esim. ```\"minunsalaisuus\"```",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OAuth token, joka pitää välittää Authorization headerissä muissa api-kutsuissa.\r\n            ```X-Token-Expires-In``` http header kertoo sekunneissa tokeninen voimassaoloajan.\r\n            Muita api-rajapintoja kutsuttaessa lisää kutsuun Authorization header seuraavasti: ```Authorization: Bearer [token]```",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/BindingPlotDivisionMatter/PermanentBindingPlotDivisionIdentifier": {
       "post": {
         "tags": [
@@ -164,7 +245,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterResponse"
+                }
+              }
+            }
           },
           "400": {
             "description": "Kutsun rakenne ei ole scheman mukainen.",
@@ -438,6 +536,221 @@
         }
       }
     },
+    "/api/LocalDetailedPlanMatter/{permanentPlanIdentifier}/phase/{planMatterPhaseKey}": {
+      "get": {
+        "tags": [
+          "LocalDetailedPlanMatter"
+        ],
+        "summary": "Kaava-asian vaiheen (asemakaava) hakeminen vaiheen avaimella.",
+        "parameters": [
+          {
+            "name": "permanentPlanIdentifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "planMatterPhaseKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterPhaseResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterPhaseResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterPhaseResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "LocalDetailedPlanMatter"
+        ],
+        "summary": "Rajapinta uuden vaiheen lisäämiseen olemassa olevalle kaava-asialle (asemakaava).",
+        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi vaihe lisätään edellisen perään.",
+        "parameters": [
+          {
+            "name": "permanentPlanIdentifier",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus kaava-asialle.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "planMatterPhaseKey",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Lisättävä kaava-asian vaihe kokonaisuudessaan.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PlanMatterPhase"
+                  }
+                ],
+                "description": "Kaava-asian vaihe"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PlanMatterPhase"
+                  }
+                ],
+                "description": "Kaava-asian vaihe"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PlanMatterPhase"
+                  }
+                ],
+                "description": "Kaava-asian vaihe"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Kaava-asian vaihe tallennettu.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/LocalDetailedPlanMatter/PermanentPlanIdentifier": {
       "post": {
         "tags": [
@@ -680,134 +993,6 @@
         }
       }
     },
-    "/api/LocalDetailedPlanMatter/{permanentPlanIdentifier}/phase/{planMatterPhaseKey}": {
-      "post": {
-        "tags": [
-          "LocalDetailedPlanMatter"
-        ],
-        "summary": "Rajapinta uuden vaiheen lisäämiseen olemassa olevalle kaava-asialle (asemakaava).",
-        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi vaihe lisätään edellisen perään.",
-        "parameters": [
-          {
-            "name": "permanentPlanIdentifier",
-            "in": "path",
-            "description": "Pysyvä yksilöivä tunnus kaava-asialle.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "planMatterPhaseKey",
-            "in": "path",
-            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Lisättävä kaava-asian vaihe kokonaisuudessaan.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PlanMatterPhase"
-                  }
-                ],
-                "description": "Kaava-asian vaihe"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PlanMatterPhase"
-                  }
-                ],
-                "description": "Kaava-asian vaihe"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PlanMatterPhase"
-                  }
-                ],
-                "description": "Kaava-asian vaihe"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "Kaava-asian vaihe tallennettu.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Kutsun rakenne ei ole scheman mukainen.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Kutsun tietosisällössä virheitä.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/LocalDetailedPlanMatter/{permanentPlanIdentifier}/phase/{planMatterPhaseKey}/validate": {
       "post": {
         "tags": [
@@ -954,7 +1139,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterResponse"
+                }
+              }
+            }
           },
           "400": {
             "description": "Kutsun rakenne ei ole scheman mukainen.",
@@ -1228,6 +1430,221 @@
         }
       }
     },
+    "/api/LocalMasterPlanMatter/{permanentPlanIdentifier}/phase/{planMatterPhaseKey}": {
+      "get": {
+        "tags": [
+          "LocalMasterPlanMatter"
+        ],
+        "summary": "Kaava-asian vaiheen (yleiskaava) hakeminen vaiheen avaimella.",
+        "parameters": [
+          {
+            "name": "permanentPlanIdentifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "planMatterPhaseKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterPhaseResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterPhaseResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterPhaseResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "LocalMasterPlanMatter"
+        ],
+        "summary": "Rajapinta uuden vaiheen lisäämiseen olemassa olevalle kaava-asialle (yleiskaava).",
+        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi vaihe lisätään edellisen perään.",
+        "parameters": [
+          {
+            "name": "permanentPlanIdentifier",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus kaava-asialle.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "planMatterPhaseKey",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Lisättävä kaava-asian vaihe kokonaisuudessaan.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PlanMatterPhase"
+                  }
+                ],
+                "description": "Kaava-asian vaihe"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PlanMatterPhase"
+                  }
+                ],
+                "description": "Kaava-asian vaihe"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PlanMatterPhase"
+                  }
+                ],
+                "description": "Kaava-asian vaihe"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Kaava-asian vaihe tallennettu.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/LocalMasterPlanMatter/PermanentPlanIdentifier": {
       "post": {
         "tags": [
@@ -1470,134 +1887,6 @@
         }
       }
     },
-    "/api/LocalMasterPlanMatter/{permanentPlanIdentifier}/phase/{planMatterPhaseKey}": {
-      "post": {
-        "tags": [
-          "LocalMasterPlanMatter"
-        ],
-        "summary": "Rajapinta uuden vaiheen lisäämiseen olemassa olevalle kaava-asialle (yleiskaava).",
-        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi vaihe lisätään edellisen perään.",
-        "parameters": [
-          {
-            "name": "permanentPlanIdentifier",
-            "in": "path",
-            "description": "Pysyvä yksilöivä tunnus kaava-asialle.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "planMatterPhaseKey",
-            "in": "path",
-            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Lisättävä kaava-asian vaihe kokonaisuudessaan.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PlanMatterPhase"
-                  }
-                ],
-                "description": "Kaava-asian vaihe"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PlanMatterPhase"
-                  }
-                ],
-                "description": "Kaava-asian vaihe"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PlanMatterPhase"
-                  }
-                ],
-                "description": "Kaava-asian vaihe"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "Kaava-asian vaihe tallennettu.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Kutsun rakenne ei ole scheman mukainen.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Kutsun tietosisällössä virheitä.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/LocalMasterPlanMatter/{permanentPlanIdentifier}/phase/{planMatterPhaseKey}/validate": {
       "post": {
         "tags": [
@@ -1744,7 +2033,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterResponse"
+                }
+              }
+            }
           },
           "400": {
             "description": "Kutsun rakenne ei ole scheman mukainen.",
@@ -2018,6 +2324,221 @@
         }
       }
     },
+    "/api/RegionalPlanMatter/{permanentPlanIdentifier}/phase/{planMatterPhaseKey}": {
+      "get": {
+        "tags": [
+          "RegionalPlanMatter"
+        ],
+        "summary": "Kaava-asian vaiheen (maakuntakaava) hakeminen vaiheen avaimella.",
+        "parameters": [
+          {
+            "name": "permanentPlanIdentifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "planMatterPhaseKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterPhaseResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterPhaseResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanMatterPhaseResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "RegionalPlanMatter"
+        ],
+        "summary": "Rajapinta uuden vaiheen lisäämiseen olemassa olevalle kaava-asialle (maakuntakaava).",
+        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi vaihe lisätään edellisen perään.",
+        "parameters": [
+          {
+            "name": "permanentPlanIdentifier",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus kaava-asialle.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "planMatterPhaseKey",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Lisättävä kaava-asian vaihe kokonaisuudessaan.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PlanMatterPhase"
+                  }
+                ],
+                "description": "Kaava-asian vaihe"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PlanMatterPhase"
+                  }
+                ],
+                "description": "Kaava-asian vaihe"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PlanMatterPhase"
+                  }
+                ],
+                "description": "Kaava-asian vaihe"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Kaava-asian vaihe tallennettu.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/RegionalPlanMatter/PermanentPlanIdentifier": {
       "post": {
         "tags": [
@@ -2199,134 +2720,6 @@
         "responses": {
           "200": {
             "description": "Kaava-asiassa ei virheitä.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuccessResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Kutsun rakenne ei ole scheman mukainen.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Kutsun tietosisällössä virheitä.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/RegionalPlanMatter/{permanentPlanIdentifier}/phase/{planMatterPhaseKey}": {
-      "post": {
-        "tags": [
-          "RegionalPlanMatter"
-        ],
-        "summary": "Rajapinta uuden vaiheen lisäämiseen olemassa olevalle kaava-asialle (maakuntakaava).",
-        "description": "Kaava-asia täytyy olla jo lisättynä järjestelmään. Uusi vaihe lisätään edellisen perään.",
-        "parameters": [
-          {
-            "name": "permanentPlanIdentifier",
-            "in": "path",
-            "description": "Pysyvä yksilöivä tunnus kaava-asialle.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "planMatterPhaseKey",
-            "in": "path",
-            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Lisättävä kaava-asian vaihe kokonaisuudessaan.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PlanMatterPhase"
-                  }
-                ],
-                "description": "Kaava-asian vaihe"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PlanMatterPhase"
-                  }
-                ],
-                "description": "Kaava-asian vaihe"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PlanMatterPhase"
-                  }
-                ],
-                "description": "Kaava-asian vaihe"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "Kaava-asian vaihe tallennettu.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -5268,14 +5661,6 @@
             "description": "Kaavamääräysryhmät",
             "nullable": true
           },
-          "planRegulationGroupRelations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PlanRegulationGroupRelations"
-            },
-            "description": "Kaavakohteiden ja määräysryhmien relaatiot",
-            "nullable": true
-          },
           "periodOfValidity": {
             "allOf": [
               {
@@ -5321,6 +5706,14 @@
               "$ref": "#/components/schemas/PlanRegulationGroup"
             },
             "description": "Kaavakohteen määräysryhmät",
+            "nullable": true
+          },
+          "planRegulationGroupRelations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanRegulationGroupRelations"
+            },
+            "description": "Kaavakohteen ja määräysryhmän väliset suhteet",
             "nullable": true
           }
         },
@@ -5969,6 +6362,258 @@
         },
         "additionalProperties": false,
         "description": "Kaava-asian vaihe"
+      },
+      "PlanMatterPhaseResponse": {
+        "type": "object",
+        "properties": {
+          "planMatterPhaseKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "lifeCycleStatus": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/02",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/03",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/04",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/05",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/06",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/07",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/08",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/09",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/10",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/11",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/12",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/13",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/14",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/15",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/16",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/17"
+            ],
+            "type": "string"
+          },
+          "geographicalArea": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RyhtiGeometry"
+              }
+            ]
+          },
+          "planHandlingEvent": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlanHandlingEvent"
+              }
+            ],
+            "description": "Käsittelytapahtuma",
+            "nullable": true
+          },
+          "interactionEvents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InteractionEvent"
+            },
+            "nullable": true
+          },
+          "planDecision": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlanDecision"
+              }
+            ],
+            "description": "Kaavapäätös",
+            "nullable": true
+          },
+          "previousPhaseKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "nextPhaseKey": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlanMatterPhaseUriResponse": {
+        "type": "object",
+        "properties": {
+          "planMatterPhaseKey": {
+            "type": "string"
+          },
+          "planMatterPhaseUri": {
+            "type": "string"
+          },
+          "lifeCycleStatus": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/02",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/03",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/04",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/05",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/06",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/07",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/08",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/09",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/10",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/11",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/12",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/13",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/14",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/15",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/16",
+              "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/17"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlanMatterResponse": {
+        "required": [
+          "administrativeAreaIdentifiers",
+          "digitalOrigin",
+          "name",
+          "permanentPlanIdentifier",
+          "planType",
+          "timeOfInitiation"
+        ],
+        "type": "object",
+        "properties": {
+          "permanentPlanIdentifier": {
+            "minLength": 1,
+            "type": "string",
+            "description": "pysyväKaavaTunnus Esim AK-00001"
+          },
+          "planType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/1",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/11",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/12",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/2",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/21",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/22",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/23",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/24",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/25",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/3",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/31",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/32",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/33",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/34",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/35",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/39"
+            ],
+            "type": "string",
+            "description": "Kaavan tyyppi. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji\">http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji</a>"
+          },
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
+          },
+          "timeOfInitiation": {
+            "type": "string",
+            "description": "vireilletulopäivämäärä",
+            "format": "date"
+          },
+          "description": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "producerPlanIdentifier": {
+            "type": "string",
+            "description": "kunnan tai maakunnan tuottajakohtainen kaavatunnus",
+            "nullable": true
+          },
+          "caseIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "asianhallintatunnukset",
+            "nullable": true
+          },
+          "permanentBindingPlotDivisionIdentifier": {
+            "type": "string",
+            "description": "pysyväSitovaTonttijaonTunnus",
+            "nullable": true
+          },
+          "recordNumbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "diaarinumerot",
+            "nullable": true
+          },
+          "administrativeAreaIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Hallinnollisen alueen tunnus. Kuntatunnus tai maakuntatunnus."
+          },
+          "digitalOrigin": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera/code/01",
+              "http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera/code/02",
+              "http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera/code/03",
+              "http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera/code/04"
+            ],
+            "type": "string",
+            "description": "Tieto kaavan digitaalisen muodon tuotantotavasta ja siihen liittyvästä juridisuuden asteesta. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera\">http://uri.suomi.fi/codelist/rytj/RY_DigitaalinenAlkupera</a>"
+          },
+          "matterAnnexes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanAttachmentDocument"
+            },
+            "description": "Asian kuvaamiseen tai käsittelyyn olennaisesti kuuluva liitetty asiakirja.",
+            "nullable": true
+          },
+          "responsibleParty": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlanOperator"
+              }
+            ],
+            "description": "Vastuutaho",
+            "nullable": true
+          },
+          "participationAndAssessmentScheme": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ParticipationAndAssessmentScheme"
+              }
+            ],
+            "description": "Osallistumis- ja arviointisuunnitelma",
+            "nullable": true
+          },
+          "sourceDatas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanSourceData"
+            },
+            "description": "Lähtötietoaineisto",
+            "nullable": true
+          },
+          "planMatterPhases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanMatterPhaseUriResponse"
+            }
+          }
+        },
+        "additionalProperties": false
       },
       "PlanMatterUpdate": {
         "required": [
