@@ -2568,12 +2568,8 @@
                         "description": "Keittiötyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/Keittiotyyppi\">http://uri.suomi.fi/codelist/rytj/Keittiotyyppi</a>",
                         "nullable": true
                     },
-                    "toiletType": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "Käymälätyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/kaymalatyyppi\">http://uri.suomi.fi/codelist/rytj/kaymalatyyppi</a>",
+                    "isWaterCloset": {
+                        "type": "boolean",
                         "nullable": true
                     },
                     "apartmentChangeType": {
@@ -6858,6 +6854,15 @@
                         "type": "string",
                         "format": "uuid",
                         "nullable": true
+                    },
+                    "isWaterCloset": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "apartmentStorey": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false
@@ -7998,17 +8003,10 @@
             },
             "Operator": {
                 "required": [
-                    "isPerson",
-                    "operatorKey"
+                    "isPerson"
                 ],
                 "type": "object",
                 "properties": {
-                    "operatorKey": {
-                        "minLength": 1,
-                        "type": "string",
-                        "description": "",
-                        "format": "uuid"
-                    },
                     "personalIdentityCode": {
                         "type": "string",
                         "description": "",

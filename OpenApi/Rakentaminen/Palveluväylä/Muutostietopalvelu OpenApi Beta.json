@@ -3259,12 +3259,8 @@
                         "description": "Keittiötyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/Keittiotyyppi\">http://uri.suomi.fi/codelist/rytj/Keittiotyyppi</a>",
                         "nullable": true
                     },
-                    "toiletType": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "Käymälätyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/kaymalatyyppi\">http://uri.suomi.fi/codelist/rytj/kaymalatyyppi</a>",
+                    "isWaterCloset": {
+                        "type": "boolean",
                         "nullable": true
                     },
                     "apartmentChangeType": {
@@ -6240,11 +6236,6 @@
             "Operator": {
                 "type": "object",
                 "properties": {
-                    "operatorKey": {
-                        "type": "string",
-                        "description": "",
-                        "format": "uuid"
-                    },
                     "personalIdentityCode": {
                         "type": "string",
                         "description": "",
