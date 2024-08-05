@@ -95,6 +95,133 @@
                 }
             }
         },
+        "/api/BindingPlotDivisionMatter/PermanentBindingPlotDivisionIdentifier": {
+            "post": {
+                "tags": [
+                    "BindingPlotDivisionMatter"
+                ],
+                "summary": "Rajapinta sitovan tonttijaon pysyvän tunnuksen varaamiseen.",
+                "description": "Endpoint on idempotentti. Voit kutsua rajapintaa useita kertoja samoilla parametreilla, ja se palauttaa saman tunnisteen.",
+                "requestBody": {
+                    "description": "Tiedot jotka tarvitaan pysyvän tunnuksen varaamiseen.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/ReservePermanentBindingPlotDivisionIdentifierCommand"
+                                    }
+                                ],
+                                "description": "Sanoma tonttijaon pysyvien tunnisteiden varaamiseen."
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/ReservePermanentBindingPlotDivisionIdentifierCommand"
+                                    }
+                                ],
+                                "description": "Sanoma tonttijaon pysyvien tunnisteiden varaamiseen."
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/ReservePermanentBindingPlotDivisionIdentifierCommand"
+                                    }
+                                ],
+                                "description": "Sanoma tonttijaon pysyvien tunnisteiden varaamiseen."
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Pysyvä sitovan tonttijaon tunnus oli jo olemassa.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Pysyvä sitovan tonttijaon tunnus luotiin.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Kutsun rakenne ei ole scheman mukainen.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Kutsun tietosisällössä virheitä.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/LocalDetailedPlanMatter/{permanentPlanIdentifier}": {
             "get": {
                 "tags": [
@@ -6829,6 +6956,21 @@
                 },
                 "additionalProperties": false,
                 "description": "Sanoma yleiskaavojen pysyvien tunnisteiden varaamiseen."
+            },
+            "ReservePermanentBindingPlotDivisionIdentifierCommand": {
+                "type": "object",
+                "properties": {
+                    "administrativeAreaIdentifier": {
+                        "type": "string",
+                        "description": "Hallinnollisen alueen tunnus (esim. kunta tai maakunta)"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "Kaavahankkeen pysyvä nimi. Nimi on uniikki eikä sitä voi vaihtaa."
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Sanoma tonttijaon pysyvien tunnisteiden varaamiseen."
             },
             "ReserveRegionalPlanMatterPermanentIdentifierCommand": {
                 "type": "object",
