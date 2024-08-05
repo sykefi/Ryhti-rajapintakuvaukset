@@ -95,133 +95,6 @@
                 }
             }
         },
-        "/api/BindingPlotDivisionMatter/PermanentBindingPlotDivisionIdentifier": {
-            "post": {
-                "tags": [
-                    "BindingPlotDivisionMatter"
-                ],
-                "summary": "Rajapinta sitovan tonttijaon pysyvän tunnuksen varaamiseen.",
-                "description": "Endpoint on idempotentti. Voit kutsua rajapintaa useita kertoja samoilla parametreilla, ja se palauttaa saman tunnisteen.",
-                "requestBody": {
-                    "description": "Tiedot jotka tarvitaan pysyvän tunnuksen varaamiseen.",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/ReservePermanentBindingPlotDivisionIdentifierCommand"
-                                    }
-                                ],
-                                "description": "Sanoma tonttijaon pysyvien tunnisteiden varaamiseen."
-                            }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/ReservePermanentBindingPlotDivisionIdentifierCommand"
-                                    }
-                                ],
-                                "description": "Sanoma tonttijaon pysyvien tunnisteiden varaamiseen."
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/ReservePermanentBindingPlotDivisionIdentifierCommand"
-                                    }
-                                ],
-                                "description": "Sanoma tonttijaon pysyvien tunnisteiden varaamiseen."
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "responses": {
-                    "200": {
-                        "description": "Pysyvä sitovan tonttijaon tunnus oli jo olemassa.",
-                        "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "text/json": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    "201": {
-                        "description": "Pysyvä sitovan tonttijaon tunnus luotiin.",
-                        "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "text/json": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Kutsun rakenne ei ole scheman mukainen.",
-                        "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "text/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Kutsun tietosisällössä virheitä.",
-                        "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "text/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/api/LocalDetailedPlanMatter/{permanentPlanIdentifier}": {
             "get": {
                 "tags": [
@@ -3668,7 +3541,10 @@
             },
             "CodeValue": {
                 "required": [
-                    "dataType"
+                    "code",
+                    "codeList",
+                    "dataType",
+                    "title"
                 ],
                 "type": "object",
                 "allOf": [
@@ -3678,10 +3554,12 @@
                 ],
                 "properties": {
                     "code": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Koodiston arvo (uri)"
                     },
                     "codeList": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Koodisto"
                     },
@@ -3741,7 +3619,10 @@
             },
             "DecimalRange": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "maximumValue",
+                    "minimumValue",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -3761,6 +3642,7 @@
                         "format": "double"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -3789,7 +3671,9 @@
             },
             "DecimalValue": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "number",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -3804,6 +3688,7 @@
                         "format": "double"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -4221,7 +4106,10 @@
             },
             "IdentifierValue": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "identifier",
+                    "registerIdentifier",
+                    "registerName"
                 ],
                 "type": "object",
                 "allOf": [
@@ -4231,10 +4119,12 @@
                 ],
                 "properties": {
                     "identifier": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Tunnus"
                     },
                     "registerIdentifier": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Järjestelmän tunnus"
                     },
@@ -4384,7 +4274,9 @@
             },
             "LocalizedTextValue": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "syntax",
+                    "text"
                 ],
                 "type": "object",
                 "allOf": [
@@ -4402,6 +4294,7 @@
                         "description": "Kielistetty teksti"
                     },
                     "syntax": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Syntaksi"
                     },
@@ -4430,7 +4323,10 @@
             },
             "NumericRange": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "maximumValue",
+                    "minimumValue",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -4450,6 +4346,7 @@
                         "format": "int32"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -4478,7 +4375,9 @@
             },
             "NumericValue": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "number",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -4493,6 +4392,7 @@
                         "format": "int32"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -6679,7 +6579,10 @@
             },
             "PositiveDecimalRange": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "maximumValue",
+                    "minimumValue",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -6699,6 +6602,7 @@
                         "format": "double"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -6727,7 +6631,9 @@
             },
             "PositiveDecimalValue": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "number",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -6742,6 +6648,7 @@
                         "format": "double"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -6770,7 +6677,10 @@
             },
             "PositiveNumericRange": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "maximumValue",
+                    "minimumValue",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -6790,6 +6700,7 @@
                         "format": "int32"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -6818,7 +6729,9 @@
             },
             "PositiveNumericValue": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "number",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -6833,6 +6746,7 @@
                         "format": "int32"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -6916,21 +6830,6 @@
                 "additionalProperties": false,
                 "description": "Sanoma yleiskaavojen pysyvien tunnisteiden varaamiseen."
             },
-            "ReservePermanentBindingPlotDivisionIdentifierCommand": {
-                "type": "object",
-                "properties": {
-                    "administrativeAreaIdentifier": {
-                        "type": "string",
-                        "description": "Hallinnollisen alueen tunnus (esim. kunta tai maakunta)"
-                    },
-                    "projectName": {
-                        "type": "string",
-                        "description": "Kaavahankkeen pysyvä nimi. Nimi on uniikki eikä sitä voi vaihtaa."
-                    }
-                },
-                "additionalProperties": false,
-                "description": "Sanoma tonttijaon pysyvien tunnisteiden varaamiseen."
-            },
             "ReserveRegionalPlanMatterPermanentIdentifierCommand": {
                 "type": "object",
                 "properties": {
@@ -7001,7 +6900,9 @@
             },
             "SpotElevation": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "number",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -7016,6 +6917,7 @@
                         "format": "int32"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -7036,7 +6938,7 @@
                             "SpotElevation"
                         ],
                         "type": "string",
-                        "description": "Enumeraatio joka määrittää Arvo-luokkien (Domain.ValueObjects.AttributeValue) tyypin.\r\nJokaisella konkreettisella Arvo-luokan (Domain.ValueObjects.AttributeValue) toteutuksella tulee olla sitä vastaava DataType enumeraation arvo."
+                        "description": "Pakollinen arvo: \"spotElevation\""
                     }
                 },
                 "additionalProperties": false,
@@ -7128,7 +7030,9 @@
             },
             "TextValue": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "syntax",
+                    "text"
                 ],
                 "type": "object",
                 "allOf": [
@@ -7138,10 +7042,12 @@
                 ],
                 "properties": {
                     "text": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Teksti"
                     },
                     "syntax": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Syntaksi"
                     },
@@ -7332,7 +7238,9 @@
                             "ryhti.plan.write": "Kaavatietojen kirjoitusoikeus",
                             "ryhti.building.write": "Rakennustietojen kirjoitusoikeus",
                             "ryhti.planui.write": "Käyttöliittymä apin käyttöoikeus",
-                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus"
+                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus",
+                            "ryhti.changeinformation.building.all": "Kaikkien muutostietojen lukuoikeus",
+                            "ryhti.changeinformation.building.generalized": "Karkeutettujen muutostietojen lukuoikeus"
                         }
                     }
                 }

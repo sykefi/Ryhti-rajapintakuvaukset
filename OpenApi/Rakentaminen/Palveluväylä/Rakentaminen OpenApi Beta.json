@@ -2430,34 +2430,6 @@
                 "additionalProperties": false,
                 "description": "Osoite"
             },
-            "AddressApartmentIdentifier": {
-                "required": [
-                    "addressApartmentIdentifierKey",
-                    "apartmentNumber"
-                ],
-                "type": "object",
-                "properties": {
-                    "addressApartmentIdentifierKey": {
-                        "minLength": 1,
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    "apartmentIdentifierLetterSuffix": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "apartmentSubdivisionLetter": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "apartmentNumber": {
-                        "type": "integer",
-                        "format": "int32"
-                    }
-                },
-                "additionalProperties": false,
-                "description": "Osoiterakenteen mukainen huoneistotunnus"
-            },
             "AdministrativeLocationUnit": {
                 "required": [
                     "administrativeLocationUnitKey",
@@ -2489,7 +2461,6 @@
             },
             "Apartment": {
                 "required": [
-                    "addressApartmentIdentifier",
                     "addressNumber",
                     "apartmentChangeType",
                     "apartmentIdentifier",
@@ -2531,14 +2502,6 @@
                         "minLength": 1,
                         "pattern": "^[2|8][0-9]{8}[0-9A-Z]$",
                         "type": "string"
-                    },
-                    "addressApartmentIdentifier": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/AddressApartmentIdentifier"
-                            }
-                        ],
-                        "description": "Osoiterakenteen mukainen huoneistotunnus"
                     },
                     "apartmentType": {
                         "enum": [
@@ -2594,6 +2557,18 @@
                         "type": "integer",
                         "format": "int32",
                         "nullable": true
+                    },
+                    "apartmentIdentifierLetterSuffix": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "apartmentSubdivisionLetter": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "apartmentNumber": {
+                        "type": "integer",
+                        "format": "int32"
                     }
                 },
                 "additionalProperties": false,
@@ -9026,7 +9001,9 @@
                             "ryhti.plan.write": "Kaavatietojen kirjoitusoikeus",
                             "ryhti.building.write": "Rakennustietojen kirjoitusoikeus",
                             "ryhti.planui.write": "Käyttöliittymä apin käyttöoikeus",
-                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus"
+                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus",
+                            "ryhti.changeinformation.building.all": "Kaikkien muutostietojen lukuoikeus",
+                            "ryhti.changeinformation.building.generalized": "Karkeutettujen muutostietojen lukuoikeus"
                         }
                     }
                 }

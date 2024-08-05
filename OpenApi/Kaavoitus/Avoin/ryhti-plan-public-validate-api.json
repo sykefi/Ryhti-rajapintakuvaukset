@@ -294,7 +294,10 @@
             },
             "CodeValue": {
                 "required": [
-                    "dataType"
+                    "code",
+                    "codeList",
+                    "dataType",
+                    "title"
                 ],
                 "type": "object",
                 "allOf": [
@@ -304,10 +307,12 @@
                 ],
                 "properties": {
                     "code": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Koodiston arvo (uri)"
                     },
                     "codeList": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Koodisto"
                     },
@@ -344,7 +349,10 @@
             },
             "DecimalRange": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "maximumValue",
+                    "minimumValue",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -364,6 +372,7 @@
                         "format": "double"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -392,7 +401,9 @@
             },
             "DecimalValue": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "number",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -407,6 +418,7 @@
                         "format": "double"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -767,7 +779,10 @@
             },
             "IdentifierValue": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "identifier",
+                    "registerIdentifier",
+                    "registerName"
                 ],
                 "type": "object",
                 "allOf": [
@@ -777,10 +792,12 @@
                 ],
                 "properties": {
                     "identifier": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Tunnus"
                     },
                     "registerIdentifier": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Järjestelmän tunnus"
                     },
@@ -848,7 +865,9 @@
             },
             "LocalizedTextValue": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "syntax",
+                    "text"
                 ],
                 "type": "object",
                 "allOf": [
@@ -866,6 +885,7 @@
                         "description": "Kielistetty teksti"
                     },
                     "syntax": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Syntaksi"
                     },
@@ -894,7 +914,10 @@
             },
             "NumericRange": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "maximumValue",
+                    "minimumValue",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -914,6 +937,7 @@
                         "format": "int32"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -942,7 +966,9 @@
             },
             "NumericValue": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "number",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -957,6 +983,7 @@
                         "format": "int32"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -2225,7 +2252,10 @@
             },
             "PositiveDecimalRange": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "maximumValue",
+                    "minimumValue",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -2245,6 +2275,7 @@
                         "format": "double"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -2273,7 +2304,9 @@
             },
             "PositiveDecimalValue": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "number",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -2288,6 +2321,7 @@
                         "format": "double"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -2316,7 +2350,10 @@
             },
             "PositiveNumericRange": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "maximumValue",
+                    "minimumValue",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -2336,6 +2373,7 @@
                         "format": "int32"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -2364,7 +2402,9 @@
             },
             "PositiveNumericValue": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "number",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -2379,6 +2419,7 @@
                         "format": "int32"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -2487,7 +2528,9 @@
             },
             "SpotElevation": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "number",
+                    "unitOfMeasure"
                 ],
                 "type": "object",
                 "allOf": [
@@ -2502,6 +2545,7 @@
                         "format": "int32"
                     },
                     "unitOfMeasure": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Mittayksikkö"
                     },
@@ -2522,7 +2566,7 @@
                             "SpotElevation"
                         ],
                         "type": "string",
-                        "description": "Enumeraatio joka määrittää Arvo-luokkien (Domain.ValueObjects.AttributeValue) tyypin.\r\nJokaisella konkreettisella Arvo-luokan (Domain.ValueObjects.AttributeValue) toteutuksella tulee olla sitä vastaava DataType enumeraation arvo."
+                        "description": "Pakollinen arvo: \"spotElevation\""
                     }
                 },
                 "additionalProperties": false,
@@ -2530,7 +2574,9 @@
             },
             "TextValue": {
                 "required": [
-                    "dataType"
+                    "dataType",
+                    "syntax",
+                    "text"
                 ],
                 "type": "object",
                 "allOf": [
@@ -2540,10 +2586,12 @@
                 ],
                 "properties": {
                     "text": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Teksti"
                     },
                     "syntax": {
+                        "minLength": 1,
                         "type": "string",
                         "description": "Syntaksi"
                     },
@@ -2639,7 +2687,9 @@
                             "ryhti.plan.write": "Kaavatietojen kirjoitusoikeus",
                             "ryhti.building.write": "Rakennustietojen kirjoitusoikeus",
                             "ryhti.planui.write": "Käyttöliittymä apin käyttöoikeus",
-                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus"
+                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus",
+                            "ryhti.changeinformation.building.all": "Kaikkien muutostietojen lukuoikeus",
+                            "ryhti.changeinformation.building.generalized": "Karkeutettujen muutostietojen lukuoikeus"
                         }
                     }
                 }

@@ -34,72 +34,7 @@
                 "requestBody": {
                     "description": "OAuth clientSecret välitetään http bodyssä heittomerkkien sisällä. Esim. ```\"minunsalaisuus\"```",
                     "content": {
-                        "application/json;odata.metadata=minimal;odata.streaming=true": {
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        "application/json;odata.metadata=minimal;odata.streaming=false": {
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        "application/json;odata.metadata=minimal": {
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        "application/json;odata.metadata=full;odata.streaming=true": {
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        "application/json;odata.metadata=full;odata.streaming=false": {
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        "application/json;odata.metadata=full": {
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        "application/json;odata.metadata=none;odata.streaming=true": {
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        "application/json;odata.metadata=none;odata.streaming=false": {
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        "application/json;odata.metadata=none": {
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        "application/json;odata.streaming=true": {
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        "application/json;odata.streaming=false": {
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
                         "application/json": {
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        "application/xml": {
-                            "schema": {
-                                "type": "string"
-                            }
-                        },
-                        "text/plain": {
                             "schema": {
                                 "type": "string"
                             }
@@ -120,77 +55,12 @@
                     "200": {
                         "description": "OAuth token, joka pitää välittää Authorization headerissä muissa api-kutsuissa.\r\n            ```X-Token-Expires-In``` http header kertoo sekunneissa tokeninen voimassaoloajan.\r\n            Muita api-rajapintoja kutsuttaessa lisää kutsuun Authorization header seuraavasti: ```Authorization: Bearer [token]```",
                         "content": {
-                            "application/json;odata.metadata=minimal;odata.streaming=true": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal;odata.streaming=false": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=true": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=false": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=full": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=true": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=false": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=none": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.streaming=true": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.streaming=false": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/xml": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
                             "text/plain": {
                                 "schema": {
                                     "type": "string"
                                 }
                             },
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
                                     "type": "string"
                                 }
@@ -205,77 +75,12 @@
                     "400": {
                         "description": "Bad Request",
                         "content": {
-                            "application/json;odata.metadata=minimal;odata.streaming=true": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal;odata.streaming=false": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=true": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=false": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=full": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=true": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=false": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.metadata=none": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.streaming=true": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json;odata.streaming=false": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
-                            "application/xml": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            },
                             "text/plain": {
                                 "schema": {
                                     "type": "string"
                                 }
                             },
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
                                     "type": "string"
                                 }
@@ -299,124 +104,7 @@
                 "requestBody": {
                     "description": "Viimeisin ID muutostentietojen hakemiseksi.",
                     "content": {
-                        "application/json;odata.metadata=minimal;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=minimal;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=minimal": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
                         "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/xml": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "text/plain": {
                             "schema": {
                                 "allOf": [
                                     {
@@ -449,77 +137,12 @@
                     "200": {
                         "description": "Success",
                         "content": {
-                            "application/json;odata.metadata=minimal;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=full": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=none": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/xml": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
-                                }
-                            },
                             "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
                                 }
                             },
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
                                 }
@@ -534,77 +157,12 @@
                     "400": {
                         "description": "Bad Request",
                         "content": {
-                            "application/json;odata.metadata=minimal;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=full": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=none": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/xml": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
                             },
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -619,57 +177,7 @@
                     "422": {
                         "description": "Client Error",
                         "content": {
-                            "application/json;odata.metadata=minimal;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=full": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=none": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.streaming=false": {
+                            "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
                                 }
@@ -679,17 +187,104 @@
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
                                 }
                             },
-                            "application/xml": {
+                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ChangeInformation/BuildingGeneralized": {
+            "post": {
+                "tags": [
+                    "ChangeInformation"
+                ],
+                "summary": "Hae karkeutetut rakennuksen muutostiedot",
+                "requestBody": {
+                    "description": "Viimeisin ID muutostentietojen hakemiseksi.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                                }
                             },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Client Error",
+                        "content": {
                             "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
                                 }
                             },
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
                                 }
@@ -713,124 +308,7 @@
                 "requestBody": {
                     "description": "Viimeisin ID muutostentietojen hakemiseksi.",
                     "content": {
-                        "application/json;odata.metadata=minimal;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=minimal;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=minimal": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
                         "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/xml": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetChangeInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "text/plain": {
                             "schema": {
                                 "allOf": [
                                     {
@@ -863,77 +341,12 @@
                     "200": {
                         "description": "Success",
                         "content": {
-                            "application/json;odata.metadata=minimal;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=full": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.metadata=none": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
-                                }
-                            },
-                            "application/xml": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
-                                }
-                            },
                             "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
                                 }
                             },
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
                                 }
@@ -948,77 +361,12 @@
                     "400": {
                         "description": "Bad Request",
                         "content": {
-                            "application/json;odata.metadata=minimal;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=full": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=none": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
-                            "application/xml": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProblemDetails"
-                                }
-                            },
                             "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
                             },
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
                                 }
@@ -1033,57 +381,7 @@
                     "422": {
                         "description": "Client Error",
                         "content": {
-                            "application/json;odata.metadata=minimal;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=full": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.metadata=none": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationProblemDetails"
-                                }
-                            },
-                            "application/json;odata.streaming=false": {
+                            "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
                                 }
@@ -1093,17 +391,104 @@
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
                                 }
                             },
-                            "application/xml": {
+                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ChangeInformation/BuildingPermitGeneralized": {
+            "post": {
+                "tags": [
+                    "ChangeInformation"
+                ],
+                "summary": "Hae rakennuslupa-asia muutostiedot",
+                "requestBody": {
+                    "description": "Viimeisin ID muutostentietojen hakemiseksi.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
+                                }
                             },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Client Error",
+                        "content": {
                             "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
                                 }
                             },
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
                                 }
@@ -1126,124 +511,7 @@
                 "summary": "Hae rakennuksen perustiedot",
                 "requestBody": {
                     "content": {
-                        "application/json;odata.metadata=minimal;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=minimal;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=minimal": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
                         "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/xml": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "text/plain": {
                             "schema": {
                                 "allOf": [
                                     {
@@ -1276,77 +544,12 @@
                     "200": {
                         "description": "Success",
                         "content": {
-                            "application/json;odata.metadata=minimal;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=full": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=none": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/xml": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
                             "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/InitialInformationCollection"
                                 }
                             },
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/InitialInformationCollection"
                                 }
@@ -1368,124 +571,7 @@
                 ],
                 "requestBody": {
                     "content": {
-                        "application/json;odata.metadata=minimal;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=minimal;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=minimal": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
                         "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/xml": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "text/plain": {
                             "schema": {
                                 "allOf": [
                                     {
@@ -1518,77 +604,12 @@
                     "200": {
                         "description": "Success",
                         "content": {
-                            "application/json;odata.metadata=minimal;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=full": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=none": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/xml": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
                             "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/InitialInformationCollection"
                                 }
                             },
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/InitialInformationCollection"
                                 }
@@ -1610,124 +631,7 @@
                 ],
                 "requestBody": {
                     "content": {
-                        "application/json;odata.metadata=minimal;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=minimal;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=minimal": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
                         "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/xml": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "text/plain": {
                             "schema": {
                                 "allOf": [
                                     {
@@ -1760,77 +664,12 @@
                     "200": {
                         "description": "Success",
                         "content": {
-                            "application/json;odata.metadata=minimal;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=full": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=none": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/xml": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
                             "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/InitialInformationCollection"
                                 }
                             },
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/InitialInformationCollection"
                                 }
@@ -1852,124 +691,7 @@
                 ],
                 "requestBody": {
                     "content": {
-                        "application/json;odata.metadata=minimal;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=minimal;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=minimal": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=full": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.metadata=none": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.streaming=true": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json;odata.streaming=false": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
                         "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/xml": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "text/plain": {
                             "schema": {
                                 "allOf": [
                                     {
@@ -2002,77 +724,12 @@
                     "200": {
                         "description": "Success",
                         "content": {
-                            "application/json;odata.metadata=minimal;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=full": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.metadata=none": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/xml": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
                             "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/InitialInformationCollection"
                                 }
                             },
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/InitialInformationCollection"
                                 }
@@ -2098,77 +755,12 @@
                     "200": {
                         "description": "Rajapinta toimii oletetusti.",
                         "content": {
-                            "application/json;odata.metadata=minimal;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HealthReport"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HealthReport"
-                                }
-                            },
-                            "application/json;odata.metadata=minimal": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HealthReport"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HealthReport"
-                                }
-                            },
-                            "application/json;odata.metadata=full;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HealthReport"
-                                }
-                            },
-                            "application/json;odata.metadata=full": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HealthReport"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HealthReport"
-                                }
-                            },
-                            "application/json;odata.metadata=none;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HealthReport"
-                                }
-                            },
-                            "application/json;odata.metadata=none": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HealthReport"
-                                }
-                            },
-                            "application/json;odata.streaming=true": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HealthReport"
-                                }
-                            },
-                            "application/json;odata.streaming=false": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HealthReport"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HealthReport"
-                                }
-                            },
-                            "application/xml": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HealthReport"
-                                }
-                            },
                             "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/HealthReport"
                                 }
                             },
-                            "application/octet-stream": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/HealthReport"
                                 }
@@ -2266,29 +858,6 @@
                 },
                 "additionalProperties": false,
                 "description": "Osoite"
-            },
-            "AddressApartmentIdentifier": {
-                "type": "object",
-                "properties": {
-                    "addressApartmentIdentifierKey": {
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    "apartmentIdentifierLetterSuffix": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "apartmentSubdivisionLetter": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "apartmentNumber": {
-                        "type": "integer",
-                        "format": "int32"
-                    }
-                },
-                "additionalProperties": false,
-                "description": "Osoiterakenteen mukainen huoneistotunnus"
             },
             "AdministrativeLocationUnit": {
                 "type": "object",
@@ -3210,7 +1779,8 @@
                             "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/9"
                         ],
                         "type": "string",
-                        "description": "Huoneiston elinkaaren vaihe. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe\">http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe</a>"
+                        "description": "Huoneiston elinkaaren vaihe. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe\">http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe</a>",
+                        "nullable": true
                     },
                     "apartmentEquipment": {
                         "type": "array",
@@ -3221,14 +1791,6 @@
                     },
                     "apartmentIdentifier": {
                         "type": "string"
-                    },
-                    "addressApartmentIdentifier": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/AddressApartmentIdentifier"
-                            }
-                        ],
-                        "description": "Osoiterakenteen mukainen huoneistotunnus"
                     },
                     "apartmentType": {
                         "enum": [
@@ -3294,6 +1856,18 @@
                     "occupancyOfApartment": {
                         "type": "string",
                         "nullable": true
+                    },
+                    "apartmentIdentifierLetterSuffix": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "apartmentSubdivisionLetter": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "apartmentNumber": {
+                        "type": "integer",
+                        "format": "int32"
                     }
                 },
                 "additionalProperties": false
@@ -3567,6 +2141,11 @@
                     "renovationDate": {
                         "type": "string",
                         "format": "date",
+                        "nullable": true
+                    },
+                    "mainPurpose1994": {
+                        "type": "integer",
+                        "format": "int32",
                         "nullable": true
                     }
                 },
@@ -7223,7 +5802,9 @@
                             "ryhti.plan.write": "Kaavatietojen kirjoitusoikeus",
                             "ryhti.building.write": "Rakennustietojen kirjoitusoikeus",
                             "ryhti.planui.write": "Käyttöliittymä apin käyttöoikeus",
-                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus"
+                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus",
+                            "ryhti.changeinformation.building.all": "Kaikkien muutostietojen lukuoikeus",
+                            "ryhti.changeinformation.building.generalized": "Karkeutettujen muutostietojen lukuoikeus"
                         }
                     }
                 }
@@ -7232,14 +5813,10 @@
     },
     "security": [
         {
-            "Bearer": [
-                "ryhti.changeinformation.read"
-            ]
+            "Bearer": []
         },
         {
-            "oauth2": [
-                "ryhti.changeinformation.read"
-            ]
+            "oauth2": []
         }
     ]
 }
