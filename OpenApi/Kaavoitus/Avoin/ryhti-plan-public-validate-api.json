@@ -820,26 +820,32 @@
                 "properties": {
                     "fin": {
                         "type": "string",
+                        "description": "suomi",
                         "nullable": true
                     },
                     "swe": {
                         "type": "string",
+                        "description": "ruotsi",
                         "nullable": true
                     },
                     "smn": {
                         "type": "string",
+                        "description": "inarinsaame",
                         "nullable": true
                     },
                     "sms": {
                         "type": "string",
+                        "description": "koltansaame",
                         "nullable": true
                     },
                     "sme": {
                         "type": "string",
+                        "description": "pohjoissaame",
                         "nullable": true
                     },
                     "eng": {
                         "type": "string",
+                        "description": "englanti",
                         "nullable": true
                     }
                 },
@@ -1241,6 +1247,7 @@
                     "categoryOfPublicity",
                     "documentDate",
                     "documentIdentifier",
+                    "fileKey",
                     "languages",
                     "name",
                     "personalDataContent",
@@ -1302,8 +1309,7 @@
                     "fileKey": {
                         "type": "string",
                         "description": "Erillisen rajapinnan kautta tallennetun tiedoston avain.",
-                        "format": "uuid",
-                        "nullable": true
+                        "format": "uuid"
                     },
                     "descriptors": {
                         "type": "array",
