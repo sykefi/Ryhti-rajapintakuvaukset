@@ -3087,6 +3087,7 @@
                     "confirmationDate",
                     "documentDate",
                     "documentIdentifier",
+                    "fileKey",
                     "languages",
                     "name",
                     "personalDataContent",
@@ -3147,8 +3148,7 @@
                     "fileKey": {
                         "type": "string",
                         "description": "Erillisen rajapinnan kautta tallennetun tiedoston avain.",
-                        "format": "uuid",
-                        "nullable": true
+                        "format": "uuid"
                     },
                     "descriptors": {
                         "type": "array",
@@ -3335,7 +3335,8 @@
                     },
                     "buildingSite": {
                         "required": [
-                            "stormWaterTreatmentType"
+                            "stormWaterTreatmentType",
+                            "tenure"
                         ],
                         "allOf": [
                             {
@@ -3739,7 +3740,8 @@
                     },
                     "buildingSite": {
                         "required": [
-                            "stormWaterTreatmentType"
+                            "stormWaterTreatmentType",
+                            "tenure"
                         ],
                         "allOf": [
                             {
@@ -4065,7 +4067,8 @@
                     "buildingSiteAddress",
                     "buildingSiteKey",
                     "statusOfPlan",
-                    "stormWaterTreatmentType"
+                    "stormWaterTreatmentType",
+                    "tenure"
                 ],
                 "type": "object",
                 "properties": {
@@ -4137,6 +4140,7 @@
                         "description": "Kaavatilanne. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/vtj/Rake_kaava\">http://uri.suomi.fi/codelist/vtj/Rake_kaava</a>"
                     },
                     "tenure": {
+                        "minLength": 1,
                         "enum": [
                             "http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste/code/1",
                             "http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste/code/2",
@@ -5204,7 +5208,8 @@
                     },
                     "buildingSite": {
                         "required": [
-                            "stormWaterTreatmentType"
+                            "stormWaterTreatmentType",
+                            "tenure"
                         ],
                         "allOf": [
                             {
@@ -5646,7 +5651,8 @@
                     },
                     "buildingSite": {
                         "required": [
-                            "stormWaterTreatmentType"
+                            "stormWaterTreatmentType",
+                            "tenure"
                         ],
                         "allOf": [
                             {
@@ -7801,7 +7807,8 @@
                     },
                     "buildingSite": {
                         "required": [
-                            "stormWaterTreatmentType"
+                            "stormWaterTreatmentType",
+                            "tenure"
                         ],
                         "allOf": [
                             {
@@ -7856,26 +7863,32 @@
                 "properties": {
                     "fin": {
                         "type": "string",
+                        "description": "suomi",
                         "nullable": true
                     },
                     "swe": {
                         "type": "string",
+                        "description": "ruotsi",
                         "nullable": true
                     },
                     "smn": {
                         "type": "string",
+                        "description": "inarinsaame",
                         "nullable": true
                     },
                     "sms": {
                         "type": "string",
+                        "description": "koltansaame",
                         "nullable": true
                     },
                     "sme": {
                         "type": "string",
+                        "description": "pohjoissaame",
                         "nullable": true
                     },
                     "eng": {
                         "type": "string",
+                        "description": "englanti",
                         "nullable": true
                     }
                 },
