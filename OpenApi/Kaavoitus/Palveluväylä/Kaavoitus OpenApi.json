@@ -2,7 +2,7 @@
     "openapi": "3.0.1",
     "info": {
         "title": "Ryhti API",
-        "description": "<h2>Rakennetun ympäristön kaavoituksen OpenApi kuvaukset</h2>\nEnsimmäisen vaiheen kaavoituksen rajapinnat kumppanitestaukseen.\n\n<b>HUOM!</b> Rajapintakuvaukset voivat vielä muuttua kumppanitestauksen ja kommenttien perusteella.\n\nKaavoituksen tietomallien sanalliset kuvaukset löytyvät osoitteesta\n<a href=\"https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-kaavoitus/kaavatietomallin-tietomaaritykset/\">https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-kaavoitus/kaavatietomallin-tietomaaritykset/</a>\n\nLisää tietoa rakennetun ympäristön tietojärjestelmästä: <a href=\"https://ryhti.syke.fi/\">https://ryhti.syke.fi/</a>\n<br/>",
+        "description": "<h2>Rakennetun ympäristön kaavoituksen OpenApi kuvaukset</h2>\r\nEnsimmäisen vaiheen kaavoituksen rajapinnat kumppanitestaukseen.\r\n\r\n<b>HUOM!</b> Rajapintakuvaukset voivat vielä muuttua kumppanitestauksen ja kommenttien perusteella.\r\n\r\nKaavoituksen tietomallien sanalliset kuvaukset löytyvät osoitteesta\r\n<a href=\"https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-kaavoitus/kaavatietomallin-tietomaaritykset/\">https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-kaavoitus/kaavatietomallin-tietomaaritykset/</a>\r\n\r\nLisää tietoa rakennetun ympäristön tietojärjestelmästä: <a href=\"https://ryhti.syke.fi/\">https://ryhti.syke.fi/</a>\r\n<br/>",
         "contact": {
             "name": "Feedback",
             "url": "https://www.syke.fi/en-US/SYKE_Info/Contact_information/Feedback_form(10043)?r=38611"
@@ -3658,6 +3658,11 @@
                         "description": "Sitova tonttijako avain",
                         "format": "uuid"
                     },
+                    "bindingPlotDivisionUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/bindingplotdivision/{guid})",
+                        "readOnly": true
+                    },
                     "bindingPlotDivisionCancellationInfos": {
                         "type": "array",
                         "items": {
@@ -3790,6 +3795,11 @@
                         "format": "date",
                         "nullable": true
                     },
+                    "bindingPlotDivisionAttachmentDocumentUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/bindingplotdivisionattachmentdocument/{guid})",
+                        "readOnly": true
+                    },
                     "typeOfAttachment": {
                         "minLength": 1,
                         "type": "string",
@@ -3826,26 +3836,26 @@
             },
             "BindingPlotDivisionCancellationInfo": {
                 "required": [
-                    "cancelledBindingPlotDivisionId",
+                    "cancelledBindingPlotDivisionUri",
                     "cancelsEntireBindingPlotDivision"
                 ],
                 "type": "object",
                 "properties": {
-                    "cancelledBindingPlotDivisionId": {
+                    "cancelledBindingPlotDivisionUri": {
                         "minLength": 1,
                         "type": "string",
-                        "description": "Kumoutuvan sitovan tonttijaon URI"
+                        "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/bindingplotdivision/{bindingplotdivisionkey}) kumoutuvaan sitovaan tonttijakoon."
                     },
                     "cancelsEntireBindingPlotDivision": {
                         "type": "boolean",
                         "description": "Kumoaa sitovan tonttijaon kokonaan"
                     },
-                    "cancelledPlotDivisionPlotIds": {
+                    "cancelledPlotDivisionPlotUris": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Kumoutuvien tonttijako tonttien tunnukset",
+                        "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/plotdivisionplot/{plotdivisionplotkey}) kumoutuviin tonttijakotontteihin.",
                         "nullable": true
                     }
                 },
@@ -3891,6 +3901,11 @@
                         "minLength": 1,
                         "type": "string",
                         "description": "sitovan tonttijaon pysyvä tunnus"
+                    },
+                    "bindingPlotDivisionMatterUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/bindingplotdivisionmatter/{identifier})",
+                        "readOnly": true
                     },
                     "producerBindingPlotDivisionIdentifier": {
                         "type": "string",
@@ -3979,6 +3994,11 @@
                         "type": "string",
                         "description": "Sitovan tonttijaon asian päätösavain",
                         "format": "uuid"
+                    },
+                    "bindingPlotDivisionMatterDecisionUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/bindingplotdivisionmatterdecision/{guid})",
+                        "readOnly": true
                     },
                     "decisionDate": {
                         "type": "string",
@@ -4114,6 +4134,11 @@
                         "description": "Sitovan tonttijaon asian vaihe avain",
                         "format": "uuid"
                     },
+                    "bindingPlotDivisionMatterPhaseUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/bindingplotdivisionmatterphase/{guid})",
+                        "readOnly": true
+                    },
                     "decision": {
                         "allOf": [
                             {
@@ -4123,9 +4148,9 @@
                         "description": "Päätös",
                         "nullable": true
                     },
-                    "approvedPlanDecision": {
+                    "approvedPlanDecisionUri": {
                         "type": "string",
-                        "description": "Hyväksytyn kaavan päätöksen URI",
+                        "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/plandecision/{plandecisionkey}) hyväksytyn kaavan päätökseen.",
                         "nullable": true
                     },
                     "bindingPlotDivision": {
@@ -4150,6 +4175,11 @@
                         "type": "string",
                         "description": "Toimijan avain",
                         "format": "uuid"
+                    },
+                    "bindingPlotDivisionOperatorUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/bindingplotdivisionoperator/{guid})",
+                        "readOnly": true
                     },
                     "firstName": {
                         "type": "string",
@@ -4206,22 +4236,20 @@
             },
             "CancelledGroupRelations": {
                 "required": [
-                    "planObjectKey",
-                    "planRegulationGroupKey"
+                    "planObjectUri",
+                    "planRegulationGroupUri"
                 ],
                 "type": "object",
                 "properties": {
-                    "planRegulationGroupKey": {
+                    "planRegulationGroupUri": {
                         "minLength": 1,
                         "type": "string",
-                        "description": "Kaavamääräysryhmän kohdistamiseen käytettävä tunnus.",
-                        "format": "uuid"
+                        "description": "Kaavamääräysryhmän kohdistamiseen käytettävä tunnus URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planregulationgroup/{planRegulationGroupKey})"
                     },
-                    "planObjectKey": {
+                    "planObjectUri": {
                         "minLength": 1,
                         "type": "string",
-                        "description": "Kaavakohteen kohdistamiseen käytettävä tunnus.",
-                        "format": "uuid"
+                        "description": "Kaavakohteen kohdistamiseen käytettävä tunnus URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planobject/{planObjectKey})"
                     }
                 },
                 "additionalProperties": false,
@@ -4424,6 +4452,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "generalRegulationGroupUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/generalregulationgroup/{guid})",
+                        "readOnly": true
                     },
                     "titleOfPlanRegulation": {
                         "allOf": [
@@ -4727,6 +4760,99 @@
                 "additionalProperties": false,
                 "description": "Polygon GeoJson<br />\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
             },
+            "HandlingEvent": {
+                "required": [
+                    "handlingEventKey",
+                    "handlingEventType"
+                ],
+                "type": "object",
+                "properties": {
+                    "handlingEventKey": {
+                        "type": "string",
+                        "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
+                        "format": "uuid"
+                    },
+                    "handlingEventUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/handlingevent/{guid})",
+                        "readOnly": true
+                    },
+                    "handlingEventType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/03",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/04",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/05",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/06",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/07",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/08",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/09",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/10",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/11",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/12",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/13",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/14",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/15",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/16",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/17",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/18",
+                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/19"
+                        ],
+                        "type": "string",
+                        "description": "Käsittelytapahtuman tyyppi. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/kaavakastap\">http://uri.suomi.fi/codelist/rytj/kaavakastap</a>"
+                    },
+                    "eventTime": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "name": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "description": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "location": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/RyhtiGeometry"
+                            }
+                        ],
+                        "description": "Käsittelytapahtuman sijainti",
+                        "nullable": true
+                    },
+                    "additionalInformationLink": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "cancelled": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "relatedDocuments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PlanAttachmentDocument"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Käsittelytapahtuma"
+            },
             "HealthReport": {
                 "type": "object",
                 "properties": {
@@ -4842,6 +4968,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "interactionEventUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/interactionevent/{guid})",
+                        "readOnly": true
                     },
                     "interactionEventType": {
                         "enum": [
@@ -5129,6 +5260,11 @@
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
                     },
+                    "otherPlanMaterialUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/otherplanmaterial/{guid})",
+                        "readOnly": true
+                    },
                     "name": {
                         "allOf": [
                             {
@@ -5162,17 +5298,23 @@
                 "additionalProperties": false,
                 "description": "MuuKaavaAineisto"
             },
-            "PartiallyCancellationPlanObjectInfo": {
+            "PartiallyCancelledPlanObjectInfo": {
                 "required": [
-                    "partiallyCancelledPlanObjectId",
+                    "cancelledPlanUri",
+                    "partiallyCancelledPlanObjectUri",
                     "validityGeometry"
                 ],
                 "type": "object",
                 "properties": {
-                    "partiallyCancelledPlanObjectId": {
+                    "cancelledPlanUri": {
                         "minLength": 1,
                         "type": "string",
-                        "description": "Kaavakohteen yksilöivätunnus, jota osittainen kumoutuminen koskee."
+                        "description": "Kumottavan hyväkstytyn kaavan tunnus URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/plan/{planKey})"
+                    },
+                    "partiallyCancelledPlanObjectUri": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Kumottavan kaavakohteen tunnus uri-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planobject/{planObjectKey})"
                     },
                     "validityGeometry": {
                         "allOf": [
@@ -5198,6 +5340,11 @@
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
                     },
+                    "participationAndAssessmentSchemeUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/participationandassessmentscheme/{guid})",
+                        "readOnly": true
+                    },
                     "attachmentDocuments": {
                         "minItems": 1,
                         "type": "array",
@@ -5221,6 +5368,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "planUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/plan/{guid})",
+                        "readOnly": true
                     },
                     "lifeCycleStatus": {
                         "enum": [
@@ -5351,10 +5503,10 @@
                         "description": "Laatija",
                         "nullable": true
                     },
-                    "partiallyCancellationPlanObjects": {
+                    "partiallyCancelledPlanObjects": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/PartiallyCancellationPlanObjectInfo"
+                            "$ref": "#/components/schemas/PartiallyCancelledPlanObjectInfo"
                         },
                         "description": "// Osittain kumottavat kaavakohteet",
                         "nullable": true
@@ -5475,6 +5627,11 @@
                         "format": "date",
                         "nullable": true
                     },
+                    "planAttachmentDocumentUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planattachmentdocument/{guid})",
+                        "readOnly": true
+                    },
                     "typeOfAttachment": {
                         "minLength": 1,
                         "type": "string",
@@ -5510,10 +5667,7 @@
             },
             "PlanCancellationInfo": {
                 "required": [
-                    "cancelledGuidanceId",
-                    "cancelledPlanId",
-                    "cancelledPlanObjectId",
-                    "cancelledRegulationId",
+                    "cancelledPlanUri",
                     "cancelsEntirePlan",
                     "planCancellationInfoKey"
                 ],
@@ -5524,49 +5678,47 @@
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
                     },
-                    "cancelledPlanId": {
+                    "planCancellationInfoUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/plancancellationinfo/{guid})",
+                        "readOnly": true
+                    },
+                    "cancelledPlanUri": {
                         "minLength": 1,
                         "type": "string",
-                        "description": "Kumottavan kaavan tunnus"
+                        "description": "Kumottavan hyväkstytyn kaavan tunnus URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/plan/{planKey})"
                     },
                     "cancelsEntirePlan": {
                         "type": "boolean",
                         "description": "Kumoaa kaavan kokonaan"
                     },
-                    "cancelledPlanObjectId": {
+                    "cancelledPlanObjectUris": {
                         "type": "array",
                         "items": {
-                            "minLength": 1,
                             "type": "string"
                         },
-                        "description": "Kumottavan kaavakohteen tunnukset",
-                        "nullable": true
+                        "description": "Kumottavan kaavakohteen tunnukset URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planobject/{planObjectKey})"
                     },
-                    "cancelledRegulationId": {
+                    "cancelledRegulationUris": {
                         "type": "array",
                         "items": {
-                            "minLength": 1,
                             "type": "string"
                         },
-                        "description": "Kumottavan määräyksen tunnukset",
-                        "nullable": true
+                        "description": "Kumottavan määräyksen tunnukset URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{planRegulationKey})"
                     },
-                    "cancelledGuidanceId": {
+                    "cancelledRecommendationUris": {
                         "type": "array",
                         "items": {
-                            "minLength": 1,
                             "type": "string"
                         },
-                        "description": "Kumottavan suosituksen tunnukset",
-                        "nullable": true
+                        "description": "Kumottavan suosituksen tunnukset URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planrecommendation/{planRecommendationKey})"
                     },
                     "cancelledGroupRelations": {
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/CancelledGroupRelations"
                         },
-                        "description": "Kumottavan ryhmän kohdistus. Kuvaa kaavakohteesta kumoutuvat kaavamääräysryhmät.",
-                        "nullable": true
+                        "description": "Kumottavan ryhmän kohdistus. Kuvaa kaavakohteesta kumoutuvat kaavamääräysryhmät."
                     }
                 },
                 "additionalProperties": false,
@@ -5586,6 +5738,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "planDecisionUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/plandecision/{guid})",
+                        "readOnly": true
                     },
                     "name": {
                         "enum": [
@@ -5690,93 +5847,40 @@
                 "additionalProperties": false,
                 "description": "Kaavapäätös"
             },
-            "PlanHandlingEvent": {
+            "PlanEffects": {
                 "required": [
-                    "handlingEventKey",
-                    "handlingEventType"
+                    "bindingPlotDivisionUri",
+                    "relatedPlotDivisionPlots",
+                    "type"
                 ],
                 "type": "object",
                 "properties": {
-                    "handlingEventKey": {
+                    "type": {
+                        "minLength": 1,
                         "type": "string",
-                        "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
-                        "format": "uuid"
+                        "description": "Kaavan vaikutuksen laji. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/kaavanVaikutuksenLaji\">http://uri.suomi.fi/codelist/rytj/kaavanVaikutuksenLaji</a>"
                     },
-                    "handlingEventType": {
-                        "enum": [
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/01",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/02",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/03",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/04",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/05",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/06",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/07",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/08",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/09",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/10",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/11",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/12",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/13",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/14",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/15",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/16",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/17",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/18",
-                            "http://uri.suomi.fi/codelist/rytj/kaavakastap/code/19"
-                        ],
+                    "bindingPlotDivisionUri": {
+                        "minLength": 1,
                         "type": "string",
-                        "description": "Käsittelytapahtuman tyyppi. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/kaavakastap\">http://uri.suomi.fi/codelist/rytj/kaavakastap</a>"
+                        "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/bindingplotdivision/{bindingplotdivisionkey}) sitovaan tonttijakoon."
                     },
-                    "eventTime": {
-                        "type": "string",
-                        "format": "date",
-                        "nullable": true
-                    },
-                    "name": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/LanguageString"
-                            }
-                        ],
-                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
-                        "nullable": true
-                    },
-                    "description": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/LanguageString"
-                            }
-                        ],
-                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
-                        "nullable": true
-                    },
-                    "location": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/RyhtiGeometry"
-                            }
-                        ],
-                        "description": "Käsittelytapahtuman sijainti",
-                        "nullable": true
-                    },
-                    "additionalInformationLink": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "cancelled": {
+                    "fullyIncluded": {
                         "type": "boolean",
+                        "description": "Jos arvo on true, kaavan vaikutus kohdistuu sitovaan tonttijakoon kokonaisuudessaan, muuten tonttijakotontti kohtaisesti.",
                         "nullable": true
                     },
-                    "relatedDocuments": {
+                    "relatedPlotDivisionPlots": {
+                        "minItems": 1,
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/PlanAttachmentDocument"
+                            "$ref": "#/components/schemas/RelatedPlotDivisionPlot"
                         },
-                        "nullable": true
+                        "description": "Tonttijakotontin yksilöivätunnus, jota vaikutus koskee."
                     }
                 },
                 "additionalProperties": false,
-                "description": "Käsittelytapahtuma"
+                "description": "KaavanVaikutukset"
             },
             "PlanMap": {
                 "required": [
@@ -5791,6 +5895,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "planMapUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planmap/{guid})",
+                        "readOnly": true
                     },
                     "name": {
                         "allOf": [
@@ -6014,10 +6123,10 @@
                         ],
                         "description": "Aluerajaus"
                     },
-                    "planHandlingEvent": {
+                    "handlingEvent": {
                         "allOf": [
                             {
-                                "$ref": "#/components/schemas/PlanHandlingEvent"
+                                "$ref": "#/components/schemas/HandlingEvent"
                             }
                         ],
                         "description": "Käsittelytapahtuma",
@@ -6051,6 +6160,11 @@
                         "type": "string",
                         "format": "uuid"
                     },
+                    "planMatterPhaseUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planmatterphase/{guid})",
+                        "readOnly": true
+                    },
                     "lifeCycleStatus": {
                         "enum": [
                             "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
@@ -6080,10 +6194,10 @@
                             }
                         ]
                     },
-                    "planHandlingEvent": {
+                    "handlingEvent": {
                         "allOf": [
                             {
-                                "$ref": "#/components/schemas/PlanHandlingEvent"
+                                "$ref": "#/components/schemas/HandlingEvent"
                             }
                         ],
                         "description": "Käsittelytapahtuma",
@@ -6301,6 +6415,11 @@
                         "items": {
                             "$ref": "#/components/schemas/PlanMatterPhaseUriResponse"
                         }
+                    },
+                    "planMatterUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planmatter/{identifier})",
+                        "readOnly": true
                     }
                 },
                 "additionalProperties": false
@@ -6468,6 +6587,11 @@
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
                     },
+                    "planObjectUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planobject/{guid})",
+                        "readOnly": true
+                    },
                     "lifeCycleStatus": {
                         "enum": [
                             "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
@@ -6537,7 +6661,15 @@
                             "type": "string",
                             "format": "uuid"
                         },
-                        "description": "Viittaus (GUID) kaavan mukana toimitettavaan lähtötietoaineistoon sisältyvään tietokohteeseen, joka liittyy​ kaavakohteeseen. Esim. Pohjavesialue.",
+                        "description": "Viittaus (GUID) kaavan mukana toimitettavaan lähtötietoaineistoon sisältyvään tietokohteeseen, joka liittyy kaavakohteeseen. Esim. Pohjavesialue.\r\nPäivitysvaiheessa tämän listan kuuluu olla tyhjä.",
+                        "nullable": true
+                    },
+                    "relatedPlanSourceDataUris": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Viittaus (URI) kaava-asian mukana toimitettavaan, aiemmin tallennettuun, lähtötietoaineistoon sisältyvään tietokohteeseen, joka liittyy tallennettuun kaavakohteeseen. Esim. Pohjavesialue.",
                         "nullable": true
                     },
                     "periodOfValidity": {
@@ -6578,6 +6710,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "planOperatorUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planoperator/{guid})",
+                        "readOnly": true
                     },
                     "firstName": {
                         "type": "string",
@@ -6620,6 +6757,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "planRecommendationUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planrecommendation/{guid})",
+                        "readOnly": true
                     },
                     "value": {
                         "allOf": [
@@ -6699,6 +6841,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "planRegulationUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{guid})",
+                        "readOnly": true
                     },
                     "value": {
                         "oneOf": [
@@ -7143,6 +7290,11 @@
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
                     },
+                    "planRegulationGroupUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planregulationgroup/{guid})",
+                        "readOnly": true
+                    },
                     "titleOfPlanRegulation": {
                         "allOf": [
                             {
@@ -7212,6 +7364,11 @@
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
                     },
+                    "planReportUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planreport/{guid})",
+                        "readOnly": true
+                    },
                     "attachmentDocuments": {
                         "minItems": 1,
                         "type": "array",
@@ -7234,6 +7391,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "planSourceDataUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/plansourcedata/{guid})",
+                        "readOnly": true
                     },
                     "type": {
                         "minLength": 1,
@@ -7290,6 +7452,11 @@
                         "type": "string",
                         "description": "Tonttijakotontin avain",
                         "format": "uuid"
+                    },
+                    "plotDivisionPlotUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/plotdivisionplot/{guid})",
+                        "readOnly": true
                     },
                     "plotDivisionPlotIdentifier": {
                         "minLength": 1,
@@ -7638,20 +7805,20 @@
                         "description": "Desimaaliarvoväli",
                         "nullable": true
                     },
-                    "areaReservationRegulations": {
+                    "areaReservationRegulationUris": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Aluevaraus määräykset",
+                        "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{planregulationkey}) kaavassa osoitettuun aluevarauksen kaavamääräykseen.",
                         "nullable": true
                     },
-                    "volumeOfBuildingRegulations": {
+                    "volumeOfBuildingRegulationUris": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Rakentamisen määrän määräykset",
+                        "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{planregulationkey}) kaavassa osoitettuun rakentamisen määrän kaavamääräykseen.",
                         "nullable": true
                     }
                 },
@@ -7869,19 +8036,59 @@
             "RelatedPlan": {
                 "type": "object",
                 "properties": {
-                    "relatedPlanIdentifier": {
+                    "relatedPlanUri": {
                         "type": "string",
-                        "description": "Liittyvän kaavan tunnus (URI)",
+                        "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/plan/{plankey}) tonttijakotontin alueelle kohdistuvaan vaikuttavaan kaavaan.",
                         "nullable": true
                     },
                     "relatedProducerPlanIdentifier": {
                         "type": "string",
-                        "description": "Liittyvä tuottajan kaavatunnus",
+                        "description": "Tonttijakotonttiin alueelle kohdistuvan vaikuttavan kaavan tuottajan kaavatunnus.",
                         "nullable": true
                     }
                 },
                 "additionalProperties": false,
                 "description": "Liittyvä kaava"
+            },
+            "RelatedPlotDivisionPlot": {
+                "required": [
+                    "referenceUri",
+                    "relatedPlans"
+                ],
+                "type": "object",
+                "properties": {
+                    "referenceUri": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/plotdivisionplot/{plotdivisionplotkey}) sitovassa tonttijaossa osoitettuun tonttijakotonttiin."
+                    },
+                    "relatedPlans": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RelatedPlan"
+                        },
+                        "description": "Tonttijakotontin alueelle kohdistuvan vaikuttavan kaavan pysyvä kaavatunnus"
+                    },
+                    "areaReservationRegulationUris": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{planregulationkey}) kaavassa osoitettuun aluevarauksen kaavamääräykseen.",
+                        "nullable": true
+                    },
+                    "volumeOfBuildingRegulationUris": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{planregulationkey}) kaavassa osoitettuun rakentamisen määrän kaavamääräykseen.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "LiittyväTonttijakotontti"
             },
             "ReserveLocalDetailedPlanMatterPermanentIdentifierCommand": {
                 "type": "object",
@@ -8326,12 +8533,7 @@
                     "clientCredentials": {
                         "tokenUrl": "https://identitytest.ymparisto.fi/connect/token",
                         "scopes": {
-                            "ryhti.plan.write": "Kaavatietojen kirjoitusoikeus",
-                            "ryhti.building.write": "Rakennustietojen kirjoitusoikeus",
-                            "ryhti.planui.write": "Käyttöliittymä apin käyttöoikeus",
-                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus",
-                            "ryhti.changeinformation.building.all": "Kaikkien muutostietojen lukuoikeus",
-                            "ryhti.changeinformation.building.generalized": "Karkeutettujen muutostietojen lukuoikeus"
+                            "ryhti.plan.write": "Kaavatietojen kirjoitusoikeus"
                         }
                     }
                 }

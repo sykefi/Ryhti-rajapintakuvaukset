@@ -2,7 +2,7 @@
     "openapi": "3.0.1",
     "info": {
         "title": "Ryhti API",
-        "description": "<h2>Rakennetun ympäristön OpenApi kuvaukset </h2>\nEnsimmäisen vaiheen rakentamisen OpenApi rajapinnat kumppanitestaukseen.\n\n<b>HUOM!</b> Rajapintakuvaukset voivat vielä muuttua kumppanitestauksen ja kommenttien perusteella.\n\nLisää tietoa rakennetun ympäristön tietojärjestelmästä: <a href=\"https://ryhti.syke.fi/\">https://ryhti.syke.fi/</a>\n<br/>",
+        "description": "<h2>Rakennetun ympäristön OpenApi kuvaukset </h2>\r\nEnsimmäisen vaiheen rakentamisen OpenApi rajapinnat kumppanitestaukseen.\r\n\r\n<b>HUOM!</b> Rajapintakuvaukset voivat vielä muuttua kumppanitestauksen ja kommenttien perusteella.\r\n\r\nLisää tietoa rakennetun ympäristön tietojärjestelmästä: <a href=\"https://ryhti.syke.fi/\">https://ryhti.syke.fi/</a>\r\n<br/>",
         "contact": {
             "name": "Feedback",
             "url": "https://www.syke.fi/en-US/SYKE_Info/Contact_information/Feedback_form(10043)?r=38611"
@@ -9011,12 +9011,9 @@
                     "clientCredentials": {
                         "tokenUrl": "https://identitytest.ymparisto.fi/connect/token",
                         "scopes": {
-                            "ryhti.plan.write": "Kaavatietojen kirjoitusoikeus",
                             "ryhti.building.write": "Rakennustietojen kirjoitusoikeus",
-                            "ryhti.planui.write": "Käyttöliittymä apin käyttöoikeus",
-                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus",
-                            "ryhti.changeinformation.building.all": "Kaikkien muutostietojen lukuoikeus",
-                            "ryhti.changeinformation.building.generalized": "Karkeutettujen muutostietojen lukuoikeus"
+                            "ryhti.building.owners.all": "Oikeus kaikkiin omistajatietoihin, ml turvakiellon alaiset henkilöt.",
+                            "ryhti.building.owners.limited": "Oikeus omistajatietoihin, ilman turvakiellon alaisia henkilöitä."
                         }
                     }
                 }

@@ -2,7 +2,7 @@
     "openapi": "3.0.1",
     "info": {
         "title": "Ryhti API",
-        "description": "<h2>Rakennetun ympäristön muutostietorajapinta</h2>\n\nLisää tietoa rakennetun ympäristön tietojärjestelmästä: <a href=\"https://ryhti.syke.fi/\">https://ryhti.syke.fi/</a>\n<br/>",
+        "description": "<h2>Rakennetun ympäristön muutostietorajapinta</h2>\r\n\r\nLisää tietoa rakennetun ympäristön tietojärjestelmästä: <a href=\"https://ryhti.syke.fi/\">https://ryhti.syke.fi/</a>\r\n<br/>",
         "contact": {
             "name": "Feedback",
             "url": "https://www.syke.fi/en-US/SYKE_Info/Contact_information/Feedback_form(10043)?r=38611"
@@ -1095,6 +1095,7 @@
                     "categoryOfPublicity",
                     "documentDate",
                     "documentIdentifier",
+                    "fileKey",
                     "languages",
                     "name",
                     "personalDataContent",
@@ -1154,8 +1155,7 @@
                     "fileKey": {
                         "type": "string",
                         "description": "Erillisen rajapinnan kautta tallennetun tiedoston avain.",
-                        "format": "uuid",
-                        "nullable": true
+                        "format": "uuid"
                     },
                     "descriptors": {
                         "type": "array",
@@ -1624,7 +1624,8 @@
             },
             "BuildingSite": {
                 "required": [
-                    "stormWaterTreatmentType"
+                    "stormWaterTreatmentType",
+                    "tenure"
                 ],
                 "type": "object",
                 "properties": {
@@ -1702,7 +1703,8 @@
                             "http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste/code/3"
                         ],
                         "type": "string",
-                        "description": "Hallintaperuste. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste\">http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste</a>"
+                        "description": "Hallintaperuste. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste\">http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste</a>",
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false,
@@ -1758,6 +1760,45 @@
                 },
                 "additionalProperties": false,
                 "description": "Määräyksestä poikkeaminen"
+            },
+            "ChangeInformationAdministrativeLocationUnit": {
+                "type": "object",
+                "properties": {
+                    "administrativeLocationUnitKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "unitIdentifier": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "propertyIdentifier": {
+                        "type": "string"
+                    },
+                    "unseparatedParcelIdentifier": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "property": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Property"
+                            }
+                        ],
+                        "description": "Kiinteistö",
+                        "nullable": true
+                    },
+                    "parcel": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/UnseparatedParcel"
+                            }
+                        ],
+                        "description": "Määräala",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
             },
             "ChangeInformationApartment": {
                 "type": "object",
@@ -2087,18 +2128,16 @@
                     "administrativeLocationUnit": {
                         "allOf": [
                             {
-                                "$ref": "#/components/schemas/AdministrativeLocationUnit"
+                                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
                             }
-                        ],
-                        "description": "Hallinnollinen sijaintiyksikkö"
+                        ]
                     },
                     "decisionAdministrativeLocationUnit": {
                         "allOf": [
                             {
-                                "$ref": "#/components/schemas/AdministrativeLocationUnit"
+                                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
                             }
                         ],
-                        "description": "Hallinnollinen sijaintiyksikkö",
                         "nullable": true
                     },
                     "buildingObjectOwner": {
@@ -2144,6 +2183,16 @@
                         "nullable": true
                     },
                     "mainPurpose1994": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "numberOfNewApartments": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "numberOfDeletedApartments": {
                         "type": "integer",
                         "format": "int32",
                         "nullable": true
@@ -2301,7 +2350,8 @@
                     },
                     "buildingSite": {
                         "required": [
-                            "stormWaterTreatmentType"
+                            "stormWaterTreatmentType",
+                            "tenure"
                         ],
                         "allOf": [
                             {
@@ -4700,26 +4750,32 @@
                 "properties": {
                     "fin": {
                         "type": "string",
+                        "description": "suomi",
                         "nullable": true
                     },
                     "swe": {
                         "type": "string",
+                        "description": "ruotsi",
                         "nullable": true
                     },
                     "smn": {
                         "type": "string",
+                        "description": "inarinsaame",
                         "nullable": true
                     },
                     "sms": {
                         "type": "string",
+                        "description": "koltansaame",
                         "nullable": true
                     },
                     "sme": {
                         "type": "string",
+                        "description": "pohjoissaame",
                         "nullable": true
                     },
                     "eng": {
                         "type": "string",
+                        "description": "englanti",
                         "nullable": true
                     }
                 },
@@ -5051,6 +5107,54 @@
                     }
                 },
                 "additionalProperties": {}
+            },
+            "Property": {
+                "type": "object",
+                "properties": {
+                    "municipalityNumber": {
+                        "type": "string"
+                    },
+                    "propertyIdentifier": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "registrationDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "landArea": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "geometry": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/RyhtiGeometry"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "relationToBaseProperty": {
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Kiinteistö"
             },
             "Purpose": {
                 "required": [
@@ -5675,6 +5779,38 @@
                 },
                 "additionalProperties": false
             },
+            "UnseparatedParcel": {
+                "type": "object",
+                "properties": {
+                    "municipalityNumber": {
+                        "type": "string"
+                    },
+                    "unseparatedParcelIdentifier": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "registrationDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "relationToBaseProperty": {
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Määräala"
+            },
             "UsageData": {
                 "type": "object",
                 "properties": {
@@ -5799,12 +5935,12 @@
                     "clientCredentials": {
                         "tokenUrl": "https://identitytest.ymparisto.fi/connect/token",
                         "scopes": {
-                            "ryhti.plan.write": "Kaavatietojen kirjoitusoikeus",
-                            "ryhti.building.write": "Rakennustietojen kirjoitusoikeus",
-                            "ryhti.planui.write": "Käyttöliittymä apin käyttöoikeus",
-                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus",
+                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus.",
                             "ryhti.changeinformation.building.all": "Kaikkien muutostietojen lukuoikeus",
-                            "ryhti.changeinformation.building.generalized": "Karkeutettujen muutostietojen lukuoikeus"
+                            "ryhti.changeinformation.building.generalized": "Karkeutettujen muutostietojen lukuoikeus",
+                            "ryhti.changeinformation.building.owners.all": "Omistajatietojen lukuoikeus, ml turvakiellon alaiset henkilöt.",
+                            "ryhti.changeinformation.building.owners.limited": "Oikeus omistajatietoihin, ilman turvakiellon alaisia henkilöitä.",
+                            "ryhti.changeinformation.building.foremen": "Oikeudet työnjohtajien ja suunnittelijoiden tietoihin."
                         }
                     }
                 }
