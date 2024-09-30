@@ -13,6 +13,16 @@
         },
         "version": "1"
     },
+    "servers": [
+        {
+            "url": "https://api.ymparisto.fi/ryhti/plan-public/",
+            "description": "Julkinen kaavasuunnitelman validointirajapinta - tuotanto"
+        },
+        {
+            "url": "https://api-test.ymparisto.fi/ryhti/plan-public/",
+            "description": "Julkinen kaavasuunnitelman validointirajapinta - testi"
+        }
+    ],
     "paths": {
         "/api/Plan/Validate": {
             "post": {
@@ -2695,7 +2705,7 @@
             "Bearer": {
                 "type": "apiKey",
                 "description": "Enter 'Bearer' [space] and then your valid token in the text input below.\r\n\r\nExample: \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\"",
-                "name": "Authorization",
+                "name": "Ocp-Apim-Subscription-Key",
                 "in": "header"
             },
             "oauth2": {
