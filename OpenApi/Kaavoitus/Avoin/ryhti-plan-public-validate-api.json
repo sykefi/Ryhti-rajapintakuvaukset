@@ -2,7 +2,7 @@
     "openapi": "3.0.1",
     "info": {
         "title": "Ryhti API",
-        "description": "<h2>Ryhti - kaavasuunnitelmien julkinen validointirajapinta</h2>\n\nJulkinen rajapinta kaavasuunnitelmien validointiin.\n\nLisää tietoa rakennetun ympäristön tietojärjestelmästä: <a href=\"https://ryhti.syke.fi/\">https://ryhti.syke.fi/</a>\n<br/>",
+        "description": "<h2>Ryhti - kaavasuunnitelmien julkinen validointirajapinta</h2>\r\n\r\nJulkinen rajapinta kaavasuunnitelmien validointiin.\r\n\r\nLisää tietoa rakennetun ympäristön tietojärjestelmästä: <a href=\"https://ryhti.syke.fi/\">https://ryhti.syke.fi/</a>\r\n<br/>",
         "contact": {
             "name": "Feedback",
             "url": "https://www.syke.fi/en-US/SYKE_Info/Contact_information/Feedback_form(10043)?r=38611"
@@ -34,7 +34,7 @@
                     {
                         "name": "administrativeAreaIdentifiers",
                         "in": "query",
-                        "description": "Kunta- tai maakuntakoodi. <br /><br />Example : 049",
+                        "description": "Kunta- tai maakuntakoodi. \r\n\r\nExample : 049",
                         "required": true,
                         "style": "form",
                         "explode": false,
@@ -236,6 +236,12 @@
                             },
                             {
                                 "$ref": "#/components/schemas/TextValue"
+                            },
+                            {
+                                "$ref": "#/components/schemas/TimePeriodValue"
+                            },
+                            {
+                                "$ref": "#/components/schemas/TimePeriodDateOnlyValue"
                             }
                         ],
                         "description": "Arvo",
@@ -261,7 +267,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Enumeraatio joka määrittää Arvo-luokkien (Domain.ValueObjects.AttributeValue) tyypin.\r\nJokaisella konkreettisella Arvo-luokan (Domain.ValueObjects.AttributeValue) toteutuksella tulee olla sitä vastaava DataType enumeraation arvo."
@@ -271,22 +279,20 @@
             },
             "CancelledGroupRelations": {
                 "required": [
-                    "planObjectKey",
-                    "planRegulationGroupKey"
+                    "planObjectUri",
+                    "planRegulationGroupUri"
                 ],
                 "type": "object",
                 "properties": {
-                    "planRegulationGroupKey": {
+                    "planRegulationGroupUri": {
                         "minLength": 1,
                         "type": "string",
-                        "description": "Kaavamääräysryhmän kohdistamiseen käytettävä tunnus.",
-                        "format": "uuid"
+                        "description": "Kaavamääräysryhmän kohdistamiseen käytettävä tunnus URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planregulationgroup/{planRegulationGroupKey})"
                     },
-                    "planObjectKey": {
+                    "planObjectUri": {
                         "minLength": 1,
                         "type": "string",
-                        "description": "Kaavakohteen kohdistamiseen käytettävä tunnus.",
-                        "format": "uuid"
+                        "description": "Kaavakohteen kohdistamiseen käytettävä tunnus URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planobject/{planObjectKey})"
                     }
                 },
                 "additionalProperties": false,
@@ -333,7 +339,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"code\""
@@ -381,7 +389,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"decimalRange\""
@@ -424,7 +434,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"decimal\""
@@ -462,6 +474,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "generalRegulationGroupUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/generalregulationgroup/{guid})",
+                        "readOnly": true
                     },
                     "titleOfPlanRegulation": {
                         "allOf": [
@@ -554,7 +571,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "LineString GeoJson<br />\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiLineStringGeometry": {
                 "required": [
@@ -597,7 +614,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "LineString GeoJson<br />\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiPointGeometry": {
                 "required": [
@@ -637,7 +654,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "MultiPoint GeoJson<br />\r\nEsimerkki: { \"type\": \"multiPoint\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "MultiPoint GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPoint\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiPolygonGeometry": {
                 "required": [
@@ -683,7 +700,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "MultiPolygon GeoJson<br />\r\nEsimerkki: { \"type\": \"multiPolygon\", \"coordinates\": [ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ] }"
+                "description": "MultiPolygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPolygon\", \"coordinates\": [ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ] }"
             },
             "GeoJsonPointGeometry": {
                 "required": [
@@ -720,7 +737,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "Point GeoJson<br />\r\nEsimerkki: { \"type\": \"point\", \"coordinates\": [100.0, 0.0] }"
+                "description": "Point GeoJson\r\n\r\nEsimerkki: { \"type\": \"point\", \"coordinates\": [100.0, 0.0] }"
             },
             "GeoJsonPolygonGeometry": {
                 "required": [
@@ -763,7 +780,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "Polygon GeoJson<br />\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
+                "description": "Polygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
             },
             "IdentifierValue": {
                 "required": [
@@ -806,7 +823,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"identifier\""
@@ -889,7 +908,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"localizedText\""
@@ -937,7 +958,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"numericRange\""
@@ -980,7 +1003,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"numeric\""
@@ -1002,6 +1027,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "otherPlanMaterialUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/otherplanmaterial/{guid})",
+                        "readOnly": true
                     },
                     "name": {
                         "allOf": [
@@ -1036,17 +1066,23 @@
                 "additionalProperties": false,
                 "description": "MuuKaavaAineisto"
             },
-            "PartiallyCancellationPlanObjectInfo": {
+            "PartiallyCancelledPlanObjectInfo": {
                 "required": [
-                    "partiallyCancelledPlanObjectId",
+                    "cancelledPlanUri",
+                    "partiallyCancelledPlanObjectUri",
                     "validityGeometry"
                 ],
                 "type": "object",
                 "properties": {
-                    "partiallyCancelledPlanObjectId": {
+                    "cancelledPlanUri": {
                         "minLength": 1,
                         "type": "string",
-                        "description": "Kaavakohteen yksilöivätunnus, jota osittainen kumoutuminen koskee."
+                        "description": "Kumottavan hyväkstytyn kaavan tunnus URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/plan/{planKey})"
+                    },
+                    "partiallyCancelledPlanObjectUri": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Kumottavan kaavakohteen tunnus uri-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planobject/{planObjectKey})"
                     },
                     "validityGeometry": {
                         "allOf": [
@@ -1074,6 +1110,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "planUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/plan/{guid})",
+                        "readOnly": true
                     },
                     "lifeCycleStatus": {
                         "enum": [
@@ -1204,10 +1245,10 @@
                         "description": "Laatija",
                         "nullable": true
                     },
-                    "partiallyCancellationPlanObjects": {
+                    "partiallyCancelledPlanObjects": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/PartiallyCancellationPlanObjectInfo"
+                            "$ref": "#/components/schemas/PartiallyCancelledPlanObjectInfo"
                         },
                         "description": "// Osittain kumottavat kaavakohteet",
                         "nullable": true
@@ -1328,6 +1369,11 @@
                         "format": "date",
                         "nullable": true
                     },
+                    "planAttachmentDocumentUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planattachmentdocument/{guid})",
+                        "readOnly": true
+                    },
                     "typeOfAttachment": {
                         "minLength": 1,
                         "type": "string",
@@ -1363,10 +1409,7 @@
             },
             "PlanCancellationInfo": {
                 "required": [
-                    "cancelledGuidanceId",
-                    "cancelledPlanId",
-                    "cancelledPlanObjectId",
-                    "cancelledRegulationId",
+                    "cancelledPlanUri",
                     "cancelsEntirePlan",
                     "planCancellationInfoKey"
                 ],
@@ -1377,49 +1420,47 @@
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
                     },
-                    "cancelledPlanId": {
+                    "planCancellationInfoUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/plancancellationinfo/{guid})",
+                        "readOnly": true
+                    },
+                    "cancelledPlanUri": {
                         "minLength": 1,
                         "type": "string",
-                        "description": "Kumottavan kaavan tunnus"
+                        "description": "Kumottavan hyväkstytyn kaavan tunnus URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/plan/{planKey})"
                     },
                     "cancelsEntirePlan": {
                         "type": "boolean",
                         "description": "Kumoaa kaavan kokonaan"
                     },
-                    "cancelledPlanObjectId": {
+                    "cancelledPlanObjectUris": {
                         "type": "array",
                         "items": {
-                            "minLength": 1,
                             "type": "string"
                         },
-                        "description": "Kumottavan kaavakohteen tunnukset",
-                        "nullable": true
+                        "description": "Kumottavan kaavakohteen tunnukset URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planobject/{planObjectKey})"
                     },
-                    "cancelledRegulationId": {
+                    "cancelledRegulationUris": {
                         "type": "array",
                         "items": {
-                            "minLength": 1,
                             "type": "string"
                         },
-                        "description": "Kumottavan määräyksen tunnukset",
-                        "nullable": true
+                        "description": "Kumottavan määräyksen tunnukset URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{planRegulationKey})"
                     },
-                    "cancelledGuidanceId": {
+                    "cancelledRecommendationUris": {
                         "type": "array",
                         "items": {
-                            "minLength": 1,
                             "type": "string"
                         },
-                        "description": "Kumottavan suosituksen tunnukset",
-                        "nullable": true
+                        "description": "Kumottavan suosituksen tunnukset URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planrecommendation/{planRecommendationKey})"
                     },
                     "cancelledGroupRelations": {
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/CancelledGroupRelations"
                         },
-                        "description": "Kumottavan ryhmän kohdistus. Kuvaa kaavakohteesta kumoutuvat kaavamääräysryhmät.",
-                        "nullable": true
+                        "description": "Kumottavan ryhmän kohdistus. Kuvaa kaavakohteesta kumoutuvat kaavamääräysryhmät."
                     }
                 },
                 "additionalProperties": false,
@@ -1438,6 +1479,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "planMapUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planmap/{guid})",
+                        "readOnly": true
                     },
                     "name": {
                         "allOf": [
@@ -1473,6 +1519,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "planObjectUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planobject/{guid})",
+                        "readOnly": true
                     },
                     "lifeCycleStatus": {
                         "enum": [
@@ -1543,7 +1594,15 @@
                             "type": "string",
                             "format": "uuid"
                         },
-                        "description": "Viittaus (GUID) kaavan mukana toimitettavaan lähtötietoaineistoon sisältyvään tietokohteeseen, joka liittyy​ kaavakohteeseen. Esim. Pohjavesialue.",
+                        "description": "Viittaus (GUID) kaavan mukana toimitettavaan lähtötietoaineistoon sisältyvään tietokohteeseen, joka liittyy kaavakohteeseen. Esim. Pohjavesialue.\r\nPäivitysvaiheessa tämän listan kuuluu olla tyhjä.",
+                        "nullable": true
+                    },
+                    "relatedPlanSourceDataUris": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Viittaus (URI) kaava-asian mukana toimitettavaan, aiemmin tallennettuun, lähtötietoaineistoon sisältyvään tietokohteeseen, joka liittyy tallennettuun kaavakohteeseen. Esim. Pohjavesialue.",
                         "nullable": true
                     },
                     "periodOfValidity": {
@@ -1584,6 +1643,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "planOperatorUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planoperator/{guid})",
+                        "readOnly": true
                     },
                     "firstName": {
                         "type": "string",
@@ -1626,6 +1690,11 @@
                         "type": "string",
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
+                    },
+                    "planRecommendationUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planrecommendation/{guid})",
+                        "readOnly": true
                     },
                     "value": {
                         "allOf": [
@@ -1706,6 +1775,11 @@
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
                     },
+                    "planRegulationUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{guid})",
+                        "readOnly": true
+                    },
                     "value": {
                         "oneOf": [
                             {
@@ -1746,6 +1820,12 @@
                             },
                             {
                                 "$ref": "#/components/schemas/TextValue"
+                            },
+                            {
+                                "$ref": "#/components/schemas/TimePeriodValue"
+                            },
+                            {
+                                "$ref": "#/components/schemas/TimePeriodDateOnlyValue"
                             }
                         ],
                         "nullable": true
@@ -2149,6 +2229,11 @@
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
                     },
+                    "planRegulationGroupUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planregulationgroup/{guid})",
+                        "readOnly": true
+                    },
                     "titleOfPlanRegulation": {
                         "allOf": [
                             {
@@ -2218,6 +2303,11 @@
                         "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
                         "format": "uuid"
                     },
+                    "planReportUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/planreport/{guid})",
+                        "readOnly": true
+                    },
                     "attachmentDocuments": {
                         "minItems": 1,
                         "type": "array",
@@ -2268,7 +2358,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"positiveDecimalRange\""
@@ -2311,7 +2403,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"positiveDecimal\""
@@ -2359,7 +2453,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"positiveNumericRange\""
@@ -2402,7 +2498,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"positiveNumeric\""
@@ -2463,7 +2561,7 @@
                             "3885"
                         ],
                         "type": "string",
-                        "description": "Gauss Krüger projektio; SRID koodi; SRID nimi<br />\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873<br />\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874<br />\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875<br />\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876<br />\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877<br />\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878<br />\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879<br />\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880<br />\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881<br />\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882<br />\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883<br />\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884<br />\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885<br />\r\n   3067 TM35FIN<br />"
+                        "description": "Gauss Krüger projektio; SRID koodi; SRID nimi\r\n\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873\r\n\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874\r\n\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875\r\n\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876\r\n\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877\r\n\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878\r\n\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879\r\n\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880\r\n\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881\r\n\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882\r\n\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883\r\n\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884\r\n\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885\r\n\r\n   3067 TM35FIN\r\n"
                     },
                     "geometry": {
                         "oneOf": [
@@ -2525,7 +2623,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"spotElevation\""
@@ -2567,7 +2667,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"text\""
@@ -2591,6 +2693,101 @@
                     }
                 },
                 "additionalProperties": false
+            },
+            "TimePeriodDateOnlyValue": {
+                "required": [
+                    "dataType"
+                ],
+                "type": "object",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/AttributeValue"
+                    }
+                ],
+                "properties": {
+                    "begin": {
+                        "type": "string",
+                        "description": "Alkupäivä",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "end": {
+                        "type": "string",
+                        "description": "Loppupäivä",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "dataType": {
+                        "enum": [
+                            "LocalizedText",
+                            "Text",
+                            "Numeric",
+                            "NumericRange",
+                            "PositiveNumeric",
+                            "PositiveNumericRange",
+                            "Decimal",
+                            "DecimalRange",
+                            "PositiveDecimal",
+                            "PositiveDecimalRange",
+                            "Code",
+                            "Identifier",
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
+                        ],
+                        "type": "string",
+                        "description": "Pakollinen arvo: \"timePeriodDateOnly\""
+                    }
+                },
+                "additionalProperties": false,
+                "description": "TimePeriodDateOnly"
+            },
+            "TimePeriodValue": {
+                "required": [
+                    "dataType"
+                ],
+                "type": "object",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/AttributeValue"
+                    }
+                ],
+                "properties": {
+                    "beginUtc": {
+                        "type": "string",
+                        "description": "Alkuaika",
+                        "format": "date-time"
+                    },
+                    "endUtc": {
+                        "type": "string",
+                        "description": "Loppuaika",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "dataType": {
+                        "enum": [
+                            "LocalizedText",
+                            "Text",
+                            "Numeric",
+                            "NumericRange",
+                            "PositiveNumeric",
+                            "PositiveNumericRange",
+                            "Decimal",
+                            "DecimalRange",
+                            "PositiveDecimal",
+                            "PositiveDecimalRange",
+                            "Code",
+                            "Identifier",
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
+                        ],
+                        "type": "string",
+                        "description": "Pakollinen arvo: \"timePeriod\""
+                    }
+                },
+                "additionalProperties": false,
+                "description": "TimePeriod"
             },
             "ValidationProblemDetails": {
                 "type": "object",
@@ -2641,14 +2838,7 @@
                 "flows": {
                     "clientCredentials": {
                         "tokenUrl": "https://identitytest.ymparisto.fi/connect/token",
-                        "scopes": {
-                            "ryhti.plan.write": "Kaavatietojen kirjoitusoikeus",
-                            "ryhti.building.write": "Rakennustietojen kirjoitusoikeus",
-                            "ryhti.planui.write": "Käyttöliittymä apin käyttöoikeus",
-                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus",
-                            "ryhti.changeinformation.building.all": "Kaikkien muutostietojen lukuoikeus",
-                            "ryhti.changeinformation.building.generalized": "Karkeutettujen muutostietojen lukuoikeus"
-                        }
+                        "scopes": {}
                     }
                 }
             }

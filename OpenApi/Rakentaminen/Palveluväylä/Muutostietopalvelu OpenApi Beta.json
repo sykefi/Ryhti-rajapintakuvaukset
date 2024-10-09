@@ -2,7 +2,7 @@
     "openapi": "3.0.1",
     "info": {
         "title": "Ryhti API",
-        "description": "<h2>Rakennetun ympäristön muutostietorajapinta</h2>\n\nLisää tietoa rakennetun ympäristön tietojärjestelmästä: <a href=\"https://ryhti.syke.fi/\">https://ryhti.syke.fi/</a>\n<br/>",
+        "description": "<h2>Rakennetun ympäristön muutostietorajapinta</h2>\r\n\r\nLisää tietoa rakennetun ympäristön tietojärjestelmästä: <a href=\"https://ryhti.syke.fi/\">https://ryhti.syke.fi/</a>\r\n<br/>",
         "contact": {
             "name": "Feedback",
             "url": "https://www.syke.fi/en-US/SYKE_Info/Contact_information/Feedback_form(10043)?r=38611"
@@ -101,6 +101,16 @@
                     "ChangeInformation"
                 ],
                 "summary": "Hae rakennuksen muutostiedot",
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "description": "Kuntanumerot joista muutoksia halutaan. Eroteltu pilkulla.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "description": "Viimeisin ID muutostentietojen hakemiseksi.",
                     "content": {
@@ -135,7 +145,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -175,7 +185,7 @@
                         }
                     },
                     "422": {
-                        "description": "Client Error",
+                        "description": "Unprocessable Content",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -203,6 +213,16 @@
                     "ChangeInformation"
                 ],
                 "summary": "Hae karkeutetut rakennuksen muutostiedot",
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "description": "Kuntanumerot joista muutoksia halutaan. Eroteltu pilkulla.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "description": "Viimeisin ID muutostentietojen hakemiseksi.",
                     "content": {
@@ -237,7 +257,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -277,7 +297,7 @@
                         }
                     },
                     "422": {
-                        "description": "Client Error",
+                        "description": "Unprocessable Content",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -305,6 +325,16 @@
                     "ChangeInformation"
                 ],
                 "summary": "Hae rakennuslupa-asia muutostiedot",
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "description": "Kuntanumerot joista muutoksia halutaan. Eroteltu pilkulla.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "description": "Viimeisin ID muutostentietojen hakemiseksi.",
                     "content": {
@@ -339,7 +369,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -379,7 +409,7 @@
                         }
                     },
                     "422": {
-                        "description": "Client Error",
+                        "description": "Unprocessable Content",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -402,6 +432,118 @@
             }
         },
         "/api/ChangeInformation/BuildingPermitGeneralized": {
+            "post": {
+                "tags": [
+                    "ChangeInformation"
+                ],
+                "summary": "Hae rakennuslupa-asia muutostiedot",
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "description": "Kuntanumerot joista muutoksia halutaan. Eroteltu pilkulla.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Viimeisin ID muutostentietojen hakemiseksi.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ChangeInformation/Operator": {
             "post": {
                 "tags": [
                     "ChangeInformation"
@@ -441,7 +583,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -481,7 +623,7 @@
                         }
                     },
                     "422": {
-                        "description": "Client Error",
+                        "description": "Unprocessable Content",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -509,6 +651,15 @@
                     "InitialInformation"
                 ],
                 "summary": "Hae rakennuksen perustiedot",
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -542,7 +693,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -569,6 +720,15 @@
                 "tags": [
                     "InitialInformation"
                 ],
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -602,7 +762,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -629,65 +789,14 @@
                 "tags": [
                     "InitialInformation"
                 ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/GetInitialInfo"
-                                    }
-                                ]
-                            }
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
                         }
                     }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            },
-                            "text/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/InitialInformationCollection"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/InitialInformation/BuildingPermitGeneralized": {
-            "post": {
-                "tags": [
-                    "InitialInformation"
                 ],
                 "requestBody": {
                     "content": {
@@ -722,7 +831,76 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InitialInformationCollection"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InitialInformationCollection"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InitialInformationCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/InitialInformation/BuildingPermitGeneralized": {
+            "post": {
+                "tags": [
+                    "InitialInformation"
+                ],
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetInitialInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetInitialInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetInitialInfo"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -1095,6 +1273,7 @@
                     "categoryOfPublicity",
                     "documentDate",
                     "documentIdentifier",
+                    "fileKey",
                     "languages",
                     "name",
                     "personalDataContent",
@@ -1154,8 +1333,7 @@
                     "fileKey": {
                         "type": "string",
                         "description": "Erillisen rajapinnan kautta tallennetun tiedoston avain.",
-                        "format": "uuid",
-                        "nullable": true
+                        "format": "uuid"
                     },
                     "descriptors": {
                         "type": "array",
@@ -1624,7 +1802,8 @@
             },
             "BuildingSite": {
                 "required": [
-                    "stormWaterTreatmentType"
+                    "stormWaterTreatmentType",
+                    "tenure"
                 ],
                 "type": "object",
                 "properties": {
@@ -1702,7 +1881,8 @@
                             "http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste/code/3"
                         ],
                         "type": "string",
-                        "description": "Hallintaperuste. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste\">http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste</a>"
+                        "description": "Hallintaperuste. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste\">http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste</a>",
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false,
@@ -1758,6 +1938,45 @@
                 },
                 "additionalProperties": false,
                 "description": "Määräyksestä poikkeaminen"
+            },
+            "ChangeInformationAdministrativeLocationUnit": {
+                "type": "object",
+                "properties": {
+                    "administrativeLocationUnitKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "unitIdentifier": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "propertyIdentifier": {
+                        "type": "string"
+                    },
+                    "unseparatedParcelIdentifier": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "property": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Property"
+                            }
+                        ],
+                        "description": "Kiinteistö",
+                        "nullable": true
+                    },
+                    "parcel": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/UnseparatedParcel"
+                            }
+                        ],
+                        "description": "Määräala",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
             },
             "ChangeInformationApartment": {
                 "type": "object",
@@ -2087,18 +2306,16 @@
                     "administrativeLocationUnit": {
                         "allOf": [
                             {
-                                "$ref": "#/components/schemas/AdministrativeLocationUnit"
+                                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
                             }
-                        ],
-                        "description": "Hallinnollinen sijaintiyksikkö"
+                        ]
                     },
                     "decisionAdministrativeLocationUnit": {
                         "allOf": [
                             {
-                                "$ref": "#/components/schemas/AdministrativeLocationUnit"
+                                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
                             }
                         ],
-                        "description": "Hallinnollinen sijaintiyksikkö",
                         "nullable": true
                     },
                     "buildingObjectOwner": {
@@ -2147,6 +2364,16 @@
                         "type": "integer",
                         "format": "int32",
                         "nullable": true
+                    },
+                    "numberOfNewApartments": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "numberOfDeletedApartments": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false
@@ -2170,6 +2397,12 @@
                     "parentType": {
                         "type": "string",
                         "nullable": true
+                    },
+                    "parentChain": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ParentTypeKey"
+                        }
                     },
                     "objectState": {
                         "allOf": [
@@ -2230,7 +2463,8 @@
                             {
                                 "$ref": "#/components/schemas/ChangeInformationBuilding"
                             }
-                        ]
+                        ],
+                        "nullable": true
                     },
                     "diff": {
                         "type": "array",
@@ -2301,7 +2535,8 @@
                     },
                     "buildingSite": {
                         "required": [
-                            "stormWaterTreatmentType"
+                            "stormWaterTreatmentType",
+                            "tenure"
                         ],
                         "allOf": [
                             {
@@ -2377,6 +2612,12 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "parentChain": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ParentTypeKey"
+                        }
+                    },
                     "objectState": {
                         "allOf": [
                             {
@@ -2436,7 +2677,8 @@
                             {
                                 "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
                             }
-                        ]
+                        ],
+                        "nullable": true
                     },
                     "diff": {
                         "type": "array",
@@ -4083,7 +4325,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "LineString GeoJson<br />\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiLineStringGeometry": {
                 "required": [
@@ -4126,7 +4368,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "LineString GeoJson<br />\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiPointGeometry": {
                 "required": [
@@ -4166,7 +4408,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "MultiPoint GeoJson<br />\r\nEsimerkki: { \"type\": \"multiPoint\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "MultiPoint GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPoint\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiPolygonGeometry": {
                 "required": [
@@ -4212,7 +4454,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "MultiPolygon GeoJson<br />\r\nEsimerkki: { \"type\": \"multiPolygon\", \"coordinates\": [ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ] }"
+                "description": "MultiPolygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPolygon\", \"coordinates\": [ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ] }"
             },
             "GeoJsonPointGeometry": {
                 "required": [
@@ -4249,7 +4491,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "Point GeoJson<br />\r\nEsimerkki: { \"type\": \"point\", \"coordinates\": [100.0, 0.0] }"
+                "description": "Point GeoJson\r\n\r\nEsimerkki: { \"type\": \"point\", \"coordinates\": [100.0, 0.0] }"
             },
             "GeoJsonPolygonGeometry": {
                 "required": [
@@ -4292,7 +4534,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "Polygon GeoJson<br />\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
+                "description": "Polygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
             },
             "GetChangeInfo": {
                 "type": "object",
@@ -4387,11 +4629,8 @@
                         "readOnly": true
                     },
                     "totalDuration": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/TimeSpan"
-                            }
-                        ],
+                        "type": "string",
+                        "format": "date-span",
                         "readOnly": true
                     },
                     "entries": {
@@ -4408,11 +4647,8 @@
                 "type": "object",
                 "properties": {
                     "duration": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/TimeSpan"
-                            }
-                        ],
+                        "type": "string",
+                        "format": "date-span",
                         "readOnly": true
                     },
                     "status": {
@@ -4700,26 +4936,32 @@
                 "properties": {
                     "fin": {
                         "type": "string",
+                        "description": "suomi",
                         "nullable": true
                     },
                     "swe": {
                         "type": "string",
+                        "description": "ruotsi",
                         "nullable": true
                     },
                     "smn": {
                         "type": "string",
+                        "description": "inarinsaame",
                         "nullable": true
                     },
                     "sms": {
                         "type": "string",
+                        "description": "koltansaame",
                         "nullable": true
                     },
                     "sme": {
                         "type": "string",
+                        "description": "pohjoissaame",
                         "nullable": true
                     },
                     "eng": {
                         "type": "string",
+                        "description": "englanti",
                         "nullable": true
                     }
                 },
@@ -4896,6 +5138,16 @@
                 },
                 "additionalProperties": false
             },
+            "ParentTypeKey": {
+                "type": "object",
+                "properties": {
+                    "parentType": {
+                        "type": "string"
+                    },
+                    "parentKey": {}
+                },
+                "additionalProperties": false
+            },
             "PermitRegulation": {
                 "required": [
                     "permitRegulationType"
@@ -5051,6 +5303,54 @@
                     }
                 },
                 "additionalProperties": {}
+            },
+            "Property": {
+                "type": "object",
+                "properties": {
+                    "municipalityNumber": {
+                        "type": "string"
+                    },
+                    "propertyIdentifier": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "registrationDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "landArea": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "geometry": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/RyhtiGeometry"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "relationToBaseProperty": {
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Kiinteistö"
             },
             "Purpose": {
                 "required": [
@@ -5253,7 +5553,7 @@
                             "3885"
                         ],
                         "type": "string",
-                        "description": "Gauss Krüger projektio; SRID koodi; SRID nimi<br />\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873<br />\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874<br />\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875<br />\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876<br />\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877<br />\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878<br />\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879<br />\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880<br />\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881<br />\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882<br />\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883<br />\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884<br />\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885<br />\r\n   3067 TM35FIN<br />"
+                        "description": "Gauss Krüger projektio; SRID koodi; SRID nimi\r\n\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873\r\n\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874\r\n\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875\r\n\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876\r\n\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877\r\n\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878\r\n\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879\r\n\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880\r\n\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881\r\n\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882\r\n\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883\r\n\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884\r\n\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885\r\n\r\n   3067 TM35FIN\r\n"
                     },
                     "geometry": {
                         "oneOf": [
@@ -5595,85 +5895,37 @@
                 "additionalProperties": false,
                 "description": "Rakennelman osa"
             },
-            "TimeSpan": {
+            "UnseparatedParcel": {
                 "type": "object",
                 "properties": {
-                    "ticks": {
-                        "type": "integer",
-                        "format": "int64"
+                    "municipalityNumber": {
+                        "type": "string"
                     },
-                    "days": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
+                    "unseparatedParcelIdentifier": {
+                        "type": "string"
                     },
-                    "hours": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
+                    "status": {
+                        "type": "string"
                     },
-                    "milliseconds": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
+                    "registrationDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
                     },
-                    "microseconds": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
+                    "endDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
                     },
-                    "nanoseconds": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
+                    "type": {
+                        "type": "string"
                     },
-                    "minutes": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "seconds": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "totalDays": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalHours": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalMilliseconds": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalMicroseconds": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalNanoseconds": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalMinutes": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalSeconds": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
+                    "relationToBaseProperty": {
+                        "type": "string"
                     }
                 },
-                "additionalProperties": false
+                "additionalProperties": false,
+                "description": "Määräala"
             },
             "UsageData": {
                 "type": "object",
@@ -5799,12 +6051,12 @@
                     "clientCredentials": {
                         "tokenUrl": "https://identitytest.ymparisto.fi/connect/token",
                         "scopes": {
-                            "ryhti.plan.write": "Kaavatietojen kirjoitusoikeus",
-                            "ryhti.building.write": "Rakennustietojen kirjoitusoikeus",
-                            "ryhti.planui.write": "Käyttöliittymä apin käyttöoikeus",
-                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus",
+                            "ryhti.changeinformation.read": "Muutostietojen lukuoikeus.",
                             "ryhti.changeinformation.building.all": "Kaikkien muutostietojen lukuoikeus",
-                            "ryhti.changeinformation.building.generalized": "Karkeutettujen muutostietojen lukuoikeus"
+                            "ryhti.changeinformation.building.generalized": "Karkeutettujen muutostietojen lukuoikeus",
+                            "ryhti.changeinformation.building.owners.all": "Omistajatietojen lukuoikeus, ml turvakiellon alaiset henkilöt.",
+                            "ryhti.changeinformation.building.owners.limited": "Oikeus omistajatietoihin, ilman turvakiellon alaisia henkilöitä.",
+                            "ryhti.changeinformation.building.foremen": "Oikeudet työnjohtajien ja suunnittelijoiden tietoihin."
                         }
                     }
                 }
