@@ -95,6 +95,202 @@
                 }
             }
         },
+        "/api/BindingPlotDivisionMatter/{permanentBindingPlotDivisionIdentifier}": {
+            "get": {
+                "tags": [
+                    "BindingPlotDivisionMatter"
+                ],
+                "summary": "Sitovan tonttijaon asian hakeminen pysyvällä sitovan tonttijaon tunnuksella.",
+                "parameters": [
+                    {
+                        "name": "permanentBindingPlotDivisionIdentifier",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BindingPlotDivisionMatterResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BindingPlotDivisionMatterResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BindingPlotDivisionMatterResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Kutsun rakenne ei ole scheman mukainen.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Kutsun tietosisällössä virheitä.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "BindingPlotDivisionMatter"
+                ],
+                "summary": "Rajapinta sitovan tonttijaon asian luomiseen.",
+                "description": "Asialle on varattava pysyvä yksilöivä tunnus ennen asian tuontia Ryhtiin. Pysyvän yksilöivän tunnuksen tulee olla sitovan tonttijaon pysyvä tunnus.",
+                "parameters": [
+                    {
+                        "name": "permanentBindingPlotDivisionIdentifier",
+                        "in": "path",
+                        "description": "Pysyvä yksilöivä tunnus sitovan tonttijaon asialle.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Sitovan tonttijaon asia.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/BindingPlotDivisionMatter"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/BindingPlotDivisionMatter"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/BindingPlotDivisionMatter"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Sitovan tonttijaon asia tallennettu, paluuarvona uri tallennettuun resurssiin.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/BindingPlotDivisionMatter/PermanentBindingPlotDivisionIdentifier": {
             "post": {
                 "tags": [
@@ -222,6 +418,494 @@
                 }
             }
         },
+        "/api/BindingPlotDivisionMatter/{permanentBindingPlotDivisionIdentifier}/Validate": {
+            "post": {
+                "tags": [
+                    "BindingPlotDivisionMatter"
+                ],
+                "summary": "Rajapinta sitovan tonttijaon asian validoimiseen ilman tallentamista.",
+                "description": "Rajapinta validoi sitovan tonttijaon asian kokonaisuudessaan, sisältäen ensimmäisen vaiheen ja kaikki sen tiedot.",
+                "parameters": [
+                    {
+                        "name": "permanentBindingPlotDivisionIdentifier",
+                        "in": "path",
+                        "description": "Pysyvä sitovan tonttijaon tunnus sitovan tonttijaon asialle.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Validoitava sitovan tonttijaon asian sisältäen ensimmäisen sitovan tonttijaon asian vaiheen.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/BindingPlotDivisionMatter"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/BindingPlotDivisionMatter"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/BindingPlotDivisionMatter"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sitovan tonttijaon asiassa ei virheitä.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SuccessResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SuccessResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SuccessResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Kutsun rakenne ei ole scheman mukainen.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Kutsun tietosisällössä virheitä.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/BindingPlotDivisionMatter/{permanentBindingPlotDivisionIdentifier}/phase/{bindingPlotDivisionMatterPhaseKey}": {
+            "post": {
+                "tags": [
+                    "BindingPlotDivisionMatter"
+                ],
+                "summary": "Rajapinta sitovan tonttijaon asian vaiheen lisäämiseen olemassa olevalle sitovan tonttijaon asialle.",
+                "description": "Sitovan tonttijaon asian täytyy olla jo lisättynä järjestelmään. Uusi vaihe lisätään edellisen perään.",
+                "parameters": [
+                    {
+                        "name": "permanentBindingPlotDivisionIdentifier",
+                        "in": "path",
+                        "description": "Pysyvä sitovan tonttijaon tunnus sitovan tonttijaon asialle.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bindingPlotDivisionMatterPhaseKey",
+                        "in": "path",
+                        "description": "Pysyvä yksilöivä tunnus sitovan tonttijaon asian vaiheelle.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Lisättävä sitovan tonttijaon asian vaihe kokonaisuudessaan.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Sitovan tonttijaon asian vaihe tallennettu.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SuccessResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SuccessResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SuccessResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Kutsun rakenne ei ole scheman mukainen.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Kutsun tietosisällössä virheitä.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/BindingPlotDivisionMatter/{permanentBindingPlotDivisionIdentifier}/phase/{bindingPlotDivisionMatterPhaseKey}/validate": {
+            "post": {
+                "tags": [
+                    "BindingPlotDivisionMatter"
+                ],
+                "summary": "Rajapinta sitovan tonttijaon asian vaiheen validoimiseen ilman tallennusta.",
+                "description": "Sitovan tonttijaon asian täytyy olla jo lisättynä järjestelmään. Uusi vaihe lisätään edellisen perään.",
+                "parameters": [
+                    {
+                        "name": "permanentBindingPlotDivisionIdentifier",
+                        "in": "path",
+                        "description": "Pysyvä sitovan tonttijaon tunnus sitovan tonttijaon asialle.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bindingPlotDivisionMatterPhaseKey",
+                        "in": "path",
+                        "description": "Pysyvä yksilöivä tunnus sitovan tonttijaon asian vaiheelle.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Lisättävä sitovan tonttijaon asian vaihe kokonaisuudessaan.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Vaiheessa ei virheitä."
+                    },
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SuccessResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SuccessResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SuccessResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Kutsun rakenne ei ole scheman mukainen.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Kutsun tietosisällössä virheitä.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/BindingPlotDivisionMatter/{permanentBindingPlotDivisionIdentifier}/planEffects": {
+            "post": {
+                "tags": [
+                    "BindingPlotDivisionMatter"
+                ],
+                "summary": "Rajapinta kaavan vaikutusten luomiseen.",
+                "parameters": [
+                    {
+                        "name": "permanentBindingPlotDivisionIdentifier",
+                        "in": "path",
+                        "description": "Pysyvä yksilöivä tunnus sitovan tonttijaon asialle.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Kaavan vaikutukset.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/PlanEffects"
+                                    }
+                                ],
+                                "description": "KaavanVaikutukset"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/PlanEffects"
+                                    }
+                                ],
+                                "description": "KaavanVaikutukset"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/PlanEffects"
+                                    }
+                                ],
+                                "description": "KaavanVaikutukset"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Kaavan vaikutukset tallennettu, paluuarvona uri tallennettuun resurssiin.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/LocalDetailedPlanMatter/{permanentPlanIdentifier}": {
             "get": {
                 "tags": [
@@ -240,7 +924,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -558,7 +1242,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -1263,7 +1947,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -1581,7 +2265,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -2288,7 +2972,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "application/pdf": {
                                 "schema": {
@@ -2323,7 +3007,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -2641,7 +3325,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -3367,6 +4051,24 @@
                 "tags": [
                     "UploadedFile"
                 ],
+                "parameters": [
+                    {
+                        "name": "municipalityId",
+                        "in": "query",
+                        "description": "Jos käyttäjällä on oikeus useampaan kuntaan tulee pyynnön sisältää kuntaId, jolle tiedosto tuodaan. Vain toinen id on sallittu.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "regionId",
+                        "in": "query",
+                        "description": "Jos käyttäjällä on oikeus useampaan maakuntaan tulee pyynnön sisältää maakuntaId, jolle tiedosto tuodaan. Vain toinen id on sallittu.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "multipart/form-data": {
@@ -3519,6 +4221,12 @@
                             },
                             {
                                 "$ref": "#/components/schemas/TextValue"
+                            },
+                            {
+                                "$ref": "#/components/schemas/TimePeriodValue"
+                            },
+                            {
+                                "$ref": "#/components/schemas/TimePeriodDateOnlyValue"
                             }
                         ],
                         "description": "Arvo",
@@ -3635,7 +4343,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Enumeraatio joka määrittää Arvo-luokkien (Domain.ValueObjects.AttributeValue) tyypin.\r\nJokaisella konkreettisella Arvo-luokan (Domain.ValueObjects.AttributeValue) toteutuksella tulee olla sitä vastaava DataType enumeraation arvo."
@@ -3902,11 +4612,6 @@
                         "type": "string",
                         "description": "sitovan tonttijaon pysyvä tunnus"
                     },
-                    "bindingPlotDivisionMatterUri": {
-                        "type": "string",
-                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/bindingplotdivisionmatter/{identifier})",
-                        "readOnly": true
-                    },
                     "producerBindingPlotDivisionIdentifier": {
                         "type": "string",
                         "description": "kunnan antama sitovan tonttijaon tunnus",
@@ -4072,7 +4777,8 @@
                             "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0710",
                             "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0102",
                             "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0403",
-                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0404"
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0404",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0405"
                         ],
                         "type": "string",
                         "description": "Päätöksen nimitys, joka kertoo mitä päätös koskee. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi\">http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi</a>"
@@ -4161,6 +4867,123 @@
                         ],
                         "description": "Sitova tonttijako",
                         "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "BindingPlotDivisionMatterResponse": {
+                "required": [
+                    "administrativeAreaIdentifiers",
+                    "bindingPlotDivisionType",
+                    "name",
+                    "permanentBindingPlotDivisionIdentifier",
+                    "phases",
+                    "timeOfInitiation"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
+                    },
+                    "description": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "bindingPlotDivisionType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/sitovanTonttijaonLaji/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/sitovanTonttijaonLaji/code/02"
+                        ],
+                        "type": "string",
+                        "description": "Sitovan tonttijaon laji. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/sitovanTonttijaonLaji\">http://uri.suomi.fi/codelist/rytj/sitovanTonttijaonLaji</a>"
+                    },
+                    "permanentBindingPlotDivisionIdentifier": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "sitovan tonttijaon pysyvä tunnus"
+                    },
+                    "producerBindingPlotDivisionIdentifier": {
+                        "type": "string",
+                        "description": "kunnan antama sitovan tonttijaon tunnus",
+                        "nullable": true
+                    },
+                    "caseIdentifiers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "asianhallintatunnukset",
+                        "nullable": true
+                    },
+                    "recordNumbers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "diaarinumerot",
+                        "nullable": true
+                    },
+                    "timeOfInitiation": {
+                        "type": "string",
+                        "description": "vireilletulopäivämäärä",
+                        "format": "date"
+                    },
+                    "administrativeAreaIdentifiers": {
+                        "maxItems": 1,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "hallinnollisen alueen tunnukset"
+                    },
+                    "phases": {
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+                        },
+                        "description": "Vaiheet"
+                    },
+                    "responsibleParty": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/BindingPlotDivisionOperator"
+                            }
+                        ],
+                        "description": "Vastuutaho",
+                        "nullable": true
+                    },
+                    "relatedBindingPlotDivisionMatters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Liittyvät asiat",
+                        "nullable": true
+                    },
+                    "matterAnnexes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BindingPlotDivisionAttachmentDocument"
+                        },
+                        "description": "AsianLiitteet",
+                        "nullable": true
+                    },
+                    "bindingPlotDivisionMatterUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/bindingplotdivisionmatter/{identifier})",
+                        "readOnly": true
                     }
                 },
                 "additionalProperties": false
@@ -4296,7 +5119,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"code\""
@@ -4367,7 +5192,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"decimalRange\""
@@ -4410,7 +5237,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"decimal\""
@@ -4549,7 +5378,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "LineString GeoJson<br />\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiLineStringGeometry": {
                 "required": [
@@ -4592,7 +5421,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "LineString GeoJson<br />\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiPointGeometry": {
                 "required": [
@@ -4632,7 +5461,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "MultiPoint GeoJson<br />\r\nEsimerkki: { \"type\": \"multiPoint\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "MultiPoint GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPoint\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiPolygonGeometry": {
                 "required": [
@@ -4678,7 +5507,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "MultiPolygon GeoJson<br />\r\nEsimerkki: { \"type\": \"multiPolygon\", \"coordinates\": [ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ] }"
+                "description": "MultiPolygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPolygon\", \"coordinates\": [ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ] }"
             },
             "GeoJsonPointGeometry": {
                 "required": [
@@ -4715,7 +5544,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "Point GeoJson<br />\r\nEsimerkki: { \"type\": \"point\", \"coordinates\": [100.0, 0.0] }"
+                "description": "Point GeoJson\r\n\r\nEsimerkki: { \"type\": \"point\", \"coordinates\": [100.0, 0.0] }"
             },
             "GeoJsonPolygonGeometry": {
                 "required": [
@@ -4758,7 +5587,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "Polygon GeoJson<br />\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
+                "description": "Polygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
             },
             "HandlingEvent": {
                 "required": [
@@ -4866,11 +5695,8 @@
                         "readOnly": true
                     },
                     "totalDuration": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/TimeSpan"
-                            }
-                        ],
+                        "type": "string",
+                        "format": "date-span",
                         "readOnly": true
                     },
                     "entries": {
@@ -4887,11 +5713,8 @@
                 "type": "object",
                 "properties": {
                     "duration": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/TimeSpan"
-                            }
-                        ],
+                        "type": "string",
+                        "format": "date-span",
                         "readOnly": true
                     },
                     "status": {
@@ -4947,7 +5770,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"identifier\""
@@ -5043,6 +5868,593 @@
                 "additionalProperties": false,
                 "description": "Vuorovaikutustapahtuma"
             },
+            "LandUseRestriction": {
+                "required": [
+                    "landUseRestrictionKey",
+                    "landUseRestrictionObjects",
+                    "periodOfValidity"
+                ],
+                "type": "object",
+                "properties": {
+                    "landUseRestrictionKey": {
+                        "type": "string",
+                        "description": "Avain",
+                        "format": "uuid"
+                    },
+                    "landUseRestrictionUri": {
+                        "type": "string",
+                        "readOnly": true
+                    },
+                    "periodOfValidity": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/TimePeriodDateOnly"
+                            }
+                        ],
+                        "description": "Voimassaoloaika"
+                    },
+                    "landUseRestrictionObjects": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LandUseRestrictionObject"
+                        },
+                        "description": "Alueidenkäytön rajoituskohde"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LandUseRestrictionAttachmentDocument": {
+                "required": [
+                    "accessibility",
+                    "attachmentDocumentKey",
+                    "categoryOfPublicity",
+                    "documentDate",
+                    "documentIdentifier",
+                    "fileKey",
+                    "languages",
+                    "name",
+                    "personalDataContent",
+                    "retentionTime",
+                    "typeOfAttachment"
+                ],
+                "type": "object",
+                "properties": {
+                    "attachmentDocumentKey": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
+                        "format": "uuid"
+                    },
+                    "documentIdentifier": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Asiakirjan pysyvä tunnus, esim. diaarinumero tai muu dokumentinhallinnan tunnus."
+                    },
+                    "name": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
+                    },
+                    "personalDataContent": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Kuvaa asiakirjan henkilötietosisällön. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/henkilotietosisalto\">http://uri.suomi.fi/codelist/rytj/henkilotietosisalto</a>"
+                    },
+                    "categoryOfPublicity": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Kuvaa asiakirjan julkisuusluokan. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/julkisuus\">http://uri.suomi.fi/codelist/rytj/julkisuus</a>"
+                    },
+                    "accessibility": {
+                        "type": "boolean"
+                    },
+                    "retentionTime": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Asiakirjan säilytysaika vuosina ennen sen hävittämistä. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/sailytysaika\">http://uri.suomi.fi/codelist/rytj/sailytysaika</a>"
+                    },
+                    "confirmationDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "languages": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Asiakirjan kieli tai sisältämät kielet. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/ryhtikielet\">http://uri.suomi.fi/codelist/rytj/ryhtikielet</a>"
+                    },
+                    "fileKey": {
+                        "type": "string",
+                        "description": "Erillisen rajapinnan kautta tallennetun tiedoston avain.",
+                        "format": "uuid"
+                    },
+                    "descriptors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Descriptor"
+                        },
+                        "nullable": true
+                    },
+                    "documentDate": {
+                        "minLength": 1,
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "arrivedDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "landUseRestrictionAttachmentDocumentUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/landuserestrictionattachmentdocument/{guid})",
+                        "readOnly": true
+                    },
+                    "typeOfAttachment": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Tieto, joka kuvaa tuotettavan asiakirjan lajia. Asiakirjoja tuotetaan yleensä asiankäsittelyyn liittyvissä yksittäisissä toimissa tai tapahtumissa (toimenpide).\r\nAsiakirjatyyppi noudattaa yhteistä luokitusta/koodistoa, esimerkkejä arvoille ovat raportti, päätös, ilmoitus, muistio, tiedote...\r\nKäytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/asiakirjanLaji\">http://uri.suomi.fi/codelist/rytj/asiakirjanLaji</a>"
+                    },
+                    "documentSpecification": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "documentCreatorOperators": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LandUseRestrictionOperator"
+                        },
+                        "description": "Asiakirjan laatijat",
+                        "nullable": true
+                    },
+                    "relatedLandUseRestrictionDocuments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Liiteasiakirjaan liittyvät muut liiteasiakirjat",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LandUseRestrictionHandlingEvent": {
+                "required": [
+                    "handlingEventKey",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "handlingEventKey": {
+                        "type": "string",
+                        "description": "Avain",
+                        "format": "uuid"
+                    },
+                    "handlingEventUri": {
+                        "type": "string",
+                        "readOnly": true
+                    },
+                    "type": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenKasittelytapahtumanLaji/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenKasittelytapahtumanLaji/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenKasittelytapahtumanLaji/code/03"
+                        ],
+                        "type": "string",
+                        "description": "Laji. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenKasittelytapahtumanLaji\">http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenKasittelytapahtumanLaji</a>"
+                    },
+                    "name": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "description": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "eventTime": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/TimePeriod"
+                            }
+                        ],
+                        "description": "Tapahtuman aika (hetki tai aikaväli)",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LandUseRestrictionMatter": {
+                "required": [
+                    "administrativeAreaIdentifiers",
+                    "landUseRestrictionType",
+                    "name",
+                    "permanentLandUseRestrictionIdentifier",
+                    "phases",
+                    "timeOfInitiation"
+                ],
+                "type": "object",
+                "properties": {
+                    "permanentLandUseRestrictionIdentifier": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Alueidenkäytön rajoituksen pysyvä tunnus"
+                    },
+                    "landUseRestrictionMatterUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/landuserestrictionmatter/{identifier})",
+                        "readOnly": true
+                    },
+                    "name": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
+                    },
+                    "landUseRestrictionType": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Alueidenkäytön rajoituksen tyyppi. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenLaji\">http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenLaji</a>"
+                    },
+                    "phases": {
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LandUseRestrictionMatterPhase"
+                        },
+                        "description": "Vaiheet"
+                    },
+                    "timeOfInitiation": {
+                        "type": "string",
+                        "description": "Vireilletulopäivämäärä",
+                        "format": "date"
+                    },
+                    "administrativeAreaIdentifiers": {
+                        "maxItems": 1,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "hallinnollisen alueen tunnukset"
+                    },
+                    "description": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "caseIdentifiers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Asianhallintatunnukset",
+                        "nullable": true
+                    },
+                    "recordNumbers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Diaarinumerot",
+                        "nullable": true
+                    },
+                    "producerLandUseRestrictionIdentifier": {
+                        "type": "string",
+                        "description": "Kunnan antama alueidenkäytön rajoituksen tunnus",
+                        "nullable": true
+                    },
+                    "matterAnnexes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LandUseRestrictionAttachmentDocument"
+                        },
+                        "description": "AsianLiitteet",
+                        "nullable": true
+                    },
+                    "responsibleParty": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LandUseRestrictionOperator"
+                            }
+                        ],
+                        "description": "Vastuutaho",
+                        "nullable": true
+                    },
+                    "relatedLandUseRestrictionMatters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Liittyvät alueidenkäytön rajoituksen asiat",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LandUseRestrictionMatterDecision": {
+                "required": [
+                    "dateOfDecision",
+                    "dateOfValidity",
+                    "decisionDate",
+                    "decisionDocuments",
+                    "decisionMaker",
+                    "landUseRestrictionMatterDecisionKey",
+                    "name",
+                    "typeOfDecisionMaker"
+                ],
+                "type": "object",
+                "properties": {
+                    "landUseRestrictionMatterDecisionKey": {
+                        "type": "string",
+                        "description": "Avain",
+                        "format": "uuid"
+                    },
+                    "landUseRestrictionMatterDecisionUri": {
+                        "type": "string",
+                        "readOnly": true
+                    },
+                    "decisionDate": {
+                        "type": "string",
+                        "description": "Päätöspäivämäärä",
+                        "format": "date"
+                    },
+                    "dateOfDecision": {
+                        "type": "string",
+                        "description": "Päätöksenantopäivämäärä",
+                        "format": "date"
+                    },
+                    "dateOfValidity": {
+                        "type": "string",
+                        "description": "Lainvoimaisuuspäivämäärä",
+                        "format": "date"
+                    },
+                    "decisionDocuments": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LandUseRestrictionAttachmentDocument"
+                        },
+                        "description": "Päätösasiakirjat"
+                    },
+                    "decisionMaker": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LandUseRestrictionOperator"
+                            }
+                        ],
+                        "description": "Päätöksentekijä"
+                    },
+                    "name": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0101",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0201",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/03",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0301",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0302",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0303",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0304",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/04",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0401",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0402",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/05",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0501",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/06",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0601",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/07",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0701",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0702",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0703",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0704",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0705",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0706",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0707",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0708",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0709",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0710",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0102",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0403",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0404",
+                            "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0405"
+                        ],
+                        "type": "string",
+                        "description": "Päätöksen nimitys, joka kertoo mitä päätös koskee. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi\">http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi</a>"
+                    },
+                    "typeOfDecisionMaker": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Päättäjän laji. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/PaatoksenTekija\">http://uri.suomi.fi/codelist/rytj/PaatoksenTekija</a>"
+                    },
+                    "decisionIdentifier": {
+                        "type": "string",
+                        "description": "Päätöstunnus",
+                        "nullable": true
+                    },
+                    "statute": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Statute"
+                            }
+                        ],
+                        "description": "Ohjaava säädös",
+                        "nullable": true
+                    },
+                    "landUseRestriction": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LandUseRestriction"
+                            }
+                        ],
+                        "description": "Alueidenkäytön rajoitus",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LandUseRestrictionMatterPhase": {
+                "required": [
+                    "decision",
+                    "handlingEvent",
+                    "landUseRestrictionMatterPhaseKey",
+                    "lifeCycleStatus"
+                ],
+                "type": "object",
+                "properties": {
+                    "landUseRestrictionMatterPhaseKey": {
+                        "type": "string",
+                        "description": "Avain",
+                        "format": "uuid"
+                    },
+                    "landUseRestrictionMatterPhaseUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/landuserestrictionmatterphase/{guid})",
+                        "readOnly": true
+                    },
+                    "lifeCycleStatus": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenElinkaarenTila/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenElinkaarenTila/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenElinkaarenTila/code/03"
+                        ],
+                        "type": "string",
+                        "description": "Elinkaaritila. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenElinkaarenTila\">http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenElinkaarenTila</a>"
+                    },
+                    "handlingEvent": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LandUseRestrictionHandlingEvent"
+                            }
+                        ],
+                        "description": "Käsittelytapahtuma"
+                    },
+                    "decision": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LandUseRestrictionMatterDecision"
+                            }
+                        ],
+                        "description": "Päätös"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LandUseRestrictionObject": {
+                "required": [
+                    "geometry",
+                    "landUseRestrictionObjectKey"
+                ],
+                "type": "object",
+                "properties": {
+                    "landUseRestrictionObjectKey": {
+                        "type": "string",
+                        "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus.",
+                        "format": "uuid"
+                    },
+                    "landUseRestrictionObjectUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/landuserestrictionobject/{guid})",
+                        "readOnly": true
+                    },
+                    "relatedProperties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tieto liittyvistä kiinteistöistä, joita rajoitus koskee",
+                        "nullable": true
+                    },
+                    "relatedPlans": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RelatedPlan"
+                        },
+                        "description": "Alueidenkäytön rajoituskohteen alueelle kohdistuvan kaavan pysyvä kaavatunnus",
+                        "nullable": true
+                    },
+                    "geometry": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/RyhtiGeometry"
+                            }
+                        ],
+                        "description": "Geometria-attribuutin arvon tulee olla alue, 3-ulotteinen kappale, monialue tai monikappale."
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LandUseRestrictionOperator": {
+                "required": [
+                    "landUseRestrictionOperatorKey"
+                ],
+                "type": "object",
+                "properties": {
+                    "landUseRestrictionOperatorKey": {
+                        "type": "string",
+                        "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus.",
+                        "format": "uuid"
+                    },
+                    "landUseRestrictionOperatorUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/landuserestrictionoperator/{guid})",
+                        "readOnly": true
+                    },
+                    "firstName": {
+                        "type": "string",
+                        "description": "Toimijan etunimi",
+                        "nullable": true
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "description": "Toimijan sukunimi",
+                        "nullable": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Toimijan nimike",
+                        "nullable": true
+                    },
+                    "organizationName": {
+                        "type": "string",
+                        "description": "Toimijan organisaation nimi.",
+                        "nullable": true
+                    },
+                    "businessId": {
+                        "type": "string",
+                        "description": "Toimijan organisaation y-tunnus.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
             "LanguageString": {
                 "type": "object",
                 "properties": {
@@ -5117,7 +6529,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"localizedText\""
@@ -5194,7 +6608,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"numericRange\""
@@ -5237,7 +6653,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"numeric\""
@@ -6887,6 +8305,12 @@
                             },
                             {
                                 "$ref": "#/components/schemas/TextValue"
+                            },
+                            {
+                                "$ref": "#/components/schemas/TimePeriodValue"
+                            },
+                            {
+                                "$ref": "#/components/schemas/TimePeriodDateOnlyValue"
                             }
                         ],
                         "nullable": true
@@ -7863,7 +9287,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"positiveDecimalRange\""
@@ -7906,7 +9332,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"positiveDecimal\""
@@ -7954,7 +9382,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"positiveNumericRange\""
@@ -7997,7 +9427,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"positiveNumeric\""
@@ -8043,7 +9475,7 @@
                     },
                     "relatedProducerPlanIdentifier": {
                         "type": "string",
-                        "description": "Tonttijakotonttiin alueelle kohdistuvan vaikuttavan kaavan tuottajan kaavatunnus.",
+                        "description": "Alueelle kohdistuvan vaikuttavan kaavan tuottajan kaavatunnus.",
                         "nullable": true
                     }
                 },
@@ -8090,6 +9522,18 @@
                 "additionalProperties": false,
                 "description": "LiittyväTonttijakotontti"
             },
+            "ReserveBuildingOrdinancePermanentIdentifierCommand": {
+                "type": "object",
+                "properties": {
+                    "administrativeAreaIdentifier": {
+                        "type": "string"
+                    },
+                    "projectName": {
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false
+            },
             "ReserveLocalDetailedPlanMatterPermanentIdentifierCommand": {
                 "type": "object",
                 "properties": {
@@ -8135,6 +9579,21 @@
                 "additionalProperties": false,
                 "description": "Sanoma tonttijaon pysyvien tunnisteiden varaamiseen."
             },
+            "ReservePermanentLandUseRestrictionIdentifierCommand": {
+                "type": "object",
+                "properties": {
+                    "administrativeAreaIdentifier": {
+                        "type": "string",
+                        "description": "Hallinnollisen alueen tunnus (esim. kunta tai maakunta)"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "Kaavahankkeen pysyvä nimi. Nimi on uniikki eikä sitä voi vaihtaa."
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Sanoma alueidenkäytön rajoitusten pysyvien tunnisteiden varaamiseen."
+            },
             "ReserveRegionalPlanMatterPermanentIdentifierCommand": {
                 "type": "object",
                 "properties": {
@@ -8175,7 +9634,7 @@
                             "3885"
                         ],
                         "type": "string",
-                        "description": "Gauss Krüger projektio; SRID koodi; SRID nimi<br />\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873<br />\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874<br />\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875<br />\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876<br />\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877<br />\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878<br />\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879<br />\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880<br />\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881<br />\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882<br />\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883<br />\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884<br />\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885<br />\r\n   3067 TM35FIN<br />"
+                        "description": "Gauss Krüger projektio; SRID koodi; SRID nimi\r\n\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873\r\n\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874\r\n\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875\r\n\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876\r\n\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877\r\n\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878\r\n\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879\r\n\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880\r\n\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881\r\n\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882\r\n\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883\r\n\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884\r\n\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885\r\n\r\n   3067 TM35FIN\r\n"
                     },
                     "geometry": {
                         "oneOf": [
@@ -8237,7 +9696,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"spotElevation\""
@@ -8363,7 +9824,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"text\""
@@ -8403,85 +9866,100 @@
                 },
                 "additionalProperties": false
             },
-            "TimeSpan": {
+            "TimePeriodDateOnlyValue": {
+                "required": [
+                    "dataType"
+                ],
                 "type": "object",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/AttributeValue"
+                    }
+                ],
                 "properties": {
-                    "ticks": {
-                        "type": "integer",
-                        "format": "int64"
+                    "begin": {
+                        "type": "string",
+                        "description": "Alkupäivä",
+                        "format": "date",
+                        "nullable": true
                     },
-                    "days": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
+                    "end": {
+                        "type": "string",
+                        "description": "Loppupäivä",
+                        "format": "date",
+                        "nullable": true
                     },
-                    "hours": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "milliseconds": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "microseconds": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "nanoseconds": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "minutes": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "seconds": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "totalDays": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalHours": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalMilliseconds": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalMicroseconds": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalNanoseconds": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalMinutes": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalSeconds": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
+                    "dataType": {
+                        "enum": [
+                            "LocalizedText",
+                            "Text",
+                            "Numeric",
+                            "NumericRange",
+                            "PositiveNumeric",
+                            "PositiveNumericRange",
+                            "Decimal",
+                            "DecimalRange",
+                            "PositiveDecimal",
+                            "PositiveDecimalRange",
+                            "Code",
+                            "Identifier",
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
+                        ],
+                        "type": "string",
+                        "description": "Pakollinen arvo: \"timePeriodDateOnly\""
                     }
                 },
-                "additionalProperties": false
+                "additionalProperties": false,
+                "description": "TimePeriodDateOnly"
+            },
+            "TimePeriodValue": {
+                "required": [
+                    "dataType"
+                ],
+                "type": "object",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/AttributeValue"
+                    }
+                ],
+                "properties": {
+                    "beginUtc": {
+                        "type": "string",
+                        "description": "Alkuaika",
+                        "format": "date-time"
+                    },
+                    "endUtc": {
+                        "type": "string",
+                        "description": "Loppuaika",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "dataType": {
+                        "enum": [
+                            "LocalizedText",
+                            "Text",
+                            "Numeric",
+                            "NumericRange",
+                            "PositiveNumeric",
+                            "PositiveNumericRange",
+                            "Decimal",
+                            "DecimalRange",
+                            "PositiveDecimal",
+                            "PositiveDecimalRange",
+                            "Code",
+                            "Identifier",
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
+                        ],
+                        "type": "string",
+                        "description": "Pakollinen arvo: \"timePeriod\""
+                    }
+                },
+                "additionalProperties": false,
+                "description": "TimePeriod"
             },
             "ValidationProblemDetails": {
                 "type": "object",

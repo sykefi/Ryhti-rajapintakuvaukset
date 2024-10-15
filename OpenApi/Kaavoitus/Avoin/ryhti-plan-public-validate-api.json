@@ -34,7 +34,7 @@
                     {
                         "name": "administrativeAreaIdentifiers",
                         "in": "query",
-                        "description": "Kunta- tai maakuntakoodi. <br /><br />Example : 049",
+                        "description": "Kunta- tai maakuntakoodi. \r\n\r\nExample : 049",
                         "required": true,
                         "style": "form",
                         "explode": false,
@@ -236,6 +236,12 @@
                             },
                             {
                                 "$ref": "#/components/schemas/TextValue"
+                            },
+                            {
+                                "$ref": "#/components/schemas/TimePeriodValue"
+                            },
+                            {
+                                "$ref": "#/components/schemas/TimePeriodDateOnlyValue"
                             }
                         ],
                         "description": "Arvo",
@@ -261,7 +267,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Enumeraatio joka määrittää Arvo-luokkien (Domain.ValueObjects.AttributeValue) tyypin.\r\nJokaisella konkreettisella Arvo-luokan (Domain.ValueObjects.AttributeValue) toteutuksella tulee olla sitä vastaava DataType enumeraation arvo."
@@ -331,7 +339,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"code\""
@@ -379,7 +389,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"decimalRange\""
@@ -422,7 +434,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"decimal\""
@@ -557,7 +571,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "LineString GeoJson<br />\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiLineStringGeometry": {
                 "required": [
@@ -600,7 +614,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "LineString GeoJson<br />\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiPointGeometry": {
                 "required": [
@@ -640,7 +654,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "MultiPoint GeoJson<br />\r\nEsimerkki: { \"type\": \"multiPoint\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "MultiPoint GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPoint\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiPolygonGeometry": {
                 "required": [
@@ -686,7 +700,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "MultiPolygon GeoJson<br />\r\nEsimerkki: { \"type\": \"multiPolygon\", \"coordinates\": [ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ] }"
+                "description": "MultiPolygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPolygon\", \"coordinates\": [ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ] }"
             },
             "GeoJsonPointGeometry": {
                 "required": [
@@ -723,7 +737,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "Point GeoJson<br />\r\nEsimerkki: { \"type\": \"point\", \"coordinates\": [100.0, 0.0] }"
+                "description": "Point GeoJson\r\n\r\nEsimerkki: { \"type\": \"point\", \"coordinates\": [100.0, 0.0] }"
             },
             "GeoJsonPolygonGeometry": {
                 "required": [
@@ -766,7 +780,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "Polygon GeoJson<br />\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
+                "description": "Polygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
             },
             "IdentifierValue": {
                 "required": [
@@ -809,7 +823,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"identifier\""
@@ -892,7 +908,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"localizedText\""
@@ -940,7 +958,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"numericRange\""
@@ -983,7 +1003,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"numeric\""
@@ -1798,6 +1820,12 @@
                             },
                             {
                                 "$ref": "#/components/schemas/TextValue"
+                            },
+                            {
+                                "$ref": "#/components/schemas/TimePeriodValue"
+                            },
+                            {
+                                "$ref": "#/components/schemas/TimePeriodDateOnlyValue"
                             }
                         ],
                         "nullable": true
@@ -2330,7 +2358,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"positiveDecimalRange\""
@@ -2373,7 +2403,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"positiveDecimal\""
@@ -2421,7 +2453,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"positiveNumericRange\""
@@ -2464,7 +2498,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"positiveNumeric\""
@@ -2525,7 +2561,7 @@
                             "3885"
                         ],
                         "type": "string",
-                        "description": "Gauss Krüger projektio; SRID koodi; SRID nimi<br />\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873<br />\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874<br />\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875<br />\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876<br />\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877<br />\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878<br />\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879<br />\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880<br />\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881<br />\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882<br />\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883<br />\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884<br />\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885<br />\r\n   3067 TM35FIN<br />"
+                        "description": "Gauss Krüger projektio; SRID koodi; SRID nimi\r\n\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873\r\n\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874\r\n\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875\r\n\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876\r\n\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877\r\n\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878\r\n\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879\r\n\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880\r\n\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881\r\n\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882\r\n\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883\r\n\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884\r\n\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885\r\n\r\n   3067 TM35FIN\r\n"
                     },
                     "geometry": {
                         "oneOf": [
@@ -2587,7 +2623,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"spotElevation\""
@@ -2629,7 +2667,9 @@
                             "PositiveDecimalRange",
                             "Code",
                             "Identifier",
-                            "SpotElevation"
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
                         ],
                         "type": "string",
                         "description": "Pakollinen arvo: \"text\""
@@ -2653,6 +2693,101 @@
                     }
                 },
                 "additionalProperties": false
+            },
+            "TimePeriodDateOnlyValue": {
+                "required": [
+                    "dataType"
+                ],
+                "type": "object",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/AttributeValue"
+                    }
+                ],
+                "properties": {
+                    "begin": {
+                        "type": "string",
+                        "description": "Alkupäivä",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "end": {
+                        "type": "string",
+                        "description": "Loppupäivä",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "dataType": {
+                        "enum": [
+                            "LocalizedText",
+                            "Text",
+                            "Numeric",
+                            "NumericRange",
+                            "PositiveNumeric",
+                            "PositiveNumericRange",
+                            "Decimal",
+                            "DecimalRange",
+                            "PositiveDecimal",
+                            "PositiveDecimalRange",
+                            "Code",
+                            "Identifier",
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
+                        ],
+                        "type": "string",
+                        "description": "Pakollinen arvo: \"timePeriodDateOnly\""
+                    }
+                },
+                "additionalProperties": false,
+                "description": "TimePeriodDateOnly"
+            },
+            "TimePeriodValue": {
+                "required": [
+                    "dataType"
+                ],
+                "type": "object",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/AttributeValue"
+                    }
+                ],
+                "properties": {
+                    "beginUtc": {
+                        "type": "string",
+                        "description": "Alkuaika",
+                        "format": "date-time"
+                    },
+                    "endUtc": {
+                        "type": "string",
+                        "description": "Loppuaika",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "dataType": {
+                        "enum": [
+                            "LocalizedText",
+                            "Text",
+                            "Numeric",
+                            "NumericRange",
+                            "PositiveNumeric",
+                            "PositiveNumericRange",
+                            "Decimal",
+                            "DecimalRange",
+                            "PositiveDecimal",
+                            "PositiveDecimalRange",
+                            "Code",
+                            "Identifier",
+                            "SpotElevation",
+                            "TimePeriod",
+                            "TimePeriodDateOnly"
+                        ],
+                        "type": "string",
+                        "description": "Pakollinen arvo: \"timePeriod\""
+                    }
+                },
+                "additionalProperties": false,
+                "description": "TimePeriod"
             },
             "ValidationProblemDetails": {
                 "type": "object",

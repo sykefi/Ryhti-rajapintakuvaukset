@@ -95,6 +95,140 @@
                 }
             }
         },
+        "/api/Building/{permanentBuildingIdentifier}": {
+            "get": {
+                "tags": [
+                    "Building"
+                ],
+                "summary": "Haetaan rakennuksen kaikki tiedot Ryhdin REST-rajapinnasta",
+                "parameters": [
+                    {
+                        "name": "permanentBuildingIdentifier",
+                        "in": "path",
+                        "description": "Rakennuskohteen pysyvä yksilöivä tunnus.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Building"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Building"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Building"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Rakennuskohteen tallentaminen onnistui."
+                    },
+                    "400": {
+                        "description": "Rakennuskohteen tallentaminen epäonnistui virheellisen kutsun johdosta."
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Rakennuskohteen tallentaminen epäonnistui virheellisen tiedon johdosta."
+                    }
+                }
+            }
+        },
+        "/api/BuildingGeneralized/{permanentBuildingIdentifier}": {
+            "get": {
+                "tags": [
+                    "Building"
+                ],
+                "summary": "Haetaan karkeutettu rakennustieto",
+                "parameters": [
+                    {
+                        "name": "permanentBuildingIdentifier",
+                        "in": "path",
+                        "description": "Rakennuskohteen pysyvä yksilöivä tunnus.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Rakennuskohteen haku onnistui.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Building"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Building"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Building"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Ei oikeutta lukea rakennuskohteen tietoja."
+                    },
+                    "404": {
+                        "description": "Rakennuskohdetta ei löytynyt pysyvällä rakennustunnuksella.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/BuildingObject/Validate": {
             "post": {
                 "tags": [
@@ -297,6 +431,134 @@
                             "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/BuildingOwnersAll/{permanentBuildingIdentifier}": {
+            "get": {
+                "tags": [
+                    "BuildingOwners"
+                ],
+                "summary": "Haetaan rakennuksen omistajatiedot, ml turvakiellon alaiset tiedot.",
+                "parameters": [
+                    {
+                        "name": "permanentBuildingIdentifier",
+                        "in": "path",
+                        "description": "Rakennuskohteen pysyvä yksilöivä tunnus.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Omistajatietojen haku onnistui."
+                    },
+                    "403": {
+                        "description": "Ei oikeutta lukea rakennuskohteen tietoja.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Rakennuskohdetta ei löytynyt pysyvällä rakennustunnuksella.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/BuildingOwners/{permanentBuildingIdentifier}": {
+            "get": {
+                "tags": [
+                    "BuildingOwners"
+                ],
+                "summary": "Haetaan rakennuksen omistajatiedot, ilman turvakiellon alaisia tietoja.",
+                "parameters": [
+                    {
+                        "name": "permanentBuildingIdentifier",
+                        "in": "path",
+                        "description": "Rakennuskohteen pysyvä yksilöivä tunnus.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Omistajatietojen haku onnistui."
+                    },
+                    "403": {
+                        "description": "Ei oikeutta lukea rakennuskohteen tietoja.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Rakennuskohdetta ei löytynyt pysyvällä rakennustunnuksella.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
                                 }
                             }
                         }
@@ -539,6 +801,88 @@
                     }
                 }
             },
+            "get": {
+                "tags": [
+                    "BuildingPermit"
+                ],
+                "summary": "Hae rakentamislupa-asia.",
+                "parameters": [
+                    {
+                        "name": "buildingPermitId",
+                        "in": "path",
+                        "description": "Rakennuslupa-asian pysyvä yksilöivä lupatunnus.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Rakennusluvan hakeminen onnistui."
+                    },
+                    "400": {
+                        "description": "Rakennusluvan hakeminen epäonnistui virheellisen kutsun johdosta.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Rakennusluvan hakeminen epäonnistui virheellisen tiedon johdosta.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "put": {
                 "tags": [
                     "BuildingPermit"
@@ -651,6 +995,90 @@
                     },
                     "422": {
                         "description": "rakentamislupa-asia tallentaminen epäonnistui",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/BuildingPermitGeneralized/{buildingPermitId}": {
+            "get": {
+                "tags": [
+                    "BuildingPermit"
+                ],
+                "summary": "Hae karkeutettu rakentamislupa-asia.",
+                "parameters": [
+                    {
+                        "name": "buildingPermitId",
+                        "in": "path",
+                        "description": "Rakennuslupa-asian pysyvä yksilöivä lupatunnus.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Karkeutetun rakennusluvan hakeminen onnistui."
+                    },
+                    "400": {
+                        "description": "Karkeutetun rakennusluvan hakeminen epäonnistui virheellisen kutsun johdosta.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Karkeutetun rakennusluvan hakeminen epäonnistui virheellisen tiedon johdosta.",
                         "content": {
                             "text/plain": {
                                 "schema": {
@@ -1398,6 +1826,24 @@
                 "tags": [
                     "Document"
                 ],
+                "parameters": [
+                    {
+                        "name": "municipalityId",
+                        "in": "query",
+                        "description": "Jos käyttäjällä on oikeus useampaan kuntaan tulee pyynnön sisältää kuntaId, jolle tiedosto tuodaan. Vain toinen id on sallittu.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "regionId",
+                        "in": "query",
+                        "description": "Jos käyttäjällä on oikeus useampaan maakuntaan tulee pyynnön sisältää maakuntaId, jolle tiedosto tuodaan. Vain toinen id on sallittu.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "multipart/form-data": {
@@ -1570,6 +2016,70 @@
                             "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ForemenPlanners/{permanentPermitIdentifier}": {
+            "get": {
+                "tags": [
+                    "ForemenPlanners"
+                ],
+                "summary": "Haetaan työnjohtajien ja suunnittelijoiden tiedot",
+                "parameters": [
+                    {
+                        "name": "permanentPermitIdentifier",
+                        "in": "path",
+                        "description": "Lupa-asian pysyvä yksilöivä tunnus.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Työnjohtajien ja sunnittelijoiden tietojen haku onnistui."
+                    },
+                    "403": {
+                        "description": "Ei oikeutta lukea lupa-asian tietoja.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Lupa-asia ei löytynyt pysyvällä tunnuksella.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
                                 }
                             }
                         }
@@ -6517,7 +7027,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "LineString GeoJson<br />\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiLineStringGeometry": {
                 "required": [
@@ -6560,7 +7070,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "LineString GeoJson<br />\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiPointGeometry": {
                 "required": [
@@ -6600,7 +7110,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "MultiPoint GeoJson<br />\r\nEsimerkki: { \"type\": \"multiPoint\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+                "description": "MultiPoint GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPoint\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
             },
             "GeoJsonMultiPolygonGeometry": {
                 "required": [
@@ -6646,7 +7156,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "MultiPolygon GeoJson<br />\r\nEsimerkki: { \"type\": \"multiPolygon\", \"coordinates\": [ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ] }"
+                "description": "MultiPolygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPolygon\", \"coordinates\": [ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ] }"
             },
             "GeoJsonPointGeometry": {
                 "required": [
@@ -6683,7 +7193,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "Point GeoJson<br />\r\nEsimerkki: { \"type\": \"point\", \"coordinates\": [100.0, 0.0] }"
+                "description": "Point GeoJson\r\n\r\nEsimerkki: { \"type\": \"point\", \"coordinates\": [100.0, 0.0] }"
             },
             "GeoJsonPolygonGeometry": {
                 "required": [
@@ -6726,7 +7236,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "Polygon GeoJson<br />\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
+                "description": "Polygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
             },
             "GetPermanentApartmentIdentifierCommand": {
                 "required": [
@@ -7201,11 +7711,8 @@
                         "readOnly": true
                     },
                     "totalDuration": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/TimeSpan"
-                            }
-                        ],
+                        "type": "string",
+                        "format": "date-span",
                         "readOnly": true
                     },
                     "entries": {
@@ -7222,11 +7729,8 @@
                 "type": "object",
                 "properties": {
                     "duration": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/TimeSpan"
-                            }
-                        ],
+                        "type": "string",
+                        "format": "date-span",
                         "readOnly": true
                     },
                     "status": {
@@ -8438,7 +8942,7 @@
                             "3885"
                         ],
                         "type": "string",
-                        "description": "Gauss Krüger projektio; SRID koodi; SRID nimi<br />\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873<br />\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874<br />\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875<br />\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876<br />\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877<br />\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878<br />\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879<br />\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880<br />\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881<br />\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882<br />\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883<br />\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884<br />\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885<br />\r\n   3067 TM35FIN<br />"
+                        "description": "Gauss Krüger projektio; SRID koodi; SRID nimi\r\n\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873\r\n\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874\r\n\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875\r\n\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876\r\n\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877\r\n\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878\r\n\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879\r\n\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880\r\n\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881\r\n\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882\r\n\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883\r\n\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884\r\n\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885\r\n\r\n   3067 TM35FIN\r\n"
                     },
                     "geometry": {
                         "oneOf": [
@@ -8801,86 +9305,6 @@
                 "additionalProperties": false,
                 "description": "Rakennelman osa"
             },
-            "TimeSpan": {
-                "type": "object",
-                "properties": {
-                    "ticks": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "days": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "hours": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "milliseconds": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "microseconds": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "nanoseconds": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "minutes": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "seconds": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "totalDays": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalHours": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalMilliseconds": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalMicroseconds": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalNanoseconds": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalMinutes": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    },
-                    "totalSeconds": {
-                        "type": "number",
-                        "format": "double",
-                        "readOnly": true
-                    }
-                },
-                "additionalProperties": false
-            },
             "UsageData": {
                 "required": [
                     "purpose"
@@ -9012,8 +9436,10 @@
                         "tokenUrl": "https://identitytest.ymparisto.fi/connect/token",
                         "scopes": {
                             "ryhti.building.write": "Rakennustietojen kirjoitusoikeus",
-                            "ryhti.building.owners.all": "Oikeus kaikkiin omistajatietoihin, ml turvakiellon alaiset henkilöt.",
-                            "ryhti.building.owners.limited": "Oikeus omistajatietoihin, ilman turvakiellon alaisia henkilöitä."
+                            "ryhti.building.owners.all": "Oikeus rakennuksen kaikkin omistajatietoihin, ml turvakiellon alaiset.",
+                            "ryhti.building.owners.limited": "Oikeus omistajatietoihin, ilman turvakiellon alaisia tietoja.",
+                            "ryhti.building.foremen": "Oikeudet työnjohtajien ja suunnittelijoiden tietoihin.",
+                            "ryhti.building.generalized": "Oikeus karkeutettuun rakennustietoon."
                         }
                     }
                 }
