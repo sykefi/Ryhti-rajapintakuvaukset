@@ -1276,6 +1276,13 @@
                         },
                         "description": "Kaavakohteen ja määräysryhmän väliset suhteet",
                         "nullable": true
+                    },
+                    "relatedPlanObjectRegulationGroupRelations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RelatedPlanObjectRegulationGroupRelation"
+                        },
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false,
@@ -2535,6 +2542,25 @@
                     }
                 },
                 "additionalProperties": {}
+            },
+            "RelatedPlanObjectRegulationGroupRelation": {
+                "required": [
+                    "regulationGroupKey",
+                    "relatedPlanObjectUri"
+                ],
+                "type": "object",
+                "properties": {
+                    "relatedPlanObjectUri": {
+                        "type": "string",
+                        "description": "Liittyvän kaavakohteen uri"
+                    },
+                    "regulationGroupKey": {
+                        "type": "string",
+                        "description": "Sisäinen määräysryhmän avain",
+                        "format": "uuid"
+                    }
+                },
+                "additionalProperties": false
             },
             "RyhtiGeometry": {
                 "required": [
