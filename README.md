@@ -39,6 +39,11 @@ OpenAPI-spesifikaatio on määrittelykieli APIen kuvaamiseen. OpenAPI-kuvaus on 
 * [Rakennustietojen validointisäännöt ja paluuarvot](https://ryhti.syke.fi/wp-content/uploads/sites/2/2023/12/Rakennustietojen-validointisaannot-ja-paluuarvot-Ryhti.pdf)
 * [Kaavatietomallin tietomääritykset](https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-kaavoitus/kaavatietomallin-tietomaaritykset/)
 * [Kaavatietomallin elinkaari- ja laatusäännöt](https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-kaavoitus/kaavatietomallin-elinkaari-ja-laatusaannot/)
+* [Tontijaon tietomääritykset](https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-sitova-tonttijako/tonttijaon-tietomaaritykset/)
+* [Tonttijaon elinkaari- ja laatusäännöt](https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-sitova-tonttijako/tonttijaon-elinkaari-ja-laatusaannot/)
+* [Alueidenkäytön rajoitusten tietomääritykset](https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoiset-alueidenkayton-rajoitukset/ryhti-tietojarjestelman-alueidenkayton-rajoitusten-tietomaaritykset-ja-kuvaukset/)
+* [Alueidenkäytön rajoitusten elinkaari- ja laatusäännöt](https://ryhti.syke.fi/ryhti-tietojarjestelman-alueidenkayton-rajoitusten-elinkaari-ja-laatusaannot/)
+* [Rakennusjärjestyksen tietomääritykset](https://ryhti.syke.fi/tietomallimuotoinen-rakennusjarjestys/ryhti-tietojarjestelman-rakennusjarjestyksen-tietomaaritykset-ja-kuvaukset/)
 
 ## Aikataulu: milloin rajapinnat ja käyttöliittymät ovat testattavissa?
 Alla olevan aikataulun avulla pystyt seuraamaan Ryhti-järjestelmän rajapintojen ja käyttöliittymäpalveluiden valmistumista. Taulukko auttaa myös arvioimaan, milloin kehitys- ja testaustyö muissa järjestelmissä kannattaa aloittaa.
@@ -46,23 +51,26 @@ Alla olevan aikataulun avulla pystyt seuraamaan Ryhti-järjestelmän rajapintoje
 ### Alueidenkäytön rajapintakäyttö
 | Rajapinta |	Endpoint | Ryhti-kehitystiimin status	| Kumppaneiden testattavissa |Status päivitetty |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Asemakaava | LocalDetailedPlanMatter | Tuotantoversio julkaistu | Heti | 29.2.2024 |
-| Yleiskaava | LocalMasterPlanMatter | Tuotantoversio julkaistu	| Heti | 29.2.2024 |
-| Maakuntakaava | RegionalPlanMatter | Tuotantoversio julkaistu | Heti | 29.2.2024 |
-| Tiedostojen lataaminen | UploadedFile | Tuotantoversio julkaistu | Heti	| 29.2.2024 |
-| Tonttijako | BindingPlotDivisionMatter | Kehityksessä | Kesäkuu 2024	| 22.4.2024 |
-| Maankäyttörajoitukset | - |	Määrittelyssä	| Q4/2024 | 22.4.2024 |
-| Kaavojen validointipalvelu | Ryhti Plan Public Validate API | Tuotantoversio julkaistu | Heti |	29.2.2024 |
+| Asemakaava | LocalDetailedPlanMatter | Tuotantoversio julkaistu | Heti | 20.11.2024 |
+| Yleiskaava | LocalMasterPlanMatter | Tuotantoversio julkaistu	| Heti | 20.11.2024 |
+| Maakuntakaava | RegionalPlanMatter | Tuotantoversio julkaistu | Heti | 20.11.2024 |
+| Tiedostojen lataaminen | UploadedFile | Tuotantoversio julkaistu | Heti	| 20.11.2024 |
+| Tonttijako | BindingPlotDivisionMatter | Tuotantoversio julkaistaan 26.11.2024 | Heti	| 20.11.2024 |
+| Alueidenkäytön rajoitukset | LandUseRestrictionMatter |	Testiversio julkaistu	| Heti | 20.11.2024 |
+| Rakennusjärjestys | BuildingOrdinance |	Testiversio julkaistu	| Heti | 20.11.2024 |
+| Kaavojen validointipalvelu | Ryhti Plan Public Validate API | Tuotantoversio julkaistu | Heti |	20.11.2024 |
 
 ### Alueidenkäytön käyttöliittymäkäyttö
 | Rajapinta |	Ryhti-kehitystiimin status	| Kumppaneiden testattavissa | Status päivitetty |
 | ------------- | ------------- | ------------- | ------------- |
-| Kaavojen sisääntuontikäyttöliittymä: asemakaava | Kehityksessä | Yksittäisen suunnitelmatiedoston tuominen testattavissa heti. Lomake asiakirjoihin ja päätöksiin liittyvien tietojen tuomiseen tulossa kesäkuussa 2024. | 22.4.2024 |
-| Kaavojen sisääntuontikäyttöliittymä: yleiskaava | Kehityksessä | Yksittäisen suunnitelmatiedoston tuominen testattavissa heti. Lomake asiakirjoihin ja päätöksiin liittyvien tietojen tuomiseen tulossa kesäkuussa 2024.	| 22.4.2024 |
-| Kaavojen sisääntuontikäyttöliittymä: maakuntakaava | Kehityksessä | Yksittäisen suunnitelmatiedoston tuominen testattavissa heti. Lomake asiakirjoihin ja päätöksiin liittyvien tietojen tuomiseen tulossa kesäkuussa 2024. | 22.4.2024 |
-| Tiedostojen lataaminen | Tuotannossa | Heti	| 29.2.2024 |
-| Karttapalvelu | Kehityksessä | Q3-Q4/2024 | 22.4.2024 |
-| Kaavojen validointipalvelu | Tuotannossa |	Heti	| 29.2.2024 |
+| Kaavojen sisääntuontikäyttöliittymä: asemakaava | Tuotantoversio julkaistu | Heti | 20.11.2024 |
+| Kaavojen sisääntuontikäyttöliittymä: yleiskaava | Tuotantoversio julkaistu | Heti | 20.11.2024 |
+| Kaavojen sisääntuontikäyttöliittymä: maakuntakaava | Tuotantoversio julkaistu | Heti | 20.11.2024 |
+| Asemakaavan seurantalomake | Tuotantoversio julkaistu | Heti | 20.11.2024 |
+| Tiedostojen lataaminen | Tuotannossa | Heti	| 20.11.2024 |
+| Rakennusjärjestys | BuildingOrdinance |	Testiversio julkaistu	| Heti | 20.11.2024 |
+| Karttapalvelu | Kehityksessä | Q1/2025 | 20.11.2024 |
+| Kaavojen validointipalvelu | Tuotannossa |	Heti	| 20.11.2024 |
 
 ### Rakennusluvituksen rajapintakäyttö
 | Rajapinta |	Endpoint | Ryhti-kehitystiimin status	| Kumppaneiden testattavissa |Status päivitetty |
@@ -78,10 +86,5 @@ Alla olevan aikataulun avulla pystyt seuraamaan Ryhti-järjestelmän rajapintoje
 ### Rakennusluvituksen käyttöliittymäkäyttö
 | Rajapinta |	Ryhti-kehitystiimin status	| Kumppaneiden testattavissa | Status päivitetty |
 | ------------- | ------------- | ------------- | ------------- |
-| Karttapalvelu | Kehityksessä | Q3-Q4/2024 | 22.4.2024 |
+| Karttapalvelu | Kehityksessä | Q1/2025 | 20.11.2024 |
 | Rakennustietojen muokkauskäyttöliittymä | Ei toteuteta vuonna 2024 | -	| 22.4.2024 |
-
-### Huomioita
-Tonttijakojen ja maankäyttörajoitusten kehitystyö on kesken. Rajapintakuvaukset valmistuvat Q2/2024. 
-
-Ensimmäinen versio kaavatietojen käyttöliittymästä on valmistunut. Käyttöliittymän kehitystä jatketaan siten, että ennen kesää julkaistavassa versiossa voi lomakenäkymän kautta tuoda asiakirjoihin ja päätöksiin liittyvät tiedot, jolloin vain kaavasuunnitelma pitää olla JSON-muodossa.
