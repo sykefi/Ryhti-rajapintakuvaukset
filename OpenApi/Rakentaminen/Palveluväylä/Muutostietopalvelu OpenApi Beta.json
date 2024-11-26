@@ -13,6 +13,11 @@
         },
         "version": "1"
     },
+    "servers": [
+        {
+            "url": "/change-information"
+        }
+    ],
     "paths": {
         "/api/Authenticate": {
             "post": {
@@ -324,7 +329,7 @@
                 "tags": [
                     "ChangeInformation"
                 ],
-                "summary": "Hae rakennuslupa-asia muutostiedot",
+                "summary": "Hae rakennuslupa-asian muutostiedot",
                 "parameters": [
                     {
                         "name": "municipality",
@@ -436,7 +441,7 @@
                 "tags": [
                     "ChangeInformation"
                 ],
-                "summary": "Hae rakennuslupa-asia muutostiedot",
+                "summary": "Hae karkeutetut rakennuslupa-asian muutostiedot",
                 "parameters": [
                     {
                         "name": "municipality",
@@ -548,7 +553,7 @@
                 "tags": [
                     "ChangeInformation"
                 ],
-                "summary": "Hae rakennuslupa-asia muutostiedot",
+                "summary": "Hae toimijan muutostiedot",
                 "requestBody": {
                     "description": "Viimeisin ID muutostentietojen hakemiseksi.",
                     "content": {
@@ -587,17 +592,465 @@
                         "content": {
                             "text/plain": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
+                                    "$ref": "#/components/schemas/OperatorChangeInfoCollectionDto"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
+                                    "$ref": "#/components/schemas/OperatorChangeInfoCollectionDto"
                                 }
                             },
                             "text/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeInfoCollectionDto"
+                                    "$ref": "#/components/schemas/OperatorChangeInfoCollectionDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ChangeInformation/Structure": {
+            "post": {
+                "tags": [
+                    "ChangeInformation"
+                ],
+                "summary": "Hae rakennelman muutostiedot",
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "description": "Kuntanumerot joista muutoksia halutaan. Eroteltu pilkulla.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Viimeisin ID muutostentietojen hakemiseksi.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StructureChangeInfoCollectionDto"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StructureChangeInfoCollectionDto"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StructureChangeInfoCollectionDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ChangeInformation/DemolitionPermit": {
+            "post": {
+                "tags": [
+                    "ChangeInformation"
+                ],
+                "summary": "Hae purkamislupa-asia muutostiedot",
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "description": "Kuntanumerot joista muutoksia halutaan. Eroteltu pilkulla.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Viimeisin ID muutostentietojen hakemiseksi.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DemolitionPermitIssueChangeInfoCollectionDto"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DemolitionPermitIssueChangeInfoCollectionDto"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DemolitionPermitIssueChangeInfoCollectionDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ChangeInformation/LandscapeWorkPermit": {
+            "post": {
+                "tags": [
+                    "ChangeInformation"
+                ],
+                "summary": "Hae maisematyölupa muutostiedot",
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "description": "Kuntanumerot joista muutoksia halutaan. Eroteltu pilkulla.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Viimeisin ID muutostentietojen hakemiseksi.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DemolitionPermitIssueChangeInfoCollectionDto"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DemolitionPermitIssueChangeInfoCollectionDto"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DemolitionPermitIssueChangeInfoCollectionDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Content",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ChangeInformation/DeviationPermit": {
+            "post": {
+                "tags": [
+                    "ChangeInformation"
+                ],
+                "summary": "Hae poikkeamislupa-asia muutostiedot",
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "description": "Kuntanumerot joista muutoksia halutaan. Eroteltu pilkulla.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Viimeisin ID muutostentietojen hakemiseksi.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetChangeInfo"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeviationPermitIssueChangeInfoCollectionDto"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeviationPermitIssueChangeInfoCollectionDto"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeviationPermitIssueChangeInfoCollectionDto"
                                 }
                             }
                         }
@@ -922,6 +1375,213 @@
                 }
             }
         },
+        "/api/InitialInformation/DemolitionPermit": {
+            "post": {
+                "tags": [
+                    "InitialInformation"
+                ],
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetInitialInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetInitialInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetInitialInfo"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InitialInformationCollection"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InitialInformationCollection"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InitialInformationCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/InitialInformation/LandscapeWorkPermit": {
+            "post": {
+                "tags": [
+                    "InitialInformation"
+                ],
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetInitialInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetInitialInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetInitialInfo"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InitialInformationCollection"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InitialInformationCollection"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InitialInformationCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/InitialInformation/DeviationPermit": {
+            "post": {
+                "tags": [
+                    "InitialInformation"
+                ],
+                "parameters": [
+                    {
+                        "name": "municipality",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetInitialInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetInitialInfo"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/GetInitialInfo"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InitialInformationCollection"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InitialInformationCollection"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InitialInformationCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/Status/health": {
             "get": {
                 "tags": [
@@ -1058,6 +1718,118 @@
                 },
                 "additionalProperties": false,
                 "description": "Hallinnollinen sijaintiyksikkö"
+            },
+            "Apartment": {
+                "required": [
+                    "addressNumber",
+                    "apartmentKey",
+                    "apartmentType",
+                    "lifeCycleState"
+                ],
+                "type": "object",
+                "properties": {
+                    "apartmentKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "lifeCycleState": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/1",
+                            "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/2",
+                            "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/3",
+                            "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/4",
+                            "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/5",
+                            "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/6",
+                            "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/7",
+                            "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/8",
+                            "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/9"
+                        ],
+                        "type": "string",
+                        "description": "Huoneiston elinkaaren vaihe. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe\">http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe</a>",
+                        "nullable": true
+                    },
+                    "apartmentEquipment": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ApartmentEquipment"
+                        },
+                        "nullable": true
+                    },
+                    "apartmentIdentifier": {
+                        "type": "string"
+                    },
+                    "apartmentType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/02"
+                        ],
+                        "type": "string",
+                        "description": "Huoneistotyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi\">http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi</a>"
+                    },
+                    "floorArea": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "numberOfRooms": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "kitchenType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/03",
+                            "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/04"
+                        ],
+                        "type": "string",
+                        "description": "Keittiötyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/Keittiotyyppi\">http://uri.suomi.fi/codelist/rytj/Keittiotyyppi</a>",
+                        "nullable": true
+                    },
+                    "isWaterCloset": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "apartmentChangeType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/03"
+                        ],
+                        "type": "string",
+                        "description": "Huoneiston muutoksen laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji\">http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji</a>",
+                        "nullable": true
+                    },
+                    "commissioningDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "addressNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "apartmentStorey": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "apartmentIdentifierLetterSuffix": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "apartmentSubdivisionLetter": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "apartmentNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Huoneisto"
             },
             "ApartmentEquipment": {
                 "type": "object",
@@ -1266,6 +2038,288 @@
                 },
                 "additionalProperties": false,
                 "description": "Kokoontumistila"
+            },
+            "Building": {
+                "required": [
+                    "buildingKey",
+                    "buildingObjectOwner",
+                    "buildingObjectType",
+                    "mainPurpose",
+                    "numberOfStoreys"
+                ],
+                "type": "object",
+                "properties": {
+                    "buildingKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "permanentBuildingIdentifier": {
+                        "type": "string",
+                        "description": "Pysyvä rakennustunnus (PRT)"
+                    },
+                    "temporary": {
+                        "type": "boolean",
+                        "description": "Onko väliaikainen",
+                        "nullable": true
+                    },
+                    "demolitionDeadline": {
+                        "type": "string",
+                        "description": "Demolition deadline",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "numberOfStoreys": {
+                        "type": "integer",
+                        "description": "Kerrosluku",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "buildingSection": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BuildingSection"
+                        },
+                        "description": "Rakennuksen osat",
+                        "nullable": true
+                    },
+                    "mainPurpose": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/01",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/011",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0110",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0111",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0112",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/012",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0120",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0121",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/013",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0130",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/014",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0140",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/02",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/021",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0210",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0211",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/03",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/031",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0310",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0311",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0319",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/032",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0320",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0321",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0322",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0329",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/033",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0330",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/04",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/040",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0400",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/05",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/051",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0510",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0511",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0512",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0513",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0514",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/052",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0520",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0521",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/059",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0590",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/06",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/061",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0610",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0611",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0612",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0613",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0614",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0615",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0619",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/062",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0620",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0621",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/063",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0630",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/07",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/071",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0710",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0711",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0712",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0713",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0714",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/072",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0720",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/073",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0730",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0731",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0739",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/074",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0740",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0741",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0742",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0743",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0744",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0749",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/079",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0790",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/08",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/081",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0810",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/082",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0820",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/083",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0830",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/084",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0840",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0841",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/089",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0890",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0891",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/09",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/091",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0910",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0911",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0912",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0919",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/092",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0920",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/093",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0930",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0939",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/10",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/101",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1010",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1011",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/109",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1090",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1091",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/11",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/111",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1110",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/112",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1120",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/113",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1130",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/12",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/121",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1210",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1211",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1212",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1213",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1214",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1215",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/13",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/131",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1310",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1311",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1319",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/14",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/141",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1410",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1411",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1412",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1413",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1414",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1415",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1416",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1419",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/149",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1490",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1491",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1492",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1493",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1499",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/19",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/191",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1910",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1911",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1912",
+                            "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1919"
+                        ],
+                        "type": "string",
+                        "description": "Pääasiallinen käyttötarkoitus. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712\">http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712</a>",
+                        "nullable": true
+                    },
+                    "buildingObjectType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/1",
+                            "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/2"
+                        ],
+                        "type": "string",
+                        "description": "Rakennuskohteen tiedon laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>"
+                    },
+                    "location": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/BuildingObjectLocationData"
+                            }
+                        ],
+                        "description": "Rakennuskohteen sijaintitiedot",
+                        "nullable": true
+                    },
+                    "administrativeLocationUnit": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AdministrativeLocationUnit"
+                            }
+                        ],
+                        "description": "Hallinnollinen sijaintiyksikkö"
+                    },
+                    "decisionAdministrativeLocationUnit": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AdministrativeLocationUnit"
+                            }
+                        ],
+                        "description": "Hallinnollinen sijaintiyksikkö",
+                        "nullable": true
+                    },
+                    "buildingObjectOwner": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BuildingObjectOwner"
+                        },
+                        "description": "Rakennuskohteen omistaja",
+                        "nullable": true
+                    },
+                    "address": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Address"
+                        },
+                        "nullable": true
+                    },
+                    "name": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "description": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "addChangeEvent": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "renovationDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Rakennuksen tiedot."
             },
             "BuildingAttachmentDocument": {
                 "required": [
@@ -1762,6 +2816,230 @@
                 "additionalProperties": false,
                 "description": "Rakentamislupapäätös"
             },
+            "BuildingSection": {
+                "type": "object",
+                "properties": {
+                    "buildingSectionKey": {
+                        "type": "string",
+                        "description": "",
+                        "format": "uuid"
+                    },
+                    "lifeCycleState": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/01",
+                            "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/02",
+                            "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/03",
+                            "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/04",
+                            "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/05",
+                            "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/06",
+                            "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/07",
+                            "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/08",
+                            "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/99"
+                        ],
+                        "type": "string",
+                        "description": "Rakennuksen osan elinkaaren vaihe. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rakrek/rakelinvaih\">http://uri.suomi.fi/codelist/rakrek/rakelinvaih</a>",
+                        "nullable": true
+                    },
+                    "completionDate": {
+                        "type": "string",
+                        "description": "",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "protectionMethod": {
+                        "type": "string",
+                        "description": "Rakennuksen osan suojatapa. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/suojtapa\">http://uri.suomi.fi/codelist/rytj/suojtapa</a>",
+                        "nullable": true
+                    },
+                    "cultureHistoricalSignificance": {
+                        "type": "string",
+                        "description": "Rakennuksen osan kulttuurihistoriallinen merkittävyys. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rakrek/kulthistmer\">http://uri.suomi.fi/codelist/rakrek/kulthistmer</a>",
+                        "nullable": true
+                    },
+                    "materialData": {
+                        "required": [
+                            "constructionMethod",
+                            "buildingMaterialOfLoadBearingStructures",
+                            "wideBodiedBuilding"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/MaterialData"
+                            }
+                        ],
+                        "description": "",
+                        "nullable": true
+                    },
+                    "energyData": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/EnergyData"
+                            }
+                        ],
+                        "description": "",
+                        "nullable": true
+                    },
+                    "interiorData": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/InteriorData"
+                            }
+                        ],
+                        "description": "",
+                        "nullable": true
+                    },
+                    "exteriorData": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ExteriorData"
+                            }
+                        ],
+                        "description": "",
+                        "nullable": true
+                    },
+                    "buildingServicesEngineeringData": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/BuildingServicesEngineeringData"
+                            }
+                        ],
+                        "description": "",
+                        "nullable": true
+                    },
+                    "usageData": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/UsageData"
+                            }
+                        ],
+                        "description": ""
+                    },
+                    "equipment": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Equipment"
+                        },
+                        "description": "",
+                        "nullable": true
+                    },
+                    "entrance": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Entrance"
+                        },
+                        "description": "",
+                        "nullable": true
+                    },
+                    "assemblyFacility": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AssemblyFacility"
+                        },
+                        "description": "",
+                        "nullable": true
+                    },
+                    "elevator": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Elevator"
+                        },
+                        "description": "",
+                        "nullable": true
+                    },
+                    "apartment": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Apartment"
+                        },
+                        "description": "",
+                        "nullable": true
+                    },
+                    "constructionDesign": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ConstructionDesign"
+                        },
+                        "description": "",
+                        "nullable": true
+                    },
+                    "buildingInformationModel": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BuildingInformationModel"
+                        },
+                        "description": "",
+                        "nullable": true
+                    },
+                    "specialDesign": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SpecialDesign"
+                        },
+                        "description": "",
+                        "nullable": true
+                    },
+                    "attachment": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BuildingAttachmentDocument"
+                        },
+                        "description": "",
+                        "nullable": true
+                    },
+                    "partitionReason": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/1",
+                            "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/2",
+                            "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/3"
+                        ],
+                        "type": "string",
+                        "description": "Rakennuksen osan osittelun laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji\">http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji</a>"
+                    },
+                    "partitionDescription": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "civilDefenceShelter": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CivilDefenceShelter"
+                        },
+                        "description": "",
+                        "nullable": true
+                    },
+                    "relatedFinishedBuildingSection": {
+                        "type": "string",
+                        "description": "",
+                        "format": "uuid",
+                        "nullable": true
+                    },
+                    "demolitionDate": {
+                        "type": "string",
+                        "description": "",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "reasonForDemolition": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/03",
+                            "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/04",
+                            "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/05"
+                        ],
+                        "type": "string",
+                        "description": "Purkamisen syy. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/PurkamisenSyy\">http://uri.suomi.fi/codelist/rytj/PurkamisenSyy</a>",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Rakennuksen osa"
+            },
             "BuildingServicesEngineeringData": {
                 "type": "object",
                 "properties": {
@@ -2087,6 +3365,132 @@
                     "apartmentNumber": {
                         "type": "integer",
                         "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ChangeInformationAreaToBeBuiltForSpecificActivities": {
+                "type": "object",
+                "properties": {
+                    "areaToBeBuiltForSpecificActivitiesKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "specificActivitiesAreaType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "networkConnection": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NetworkConnection"
+                        },
+                        "nullable": true
+                    },
+                    "completionDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "temporary": {
+                        "type": "boolean"
+                    },
+                    "demolitionDeadline": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "buildingObjectType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/1",
+                            "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/2"
+                        ],
+                        "type": "string"
+                    },
+                    "location": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/BuildingObjectLocationData"
+                            }
+                        ],
+                        "description": "Rakennuskohteen sijaintitiedot",
+                        "nullable": true
+                    },
+                    "administrativeLocationUnit": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "decisionAdministrativeLocationUnit": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "buildingObjectOwner": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BuildingObjectOwner"
+                        },
+                        "nullable": true
+                    },
+                    "address": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Address"
+                        },
+                        "nullable": true
+                    },
+                    "name": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "description": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "constructionDesign": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ConstructionDesign"
+                        },
+                        "nullable": true
+                    },
+                    "buildingInformationModel": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BuildingInformationModel"
+                        },
+                        "nullable": true
+                    },
+                    "specialDesign": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SpecialDesign"
+                        },
+                        "nullable": true
+                    },
+                    "attachment": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BuildingAttachmentDocument"
+                        },
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false
@@ -2977,23 +4381,17 @@
                         ],
                         "allOf": [
                             {
-                                "$ref": "#/components/schemas/Structure"
+                                "$ref": "#/components/schemas/ChangeInformationStructure"
                             }
                         ],
-                        "description": "Rakennelma",
                         "nullable": true
                     },
                     "areaToBeBuiltForSpecificActivities": {
-                        "required": [
-                            "buildingObjectType",
-                            "buildingObjectOwner"
-                        ],
                         "allOf": [
                             {
-                                "$ref": "#/components/schemas/AreaToBeBuiltForSpecificActivities"
+                                "$ref": "#/components/schemas/ChangeInformationAreaToBeBuiltForSpecificActivities"
                             }
                         ],
-                        "description": "Erityistä toimintaa varten rakennettava alue",
                         "nullable": true
                     },
                     "startDate": {
@@ -3052,6 +4450,186 @@
                     },
                     "locatedOnUnseparatedParcel": {
                         "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ChangeInformationStructure": {
+                "required": [
+                    "buildingObjectOwner",
+                    "buildingObjectType",
+                    "structureMainPurpose"
+                ],
+                "type": "object",
+                "properties": {
+                    "structureKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "permanentStructureIdentifier": {
+                        "type": "string"
+                    },
+                    "temporary": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "demolitionDeadline": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "numberOfStoreys": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "structureSection": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/StructureSection"
+                        },
+                        "nullable": true
+                    },
+                    "structureMainPurpose": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/001",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/002",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/003",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/004",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/005",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/006",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/007",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/008",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/009",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/010",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/011",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/012",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/013",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/014",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/015",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/016",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/017",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/018",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/019",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/020",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/021",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/022",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/023",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/024",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/025",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/026",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/027",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/028",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/029",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/030",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/031",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/032",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/033",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/034",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/035",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/036",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/037",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/038",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/039",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/040",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/041",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/042",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/043",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/044",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/045",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/046",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/047",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/048",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/049",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/050",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/051",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/052",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/053",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/054",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/055",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/056",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/057",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/058",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/059",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/060",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/061",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/062",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/063",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/064",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/065",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/066",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/067",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/068",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/069",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/070"
+                        ],
+                        "type": "string",
+                        "description": "Rakennelman käyttötarkoitus. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus\">http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus</a>"
+                    },
+                    "buildingObjectType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/1",
+                            "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/2"
+                        ],
+                        "type": "string",
+                        "description": "Rakennuskohteen tiedon laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>"
+                    },
+                    "location": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/BuildingObjectLocationData"
+                            }
+                        ],
+                        "description": "Rakennuskohteen sijaintitiedot",
+                        "nullable": true
+                    },
+                    "administrativeLocationUnit": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
+                            }
+                        ]
+                    },
+                    "decisionAdministrativeLocationUnit": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "buildingObjectOwner": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BuildingObjectOwner"
+                        },
+                        "description": "Rakennuskohteen omistaja",
+                        "nullable": true
+                    },
+                    "address": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Address"
+                        },
+                        "nullable": true
+                    },
+                    "name": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "description": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
                         "nullable": true
                     }
                 },
@@ -3262,6 +4840,221 @@
                 },
                 "additionalProperties": false,
                 "description": "Väestönsuojan muut rakennukset"
+            },
+            "ConstructionAction": {
+                "required": [
+                    "constructionActionType",
+                    "statusOfConstructionAction"
+                ],
+                "type": "object",
+                "properties": {
+                    "constructionActionKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "constructionActionType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/03",
+                            "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/04",
+                            "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/05",
+                            "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/06",
+                            "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/07",
+                            "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/08",
+                            "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/09"
+                        ],
+                        "type": "string",
+                        "description": "Rakentamistoimenpide. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide\">http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide</a>",
+                        "nullable": true
+                    },
+                    "buildingObjectChange": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/BuildingObjectChange"
+                            }
+                        ],
+                        "description": "Rakennuskohteen muutos",
+                        "nullable": true
+                    },
+                    "descriptionOfAction": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "areaUndergoingChanges": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "reasonForDemolition": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/03",
+                            "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/04",
+                            "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/05"
+                        ],
+                        "type": "string",
+                        "description": "Purkamisen syy. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/PurkamisenSyy\">http://uri.suomi.fi/codelist/rytj/PurkamisenSyy</a>",
+                        "nullable": true
+                    },
+                    "renovation": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "renovationRate": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "building": {
+                        "required": [
+                            "buildingKey",
+                            "numberOfStoreys",
+                            "mainPurpose",
+                            "buildingObjectType",
+                            "buildingObjectOwner"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Building"
+                            }
+                        ],
+                        "description": "Rakennuksen tiedot.",
+                        "nullable": true
+                    },
+                    "finishedBuilding": {
+                        "required": [
+                            "buildingKey",
+                            "numberOfStoreys",
+                            "mainPurpose",
+                            "buildingObjectType",
+                            "buildingObjectOwner"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Building"
+                            }
+                        ],
+                        "description": "Rakennuksen tiedot.",
+                        "nullable": true
+                    },
+                    "structure": {
+                        "required": [
+                            "structureMainPurpose",
+                            "buildingObjectType",
+                            "buildingObjectOwner"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Structure"
+                            }
+                        ],
+                        "description": "Rakennelma",
+                        "nullable": true
+                    },
+                    "finishedStructure": {
+                        "required": [
+                            "structureMainPurpose",
+                            "buildingObjectType",
+                            "buildingObjectOwner"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Structure"
+                            }
+                        ],
+                        "description": "Rakennelma",
+                        "nullable": true
+                    },
+                    "areaToBeBuiltForSpecificActivities": {
+                        "required": [
+                            "buildingObjectType",
+                            "buildingObjectOwner"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AreaToBeBuiltForSpecificActivities"
+                            }
+                        ],
+                        "description": "Erityistä toimintaa varten rakennettava alue",
+                        "nullable": true
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "completionDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "commissioningDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "statusOfConstructionAction": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/1",
+                            "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/2",
+                            "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/3",
+                            "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/4",
+                            "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/5"
+                        ],
+                        "type": "string",
+                        "description": "Rakentamistoimenpiteen tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila\">http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila</a>",
+                        "nullable": true
+                    },
+                    "fullyApprovedForUse": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "businessConstruction": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "changeType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/muutostyo/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/muutostyo/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/muutostyo/code/03"
+                        ],
+                        "type": "string",
+                        "description": "Muutostyön tarkenne. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/muutostyo\">http://uri.suomi.fi/codelist/rytj/muutostyo</a>",
+                        "nullable": true
+                    },
+                    "dvvPermitIdentifier": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "expiryDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "finishedAreaToBeBuiltForSpecificActivities": {
+                        "required": [
+                            "buildingObjectType",
+                            "buildingObjectOwner"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AreaToBeBuiltForSpecificActivities"
+                            }
+                        ],
+                        "description": "Erityistä toimintaa varten rakennettava alue",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Rakentamistoimenpide"
             },
             "ConstructionDesign": {
                 "type": "object",
@@ -3499,6 +5292,16 @@
                         "format": "uuid"
                     },
                     "coolingEnergySourceType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/jaahdytys/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/jaahdytys/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/jaahdytys/code/03",
+                            "http://uri.suomi.fi/codelist/rytj/jaahdytys/code/04",
+                            "http://uri.suomi.fi/codelist/rytj/jaahdytys/code/05",
+                            "http://uri.suomi.fi/codelist/rytj/jaahdytys/code/06",
+                            "http://uri.suomi.fi/codelist/rytj/jaahdytys/code/07",
+                            "http://uri.suomi.fi/codelist/rytj/jaahdytys/code/08"
+                        ],
                         "type": "string",
                         "description": "Jäähdytysenergian lähteen laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/jaahdytys\">http://uri.suomi.fi/codelist/rytj/jaahdytys</a>"
                     },
@@ -3535,6 +5338,433 @@
                 "additionalProperties": false,
                 "description": "Jäähdytystapa"
             },
+            "DemolitionPermitApplication": {
+                "type": "object",
+                "properties": {
+                    "lifeCycleState": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/1",
+                            "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/2",
+                            "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/3"
+                        ],
+                        "type": "string",
+                        "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>",
+                        "nullable": true
+                    },
+                    "applicationContent": {
+                        "type": "string"
+                    },
+                    "dateOfReception": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "callForDeviation": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CallForDeviation"
+                        },
+                        "nullable": true
+                    },
+                    "demolitionPermitApplicationKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "permitApplicationType": {
+                        "type": "string",
+                        "description": "Rakentamislupahakemuksen lupatyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/LuvanSisalto\">http://uri.suomi.fi/codelist/rytj/LuvanSisalto</a>",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "PurkamislupaHakemus"
+            },
+            "DemolitionPermitDecision": {
+                "type": "object",
+                "properties": {
+                    "acceptedDeviation": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AcceptedDeviation"
+                        },
+                        "nullable": true
+                    },
+                    "permitRegulation": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PermitRegulation"
+                        },
+                        "nullable": true
+                    },
+                    "lifeCycleState": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/1",
+                            "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/2",
+                            "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/11",
+                            "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/12",
+                            "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/3",
+                            "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/4"
+                        ],
+                        "type": "string",
+                        "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>"
+                    },
+                    "decisionDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "dateOfDecision": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "dateOfValidityOfDecision": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "decisionDocument": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/BuildingAttachmentDocument"
+                            }
+                        ],
+                        "description": "Liiteasiakirja",
+                        "nullable": true
+                    },
+                    "decisionArticle": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "publicNoticeDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "decisionText": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "guidingStatute": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GuidingStatute"
+                        },
+                        "nullable": true
+                    },
+                    "relatedPermit": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "decisionMakerType": {
+                        "type": "string",
+                        "description": "Päätöksen tekijän tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/PaatoksenTekija\">http://uri.suomi.fi/codelist/rytj/PaatoksenTekija</a>",
+                        "nullable": true
+                    },
+                    "decisionMakerFirstName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "decisionMakerName": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "demolitionPermitDecisionKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "permitApplicationType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "constructionToBeStartedBy": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "constructionToBeCompletedBy": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "constructionToBeStartedByExtension": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "constructionToBeCompletedByExtension": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "engagingParty": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EngagingParty"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Rakentamislupapäätös"
+            },
+            "DemolitionPermitIssue": {
+                "required": [
+                    "dateOfInitiation",
+                    "demolitionDecision",
+                    "demolitionPermitApplication"
+                ],
+                "type": "object",
+                "properties": {
+                    "dateOfInitiation": {
+                        "type": "string",
+                        "description": "Vireilletulopäivä",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "lifeCycleState": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/1",
+                            "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/2",
+                            "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/3",
+                            "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/4"
+                        ],
+                        "type": "string",
+                        "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila</a>",
+                        "nullable": true
+                    },
+                    "municipalityNumber": {
+                        "type": "string"
+                    },
+                    "demolitionPermitApplication": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DemolitionPermitApplication"
+                        },
+                        "description": "Purkamislupahakemus",
+                        "nullable": true
+                    },
+                    "demolitionDecision": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/DemolitionPermitDecision"
+                            }
+                        ],
+                        "description": "Purkamislupapäätös",
+                        "nullable": true
+                    },
+                    "extensionDecision": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ExtensionDecision"
+                        },
+                        "nullable": true
+                    },
+                    "changePermit": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ChangePermit"
+                        },
+                        "nullable": true
+                    },
+                    "buildingSite": {
+                        "required": [
+                            "stormWaterTreatmentType",
+                            "tenure"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/BuildingSite"
+                            }
+                        ],
+                        "description": "Rakennuspaikka",
+                        "nullable": true
+                    },
+                    "constructionAction": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ConstructionAction"
+                        },
+                        "nullable": true
+                    },
+                    "attachment": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BuildingAttachmentDocument"
+                        },
+                        "nullable": true
+                    },
+                    "constructionProject": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ConstructionProject"
+                            }
+                        ],
+                        "description": "Rakentamishanke",
+                        "nullable": true
+                    },
+                    "updateType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/03",
+                            "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/04",
+                            "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/05",
+                            "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
+                        ],
+                        "type": "string",
+                        "description": "Rakennuksen käytössäolotilanne. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne\">http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne</a>",
+                        "nullable": true
+                    },
+                    "updateDescription": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "permanentPermitIdentifier": {
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Purkamislupa-asia"
+            },
+            "DemolitionPermitIssueChangeDiffDto": {
+                "type": "object",
+                "properties": {
+                    "changeType": {
+                        "type": "string"
+                    },
+                    "objectKey": {
+                        "nullable": true
+                    },
+                    "objectType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parentKey": {
+                        "nullable": true
+                    },
+                    "parentType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parentChain": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ParentTypeKey"
+                        }
+                    },
+                    "objectState": {
+                        "required": [
+                            "demolitionPermitApplication",
+                            "demolitionDecision",
+                            "dateOfInitiation"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/DemolitionPermitIssue"
+                            }
+                        ],
+                        "description": "Purkamislupa-asia",
+                        "nullable": true
+                    },
+                    "objectStatePrev": {
+                        "required": [
+                            "demolitionPermitApplication",
+                            "demolitionDecision",
+                            "dateOfInitiation"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/DemolitionPermitIssue"
+                            }
+                        ],
+                        "description": "Purkamislupa-asia",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DemolitionPermitIssueChangeInfoCollectionDto": {
+                "type": "object",
+                "properties": {
+                    "lastSeen": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/PaginationToken"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "upToDate": {
+                        "type": "boolean"
+                    },
+                    "changes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DemolitionPermitIssueChangeInfoDto"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DemolitionPermitIssueChangeInfoDto": {
+                "type": "object",
+                "properties": {
+                    "eventId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "eventTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "objectKey": {},
+                    "objectState": {
+                        "required": [
+                            "demolitionPermitApplication",
+                            "demolitionDecision",
+                            "dateOfInitiation"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/DemolitionPermitIssue"
+                            }
+                        ],
+                        "description": "Purkamislupa-asia",
+                        "nullable": true
+                    },
+                    "diff": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DemolitionPermitIssueChangeDiffDto"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
             "Descriptor": {
                 "type": "object",
                 "properties": {
@@ -3548,6 +5778,487 @@
                     },
                     "descriptor": {
                         "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DeviationObject": {
+                "required": [
+                    "buildingObjectOwner"
+                ],
+                "type": "object",
+                "properties": {
+                    "deviationObjectKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "buildingObjectType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/1",
+                            "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/2"
+                        ],
+                        "type": "string",
+                        "description": "Rakennuskohteen tiedon laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>"
+                    },
+                    "totalArea": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "location": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/BuildingObjectLocationData"
+                            }
+                        ],
+                        "description": "Rakennuskohteen sijaintitiedot"
+                    },
+                    "administrativeLocationUnit": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AdministrativeLocationUnit"
+                            }
+                        ],
+                        "description": "Hallinnollinen sijaintiyksikkö"
+                    },
+                    "decisionAdministrativeLocationUnit": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AdministrativeLocationUnit"
+                            }
+                        ],
+                        "description": "Hallinnollinen sijaintiyksikkö",
+                        "nullable": true
+                    },
+                    "buildingObjectOwner": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BuildingObjectOwner"
+                        },
+                        "description": "Rakennuskohteen omistaja"
+                    },
+                    "address": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Address"
+                        }
+                    },
+                    "name": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "description": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Poikkeamisen kohde"
+            },
+            "DeviationPermitApplication": {
+                "type": "object",
+                "properties": {
+                    "lifeCycleState": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/1",
+                            "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/2",
+                            "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/3"
+                        ],
+                        "type": "string",
+                        "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>",
+                        "nullable": true
+                    },
+                    "applicationContent": {
+                        "type": "string"
+                    },
+                    "dateOfReception": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "callForDeviation": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CallForDeviation"
+                        },
+                        "nullable": true
+                    },
+                    "deviationPermitApplicationKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "buildingInformationModel": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BuildingInformationModel"
+                        }
+                    },
+                    "constructionDesign": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ConstructionDesign"
+                        }
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Poikkeamislupahakemus"
+            },
+            "DeviationPermitDecision": {
+                "type": "object",
+                "properties": {
+                    "acceptedDeviation": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AcceptedDeviation"
+                        },
+                        "nullable": true
+                    },
+                    "permitRegulation": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PermitRegulation"
+                        },
+                        "nullable": true
+                    },
+                    "lifeCycleState": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/1",
+                            "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/2",
+                            "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/11",
+                            "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/12",
+                            "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/3",
+                            "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/4"
+                        ],
+                        "type": "string",
+                        "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>"
+                    },
+                    "decisionDate": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "dateOfDecision": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "dateOfValidityOfDecision": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "decisionDocument": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/BuildingAttachmentDocument"
+                            }
+                        ],
+                        "description": "Liiteasiakirja",
+                        "nullable": true
+                    },
+                    "decisionArticle": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "publicNoticeDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "decisionText": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "guidingStatute": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GuidingStatute"
+                        },
+                        "nullable": true
+                    },
+                    "relatedPermit": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "decisionMakerType": {
+                        "type": "string",
+                        "description": "Päätöksen tekijän tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/PaatoksenTekija\">http://uri.suomi.fi/codelist/rytj/PaatoksenTekija</a>",
+                        "nullable": true
+                    },
+                    "decisionMakerFirstName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "decisionMakerName": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    },
+                    "deviationPermitDecisionKey": {
+                        "type": "string",
+                        "description": "",
+                        "format": "uuid"
+                    },
+                    "expiryDate": {
+                        "type": "string",
+                        "description": "",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "engagingParty": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EngagingParty"
+                        },
+                        "description": ""
+                    },
+                    "decisionInForceUntil": {
+                        "type": "string",
+                        "description": "",
+                        "format": "date"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Poikkeamislupapäätös"
+            },
+            "DeviationPermitIssue": {
+                "required": [
+                    "dateOfInitiation",
+                    "deviationPermitApplication",
+                    "deviationPermitDecision"
+                ],
+                "type": "object",
+                "properties": {
+                    "dateOfInitiation": {
+                        "type": "string",
+                        "description": "Vireilletulopäivä",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "lifeCycleState": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/1",
+                            "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/2",
+                            "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/3",
+                            "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/4"
+                        ],
+                        "type": "string",
+                        "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila</a>",
+                        "nullable": true
+                    },
+                    "municipalityNumber": {
+                        "type": "string"
+                    },
+                    "permanentPermitIdentifier": {
+                        "type": "string"
+                    },
+                    "recordNumber": {
+                        "type": "string"
+                    },
+                    "deviationPermitDecision": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/DeviationPermitDecision"
+                            }
+                        ],
+                        "description": "Poikkeamislupapäätös"
+                    },
+                    "deviationPermitApplication": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/DeviationPermitApplication"
+                            }
+                        ],
+                        "description": "Poikkeamislupahakemus"
+                    },
+                    "deviationObject": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DeviationObject"
+                        }
+                    },
+                    "buildingSite": {
+                        "required": [
+                            "stormWaterTreatmentType",
+                            "tenure"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/BuildingSite"
+                            }
+                        ],
+                        "description": "Rakennuspaikka"
+                    },
+                    "attachment": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BuildingAttachmentDocument"
+                        },
+                        "nullable": true
+                    },
+                    "updateType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/03",
+                            "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/04",
+                            "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/05",
+                            "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
+                        ],
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "updateDescription": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/LanguageString"
+                            }
+                        ],
+                        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Poikkeamislupa-asia"
+            },
+            "DeviationPermitIssueChangeDiffDto": {
+                "type": "object",
+                "properties": {
+                    "changeType": {
+                        "type": "string"
+                    },
+                    "objectKey": {
+                        "nullable": true
+                    },
+                    "objectType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parentKey": {
+                        "nullable": true
+                    },
+                    "parentType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parentChain": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ParentTypeKey"
+                        }
+                    },
+                    "objectState": {
+                        "required": [
+                            "deviationPermitDecision",
+                            "deviationPermitApplication",
+                            "dateOfInitiation"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/DeviationPermitIssue"
+                            }
+                        ],
+                        "description": "Poikkeamislupa-asia",
+                        "nullable": true
+                    },
+                    "objectStatePrev": {
+                        "required": [
+                            "deviationPermitDecision",
+                            "deviationPermitApplication",
+                            "dateOfInitiation"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/DeviationPermitIssue"
+                            }
+                        ],
+                        "description": "Poikkeamislupa-asia",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DeviationPermitIssueChangeInfoCollectionDto": {
+                "type": "object",
+                "properties": {
+                    "lastSeen": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/PaginationToken"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "upToDate": {
+                        "type": "boolean"
+                    },
+                    "changes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DeviationPermitIssueChangeInfoDto"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DeviationPermitIssueChangeInfoDto": {
+                "type": "object",
+                "properties": {
+                    "eventId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "eventTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "objectKey": {},
+                    "objectState": {
+                        "required": [
+                            "deviationPermitDecision",
+                            "deviationPermitApplication",
+                            "dateOfInitiation"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/DeviationPermitIssue"
+                            }
+                        ],
+                        "description": "Poikkeamislupa-asia",
+                        "nullable": true
+                    },
+                    "diff": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DeviationPermitIssueChangeDiffDto"
+                        },
                         "nullable": true
                     }
                 },
@@ -4734,6 +7445,14 @@
             "InitialInformationCollection": {
                 "type": "object",
                 "properties": {
+                    "next": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/InitialInformationNextInfo"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "eventId": {
                         "type": "string",
                         "format": "uuid",
@@ -4742,14 +7461,6 @@
                     "items": {
                         "type": "array",
                         "items": {}
-                    },
-                    "next": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/InitialInformationNextInfo"
-                            }
-                        ],
-                        "nullable": true
                     }
                 },
                 "additionalProperties": false
@@ -4802,6 +7513,11 @@
                         "description": ""
                     },
                     "inspectionStatus": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/KatselmuksenTilanne/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/KatselmuksenTilanne/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/KatselmuksenTilanne/code/03"
+                        ],
                         "type": "string",
                         "description": ""
                     },
@@ -5123,6 +7839,107 @@
                 "additionalProperties": false,
                 "description": "Toimija"
             },
+            "OperatorChangeDiffDto": {
+                "type": "object",
+                "properties": {
+                    "changeType": {
+                        "type": "string"
+                    },
+                    "objectKey": {
+                        "nullable": true
+                    },
+                    "objectType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parentKey": {
+                        "nullable": true
+                    },
+                    "parentType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parentChain": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ParentTypeKey"
+                        }
+                    },
+                    "objectState": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Operator"
+                            }
+                        ],
+                        "description": "Toimija",
+                        "nullable": true
+                    },
+                    "objectStatePrev": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Operator"
+                            }
+                        ],
+                        "description": "Toimija",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "OperatorChangeInfoCollectionDto": {
+                "type": "object",
+                "properties": {
+                    "lastSeen": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/PaginationToken"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "upToDate": {
+                        "type": "boolean"
+                    },
+                    "changes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OperatorChangeInfoDto"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
+            "OperatorChangeInfoDto": {
+                "type": "object",
+                "properties": {
+                    "eventId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "eventTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "objectKey": {},
+                    "objectState": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Operator"
+                            }
+                        ],
+                        "description": "Toimija",
+                        "nullable": true
+                    },
+                    "diff": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OperatorChangeDiffDto"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
             "PaginationToken": {
                 "type": "object",
                 "properties": {
@@ -5159,6 +7976,26 @@
                         "format": "uuid"
                     },
                     "permitRegulationType": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M01",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0101",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0102",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0103",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0104",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0105",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0106",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0107",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0108",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0109",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0110",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M02",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0201",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0202",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M03",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0301",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0302",
+                            "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M04"
+                        ],
                         "type": "string",
                         "description": "Lupamääräys. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen\">http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen</a>"
                     },
@@ -5651,6 +8488,78 @@
                         "nullable": true
                     },
                     "structureMainPurpose": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/001",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/002",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/003",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/004",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/005",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/006",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/007",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/008",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/009",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/010",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/011",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/012",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/013",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/014",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/015",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/016",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/017",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/018",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/019",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/020",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/021",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/022",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/023",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/024",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/025",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/026",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/027",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/028",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/029",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/030",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/031",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/032",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/033",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/034",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/035",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/036",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/037",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/038",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/039",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/040",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/041",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/042",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/043",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/044",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/045",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/046",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/047",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/048",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/049",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/050",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/051",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/052",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/053",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/054",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/055",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/056",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/057",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/058",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/059",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/060",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/061",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/062",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/063",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/064",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/065",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/066",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/067",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/068",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/069",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/070"
+                        ],
                         "type": "string",
                         "description": "Rakennelman käyttötarkoitus. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus\">http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus</a>"
                     },
@@ -5660,7 +8569,7 @@
                             "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/2"
                         ],
                         "type": "string",
-                        "description": "Rakennuskohteen tiedon laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/erityissuun\">http://uri.suomi.fi/codelist/rytj/erityissuun</a>"
+                        "description": "Rakennuskohteen tiedon laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>"
                     },
                     "location": {
                         "allOf": [
@@ -5724,6 +8633,122 @@
                 },
                 "additionalProperties": false,
                 "description": "Rakennelma"
+            },
+            "StructureChangeDiffDto": {
+                "type": "object",
+                "properties": {
+                    "changeType": {
+                        "type": "string"
+                    },
+                    "objectKey": {
+                        "nullable": true
+                    },
+                    "objectType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parentKey": {
+                        "nullable": true
+                    },
+                    "parentType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parentChain": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ParentTypeKey"
+                        }
+                    },
+                    "objectState": {
+                        "required": [
+                            "structureMainPurpose",
+                            "buildingObjectType",
+                            "buildingObjectOwner"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Structure"
+                            }
+                        ],
+                        "description": "Rakennelma",
+                        "nullable": true
+                    },
+                    "objectStatePrev": {
+                        "required": [
+                            "structureMainPurpose",
+                            "buildingObjectType",
+                            "buildingObjectOwner"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Structure"
+                            }
+                        ],
+                        "description": "Rakennelma",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "StructureChangeInfoCollectionDto": {
+                "type": "object",
+                "properties": {
+                    "lastSeen": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/PaginationToken"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "upToDate": {
+                        "type": "boolean"
+                    },
+                    "changes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/StructureChangeInfoDto"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
+            "StructureChangeInfoDto": {
+                "type": "object",
+                "properties": {
+                    "eventId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "eventTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "objectKey": {},
+                    "objectState": {
+                        "required": [
+                            "structureMainPurpose",
+                            "buildingObjectType",
+                            "buildingObjectOwner"
+                        ],
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Structure"
+                            }
+                        ],
+                        "description": "Rakennelma",
+                        "nullable": true
+                    },
+                    "diff": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/StructureChangeDiffDto"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
             },
             "StructureSection": {
                 "type": "object",
@@ -5806,6 +8831,78 @@
                         "nullable": true
                     },
                     "structurePurpose": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/001",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/002",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/003",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/004",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/005",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/006",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/007",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/008",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/009",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/010",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/011",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/012",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/013",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/014",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/015",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/016",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/017",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/018",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/019",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/020",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/021",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/022",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/023",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/024",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/025",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/026",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/027",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/028",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/029",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/030",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/031",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/032",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/033",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/034",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/035",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/036",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/037",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/038",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/039",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/040",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/041",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/042",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/043",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/044",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/045",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/046",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/047",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/048",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/049",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/050",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/051",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/052",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/053",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/054",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/055",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/056",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/057",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/058",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/059",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/060",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/061",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/062",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/063",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/064",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/065",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/066",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/067",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/068",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/069",
+                            "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/070"
+                        ],
                         "type": "string",
                         "description": "Rakennelman käyttötarkoitus. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus\">http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus</a>"
                     },
