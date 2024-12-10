@@ -55,9 +55,9 @@ Alla olevan aikataulun avulla pystyt seuraamaan Ryhti-järjestelmän rajapintoje
 | Yleiskaava | LocalMasterPlanMatter | Tuotantoversio julkaistu	| Heti | 20.11.2024 |
 | Maakuntakaava | RegionalPlanMatter | Tuotantoversio julkaistu | Heti | 20.11.2024 |
 | Tiedostojen lataaminen | UploadedFile | Tuotantoversio julkaistu | Heti	| 20.11.2024 |
-| Tonttijako | BindingPlotDivisionMatter | Tuotantoversio julkaistaan 26.11.2024 | Heti	| 20.11.2024 |
-| Alueidenkäytön rajoitukset | LandUseRestrictionMatter |	Testiversio julkaistu	| Heti | 20.11.2024 |
-| Rakennusjärjestys | BuildingOrdinance |	Testiversio julkaistu	| Heti | 20.11.2024 |
+| Tonttijako | BindingPlotDivisionMatter | Tuotantoversio julkaistu | Heti	| 11.12.2024 |
+| Alueidenkäytön rajoitukset | LandUseRestrictionMatter |	Tuotantoversio julkaistu	| Heti | 11.12.2024 |
+| Rakennusjärjestys | BuildingOrdinance |	Tuotantoversio julkaistu	| Heti | 11.12.2024 |
 | Kaavojen validointipalvelu | Ryhti Plan Public Validate API | Tuotantoversio julkaistu | Heti |	20.11.2024 |
 
 ### Alueidenkäytön käyttöliittymäkäyttö
@@ -67,9 +67,9 @@ Alla olevan aikataulun avulla pystyt seuraamaan Ryhti-järjestelmän rajapintoje
 | Kaavojen sisääntuontikäyttöliittymä: yleiskaava | Tuotantoversio julkaistu | Heti | 20.11.2024 |
 | Kaavojen sisääntuontikäyttöliittymä: maakuntakaava | Tuotantoversio julkaistu | Heti | 20.11.2024 |
 | Asemakaavan seurantalomake | Tuotantoversio julkaistu | Heti | 20.11.2024 |
-| Tiedostojen lataaminen | Tuotannossa | Heti	| 20.11.2024 |
-| Rakennusjärjestys | BuildingOrdinance |	Testiversio julkaistu	| Heti | 20.11.2024 |
-| Karttapalvelu | Kehityksessä | Q1/2025 | 20.11.2024 |
+| Tiedostojen lataaminen | Tuotantoversio julkaistu | Heti	| 20.11.2024 |
+| Rakennusjärjestys | BuildingOrdinance |	Tuotantoversio julkaistu	| Heti | 11.12.2024 |
+| Karttapalvelu | Kehityksessä | Q1/2025 | 11.12.2024 |
 | Kaavojen validointipalvelu | Tuotannossa |	Heti	| 20.11.2024 |
 
 ### Rakennusluvituksen rajapintakäyttö
@@ -86,5 +86,5 @@ Alla olevan aikataulun avulla pystyt seuraamaan Ryhti-järjestelmän rajapintoje
 ### Rakennusluvituksen käyttöliittymäkäyttö
 | Rajapinta |	Ryhti-kehitystiimin status	| Kumppaneiden testattavissa | Status päivitetty |
 | ------------- | ------------- | ------------- | ------------- |
-| Karttapalvelu | Kehityksessä | Q1/2025 | 20.11.2024 |
+| Karttapalvelu | Kehityksessä | Q1/2025 | 10.12.2024 |
 | Rakennustietojen muokkauskäyttöliittymä | Ei toteuteta vuonna 2024 | -	| 22.4.2024 |
