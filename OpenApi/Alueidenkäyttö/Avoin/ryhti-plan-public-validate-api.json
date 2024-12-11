@@ -34,7 +34,7 @@
                     {
                         "name": "administrativeAreaIdentifiers",
                         "in": "query",
-                        "description": "Kunta- tai maakuntakoodi. \r\n\r\nExample : 049",
+                        "description": "Kunta- tai maakuntakoodi. \r\n\r\nEsimerkki : 049",
                         "required": true,
                         "style": "form",
                         "explode": false,
