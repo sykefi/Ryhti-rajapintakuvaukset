@@ -55,7 +55,7 @@ Alla olevan aikataulun avulla pystyt seuraamaan Ryhti-järjestelmän rajapintoje
 | Yleiskaava | LocalMasterPlanMatter | Tuotantoversio julkaistu	| Heti | 20.11.2024 |
 | Maakuntakaava | RegionalPlanMatter | Tuotantoversio julkaistu | Heti | 20.11.2024 |
 | Tiedostojen lataaminen | UploadedFile | Tuotantoversio julkaistu | Heti	| 20.11.2024 |
-| Tonttijako | BindingPlotDivisionMatter | Tuotantoversio julkaistu | Heti	| 10.12.2024 |
+| Tonttijako | BindingPlotDivisionMatter | Testiversio julkaistu | Heti	| 10.12.2024 |
 | Alueidenkäytön rajoitukset | LandUseRestrictionMatter |	Tuotantoversio julkaistu	| Heti | 11.12.2024 |
 | Rakennusjärjestys | BuildingOrdinance |	Tuotantoversio julkaistu	| Heti | 11.12.2024 |
 | Kaavojen validointipalvelu | Ryhti Plan Public Validate API | Tuotantoversio julkaistu | Heti |	20.11.2024 |
