@@ -203,7 +203,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/BindingPlotDivisionMatter"
+                    "$ref": "#/components/schemas/BindingPlotDivisionMatterCreate"
                   }
                 ]
               }
@@ -212,7 +212,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/BindingPlotDivisionMatter"
+                    "$ref": "#/components/schemas/BindingPlotDivisionMatterCreate"
                   }
                 ]
               }
@@ -221,7 +221,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/BindingPlotDivisionMatter"
+                    "$ref": "#/components/schemas/BindingPlotDivisionMatterCreate"
                   }
                 ]
               }
@@ -292,6 +292,70 @@
                 }
               }
             }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "BindingPlotDivisionMatter"
+        ],
+        "summary": "Rajapinta sitovan tonttijaon asian päivittämiseen.",
+        "parameters": [
+          {
+            "name": "permanentBindingPlotDivisionIdentifier",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/BindingPlotDivisionMatterUpdate"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/BindingPlotDivisionMatterUpdate"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/BindingPlotDivisionMatterUpdate"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Kaava-asian vaihe päivitetty."
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen."
+          },
+          "404": {
+            "description": "Resurssia ei löydy."
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä."
           }
         }
       }
@@ -448,7 +512,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/BindingPlotDivisionMatter"
+                    "$ref": "#/components/schemas/BindingPlotDivisionMatterCreate"
                   }
                 ]
               }
@@ -457,7 +521,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/BindingPlotDivisionMatter"
+                    "$ref": "#/components/schemas/BindingPlotDivisionMatterCreate"
                   }
                 ]
               }
@@ -466,7 +530,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/BindingPlotDivisionMatter"
+                    "$ref": "#/components/schemas/BindingPlotDivisionMatterCreate"
                   }
                 ]
               }
@@ -659,6 +723,80 @@
                 }
               }
             }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "BindingPlotDivisionMatter"
+        ],
+        "summary": "Rajapinta jo tallennetun vaiheen päivittämiseen.",
+        "parameters": [
+          {
+            "name": "permanentBindingPlotDivisionIdentifier",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bindingPlotDivisionMatterPhaseKey",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Kaava-asia päivitetty."
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen."
+          },
+          "404": {
+            "description": "Resurssia ei löydy."
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä."
           }
         }
       }
@@ -1615,7 +1753,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/LandUseRestrictionMatter"
+                    "$ref": "#/components/schemas/LandUseRestrictionMatterCreate"
                   }
                 ]
               }
@@ -1624,7 +1762,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/LandUseRestrictionMatter"
+                    "$ref": "#/components/schemas/LandUseRestrictionMatterCreate"
                   }
                 ]
               }
@@ -1633,7 +1771,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/LandUseRestrictionMatter"
+                    "$ref": "#/components/schemas/LandUseRestrictionMatterCreate"
                   }
                 ]
               }
@@ -1703,6 +1841,137 @@
             }
           }
         }
+      },
+      "get": {
+        "tags": [
+          "LandUseRestrictionMatter"
+        ],
+        "summary": "Alueidenkäytön rajoituksen asia hakeminen pysyvän yksilöivän tunnuksen perusteella.",
+        "parameters": [
+          {
+            "name": "permanentLandUseRestrictionIdentifier",
+            "in": "path",
+            "description": "Alueidenkäytön rajoituksen pysyvä tunnus",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Alueidenkäytön rajoituksen asia JSON-oliona",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandUseRestrictionMatterResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandUseRestrictionMatterResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandUseRestrictionMatterResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Pysyvällä yksilöivällä tunnuksella ei löydy tallennettau alueidenkäytön rajoituksen asia.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "LandUseRestrictionMatter"
+        ],
+        "parameters": [
+          {
+            "name": "permanentLandUseRestrictionIdentifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/LandUseRestrictionMatterUpdate"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/LandUseRestrictionMatterUpdate"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/LandUseRestrictionMatterUpdate"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/LandUseRestrictionMatter/{permanentLandUseRestrictionIdentifier}/Validate": {
@@ -1730,7 +1999,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/LandUseRestrictionMatter"
+                    "$ref": "#/components/schemas/LandUseRestrictionMatterCreate"
                   }
                 ]
               }
@@ -1739,7 +2008,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/LandUseRestrictionMatter"
+                    "$ref": "#/components/schemas/LandUseRestrictionMatterCreate"
                   }
                 ]
               }
@@ -1748,7 +2017,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/LandUseRestrictionMatter"
+                    "$ref": "#/components/schemas/LandUseRestrictionMatterCreate"
                   }
                 ]
               }
@@ -5738,7 +6007,7 @@
         },
         "additionalProperties": false
       },
-      "BindingPlotDivisionMatter": {
+      "BindingPlotDivisionMatterCreate": {
         "required": [
           "administrativeAreaIdentifiers",
           "bindingPlotDivisionType",
@@ -5813,15 +6082,6 @@
             },
             "description": "hallinnollisen alueen tunnukset"
           },
-          "phases": {
-            "maxItems": 1,
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
-            },
-            "description": "Vaiheet"
-          },
           "responsibleParty": {
             "allOf": [
               {
@@ -5846,6 +6106,15 @@
             },
             "description": "AsianLiitteet",
             "nullable": true
+          },
+          "phases": {
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+            },
+            "description": "Vaiheet"
           }
         },
         "additionalProperties": false
@@ -6045,7 +6314,6 @@
           "bindingPlotDivisionType",
           "name",
           "permanentBindingPlotDivisionIdentifier",
-          "phases",
           "timeOfInitiation"
         ],
         "type": "object",
@@ -6114,15 +6382,6 @@
             },
             "description": "hallinnollisen alueen tunnukset"
           },
-          "phases": {
-            "maxItems": 1,
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
-            },
-            "description": "Vaiheet"
-          },
           "responsibleParty": {
             "allOf": [
               {
@@ -6152,6 +6411,115 @@
             "type": "string",
             "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/bindingplotdivisionmatter/{identifier})",
             "readOnly": true
+          },
+          "phases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+            },
+            "description": "Vaiheet"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BindingPlotDivisionMatterUpdate": {
+        "required": [
+          "administrativeAreaIdentifiers",
+          "bindingPlotDivisionType",
+          "name",
+          "permanentBindingPlotDivisionIdentifier",
+          "timeOfInitiation"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
+          },
+          "description": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "bindingPlotDivisionType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/sitovanTonttijaonLaji/code/01",
+              "http://uri.suomi.fi/codelist/rytj/sitovanTonttijaonLaji/code/02"
+            ],
+            "type": "string",
+            "description": "Sitovan tonttijaon laji. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/sitovanTonttijaonLaji\">http://uri.suomi.fi/codelist/rytj/sitovanTonttijaonLaji</a>"
+          },
+          "permanentBindingPlotDivisionIdentifier": {
+            "minLength": 1,
+            "type": "string",
+            "description": "sitovan tonttijaon pysyvä tunnus"
+          },
+          "producerBindingPlotDivisionIdentifier": {
+            "type": "string",
+            "description": "kunnan antama sitovan tonttijaon tunnus",
+            "nullable": true
+          },
+          "caseIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "asianhallintatunnukset",
+            "nullable": true
+          },
+          "recordNumbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "diaarinumerot",
+            "nullable": true
+          },
+          "timeOfInitiation": {
+            "type": "string",
+            "description": "vireilletulopäivämäärä",
+            "format": "date"
+          },
+          "administrativeAreaIdentifiers": {
+            "maxItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "hallinnollisen alueen tunnukset"
+          },
+          "responsibleParty": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BindingPlotDivisionOperator"
+              }
+            ],
+            "description": "Vastuutaho",
+            "nullable": true
+          },
+          "relatedBindingPlotDivisionMatters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Liittyvät asiat",
+            "nullable": true
+          },
+          "matterAnnexes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BindingPlotDivisionAttachmentDocument"
+            },
+            "description": "AsianLiitteet",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -7511,7 +7879,7 @@
         },
         "additionalProperties": false
       },
-      "LandUseRestrictionMatter": {
+      "LandUseRestrictionMatterCreate": {
         "required": [
           "administrativeAreaIdentifiers",
           "landUseRestrictionType",
@@ -7527,11 +7895,6 @@
             "type": "string",
             "description": "Alueidenkäytön rajoituksen pysyvä tunnus"
           },
-          "landUseRestrictionMatterUri": {
-            "type": "string",
-            "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/landuserestrictionmatter/{identifier})",
-            "readOnly": true
-          },
           "name": {
             "allOf": [
               {
@@ -7544,15 +7907,6 @@
             "minLength": 1,
             "type": "string",
             "description": "Alueidenkäytön rajoituksen tyyppi. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenLaji\">http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenLaji</a>"
-          },
-          "phases": {
-            "maxItems": 1,
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LandUseRestrictionMatterPhase"
-            },
-            "description": "Vaiheet"
           },
           "timeOfInitiation": {
             "type": "string",
@@ -7621,6 +7975,15 @@
             },
             "description": "Liittyvät alueidenkäytön rajoituksen asiat",
             "nullable": true
+          },
+          "phases": {
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LandUseRestrictionMatterPhase"
+            },
+            "description": "Vaiheet"
           }
         },
         "additionalProperties": false
@@ -7790,6 +8153,216 @@
               }
             ],
             "description": "Päätös"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LandUseRestrictionMatterResponse": {
+        "required": [
+          "administrativeAreaIdentifiers",
+          "landUseRestrictionType",
+          "name",
+          "permanentLandUseRestrictionIdentifier",
+          "phases",
+          "timeOfInitiation"
+        ],
+        "type": "object",
+        "properties": {
+          "permanentLandUseRestrictionIdentifier": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Alueidenkäytön rajoituksen pysyvä tunnus"
+          },
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
+          },
+          "landUseRestrictionType": {
+            "type": "string",
+            "description": "Alueidenkäytön rajoituksen tyyppi. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenLaji\">http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenLaji</a>"
+          },
+          "timeOfInitiation": {
+            "type": "string",
+            "description": "Vireilletulopäivämäärä",
+            "format": "date"
+          },
+          "administrativeAreaIdentifiers": {
+            "maxItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "hallinnollisen alueen tunnukset"
+          },
+          "description": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "caseIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Asianhallintatunnukset",
+            "nullable": true
+          },
+          "recordNumbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Diaarinumerot",
+            "nullable": true
+          },
+          "producerLandUseRestrictionIdentifier": {
+            "type": "string",
+            "description": "Kunnan antama alueidenkäytön rajoituksen tunnus",
+            "nullable": true
+          },
+          "matterAnnexes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LandUseRestrictionAttachmentDocument"
+            },
+            "description": "AsianLiitteet",
+            "nullable": true
+          },
+          "responsibleParty": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LandUseRestrictionOperator"
+              }
+            ],
+            "description": "Vastuutaho",
+            "nullable": true
+          },
+          "relatedLandUseRestrictionMatters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Liittyvät alueidenkäytön rajoituksen asiat",
+            "nullable": true
+          },
+          "landUseRestrictionMatterUri": {
+            "type": "string",
+            "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/landuserestrictionmatter/{identifier})",
+            "readOnly": true
+          },
+          "phases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LandUseRestrictionMatterPhase"
+            },
+            "description": "Vaiheet"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LandUseRestrictionMatterUpdate": {
+        "required": [
+          "administrativeAreaIdentifiers",
+          "landUseRestrictionType",
+          "name",
+          "permanentLandUseRestrictionIdentifier",
+          "timeOfInitiation"
+        ],
+        "type": "object",
+        "properties": {
+          "permanentLandUseRestrictionIdentifier": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Alueidenkäytön rajoituksen pysyvä tunnus"
+          },
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
+          },
+          "landUseRestrictionType": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Alueidenkäytön rajoituksen tyyppi. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenLaji\">http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenLaji</a>"
+          },
+          "timeOfInitiation": {
+            "type": "string",
+            "description": "Vireilletulopäivämäärä",
+            "format": "date"
+          },
+          "administrativeAreaIdentifiers": {
+            "maxItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "hallinnollisen alueen tunnukset"
+          },
+          "description": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "caseIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Asianhallintatunnukset",
+            "nullable": true
+          },
+          "recordNumbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Diaarinumerot",
+            "nullable": true
+          },
+          "producerLandUseRestrictionIdentifier": {
+            "type": "string",
+            "description": "Kunnan antama alueidenkäytön rajoituksen tunnus",
+            "nullable": true
+          },
+          "matterAnnexes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LandUseRestrictionAttachmentDocument"
+            },
+            "description": "AsianLiitteet",
+            "nullable": true
+          },
+          "responsibleParty": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LandUseRestrictionOperator"
+              }
+            ],
+            "description": "Vastuutaho",
+            "nullable": true
+          },
+          "relatedLandUseRestrictionMatters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Liittyvät alueidenkäytön rajoituksen asiat",
+            "nullable": true
           }
         },
         "additionalProperties": false
