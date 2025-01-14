@@ -1306,6 +1306,75 @@
         }
       }
     },
+    "/api/InitialInformation/BuildingNoPersons": {
+      "post": {
+        "tags": [
+          "InitialInformation"
+        ],
+        "parameters": [
+          {
+            "name": "municipality",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetInitialInfo"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetInitialInfo"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetInitialInfo"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InitialInformationCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InitialInformationCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InitialInformationCollection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/InitialInformation/BuildingPermitGeneralized": {
       "post": {
         "tags": [
@@ -4079,8 +4148,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChangeInformationBuildingChangeDiffDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
@@ -4330,8 +4398,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeDiffDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
@@ -6137,8 +6204,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/DemolitionPermitIssueChangeDiffDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
@@ -6718,8 +6784,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/DeviationPermitIssueChangeDiffDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
@@ -7299,7 +7364,8 @@
                 "$ref": "#/components/schemas/RyhtiGeometry"
               }
             ],
-            "description": ""
+            "description": "",
+            "nullable": true
           },
           "relationToGroundLevel": {
             "type": "string",
@@ -7829,8 +7895,7 @@
             "nullable": true
           },
           "subParagraph": {
-            "type": "integer",
-            "format": "int32",
+            "type": "string",
             "nullable": true
           }
         },
@@ -8493,8 +8558,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OperatorChangeDiffDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
@@ -9369,8 +9433,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/StructureChangeDiffDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false

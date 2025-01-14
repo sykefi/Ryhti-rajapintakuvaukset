@@ -346,7 +346,7 @@
         },
         "responses": {
           "200": {
-            "description": "Kaava-asian vaihe päivitetty."
+            "description": "Asia päivitetty."
           },
           "400": {
             "description": "Kutsun rakenne ei ole scheman mukainen."
@@ -603,6 +603,93 @@
       }
     },
     "/api/BindingPlotDivisionMatter/{permanentBindingPlotDivisionIdentifier}/phase/{bindingPlotDivisionMatterPhaseKey}": {
+      "get": {
+        "tags": [
+          "BindingPlotDivisionMatter"
+        ],
+        "summary": "Sitovan tonttijaon asian vaiheen hakeminen avaimella.",
+        "parameters": [
+          {
+            "name": "permanentBindingPlotDivisionIdentifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bindingPlotDivisionMatterPhaseKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BindingPlotDivisionMatterPhase"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
           "BindingPlotDivisionMatter"
@@ -787,7 +874,7 @@
         },
         "responses": {
           "200": {
-            "description": "Kaava-asia päivitetty."
+            "description": "Vaihe päivitetty."
           },
           "400": {
             "description": "Kutsun rakenne ei ole scheman mukainen."
@@ -1925,10 +2012,12 @@
         "tags": [
           "LandUseRestrictionMatter"
         ],
+        "summary": "Rajapinta alueidenkäytön rajoituksen asian päivittämiseen.",
         "parameters": [
           {
             "name": "permanentLandUseRestrictionIdentifier",
             "in": "path",
+            "description": "",
             "required": true,
             "schema": {
               "type": "string"
@@ -1936,6 +2025,7 @@
           }
         ],
         "requestBody": {
+          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -1969,7 +2059,16 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Asia päivitetty."
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen."
+          },
+          "404": {
+            "description": "Resurssia ei löydy."
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä."
           }
         }
       }
@@ -2092,7 +2191,94 @@
         }
       }
     },
-    "/api/LandUseRestrictionMatter/{permanentLandUseRestrictionIdentifier}/phase/{phaseKey}": {
+    "/api/LandUseRestrictionMatter/{permanentLandUseRestrictionIdentifier}/phase/{landUseRestrictionMatterPhaseKey}": {
+      "get": {
+        "tags": [
+          "LandUseRestrictionMatter"
+        ],
+        "summary": "Alueidenkäytön rajoituksen vaiheen hakeminen avaimella.",
+        "parameters": [
+          {
+            "name": "permanentLandUseRestrictionIdentifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "landUseRestrictionMatterPhaseKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandUseRestrictionMatterPhase"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandUseRestrictionMatterPhase"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandUseRestrictionMatterPhase"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
           "LandUseRestrictionMatter"
@@ -2110,7 +2296,7 @@
             }
           },
           {
-            "name": "phaseKey",
+            "name": "landUseRestrictionMatterPhaseKey",
             "in": "path",
             "description": "Pysyvä yksilöivä tunnus vaiheelle.",
             "required": true,
@@ -2215,9 +2401,83 @@
             }
           }
         }
+      },
+      "put": {
+        "tags": [
+          "LandUseRestrictionMatter"
+        ],
+        "summary": "Rajapinta jo tallennetun vaiheen päivittämiseen.",
+        "parameters": [
+          {
+            "name": "permanentLandUseRestrictionIdentifier",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "landUseRestrictionMatterPhaseKey",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/LandUseRestrictionMatterPhase"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/LandUseRestrictionMatterPhase"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/LandUseRestrictionMatterPhase"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Vaihe päivitetty."
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen."
+          },
+          "404": {
+            "description": "Resurssia ei löydy."
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä."
+          }
+        }
       }
     },
-    "/api/LandUseRestrictionMatter/{permanentLandUseRestrictionIdentifier}/phase/{phaseKey}/validate": {
+    "/api/LandUseRestrictionMatter/{permanentLandUseRestrictionIdentifier}/phase/{landUseRestrictionMatterPhaseKey}/validate": {
       "post": {
         "tags": [
           "LandUseRestrictionMatter"
@@ -2235,7 +2495,7 @@
             }
           },
           {
-            "name": "phaseKey",
+            "name": "landUseRestrictionMatterPhaseKey",
             "in": "path",
             "description": "Pysyvä yksilöivä tunnus vaiheelle.",
             "required": true,
@@ -8182,6 +8442,7 @@
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
           },
           "landUseRestrictionType": {
+            "minLength": 1,
             "type": "string",
             "description": "Alueidenkäytön rajoituksen tyyppi. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenLaji\">http://uri.suomi.fi/codelist/rytj/alueidenkaytonRajoituksenLaji</a>"
           },
