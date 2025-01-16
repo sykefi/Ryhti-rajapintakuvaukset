@@ -976,105 +976,6 @@
           }
         }
       },
-      "get": {
-        "tags": [
-          "BuildingPermit"
-        ],
-        "summary": "Hae rakentamislupa-asia.",
-        "parameters": [
-          {
-            "name": "buildingPermitId",
-            "in": "path",
-            "description": "Rakentamislupa-asian pysyvä yksilöivä lupatunnus.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Rakentamisluvan hakeminen onnistui.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Rakentamislupaa ei löytynyt pysyvällä rakentamislupatunnuksella.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Käyttäjältä puuttuu tarvittava scope.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Ei oikeutta lukea rakentamisluvan tietoja.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      },
       "put": {
         "tags": [
           "BuildingPermit"
@@ -1216,6 +1117,106 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/BuildingPermit/{permitId}": {
+      "get": {
+        "tags": [
+          "BuildingPermit"
+        ],
+        "summary": "Hae rakentamislupa-asia.",
+        "parameters": [
+          {
+            "name": "permitId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rakentamisluvan hakeminen onnistui.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Rakentamislupaa ei löytynyt pysyvällä rakentamislupatunnuksella.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Käyttäjältä puuttuu tarvittava scope.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Ei oikeutta lukea rakentamisluvan tietoja.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -9135,7 +9136,8 @@
                 "$ref": "#/components/schemas/RyhtiGeometry"
               }
             ],
-            "description": ""
+            "description": "",
+            "nullable": true
           },
           "relationToGroundLevel": {
             "type": "string",
@@ -10900,8 +10902,7 @@
             "nullable": true
           },
           "subParagraph": {
-            "type": "integer",
-            "format": "int32",
+            "type": "string",
             "nullable": true
           }
         },
