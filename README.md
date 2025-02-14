@@ -22,9 +22,8 @@ Rakentamisen rajapintakuvauksia kehitetään. Rajapinnoille ei ole vielä määr
 ## OpenApi-kuvaukset
 Rajapintojen kuvaukset löytyvät kansiosta OpenApi. OpenApi-kuvaukset ovat JSON-muodossa ja niitä voi katsella esim. https://editor.swagger.io/ sivuston avulla kopioimalla JSON-tiedoston sisällön sinne.
 
-Suorat linkit kuvauksiin Githubissa
-* [Kaavoitus OpenApi.json](https://github.com/sykefi/Ryhti-rajapintakuvaukset/blob/main/OpenApi/Kaavoitus/Palveluv%C3%A4yl%C3%A4/Kaavoitus%20OpenApi.json)
-* [Rakentaminen OpanApi Beta.json](https://github.com/sykefi/Ryhti-rajapintakuvaukset/blob/Dev/OpenApi/Rakentaminen/Palveluv%C3%A4yl%C3%A4/Rakentaminen%20OpenApi%20Beta.json)
+Sijanti GitHubissa.
+Kuvaukset löytyvät [OpenApi-kansiosta](https://github.com/sykefi/Ryhti-rajapintakuvaukset/tree/main/OpenApi). 
 
 Suomi.fi palveluväylään julkaistut kuvaukset
 * [Suomi.fi liityntäkatalogi - testi](https://liityntakatalogi.test.suomi.fi/dataset/ryhti-syke-service)
