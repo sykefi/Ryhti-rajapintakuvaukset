@@ -5172,6 +5172,7 @@
       "BuildingPermitApplication": {
         "required": [
           "applicationContent",
+          "buildingPermitApplicationType",
           "dateOfReception",
           "lifeCycleState",
           "permitApplicationKey",
@@ -5217,6 +5218,20 @@
             ],
             "type": "string",
             "description": "Rakentamislupahakemuksen lupatyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/LuvanSisalto\">http://uri.suomi.fi/codelist/rytj/LuvanSisalto</a>",
+            "nullable": true
+          },
+          "buildingPermitApplicationType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/01",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/02",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/03",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/04",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/05",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/06",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/07"
+            ],
+            "type": "string",
+            "description": "Rakentamislupahakemuksen hakemustyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi\">http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi</a>",
             "nullable": true
           }
         },

@@ -1434,6 +1434,454 @@
         }
       }
     },
+    "/api/ChangeInformation/BuildingPersonsLimited": {
+      "post": {
+        "tags": [
+          "ChangeInformation"
+        ],
+        "summary": "Hae rakennuksen muutostiedot ilman turvakiellollisia toimijoita.",
+        "parameters": [
+          {
+            "name": "municipality",
+            "in": "query",
+            "description": "Kuntanumerot joista muutoksia halutaan. Eroteltu pilkulla.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Viimeisin ID muutostentietojen hakemiseksi.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetChangeInfo"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetChangeInfo"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetChangeInfo"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChangeInformation/StructurePersonsLimited": {
+      "post": {
+        "tags": [
+          "ChangeInformation"
+        ],
+        "summary": "Hae rakennelmien muutostiedot ilman turvakiellollisia toimijoita.",
+        "parameters": [
+          {
+            "name": "municipality",
+            "in": "query",
+            "description": "Kuntanumerot joista muutoksia halutaan. Eroteltu pilkulla.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Viimeisin ID muutostentietojen hakemiseksi.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetChangeInfo"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetChangeInfo"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetChangeInfo"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChangeInformation/OperatorPersonLimited": {
+      "post": {
+        "tags": [
+          "ChangeInformation"
+        ],
+        "summary": "Hae toimijoiden muutostiedot ilman turvakiellollisia toimijoita.",
+        "parameters": [
+          {
+            "name": "municipality",
+            "in": "query",
+            "description": "Kuntanumerot joista muutoksia halutaan. Eroteltu pilkulla.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Viimeisin ID muutostentietojen hakemiseksi.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetChangeInfo"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetChangeInfo"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetChangeInfo"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ChangeInformation/BuildingPermitPersonsLimited": {
+      "post": {
+        "tags": [
+          "ChangeInformation"
+        ],
+        "summary": "Hae rakennuslupien muutostiedot turvakiellolliset tiedot käsiteltynä",
+        "parameters": [
+          {
+            "name": "municipality",
+            "in": "query",
+            "description": "Kuntanumerot joista muutoksia halutaan. Eroteltu pilkulla.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Viimeisin ID muutostentietojen hakemiseksi.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetChangeInfo"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetChangeInfo"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetChangeInfo"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingChangeInfoCollectionDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/InitialInformation/Building": {
       "post": {
         "tags": [
@@ -3649,6 +4097,7 @@
       "BuildingPermitApplication": {
         "required": [
           "applicationContent",
+          "buildingPermitApplicationType",
           "dateOfReception",
           "lifeCycleState",
           "permitApplicationKey",
@@ -3694,6 +4143,20 @@
             ],
             "type": "string",
             "description": "Rakentamislupahakemuksen lupatyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/LuvanSisalto\">http://uri.suomi.fi/codelist/rytj/LuvanSisalto</a>",
+            "nullable": true
+          },
+          "buildingPermitApplicationType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/01",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/02",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/03",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/04",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/05",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/06",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/07"
+            ],
+            "type": "string",
+            "description": "Rakentamislupahakemuksen hakemustyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi\">http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi</a>",
             "nullable": true
           }
         },
