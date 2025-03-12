@@ -9097,6 +9097,11 @@
             "format": "int32",
             "nullable": true
           },
+          "officialUseOnly": {
+            "type": "boolean",
+            "description": "Vain viranomaiskäyttöön",
+            "nullable": true
+          },
           "planMaps": {
             "type": "array",
             "items": {
@@ -9182,7 +9187,7 @@
             "description": "Laatija",
             "nullable": true
           },
-          "partiallyCancelledPlanObjects": {
+          "partiallyCancelledPlanObjectInfos": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PartiallyCancelledPlanObjectInfo"
@@ -9458,7 +9463,8 @@
               "http://uri.suomi.fi/codelist/rytj/kaavpaatnimi/code/13",
               "http://uri.suomi.fi/codelist/rytj/kaavpaatnimi/code/14",
               "http://uri.suomi.fi/codelist/rytj/kaavpaatnimi/code/15",
-              "http://uri.suomi.fi/codelist/rytj/kaavpaatnimi/code/16"
+              "http://uri.suomi.fi/codelist/rytj/kaavpaatnimi/code/16",
+              "http://uri.suomi.fi/codelist/rytj/kaavpaatnimi/code/17"
             ],
             "type": "string",
             "description": "Päätöksen nimitys, joka kertoo mitä päätös koskee. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/kaavpaatnimi\">http://uri.suomi.fi/codelist/rytj/kaavpaatnimi</a>"
@@ -9771,6 +9777,13 @@
               "$ref": "#/components/schemas/PlanMatterPhase"
             },
             "description": "kaava-asian vaiheet"
+          },
+          "originalAdministrativeAreaIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -9965,6 +9978,7 @@
           "administrativeAreaIdentifiers",
           "digitalOrigin",
           "name",
+          "originalAdministrativeAreaIdentifiers",
           "permanentPlanIdentifier",
           "planMatterPhases",
           "planType",
@@ -10111,6 +10125,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PlanMatterPhaseUriResponse"
+            }
+          },
+          "originalAdministrativeAreaIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           },
           "planMatterUri": {
@@ -11465,10 +11485,10 @@
           "volumeOfBuilding": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/NumericValue"
+                "$ref": "#/components/schemas/PositiveNumericValue"
               }
             ],
-            "description": "Numeerinen arvo"
+            "description": "Positiivinen numeerinen arvo"
           },
           "motherProperties": {
             "minItems": 1,
@@ -11946,7 +11966,8 @@
               "3882",
               "3883",
               "3884",
-              "3885"
+              "3885",
+              "4326"
             ],
             "type": "string",
             "description": "Gauss Krüger projektio; SRID koodi; SRID nimi\r\n\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873\r\n\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874\r\n\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875\r\n\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876\r\n\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877\r\n\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878\r\n\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879\r\n\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880\r\n\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881\r\n\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882\r\n\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883\r\n\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884\r\n\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885\r\n\r\n   3067 TM35FIN\r\n"
