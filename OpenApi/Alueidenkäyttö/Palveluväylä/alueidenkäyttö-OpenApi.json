@@ -2977,22 +2977,22 @@
               }
             }
           },
-          "404": {
-            "description": "Resurssia ei löydy.",
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä.",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
                 }
               }
             }
@@ -8980,17 +8980,11 @@
       "PartiallyCancelledPlanObjectInfo": {
         "required": [
           "cancelledPlanUri",
-          "partiallyCancelledPlanObjectInfoKey",
           "partiallyCancelledPlanObjectUri",
           "validityGeometry"
         ],
         "type": "object",
         "properties": {
-          "partiallyCancelledPlanObjectInfoKey": {
-            "type": "string",
-            "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
-            "format": "uuid"
-          },
           "cancelledPlanUri": {
             "minLength": 1,
             "type": "string",
@@ -9550,22 +9544,6 @@
             },
             "description": "Päätöksentekijä",
             "nullable": true
-          },
-          "planCancellationInfos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PlanCancellationInfo"
-            },
-            "description": "Kumoamistieto",
-            "nullable": true
-          },
-          "partiallyCancelledPlanObjectInfos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PartiallyCancelledPlanObjectInfo"
-            },
-            "description": "Osittain kumottavat kaavakohteet",
-            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -9666,15 +9644,15 @@
           "planType": {
             "enum": [
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/1",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/2",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/3",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/11",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/12",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/2",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/21",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/22",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/23",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/24",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/25",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/3",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/31",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/32",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/33",
@@ -10016,15 +9994,15 @@
           "planType": {
             "enum": [
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/1",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/2",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/3",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/11",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/12",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/2",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/21",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/22",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/23",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/24",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/25",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/3",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/31",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/32",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/33",
@@ -10182,15 +10160,15 @@
           "planType": {
             "enum": [
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/1",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/2",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/3",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/11",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/12",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/2",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/21",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/22",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/23",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/24",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/25",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/3",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/31",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/32",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/33",

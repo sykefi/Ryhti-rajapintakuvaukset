@@ -403,6 +403,107 @@
         }
       }
     },
+    "/api/BuildingPersonsLimited/{permanentBuildingIdentifier}": {
+      "get": {
+        "tags": [
+          "Building"
+        ],
+        "summary": "Hae karkeutettu rakennustieto ilman turvakiellollisten toimijoiden tietoja.",
+        "parameters": [
+          {
+            "name": "permanentBuildingIdentifier",
+            "in": "path",
+            "description": "Rakennuskohteen pysyvä yksilöivä tunnus.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rakennuskohteen haku onnistui.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeneralizedBuildingNoPersonData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeneralizedBuildingNoPersonData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeneralizedBuildingNoPersonData"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Rakennuskohdetta ei löytynyt pysyvällä rakennustunnuksella.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Käyttäjältä puuttuu tarvittava scope.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Ei oikeutta lukea rakennuskohteen tietoja.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/BuildingObject/Validate": {
       "post": {
         "tags": [
@@ -1069,6 +1170,105 @@
           }
         }
       },
+      "get": {
+        "tags": [
+          "BuildingPermit"
+        ],
+        "summary": "Hae rakentamislupa-asia.",
+        "parameters": [
+          {
+            "name": "buildingPermitId",
+            "in": "path",
+            "description": "Rakentamislupa-asian pysyvä yksilöivä lupatunnus.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rakentamisluvan hakeminen onnistui.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Rakentamislupaa ei löytynyt pysyvällä rakentamislupatunnuksella.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Käyttäjältä puuttuu tarvittava scope.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Ei oikeutta lukea rakentamisluvan tietoja.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
       "put": {
         "tags": [
           "BuildingPermit"
@@ -1210,106 +1410,6 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CustomValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/BuildingPermit/{permitId}": {
-      "get": {
-        "tags": [
-          "BuildingPermit"
-        ],
-        "summary": "Hae rakentamislupa-asia.",
-        "parameters": [
-          {
-            "name": "permitId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Rakentamisluvan hakeminen onnistui.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Rakentamislupaa ei löytynyt pysyvällä rakentamislupatunnuksella.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Käyttäjältä puuttuu tarvittava scope.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Ei oikeutta lukea rakentamisluvan tietoja.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1519,6 +1619,107 @@
         }
       }
     },
+    "/api/BuildingPermitPersonsLimited/{buildingPermitId}": {
+      "get": {
+        "tags": [
+          "BuildingPermit"
+        ],
+        "summary": "Hae karkeutettu rakentamislupa-asia ilman turvakiellollisten toimijoiden tietoja.",
+        "parameters": [
+          {
+            "name": "buildingPermitId",
+            "in": "path",
+            "description": "Rakentamislupa-asian pysyvä yksilöivä lupatunnus.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Karkeutetun rakentamisluvan hakeminen onnistui.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeneralizedBuildingPermitIssue"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeneralizedBuildingPermitIssue"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeneralizedBuildingPermitIssue"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Rakentamislupaa ei löytynyt pysyvällä rakentamislupatunnuksella.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Käyttäjältä puuttuu tarvittava scope.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Ei oikeutta lukea rakentamisluvan tietoja.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/DemolitionPermit/Validate": {
       "post": {
         "tags": [
@@ -1531,8 +1732,8 @@
             "application/json": {
               "schema": {
                 "required": [
-                  "demolitionPermitApplication",
                   "demolitionDecision",
+                  "demolitionPermitApplication",
                   "dateOfInitiation",
                   "lifeCycleState",
                   "municipalityNumber"
@@ -1548,8 +1749,8 @@
             "text/json": {
               "schema": {
                 "required": [
-                  "demolitionPermitApplication",
                   "demolitionDecision",
+                  "demolitionPermitApplication",
                   "dateOfInitiation",
                   "lifeCycleState",
                   "municipalityNumber"
@@ -1565,8 +1766,8 @@
             "application/*+json": {
               "schema": {
                 "required": [
-                  "demolitionPermitApplication",
                   "demolitionDecision",
+                  "demolitionPermitApplication",
                   "dateOfInitiation",
                   "lifeCycleState",
                   "municipalityNumber"
@@ -1652,8 +1853,8 @@
             "application/json": {
               "schema": {
                 "required": [
-                  "demolitionPermitApplication",
                   "demolitionDecision",
+                  "demolitionPermitApplication",
                   "dateOfInitiation",
                   "lifeCycleState",
                   "municipalityNumber"
@@ -1669,8 +1870,8 @@
             "text/json": {
               "schema": {
                 "required": [
-                  "demolitionPermitApplication",
                   "demolitionDecision",
+                  "demolitionPermitApplication",
                   "dateOfInitiation",
                   "lifeCycleState",
                   "municipalityNumber"
@@ -1686,8 +1887,8 @@
             "application/*+json": {
               "schema": {
                 "required": [
-                  "demolitionPermitApplication",
                   "demolitionDecision",
+                  "demolitionPermitApplication",
                   "dateOfInitiation",
                   "lifeCycleState",
                   "municipalityNumber"
@@ -1773,7 +1974,7 @@
         "tags": [
           "DemolitionPermit"
         ],
-        "summary": "Hae purkamislupa-asia. Määrittely kesken. Rakenne tarkentuu myöhemmin.",
+        "summary": "Hae purkamislupa-asia.",
         "parameters": [
           {
             "name": "demolitionPermitId",
@@ -1853,8 +2054,8 @@
             "application/json": {
               "schema": {
                 "required": [
-                  "demolitionPermitApplication",
                   "demolitionDecision",
+                  "demolitionPermitApplication",
                   "dateOfInitiation",
                   "lifeCycleState",
                   "municipalityNumber"
@@ -1870,8 +2071,8 @@
             "text/json": {
               "schema": {
                 "required": [
-                  "demolitionPermitApplication",
                   "demolitionDecision",
+                  "demolitionPermitApplication",
                   "dateOfInitiation",
                   "lifeCycleState",
                   "municipalityNumber"
@@ -1887,8 +2088,8 @@
             "application/*+json": {
               "schema": {
                 "required": [
-                  "demolitionPermitApplication",
                   "demolitionDecision",
+                  "demolitionPermitApplication",
                   "dateOfInitiation",
                   "lifeCycleState",
                   "municipalityNumber"
@@ -1951,6 +2152,198 @@
         }
       }
     },
+    "/api/DemolitionPermitGeneralized/{demolitionPermitId}": {
+      "get": {
+        "tags": [
+          "DemolitionPermit"
+        ],
+        "summary": "Hae karkeutettu purkamislupa-asia.",
+        "parameters": [
+          {
+            "name": "demolitionPermitId",
+            "in": "path",
+            "description": "Purkamisluvan yksilöivä pysyvä tunnus.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Purkamislupa löytyi ja se palautettiin."
+          },
+          "400": {
+            "description": "Purkamisluvan hakeminen epäonnistui.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Purkamisluvan haku epäonnistui virheellisten tietojen johdosta.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DemolitionPermitPersonsLimited/{demolitionPermitId}": {
+      "get": {
+        "tags": [
+          "DemolitionPermit"
+        ],
+        "summary": "Hae karkeutettu purkamislupa-asia ilman turvakiellollisten toimijoiden tietoja.",
+        "parameters": [
+          {
+            "name": "demolitionPermitId",
+            "in": "path",
+            "description": "Purkamisluvan yksilöivä pysyvä tunnus.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Purkamislupa löytyi ja se palautettiin."
+          },
+          "400": {
+            "description": "Purkamisluvan hakeminen epäonnistui.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Purkamisluvan haku epäonnistui virheellisten tietojen johdosta.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DemolitionPermitNoPersons/{demolitionPermitId}": {
+      "get": {
+        "tags": [
+          "DemolitionPermit"
+        ],
+        "summary": "Hae karkeutettu purkamislupa-asia, josta on poistettu henkilötiedot.",
+        "parameters": [
+          {
+            "name": "demolitionPermitId",
+            "in": "path",
+            "description": "Purkamisluvan yksilöivä pysyvä tunnus.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Purkamislupa löytyi ja se palautettiin."
+          },
+          "400": {
+            "description": "Purkamisluvan hakeminen epäonnistui.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Purkamisluvan haku epäonnistui virheellisten tietojen johdosta.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/DeviationPermit/Validate": {
       "post": {
         "tags": [
@@ -1962,10 +2355,10 @@
             "application/json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "deviationPermitDecision",
                   "deviationPermitApplication",
                   "deviationObject",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -1982,10 +2375,10 @@
             "text/json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "deviationPermitDecision",
                   "deviationPermitApplication",
                   "deviationObject",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -2002,10 +2395,10 @@
             "application/*+json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "deviationPermitDecision",
                   "deviationPermitApplication",
                   "deviationObject",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -2091,10 +2484,10 @@
             "application/json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "deviationPermitDecision",
                   "deviationPermitApplication",
                   "deviationObject",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -2111,10 +2504,10 @@
             "text/json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "deviationPermitDecision",
                   "deviationPermitApplication",
                   "deviationObject",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -2131,10 +2524,10 @@
             "application/*+json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "deviationPermitDecision",
                   "deviationPermitApplication",
                   "deviationObject",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -2337,10 +2730,10 @@
             "application/json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "deviationPermitDecision",
                   "deviationPermitApplication",
                   "deviationObject",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -2357,10 +2750,10 @@
             "text/json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "deviationPermitDecision",
                   "deviationPermitApplication",
                   "deviationObject",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -2377,10 +2770,10 @@
             "application/*+json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "deviationPermitDecision",
                   "deviationPermitApplication",
                   "deviationObject",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -2457,6 +2850,208 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DeviationPermitPersonsLimited/{permanentPermitId}": {
+      "get": {
+        "tags": [
+          "DeviationPermit"
+        ],
+        "summary": "Hae karkeutettu poikkeamislupa-asia ilman turvakiellollisten toimijoiden tietoja.",
+        "parameters": [
+          {
+            "name": "permanentPermitId",
+            "in": "path",
+            "description": "Poikkeamisluvan pysyvä yksilöivä lupatunnus.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Poikkeamislupa-asia löytyi ja se palautettiin.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviationPermitIssue"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviationPermitIssue"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviationPermitIssue"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Poikkeamuslupa-asiaa ei löytynyt pysyvällä tunnuksella.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Käyttäjältä puuttuu tarvittava scope.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Ei oikeutta lukea poikkeamuslupa-asian tietoja.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DeviationPermitNoPersons/{permanentPermitId}": {
+      "get": {
+        "tags": [
+          "DeviationPermit"
+        ],
+        "summary": "Hae karkeutettu poikkeamislupa-asia, josta on poistettu henkilötiedot.",
+        "parameters": [
+          {
+            "name": "permanentPermitId",
+            "in": "path",
+            "description": "Poikkeamisluvan pysyvä yksilöivä lupatunnus.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Poikkeamislupa-asia löytyi ja se palautettiin.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviationPermitIssueNoPersonData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviationPermitIssueNoPersonData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviationPermitIssueNoPersonData"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Poikkeamuslupa-asiaa ei löytynyt pysyvällä tunnuksella.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Käyttäjältä puuttuu tarvittava scope.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Ei oikeutta lukea poikkeamuslupa-asian tietoja.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -2793,10 +3388,10 @@
             "application/json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "landscapeWorkPermitDecision",
                   "landscapeWorkPermitApplication",
                   "constructionAction",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -2813,10 +3408,10 @@
             "text/json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "landscapeWorkPermitDecision",
                   "landscapeWorkPermitApplication",
                   "constructionAction",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -2833,10 +3428,10 @@
             "application/*+json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "landscapeWorkPermitDecision",
                   "landscapeWorkPermitApplication",
                   "constructionAction",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -2923,10 +3518,10 @@
             "application/json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "landscapeWorkPermitDecision",
                   "landscapeWorkPermitApplication",
                   "constructionAction",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -2943,10 +3538,10 @@
             "text/json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "landscapeWorkPermitDecision",
                   "landscapeWorkPermitApplication",
                   "constructionAction",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -2963,10 +3558,10 @@
             "application/*+json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "landscapeWorkPermitDecision",
                   "landscapeWorkPermitApplication",
                   "constructionAction",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -3150,10 +3745,10 @@
             "application/json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "landscapeWorkPermitDecision",
                   "landscapeWorkPermitApplication",
                   "constructionAction",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -3170,10 +3765,10 @@
             "text/json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "landscapeWorkPermitDecision",
                   "landscapeWorkPermitApplication",
                   "constructionAction",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -3190,10 +3785,10 @@
             "application/*+json": {
               "schema": {
                 "required": [
-                  "permanentPermitIdentifier",
                   "landscapeWorkPermitDecision",
                   "landscapeWorkPermitApplication",
                   "constructionAction",
+                  "permanentPermitIdentifier",
                   "buildingSite",
                   "dateOfInitiation",
                   "lifeCycleState",
@@ -3256,6 +3851,168 @@
           },
           "422": {
             "description": "Maisematyölupa-asia päivitys epäonnistui virheellisten tietojen johdosta.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/LandscapeWorkPermitPersonsLimited/{landscapeWorkPermitIssueId}": {
+      "get": {
+        "tags": [
+          "LandscapeWorkPermit"
+        ],
+        "summary": "Hae karkeutettu maisematyölupa-asia ilman turvakiellollisten toimijoiden tietoja.",
+        "parameters": [
+          {
+            "name": "landscapeWorkPermitIssueId",
+            "in": "path",
+            "description": "Maisematyölupa-asian pysyvä yksilöivä tunnus.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Maisematyölupa-asia löytyi ja se palautettiin.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Maisematyölupa-asia hakeminen epäonnistui.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Maisematyölupa-asia haku epäonnistui virheellisten tietojen johdosta.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/LandscapeWorkPermitNoPersons/{landscapeWorkPermitIssueId}": {
+      "get": {
+        "tags": [
+          "LandscapeWorkPermit"
+        ],
+        "summary": "Hae maisematyölupa-asia, josta on poistettu henkilötiedot",
+        "parameters": [
+          {
+            "name": "landscapeWorkPermitIssueId",
+            "in": "path",
+            "description": "Maisematyölupa-asian pysyvä yksilöivä tunnus.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Maisematyölupa-asia löytyi ja se palautettiin.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandscapeWorkPermitIssue"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Maisematyölupa-asia hakeminen epäonnistui.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Maisematyölupa-asia haku epäonnistui virheellisten tietojen johdosta.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -3809,6 +4566,208 @@
           "Structure"
         ],
         "summary": "Hae rakennelman kaikki tiedot Ryhdin REST-rajapinnasta.",
+        "parameters": [
+          {
+            "name": "permanentStructureIdentifier",
+            "in": "path",
+            "description": "Rakennelman pysyvä yksilöivä tunnus.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rakennelman haku onnistui.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Structure"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Structure"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Structure"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Rakennelmaa ei löytynyt pysyvällä rakennelmatunnuksella.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Käyttäjältä puuttuu tarvittava scope.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Ei oikeutta lukea rakennelman tietoja.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/StructurePersonsLimited/{permanentStructureIdentifier}": {
+      "get": {
+        "tags": [
+          "Structure"
+        ],
+        "summary": "Hae karkeutettu rakennelma ilman turvakiellollisten toimijoiden tietoja.",
+        "parameters": [
+          {
+            "name": "permanentStructureIdentifier",
+            "in": "path",
+            "description": "Rakennelman pysyvä yksilöivä tunnus.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rakennelman haku onnistui.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Structure"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Structure"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Structure"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Rakennelmaa ei löytynyt pysyvällä rakennelmatunnuksella.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Käyttäjältä puuttuu tarvittava scope.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Ei oikeutta lukea rakennelman tietoja.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/StructureNoPersons/{permanentStructureIdentifier}": {
+      "get": {
+        "tags": [
+          "Structure"
+        ],
+        "summary": "Hae karkeutettu rakennelma, josta on poistettu henkilötiedot.",
         "parameters": [
           {
             "name": "permanentStructureIdentifier",
@@ -4860,7 +5819,8 @@
             "nullable": true
           },
           "attachmentType": {
-            "type": "string"
+            "type": "string",
+            "description": "Liiteasiakirjan laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/ravaasiaki\">http://uri.suomi.fi/codelist/rytj/ravaasiaki</a>"
           }
         },
         "additionalProperties": false
@@ -4882,25 +5842,30 @@
             "type": "string",
             "description": "Rakennuksen tietomallin laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakennuksentietomallinlaji\">http://uri.suomi.fi/codelist/rytj/rakennuksentietomallinlaji</a>"
           },
-          "document": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BuildingAttachmentDocument"
-            },
-            "nullable": true
-          },
           "referencePoint": {
             "allOf": [
               {
                 "$ref": "#/components/schemas/RyhtiGeometry"
               }
             ]
+          },
+          "document": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingAttachmentDocument"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false,
         "description": "Rakennustietomalli"
       },
       "BuildingInformationModelNoPersonData": {
+        "required": [
+          "buildingInformationModelKey",
+          "buildingInformationModelType",
+          "referencePoint"
+        ],
         "type": "object",
         "properties": {
           "buildingInformationModelKey": {
@@ -4911,19 +5876,19 @@
             "type": "string",
             "description": "Rakennuksen tietomallin laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakennuksentietomallinlaji\">http://uri.suomi.fi/codelist/rytj/rakennuksentietomallinlaji</a>"
           },
-          "document": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
-            },
-            "nullable": true
-          },
           "referencePoint": {
             "allOf": [
               {
                 "$ref": "#/components/schemas/RyhtiGeometry"
               }
             ]
+          },
+          "document": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -5298,15 +6263,6 @@
             "format": "date",
             "nullable": true
           },
-          "decisionDocument": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingAttachmentDocument"
-              }
-            ],
-            "description": "Liiteasiakirja",
-            "nullable": true
-          },
           "decisionArticle": {
             "allOf": [
               {
@@ -5359,6 +6315,15 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "decisionDocument": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingAttachmentDocument"
+              }
+            ],
+            "description": "Liiteasiakirja",
             "nullable": true
           },
           "buildingPermitDecisionKey": {
@@ -5449,11 +6414,11 @@
               "constructionToBeStartedBy",
               "constructionToBeCompletedBy",
               "engagingParty",
+              "decisionDocument",
               "lifeCycleState",
               "decisionDate",
               "dateOfDecision",
               "dateOfValidityOfDecision",
-              "decisionDocument",
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
@@ -6556,11 +7521,18 @@
       },
       "ChangeInformationBuildingPermitIssue": {
         "required": [
+          "dateOfInitiation",
           "lifeCycleState",
           "municipalityNumber"
         ],
         "type": "object",
         "properties": {
+          "dateOfInitiation": {
+            "type": "string",
+            "description": "Vireilletulopäivä",
+            "format": "date",
+            "nullable": true
+          },
           "lifeCycleState": {
             "enum": [
               "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/1",
@@ -6584,11 +7556,11 @@
               "constructionToBeStartedBy",
               "constructionToBeCompletedBy",
               "engagingParty",
+              "decisionDocument",
               "lifeCycleState",
               "decisionDate",
               "dateOfDecision",
               "dateOfValidityOfDecision",
-              "decisionDocument",
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
@@ -6685,11 +7657,6 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
-            "nullable": true
-          },
-          "dateOfInitiation": {
-            "type": "string",
-            "format": "date",
             "nullable": true
           }
         },
@@ -6907,6 +7874,11 @@
         "additionalProperties": false
       },
       "ChangeInformationConstructionAction": {
+        "required": [
+          "constructionActionKey",
+          "constructionActionType",
+          "statusOfConstructionAction"
+        ],
         "type": "object",
         "properties": {
           "constructionActionKey": {
@@ -6976,34 +7948,6 @@
             "format": "int32",
             "nullable": true
           },
-          "building": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationBuilding"
-              }
-            ],
-            "nullable": true
-          },
-          "structure": {
-            "required": [
-              "structureMainPurpose",
-              "buildingObjectType"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationStructure"
-              }
-            ],
-            "nullable": true
-          },
-          "areaToBeBuiltForSpecificActivities": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationAreaToBeBuiltForSpecificActivities"
-              }
-            ],
-            "nullable": true
-          },
           "startDate": {
             "type": "string",
             "format": "date",
@@ -7058,6 +8002,38 @@
             "format": "date",
             "nullable": true
           },
+          "building": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChangeInformationBuilding"
+              }
+            ],
+            "nullable": true
+          },
+          "structure": {
+            "required": [
+              "structureKey",
+              "permanentStructureIdentifier",
+              "temporary",
+              "structureMainPurpose",
+              "buildingObjectType",
+              "address"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChangeInformationStructure"
+              }
+            ],
+            "nullable": true
+          },
+          "areaToBeBuiltForSpecificActivities": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChangeInformationAreaToBeBuiltForSpecificActivities"
+              }
+            ],
+            "nullable": true
+          },
           "locatedOnUnseparatedParcel": {
             "type": "boolean",
             "nullable": true
@@ -7067,8 +8043,12 @@
       },
       "ChangeInformationStructure": {
         "required": [
+          "address",
           "buildingObjectType",
-          "structureMainPurpose"
+          "permanentStructureIdentifier",
+          "structureKey",
+          "structureMainPurpose",
+          "temporary"
         ],
         "type": "object",
         "properties": {
@@ -7190,21 +8170,6 @@
             "description": "Rakennuskohteen sijaintitiedot",
             "nullable": true
           },
-          "administrativeLocationUnit": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
-              }
-            ]
-          },
-          "decisionAdministrativeLocationUnit": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
-              }
-            ],
-            "nullable": true
-          },
           "address": {
             "type": "array",
             "items": {
@@ -7230,19 +8195,34 @@
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
             "nullable": true
           },
+          "structureSection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StructureSection"
+            },
+            "nullable": true
+          },
+          "administrativeLocationUnit": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
+              }
+            ]
+          },
+          "decisionAdministrativeLocationUnit": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
+              }
+            ],
+            "nullable": true
+          },
           "buildingObjectOwner": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/BuildingObjectOwner"
             },
             "description": "Rakennuskohteen omistaja",
-            "nullable": true
-          },
-          "structureSection": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/StructureSection"
-            },
             "nullable": true
           }
         },
@@ -7305,15 +8285,6 @@
             "format": "date",
             "nullable": true
           },
-          "decisionDocument": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingAttachmentDocument"
-              }
-            ],
-            "description": "Liiteasiakirja",
-            "nullable": true
-          },
           "decisionArticle": {
             "allOf": [
               {
@@ -7366,6 +8337,15 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "decisionDocument": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingAttachmentDocument"
+              }
+            ],
+            "description": "Liiteasiakirja",
             "nullable": true
           },
           "changePermitKey": {
@@ -7547,111 +8527,6 @@
             "format": "int32",
             "nullable": true
           },
-          "building": {
-            "required": [
-              "buildingKey",
-              "permanentBuildingIdentifier",
-              "temporary",
-              "numberOfStoreys",
-              "buildingSection",
-              "mainPurpose",
-              "buildingObjectType",
-              "location",
-              "administrativeLocationUnit",
-              "buildingObjectOwner",
-              "address"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Building"
-              }
-            ],
-            "description": "Rakennuksen tiedot.",
-            "nullable": true
-          },
-          "finishedBuilding": {
-            "required": [
-              "buildingKey",
-              "permanentBuildingIdentifier",
-              "temporary",
-              "numberOfStoreys",
-              "buildingSection",
-              "mainPurpose",
-              "buildingObjectType",
-              "location",
-              "administrativeLocationUnit",
-              "buildingObjectOwner",
-              "address"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Building"
-              }
-            ],
-            "description": "Rakennuksen tiedot.",
-            "nullable": true
-          },
-          "structure": {
-            "required": [
-              "structureKey",
-              "permanentStructureIdentifier",
-              "temporary",
-              "structureSection",
-              "structureMainPurpose",
-              "buildingObjectType",
-              "location",
-              "administrativeLocationUnit",
-              "buildingObjectOwner",
-              "address"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Structure"
-              }
-            ],
-            "description": "Rakennelma",
-            "nullable": true
-          },
-          "finishedStructure": {
-            "required": [
-              "structureKey",
-              "permanentStructureIdentifier",
-              "temporary",
-              "structureSection",
-              "structureMainPurpose",
-              "buildingObjectType",
-              "location",
-              "administrativeLocationUnit",
-              "buildingObjectOwner",
-              "address"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Structure"
-              }
-            ],
-            "description": "Rakennelma",
-            "nullable": true
-          },
-          "areaToBeBuiltForSpecificActivities": {
-            "required": [
-              "areaToBeBuiltForSpecificActivitiesKey",
-              "specificActivitiesAreaType",
-              "temporary",
-              "buildingObjectType",
-              "location",
-              "administrativeLocationUnit",
-              "buildingObjectOwner",
-              "address"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AreaToBeBuiltForSpecificActivities"
-              }
-            ],
-            "description": "Erityistä toimintaa varten rakennettava alue",
-            "nullable": true
-          },
           "startDate": {
             "type": "string",
             "format": "date",
@@ -7706,6 +8581,109 @@
             "format": "date",
             "nullable": true
           },
+          "building": {
+            "required": [
+              "buildingKey",
+              "permanentBuildingIdentifier",
+              "temporary",
+              "numberOfStoreys",
+              "buildingSection",
+              "mainPurpose",
+              "buildingObjectType",
+              "location",
+              "administrativeLocationUnit",
+              "buildingObjectOwner",
+              "address"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Building"
+              }
+            ],
+            "description": "Rakennuksen tiedot.",
+            "nullable": true
+          },
+          "finishedBuilding": {
+            "required": [
+              "buildingKey",
+              "permanentBuildingIdentifier",
+              "temporary",
+              "numberOfStoreys",
+              "buildingSection",
+              "mainPurpose",
+              "buildingObjectType",
+              "location",
+              "administrativeLocationUnit",
+              "buildingObjectOwner",
+              "address"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Building"
+              }
+            ],
+            "description": "Rakennuksen tiedot.",
+            "nullable": true
+          },
+          "structure": {
+            "required": [
+              "structureSection",
+              "administrativeLocationUnit",
+              "buildingObjectOwner",
+              "structureKey",
+              "permanentStructureIdentifier",
+              "temporary",
+              "structureMainPurpose",
+              "buildingObjectType",
+              "address"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Structure"
+              }
+            ],
+            "description": "Rakennelma",
+            "nullable": true
+          },
+          "finishedStructure": {
+            "required": [
+              "structureSection",
+              "administrativeLocationUnit",
+              "buildingObjectOwner",
+              "structureKey",
+              "permanentStructureIdentifier",
+              "temporary",
+              "structureMainPurpose",
+              "buildingObjectType",
+              "address"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Structure"
+              }
+            ],
+            "description": "Rakennelma",
+            "nullable": true
+          },
+          "areaToBeBuiltForSpecificActivities": {
+            "required": [
+              "areaToBeBuiltForSpecificActivitiesKey",
+              "specificActivitiesAreaType",
+              "temporary",
+              "buildingObjectType",
+              "location",
+              "administrativeLocationUnit",
+              "buildingObjectOwner",
+              "address"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AreaToBeBuiltForSpecificActivities"
+              }
+            ],
+            "description": "Erityistä toimintaa varten rakennettava alue",
+            "nullable": true
+          },
           "finishedAreaToBeBuiltForSpecificActivities": {
             "required": [
               "areaToBeBuiltForSpecificActivitiesKey",
@@ -7732,8 +8710,7 @@
       "ConstructionDesign": {
         "required": [
           "constructionDesignKey",
-          "constructionDesignType",
-          "document"
+          "constructionDesignType"
         ],
         "type": "object",
         "properties": {
@@ -7756,6 +8733,10 @@
         "description": "Rakennussuunnitelma"
       },
       "ConstructionDesignNoPersonData": {
+        "required": [
+          "constructionDesignKey",
+          "constructionDesignType"
+        ],
         "type": "object",
         "properties": {
           "constructionDesignKey": {
@@ -8220,15 +9201,6 @@
             "format": "date",
             "nullable": true
           },
-          "decisionDocument": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingAttachmentDocument"
-              }
-            ],
-            "description": "Liiteasiakirja",
-            "nullable": true
-          },
           "decisionArticle": {
             "allOf": [
               {
@@ -8323,6 +9295,15 @@
               "$ref": "#/components/schemas/EngagingParty"
             },
             "nullable": true
+          },
+          "decisionDocument": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingAttachmentDocument"
+              }
+            ],
+            "description": "Liiteasiakirja",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -8358,6 +9339,9 @@
           "municipalityNumber": {
             "type": "string"
           },
+          "permanentPermitIdentifier": {
+            "type": "string"
+          },
           "demolitionPermitApplication": {
             "type": "array",
             "items": {
@@ -8366,14 +9350,50 @@
             "description": "Purkamislupahakemus",
             "nullable": true
           },
+          "buildingSite": {
+            "required": [
+              "buildingSiteKey",
+              "stormWaterTreatmentType",
+              "buildingSiteAddress",
+              "tenure"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingSite"
+              }
+            ],
+            "description": "Rakennuspaikka",
+            "nullable": true
+          },
+          "updateType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/01",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/02",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/03",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/04",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/05",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
+            ],
+            "type": "string",
+            "nullable": true
+          },
+          "updateDescription": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
           "demolitionDecision": {
             "required": [
+              "decisionDocument",
               "demolitionPermitDecisionKey",
               "lifeCycleState",
               "decisionDate",
               "dateOfDecision",
               "dateOfValidityOfDecision",
-              "decisionDocument",
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
@@ -8402,21 +9422,6 @@
             },
             "nullable": true
           },
-          "buildingSite": {
-            "required": [
-              "buildingSiteKey",
-              "stormWaterTreatmentType",
-              "buildingSiteAddress",
-              "tenure"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingSite"
-              }
-            ],
-            "description": "Rakennuspaikka",
-            "nullable": true
-          },
           "constructionAction": {
             "type": "array",
             "items": {
@@ -8442,31 +9447,6 @@
             ],
             "description": "Rakentamishanke",
             "nullable": true
-          },
-          "updateType": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/01",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/02",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/03",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/04",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/05",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
-            ],
-            "type": "string",
-            "description": "Rakennuksen käytössäolotilanne. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne\">http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne</a>",
-            "nullable": true
-          },
-          "updateDescription": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LanguageString"
-              }
-            ],
-            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
-            "nullable": true
-          },
-          "permanentPermitIdentifier": {
-            "type": "string"
           }
         },
         "additionalProperties": false,
@@ -8529,6 +9509,30 @@
             ],
             "description": "Rakennuskohteen sijaintitiedot"
           },
+          "address": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Address"
+            }
+          },
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "description": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
           "administrativeLocationUnit": {
             "required": [
               "administrativeLocationUnitKey",
@@ -8560,6 +9564,47 @@
               "$ref": "#/components/schemas/BuildingObjectOwner"
             },
             "description": "Rakennuskohteen omistaja"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Poikkeamisen kohde"
+      },
+      "DeviationObjectNoPersonData": {
+        "required": [
+          "address",
+          "buildingObjectType",
+          "deviationObjectKey"
+        ],
+        "type": "object",
+        "properties": {
+          "deviationObjectKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "buildingObjectType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/1",
+              "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/2"
+            ],
+            "type": "string",
+            "description": "Rakennuskohteen tiedon laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>"
+          },
+          "totalArea": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "location": {
+            "required": [
+              "buildingObjectLocationDataKey",
+              "pointLocation"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingObjectLocationData"
+              }
+            ],
+            "description": "Rakennuskohteen sijaintitiedot"
           },
           "address": {
             "type": "array",
@@ -8584,10 +9629,25 @@
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
             "nullable": true
+          },
+          "administrativeLocationUnit": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
+              }
+            ]
+          },
+          "decisionAdministrativeLocationUnit": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
+              }
+            ],
+            "nullable": true
           }
         },
         "additionalProperties": false,
-        "description": "Poikkeamisen kohde"
+        "description": "Poikkeamisen kohde ilman henkilötietoja"
       },
       "DeviationPermitApplication": {
         "required": [
@@ -8643,6 +9703,61 @@
         },
         "additionalProperties": false,
         "description": "Poikkeamislupahakemus"
+      },
+      "DeviationPermitApplicationNoPersonData": {
+        "required": [
+          "applicationContent",
+          "constructionDesign",
+          "dateOfReception",
+          "deviationPermitApplicationKey",
+          "lifeCycleState"
+        ],
+        "type": "object",
+        "properties": {
+          "lifeCycleState": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/1",
+              "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/2",
+              "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/3"
+            ],
+            "type": "string",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>",
+            "nullable": true
+          },
+          "applicationContent": {
+            "type": "string"
+          },
+          "dateOfReception": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "callForDeviation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CallForDeviation"
+            },
+            "nullable": true
+          },
+          "deviationPermitApplicationKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "buildingInformationModel": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingInformationModelNoPersonData"
+            }
+          },
+          "constructionDesign": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConstructionDesignNoPersonData"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "description": "Poikkeamislupahakemus ilman henkilötietoja"
       },
       "DeviationPermitDecision": {
         "required": [
@@ -8703,13 +9818,149 @@
             "format": "date",
             "nullable": true
           },
+          "decisionArticle": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "publicNoticeDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "decisionText": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "guidingStatute": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GuidingStatute"
+            },
+            "nullable": true
+          },
+          "relatedPermit": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "decisionMakerType": {
+            "type": "string",
+            "description": "Päätöksen tekijän tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/PaatoksenTekija\">http://uri.suomi.fi/codelist/rytj/PaatoksenTekija</a>",
+            "nullable": true
+          },
+          "decisionMakerFirstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "decisionMakerName": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "deviationPermitDecisionKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "decisionInForceUntil": {
+            "type": "string",
+            "format": "date"
+          },
           "decisionDocument": {
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingAttachmentDocument"
               }
             ],
-            "description": "Liiteasiakirja",
+            "description": "",
+            "nullable": true
+          },
+          "engagingParty": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EngagingParty"
+            },
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Poikkeamislupapäätös"
+      },
+      "DeviationPermitDecisionNoPersonData": {
+        "required": [
+          "dateOfDecision",
+          "dateOfValidityOfDecision",
+          "decisionDate",
+          "decisionDocument",
+          "decisionInForceUntil",
+          "decisionMakerFirstName",
+          "decisionMakerName",
+          "decisionMakerType",
+          "decisionText",
+          "deviationPermitDecisionKey",
+          "lifeCycleState",
+          "publicNoticeDate"
+        ],
+        "type": "object",
+        "properties": {
+          "acceptedDeviation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AcceptedDeviation"
+            },
+            "nullable": true
+          },
+          "permitRegulation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PermitRegulation"
+            },
+            "nullable": true
+          },
+          "lifeCycleState": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/1",
+              "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/2",
+              "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/11",
+              "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/12",
+              "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/3",
+              "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/4"
+            ],
+            "type": "string",
+            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>"
+          },
+          "decisionDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "dateOfDecision": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "dateOfValidityOfDecision": {
+            "type": "string",
+            "format": "date",
             "nullable": true
           },
           "decisionArticle": {
@@ -8768,30 +10019,27 @@
           },
           "deviationPermitDecisionKey": {
             "type": "string",
-            "description": "",
             "format": "uuid"
           },
           "expiryDate": {
             "type": "string",
-            "description": "",
             "format": "date",
             "nullable": true
           },
-          "engagingParty": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EngagingParty"
-            },
-            "description": ""
-          },
           "decisionInForceUntil": {
             "type": "string",
-            "description": "",
             "format": "date"
+          },
+          "decisionDocument": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
+              }
+            ],
+            "nullable": true
           }
         },
-        "additionalProperties": false,
-        "description": "Poikkeamislupapäätös"
+        "additionalProperties": false
       },
       "DeviationPermitIssue": {
         "required": [
@@ -8832,50 +10080,6 @@
           "recordNumber": {
             "type": "string"
           },
-          "deviationPermitDecision": {
-            "required": [
-              "deviationPermitDecisionKey",
-              "engagingParty",
-              "decisionInForceUntil",
-              "lifeCycleState",
-              "decisionDate",
-              "dateOfDecision",
-              "dateOfValidityOfDecision",
-              "decisionDocument",
-              "publicNoticeDate",
-              "decisionText",
-              "decisionMakerType",
-              "decisionMakerFirstName",
-              "decisionMakerName"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/DeviationPermitDecision"
-              }
-            ],
-            "description": "Poikkeamislupapäätös"
-          },
-          "deviationPermitApplication": {
-            "required": [
-              "deviationPermitApplicationKey",
-              "constructionDesign",
-              "lifeCycleState",
-              "applicationContent",
-              "dateOfReception"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/DeviationPermitApplication"
-              }
-            ],
-            "description": "Poikkeamislupahakemus"
-          },
-          "deviationObject": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DeviationObject"
-            }
-          },
           "buildingSite": {
             "required": [
               "buildingSiteKey",
@@ -8889,13 +10093,6 @@
               }
             ],
             "description": "Rakennuspaikka"
-          },
-          "attachment": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BuildingAttachmentDocument"
-            },
-            "nullable": true
           },
           "updateType": {
             "enum": [
@@ -8917,10 +10114,187 @@
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
             "nullable": true
+          },
+          "deviationPermitDecision": {
+            "required": [
+              "decisionDocument",
+              "engagingParty",
+              "deviationPermitDecisionKey",
+              "decisionInForceUntil",
+              "lifeCycleState",
+              "decisionDate",
+              "dateOfDecision",
+              "dateOfValidityOfDecision",
+              "publicNoticeDate",
+              "decisionText",
+              "decisionMakerType",
+              "decisionMakerFirstName",
+              "decisionMakerName"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DeviationPermitDecision"
+              }
+            ],
+            "description": "Poikkeamislupapäätös"
+          },
+          "deviationPermitApplication": {
+            "required": [
+              "constructionDesign",
+              "deviationPermitApplicationKey",
+              "lifeCycleState",
+              "applicationContent",
+              "dateOfReception"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DeviationPermitApplication"
+              }
+            ],
+            "description": "Poikkeamislupahakemus"
+          },
+          "deviationObject": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeviationObject"
+            }
+          },
+          "attachment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingAttachmentDocument"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false,
         "description": "Poikkeamislupa-asia"
+      },
+      "DeviationPermitIssueNoPersonData": {
+        "required": [
+          "buildingSite",
+          "dateOfInitiation",
+          "lifeCycleState",
+          "municipalityNumber",
+          "permanentPermitIdentifier"
+        ],
+        "type": "object",
+        "properties": {
+          "dateOfInitiation": {
+            "type": "string",
+            "description": "Vireilletulopäivä",
+            "format": "date",
+            "nullable": true
+          },
+          "lifeCycleState": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/1",
+              "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/2",
+              "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/3",
+              "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/4"
+            ],
+            "type": "string",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila</a>",
+            "nullable": true
+          },
+          "municipalityNumber": {
+            "type": "string"
+          },
+          "permanentPermitIdentifier": {
+            "type": "string"
+          },
+          "recordNumber": {
+            "type": "string"
+          },
+          "buildingSite": {
+            "required": [
+              "buildingSiteKey",
+              "stormWaterTreatmentType",
+              "buildingSiteAddress",
+              "tenure"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingSite"
+              }
+            ],
+            "description": "Rakennuspaikka"
+          },
+          "updateType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/01",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/02",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/03",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/04",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/05",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
+            ],
+            "type": "string",
+            "nullable": true
+          },
+          "updateDescription": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "deviationPermitDecision": {
+            "required": [
+              "decisionDocument",
+              "deviationPermitDecisionKey",
+              "decisionInForceUntil",
+              "lifeCycleState",
+              "decisionDate",
+              "dateOfDecision",
+              "dateOfValidityOfDecision",
+              "publicNoticeDate",
+              "decisionText",
+              "decisionMakerType",
+              "decisionMakerFirstName",
+              "decisionMakerName"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DeviationPermitDecisionNoPersonData"
+              }
+            ],
+            "nullable": true
+          },
+          "deviationPermitApplication": {
+            "required": [
+              "constructionDesign",
+              "deviationPermitApplicationKey",
+              "lifeCycleState",
+              "applicationContent",
+              "dateOfReception"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DeviationPermitApplicationNoPersonData"
+              }
+            ],
+            "description": "Poikkeamislupahakemus ilman henkilötietoja",
+            "nullable": true
+          },
+          "deviationObject": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeviationObjectNoPersonData"
+            },
+            "nullable": true
+          },
+          "attachment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "ElectricalEnergySource": {
         "required": [
@@ -9497,15 +10871,6 @@
             "format": "date",
             "nullable": true
           },
-          "decisionDocument": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingAttachmentDocument"
-              }
-            ],
-            "description": "Liiteasiakirja",
-            "nullable": true
-          },
           "decisionArticle": {
             "allOf": [
               {
@@ -9560,6 +10925,15 @@
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
             "nullable": true
           },
+          "decisionDocument": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingAttachmentDocument"
+              }
+            ],
+            "description": "Liiteasiakirja",
+            "nullable": true
+          },
           "extensionDecisionKey": {
             "type": "string",
             "description": "",
@@ -9596,6 +10970,14 @@
               }
             ],
             "description": "",
+            "nullable": true
+          },
+          "shape3d": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RyhtiGeometry3d"
+              }
+            ],
             "nullable": true
           },
           "relationToGroundLevel": {
@@ -10056,11 +11438,18 @@
       },
       "GeneralizedBuildingPermitIssue": {
         "required": [
+          "dateOfInitiation",
           "lifeCycleState",
           "municipalityNumber"
         ],
         "type": "object",
         "properties": {
+          "dateOfInitiation": {
+            "type": "string",
+            "description": "Vireilletulopäivä",
+            "format": "date",
+            "nullable": true
+          },
           "lifeCycleState": {
             "enum": [
               "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/1",
@@ -10084,11 +11473,11 @@
               "constructionToBeStartedBy",
               "constructionToBeCompletedBy",
               "engagingParty",
+              "decisionDocument",
               "lifeCycleState",
               "decisionDate",
               "dateOfDecision",
               "dateOfValidityOfDecision",
-              "decisionDocument",
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
@@ -10185,11 +11574,6 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
-            "nullable": true
-          },
-          "dateOfInitiation": {
-            "type": "string",
-            "format": "date",
             "nullable": true
           }
         },
@@ -10693,8 +12077,12 @@
           },
           "structure": {
             "required": [
+              "structureKey",
+              "permanentStructureIdentifier",
+              "temporary",
               "structureMainPurpose",
-              "buildingObjectType"
+              "buildingObjectType",
+              "address"
             ],
             "allOf": [
               {
@@ -12123,15 +13511,6 @@
             "format": "date",
             "nullable": true
           },
-          "decisionDocument": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingAttachmentDocument"
-              }
-            ],
-            "description": "Liiteasiakirja",
-            "nullable": true
-          },
           "decisionArticle": {
             "allOf": [
               {
@@ -12188,19 +13567,39 @@
           },
           "landscapeWorkPermitDecisionKey": {
             "type": "string",
-            "description": "",
             "format": "uuid"
           },
           "constructionToBeStartedBy": {
             "type": "string",
-            "description": "",
             "format": "date",
             "nullable": true
           },
           "constructionToBeCompletedBy": {
             "type": "string",
-            "description": "",
             "format": "date",
+            "nullable": true
+          },
+          "decisionInForceUntil": {
+            "type": "string",
+            "format": "date"
+          },
+          "constructionToBeStartedByExtension": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "constructionToBeCompletedByExtension": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "decisionDocument": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingAttachmentDocument"
+              }
+            ],
+            "description": "",
             "nullable": true
           },
           "engagingParty": {
@@ -12209,23 +13608,6 @@
               "$ref": "#/components/schemas/EngagingParty"
             },
             "description": ""
-          },
-          "decisionInForceUntil": {
-            "type": "string",
-            "description": "",
-            "format": "date"
-          },
-          "constructionToBeStartedByExtension": {
-            "type": "string",
-            "description": "",
-            "format": "date",
-            "nullable": true
-          },
-          "constructionToBeCompletedByExtension": {
-            "type": "string",
-            "description": "",
-            "format": "date",
-            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -12267,16 +13649,51 @@
           "permanentPermitIdentifier": {
             "type": "string"
           },
+          "buildingSite": {
+            "required": [
+              "buildingSiteKey",
+              "stormWaterTreatmentType",
+              "buildingSiteAddress",
+              "tenure"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingSite"
+              }
+            ],
+            "description": "Rakennuspaikka"
+          },
+          "updateType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/01",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/02",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/03",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/04",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/05",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
+            ],
+            "type": "string",
+            "nullable": true
+          },
+          "updateDescription": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
           "landscapeWorkPermitDecision": {
             "required": [
-              "landscapeWorkPermitDecisionKey",
+              "decisionDocument",
               "engagingParty",
+              "landscapeWorkPermitDecisionKey",
               "decisionInForceUntil",
               "lifeCycleState",
               "decisionDate",
               "dateOfDecision",
               "dateOfValidityOfDecision",
-              "decisionDocument",
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
@@ -12317,20 +13734,6 @@
             },
             "nullable": true
           },
-          "buildingSite": {
-            "required": [
-              "buildingSiteKey",
-              "stormWaterTreatmentType",
-              "buildingSiteAddress",
-              "tenure"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingSite"
-              }
-            ],
-            "description": "Rakennuspaikka"
-          },
           "attachment": {
             "type": "array",
             "items": {
@@ -12348,27 +13751,6 @@
               }
             ],
             "description": "Rakentamishanke",
-            "nullable": true
-          },
-          "updateType": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/01",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/02",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/03",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/04",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/05",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
-            ],
-            "type": "string",
-            "nullable": true
-          },
-          "updateDescription": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LanguageString"
-              }
-            ],
-            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
             "nullable": true
           }
         },
@@ -13119,6 +14501,42 @@
         },
         "additionalProperties": false
       },
+      "RyhtiGeometry3d": {
+        "required": [
+          "geometryData3d",
+          "srid3d"
+        ],
+        "type": "object",
+        "properties": {
+          "srid3d": {
+            "enum": [
+              "3067",
+              "3873",
+              "3874",
+              "3875",
+              "3876",
+              "3877",
+              "3878",
+              "3879",
+              "3880",
+              "3881",
+              "3882",
+              "3883",
+              "3884",
+              "3885",
+              "4326"
+            ],
+            "type": "string",
+            "description": "Gauss Krüger projektio; SRID koodi; SRID nimi\r\n\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873\r\n\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874\r\n\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875\r\n\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876\r\n\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877\r\n\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878\r\n\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879\r\n\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880\r\n\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881\r\n\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882\r\n\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883\r\n\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884\r\n\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885\r\n\r\n   3067 TM35FIN\r\n"
+          },
+          "geometryData3d": {
+            "minLength": 1,
+            "type": "string",
+            "description": "3d-geometria wkt-string"
+          }
+        },
+        "additionalProperties": false
+      },
       "SpecialDesign": {
         "required": [
           "document",
@@ -13189,7 +14607,6 @@
           "administrativeLocationUnit",
           "buildingObjectOwner",
           "buildingObjectType",
-          "location",
           "permanentStructureIdentifier",
           "structureKey",
           "structureMainPurpose",
@@ -13217,13 +14634,6 @@
           "numberOfStoreys": {
             "type": "integer",
             "format": "int32",
-            "nullable": true
-          },
-          "structureSection": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/StructureSection"
-            },
             "nullable": true
           },
           "structureMainPurpose": {
@@ -13323,6 +14733,38 @@
             "description": "Rakennuskohteen sijaintitiedot",
             "nullable": true
           },
+          "address": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Address"
+            },
+            "nullable": true
+          },
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "description": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "structureSection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StructureSection"
+            },
+            "nullable": true
+          },
           "administrativeLocationUnit": {
             "required": [
               "administrativeLocationUnitKey",
@@ -13354,31 +14796,6 @@
               "$ref": "#/components/schemas/BuildingObjectOwner"
             },
             "description": "Rakennuskohteen omistaja",
-            "nullable": true
-          },
-          "address": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Address"
-            },
-            "nullable": true
-          },
-          "name": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LanguageString"
-              }
-            ],
-            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
-            "nullable": true
-          },
-          "description": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LanguageString"
-              }
-            ],
-            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
             "nullable": true
           }
         },
