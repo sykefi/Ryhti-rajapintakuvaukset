@@ -38,6 +38,7 @@ OpenAPI-spesifikaatio on määrittelykieli APIen kuvaamiseen. OpenAPI-kuvaus on 
 * [Rakennustietojen validointisäännöt ja paluuarvot](https://ryhti.syke.fi/wp-content/uploads/sites/2/2023/12/Rakennustietojen-validointisaannot-ja-paluuarvot-Ryhti.pdf)
 * [Kaavatietomallin tietomääritykset](https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-kaavoitus/kaavatietomallin-tietomaaritykset/)
 * [Kaavatietomallin elinkaari- ja laatusäännöt](https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-kaavoitus/kaavatietomallin-elinkaari-ja-laatusaannot/)
+* [Kaavakartan GeoTIFF-vaatimukset](https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-kaavoitus/kaavatietomallin-elinkaari-ja-laatusaannot/kaavakartan-geotiff-vaatimukset/)
 * [Tontijaon tietomääritykset](https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-sitova-tonttijako/tonttijaon-tietomaaritykset/)
 * [Tonttijaon elinkaari- ja laatusäännöt](https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-sitova-tonttijako/tonttijaon-elinkaari-ja-laatusaannot/)
 * [Alueidenkäytön rajoitusten tietomääritykset](https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoiset-alueidenkayton-rajoitukset/ryhti-tietojarjestelman-alueidenkayton-rajoitusten-tietomaaritykset-ja-kuvaukset/)
@@ -55,7 +56,7 @@ Alla olevan aikataulun avulla pystyt seuraamaan Ryhti-järjestelmän rajapintoje
 | Maakuntakaava | RegionalPlanMatter | Tuotantoversio julkaistu | Heti | 20.11.2024 |
 | Tiedostojen lataaminen | UploadedFile | Tuotantoversio julkaistu | Heti	| 20.11.2024 |
 | Tonttijako | BindingPlotDivisionMatter | Tuotantoversio julkaistu | Heti	| 11.12.2024 |
-| Alueidenkäytön rajoitukset | LandUseRestrictionMatter |	Testiversio julkaistu	| Heti | 11.12.2024 |
+| Alueidenkäytön rajoitukset | LandUseRestrictionMatter |	Tuotantoversio julkaistu	| Heti | 24.4.2025 |
 | Rakennusjärjestys | BuildingOrdinance |	Tuotantoversio julkaistu	| Heti | 11.12.2024 |
 | Kaavojen validointipalvelu | Ryhti Plan Public Validate API | Tuotantoversio julkaistu | Heti |	20.11.2024 |
 
@@ -67,9 +68,9 @@ Alla olevan aikataulun avulla pystyt seuraamaan Ryhti-järjestelmän rajapintoje
 | Kaavojen sisääntuontikäyttöliittymä: maakuntakaava | Tuotantoversio julkaistu | Heti | 20.11.2024 |
 | Asemakaavan seurantalomake | Tuotantoversio julkaistu | Heti | 20.11.2024 |
 | Tiedostojen lataaminen | Tuotantoversio julkaistu | Heti	| 20.11.2024 |
-| Rakennusjärjestys | BuildingOrdinance |	Tuotantoversio julkaistu	| Heti | 11.12.2024 |
-| Karttapalvelu | Kehityksessä | Q1/2025 | 11.12.2024 |
-| Kaavojen validointipalvelu | Tuotannossa |	Heti	| 20.11.2024 |
+| Rakennusjärjestys | Tuotantoversio julkaistu |	Heti	| 11.12.2024 |
+| Karttapalvelu | Tuotantoversio julkaistu | Heti | 24.4.2025 |
+| Kaavojen validointipalvelu | Tuotantoversio julkaistu |	Heti	| 20.11.2024 |
 
 ### Rakennusluvituksen rajapintakäyttö
 | Rajapinta |	Endpoint | Ryhti-kehitystiimin status	| Kumppaneiden testattavissa |Status päivitetty |
@@ -85,5 +86,5 @@ Alla olevan aikataulun avulla pystyt seuraamaan Ryhti-järjestelmän rajapintoje
 ### Rakennusluvituksen käyttöliittymäkäyttö
 | Rajapinta |	Ryhti-kehitystiimin status	| Kumppaneiden testattavissa | Status päivitetty |
 | ------------- | ------------- | ------------- | ------------- |
-| Karttapalvelu | Kehityksessä | Q1/2025 | 10.12.2024 |
+| Karttapalvelu | Tuotantoversio julkaistu | Heti | 24.4.2025 |
 | Rakennustietojen muokkauskäyttöliittymä | Ei toteuteta vuonna 2024 | -	| 22.4.2024 |
