@@ -162,17 +162,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -278,17 +278,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -345,17 +345,68 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "Asia päivitetty."
-          },
           "400": {
-            "description": "Kutsun rakenne ei ole scheman mukainen."
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Resurssia ei löydy."
+            "description": "Resurssia ei löydy.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           },
           "422": {
-            "description": "Kutsun tietosisällössä virheitä."
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Asia päivitetty."
           }
         }
       }
@@ -469,17 +520,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -584,17 +635,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -673,17 +724,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -796,17 +847,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -873,17 +924,68 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "Vaihe päivitetty."
-          },
           "400": {
-            "description": "Kutsun rakenne ei ole scheman mukainen."
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Resurssia ei löydy."
+            "description": "Resurssia ei löydy.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           },
           "422": {
-            "description": "Kutsun tietosisällössä virheitä."
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Vaihe päivitetty."
           }
         }
       }
@@ -950,8 +1052,8 @@
           "required": true
         },
         "responses": {
-          "201": {
-            "description": "Created",
+          "200": {
+            "description": "Vaiheessa ei virheitä.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -995,23 +1097,20 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
-          },
-          "200": {
-            "description": "Vaiheessa ei virheitä."
           }
         }
       }
@@ -1118,17 +1217,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -1242,17 +1341,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -1360,17 +1459,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -1439,17 +1538,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -1552,17 +1651,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -1670,17 +1769,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -1797,17 +1896,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -1912,17 +2011,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -1991,17 +2090,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -2058,17 +2157,68 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "Asia päivitetty."
-          },
           "400": {
-            "description": "Kutsun rakenne ei ole scheman mukainen."
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Resurssia ei löydy."
+            "description": "Resurssia ei löydy.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           },
           "422": {
-            "description": "Kutsun tietosisällössä virheitä."
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Asia päivitetty."
           }
         }
       }
@@ -2170,17 +2320,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -2262,17 +2412,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -2385,17 +2535,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -2462,17 +2612,68 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "Vaihe päivitetty."
-          },
           "400": {
-            "description": "Kutsun rakenne ei ole scheman mukainen."
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Resurssia ei löydy."
+            "description": "Resurssia ei löydy.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           },
           "422": {
-            "description": "Kutsun tietosisällössä virheitä."
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Vaihe päivitetty."
           }
         }
       }
@@ -2584,17 +2785,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -2664,17 +2865,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -2777,17 +2978,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -2890,17 +3091,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -2977,22 +3178,22 @@
               }
             }
           },
-          "422": {
-            "description": "Kutsun tietosisällössä virheitä.",
+          "404": {
+            "description": "Resurssia ei löydy.",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -3108,17 +3309,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -3234,17 +3435,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -3364,17 +3565,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -3479,17 +3680,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -3607,17 +3808,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -3687,17 +3888,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -3800,17 +4001,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -3913,17 +4114,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -4005,17 +4206,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -4131,17 +4332,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -4257,17 +4458,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -4387,17 +4588,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -4502,17 +4703,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -4630,17 +4831,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -4747,17 +4948,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -4860,17 +5061,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -4973,17 +5174,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -5065,17 +5266,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -5191,17 +5392,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -5317,17 +5518,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -5447,17 +5648,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -5562,17 +5763,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -5690,17 +5891,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
                 }
               }
             }
@@ -6444,41 +6645,41 @@
           },
           "name": {
             "enum": [
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/01",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0101",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/02",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0201",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/03",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0301",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0302",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0303",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0304",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/04",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0401",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0402",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0403",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0404",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0405",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0406",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/05",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0501",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/06",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0601",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/07",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0701",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0702",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0703",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0704",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0705",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0706",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0707",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0708",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0709",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0710",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0102"
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/01",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0101",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/02",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0201",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/03",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0301",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0302",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0303",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0304",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/04",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0401",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0402",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0403",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0404",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0405",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0406",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/05",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0501",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/06",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0601",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/07",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0701",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0702",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0703",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0704",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0705",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0706",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0707",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0708",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0709",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0710",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0102"
             ],
             "type": "string",
-            "description": "Päätöksen nimitys, joka kertoo mitä päätös koskee. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi\">http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi</a>"
+            "description": "Päätöksen nimitys, joka kertoo mitä päätös koskee. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi\">http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi</a>"
           },
           "decisionIdentifier": {
             "type": "string",
@@ -7205,6 +7406,45 @@
           }
         },
         "additionalProperties": false
+      },
+      "CustomValidationProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomValidationError"
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomValidationError"
+            }
+          }
+        },
+        "additionalProperties": { }
       },
       "DecimalRange": {
         "required": [
@@ -8303,41 +8543,41 @@
           },
           "name": {
             "enum": [
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/01",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0101",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/02",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0201",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/03",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0301",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0302",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0303",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0304",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/04",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0401",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0402",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0403",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0404",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0405",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0406",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/05",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0501",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/06",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0601",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/07",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0701",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0702",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0703",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0704",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0705",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0706",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0707",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0708",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0709",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0710",
-              "http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi/code/0102"
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/01",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0101",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/02",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0201",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/03",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0301",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0302",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0303",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0304",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/04",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0401",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0402",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0403",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0404",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0405",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0406",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/05",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0501",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/06",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0601",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/07",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0701",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0702",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0703",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0704",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0705",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0706",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0707",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0708",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0709",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0710",
+              "http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi/code/0102"
             ],
             "type": "string",
-            "description": "Päätöksen nimitys, joka kertoo mitä päätös koskee. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi\">http://uri.suomi.fi/codelist/rytj/AlueidenkaytonPaatoksenNimi</a>"
+            "description": "Päätöksen nimitys, joka kertoo mitä päätös koskee. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi\">http://uri.suomi.fi/codelist/rytj/AlueidenkayttopaatoksenNimi</a>"
           },
           "typeOfDecisionMaker": {
             "minLength": 1,
@@ -8977,36 +9217,6 @@
         "additionalProperties": false,
         "description": "MuuKaavaAineisto"
       },
-      "PartiallyCancelledPlanObjectInfo": {
-        "required": [
-          "cancelledPlanUri",
-          "partiallyCancelledPlanObjectUri",
-          "validityGeometry"
-        ],
-        "type": "object",
-        "properties": {
-          "cancelledPlanUri": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Kumottavan hyväkstytyn kaavan tunnus URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/plan/{planKey})"
-          },
-          "partiallyCancelledPlanObjectUri": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Kumottavan kaavakohteen tunnus uri-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planobject/{planObjectKey})"
-          },
-          "validityGeometry": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/RyhtiGeometry"
-              }
-            ],
-            "description": "Osittain kumottavan kaavakohteen voimaan jäävän alueen geometria."
-          }
-        },
-        "additionalProperties": false,
-        "description": "OsittainKumottavanKaavakohteenTieto"
-      },
       "ParticipationAndAssessmentScheme": {
         "required": [
           "attachmentDocuments",
@@ -9185,14 +9395,6 @@
               "$ref": "#/components/schemas/PlanOperator"
             },
             "description": "Laatija",
-            "nullable": true
-          },
-          "partiallyCancelledPlanObjectInfos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PartiallyCancelledPlanObjectInfo"
-            },
-            "description": "// Osittain kumottavat kaavakohteet",
             "nullable": true
           },
           "planObjects": {
@@ -9393,37 +9595,24 @@
             "type": "boolean",
             "description": "Kumoaa kaavan kokonaan"
           },
-          "cancelledPlanObjectUris": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Kumottavan kaavakohteen tunnukset URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planobject/{planObjectKey})"
-          },
-          "cancelledRegulationUris": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Kumottavan määräyksen tunnukset URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{planRegulationKey})"
-          },
-          "cancelledRecommendationUris": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Kumottavan suosituksen tunnukset URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planrecommendation/{planRecommendationKey})"
-          },
           "cancelledGroupRelations": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CancelledGroupRelations"
             },
             "description": "Kumottavan ryhmän kohdistus. Kuvaa kaavakohteesta kumoutuvat kaavamääräysryhmät."
+          },
+          "planObjectCancellationInfos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanObjectCancellationInfo"
+            },
+            "description": "Kumottavat kaavakohteet",
+            "nullable": true
           }
         },
         "additionalProperties": false,
-        "description": "Kaavan kumoamistieto"
+        "description": "Kumoamistieto. Kuvaa kaavan kumoamista. Kumoamistieto voi kumota kaavan kokonaan tai osittain.\r\nOn joko Plan- tai PlanDecision-luokan lapsi.\r\n            \r\nJos kumotaan kaavalla niin:\r\n1) Kaava kumotaan kokonaan.\r\nTällöin ei saa olla kumoamistietoja kaavakohteista, määräyksistä tai suosituksista.\r\nKumoaa aina koko kaavan. Jos se on Plan-luokalla niin kumotaan se plan, millä sijaitsee.\r\nJos se on PlanDecision-luokalla niin kumotaan se plan, mihin päätös liittyy."
       },
       "PlanDecision": {
         "required": [
@@ -9544,6 +9733,14 @@
             },
             "description": "Päätöksentekijä",
             "nullable": true
+          },
+          "planCancellationInfos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanCancellationInfo"
+            },
+            "description": "Kumoamistieto",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -9644,15 +9841,15 @@
           "planType": {
             "enum": [
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/1",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/2",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/3",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/11",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/12",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/2",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/21",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/22",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/23",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/24",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/25",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/3",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/31",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/32",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/33",
@@ -9994,15 +10191,15 @@
           "planType": {
             "enum": [
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/1",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/2",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/3",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/11",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/12",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/2",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/21",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/22",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/23",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/24",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/25",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/3",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/31",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/32",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/33",
@@ -10160,15 +10357,15 @@
           "planType": {
             "enum": [
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/1",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/2",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/3",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/11",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/12",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/2",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/21",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/22",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/23",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/24",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/25",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/3",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/31",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/32",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/33",
@@ -10416,6 +10613,39 @@
         },
         "additionalProperties": false,
         "description": "Kaavakohde"
+      },
+      "PlanObjectCancellationInfo": {
+        "required": [
+          "cancelledPlanObjectUri",
+          "cancelsEntirePlanObject",
+          "planObjectCancellationInfoKey"
+        ],
+        "type": "object",
+        "properties": {
+          "planObjectCancellationInfoKey": {
+            "type": "string",
+            "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
+            "format": "uuid"
+          },
+          "cancelledPlanObjectUri": {
+            "type": "string",
+            "description": "Kumottavan kaavakohteen tunnus URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planobject/{planObjectKey})"
+          },
+          "cancelsEntirePlanObject": {
+            "type": "boolean",
+            "description": "Kumoaa kohteen kokonaan"
+          },
+          "validityGeometry": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RyhtiGeometry"
+              }
+            ],
+            "description": "Osittain kumottaessa kohteen voimaan jäävä geometria",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "PlanOperator": {
         "required": [
@@ -12296,42 +12526,6 @@
         },
         "additionalProperties": false,
         "description": "TimePeriod"
-      },
-      "ValidationProblemDetails": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "instance": {
-            "type": "string",
-            "nullable": true
-          },
-          "errors": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "additionalProperties": { }
       }
     },
     "securitySchemes": {

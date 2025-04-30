@@ -4390,16 +4390,11 @@
       },
       "Address": {
         "required": [
-          "addressKey",
           "addressNumber",
           "postalCode"
         ],
         "type": "object",
         "properties": {
-          "addressKey": {
-            "type": "string",
-            "format": "uuid"
-          },
           "addressName": {
             "allOf": [
               {
@@ -4438,6 +4433,11 @@
           },
           "subdivisionLetterOfAddressNumber2": {
             "type": "string",
+            "nullable": true
+          },
+          "addressKey": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "addressNumber": {
@@ -5838,6 +5838,13 @@
               "$ref": "#/components/schemas/BuildingAttachmentDocument"
             },
             "nullable": true
+          },
+          "demolitionMaterialAndConstructionWasteReport": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DemolitionMaterialAndConstructionWasteReport"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -5959,6 +5966,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
+            },
+            "nullable": true
+          },
+          "demolitionMaterialAndConstructionWasteReport": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DemolitionMaterialAndConstructionWasteReportNoPersonData"
             },
             "nullable": true
           }
@@ -6814,6 +6828,13 @@
               "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/05"
             ],
             "type": "string",
+            "nullable": true
+          },
+          "demolitionMaterialAndConstructionWasteReport": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DemolitionMaterialAndConstructionWasteReport"
+            },
             "nullable": true
           }
         },
@@ -8643,10 +8664,6 @@
         ],
         "type": "object",
         "properties": {
-          "addressKey": {
-            "type": "string",
-            "format": "uuid"
-          },
           "addressName": {
             "allOf": [
               {
@@ -8686,6 +8703,10 @@
           "subdivisionLetterOfAddressNumber2": {
             "type": "string",
             "nullable": true
+          },
+          "addressKey": {
+            "type": "string",
+            "format": "uuid"
           },
           "apartmentIdentifierLetterSuffix": {
             "type": "string",
@@ -8846,6 +8867,64 @@
         },
         "additionalProperties": false,
         "description": "Jäähdytystapa"
+      },
+      "DemolitionMaterialAndConstructionWasteReport": {
+        "required": [
+          "demolitionMaterialAndConstructionWasteReportKey",
+          "demolitionMaterialRegisterIdentifier",
+          "demolitionProjectType"
+        ],
+        "type": "object",
+        "properties": {
+          "demolitionMaterialAndConstructionWasteReportKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "demolitionMaterialRegisterIdentifier": {
+            "type": "string"
+          },
+          "demolitionProjectType": {
+            "type": "string",
+            "nullable": true
+          },
+          "document": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingAttachmentDocument"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DemolitionMaterialAndConstructionWasteReportNoPersonData": {
+        "required": [
+          "demolitionMaterialAndConstructionWasteReportKey",
+          "demolitionMaterialRegisterIdentifier",
+          "demolitionProjectType"
+        ],
+        "type": "object",
+        "properties": {
+          "demolitionMaterialAndConstructionWasteReportKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "demolitionMaterialRegisterIdentifier": {
+            "type": "string"
+          },
+          "demolitionProjectType": {
+            "type": "string",
+            "nullable": true
+          },
+          "document": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "DemolitionPermitApplication": {
         "required": [
@@ -12353,6 +12432,12 @@
             ],
             "type": "string",
             "nullable": true
+          },
+          "demolitionMaterialAndConstructionWasteReport": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DemolitionMaterialAndConstructionWasteReport"
+            }
           }
         },
         "additionalProperties": false
@@ -12555,6 +12640,13 @@
               "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/05"
             ],
             "type": "string",
+            "nullable": true
+          },
+          "demolitionMaterialAndConstructionWasteReport": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DemolitionMaterialAndConstructionWasteReportNoPersonData"
+            },
             "nullable": true
           }
         },
@@ -16163,6 +16255,13 @@
             "type": "string",
             "description": "Purkamisen syy. Käytetään koodistoa http://uri.suomi.fi/codelist/rytj/PurkamisenSyy",
             "nullable": true
+          },
+          "demolitionMaterialAndConstructionWasteReport": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DemolitionMaterialAndConstructionWasteReport"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -16390,6 +16489,13 @@
             ],
             "type": "string",
             "nullable": true
+          },
+          "demolitionMaterialAndConstructionWasteReport": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DemolitionMaterialAndConstructionWasteReportNoPersonData"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -16554,14 +16660,19 @@
           "clientCredentials": {
             "tokenUrl": "https://identitytest.ymparisto.fi/connect/token",
             "scopes": {
-              "ryhti.changeinformation.read": "Muutostietojen lukuoikeus.",
-              "ryhti.changeinformation.building.all": "Kaikkien muutostietojen lukuoikeus",
-              "ryhti.changeinformation.building.generalized": "Karkeutettujen muutostietojen lukuoikeus",
-              "ryhti.changeinformation.building.owners.all": "Omistajatietojen lukuoikeus, ml turvakiellon alaiset henkilöt.",
-              "ryhti.changeinformation.building.owners.limited": "Oikeus omistajatietoihin, ilman turvakiellon alaisia henkilöitä.",
-              "ryhti.changeinformation.building.foremen": "Oikeudet työnjohtajien ja suunnittelijoiden tietoihin.",
-              "ryhti.building.generalized": "Karkeutettujen muutostietojen lukuoikeus.",
-              "ryhti.building.owners.limited": "Oikeus omistajatietoihin, ilman turvakiellon alaisia tietoja."
+              "ryhti.changeinformation.read": "(VANHENTUNUT) Muutostietojen lukuoikeus.",
+              "ryhti.changeinformation.building.all": "(VANHENTUNUT) Kaikkien muutostietojen lukuoikeus",
+              "ryhti.changeinformation.building.generalized": "(VANHENTUNUT) Karkeutettujen muutostietojen lukuoikeus",
+              "ryhti.changeinformation.building.owners.all": "(VANHENTUNUT) Omistajatietojen lukuoikeus, ml turvakiellon alaiset henkilöt.",
+              "ryhti.changeinformation.building.owners.limited": "(VANHENTUNUT) Oikeus omistajatietoihin, ilman turvakiellon alaisia henkilöitä.",
+              "ryhti.changeinformation.building.foremen": "(VANHENTUNUT) Oikeudet työnjohtajien ja suunnittelijoiden tietoihin.",
+              "ryhti.building.generalized": "(VANHENTUNUT) Karkeutettujen muutostietojen lukuoikeus.",
+              "ryhti.building.owners.limited": "(VANHENTUNUT) Oikeus omistajatietoihin, ilman turvakiellon alaisia tietoja.",
+              "ryhti.building.basic.read": "Oikeus lukea karkeutettua rakennustietoa, josta on poistettu henkilötiedot.",
+              "ryhti.building.persons.read": "Oikeus lukea karkeutettua rakennustietoa, josta on poistettu turvakiellollisten toimijoiden henkilötiedot.",
+              "ryhti.building.nd-persons.read": "Oikeus lukea karkeutettua rakennustietoa, joka sisältää myös turvakiellollisten toimijoiden henkilötiedot.",
+              "ryhti.building.all.read": "Oikeus lukea kaikkea rakennustietoa.",
+              "ryhti.building.write": "Oikeus kirjoittaa kaikkea rakennustietoa."
             }
           }
         }
