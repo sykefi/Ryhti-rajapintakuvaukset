@@ -6014,6 +6014,44 @@
   },
   "components": {
     "schemas": {
+      "AccessToRoad": {
+        "required": [
+          "accessToRoadKey",
+          "geometry",
+          "plotDivisionPlotKeys"
+        ],
+        "type": "object",
+        "properties": {
+          "accessToRoadKey": {
+            "type": "string",
+            "description": "Kulkuyhteyden avain",
+            "format": "uuid"
+          },
+          "accessToRoadUri": {
+            "type": "string",
+            "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/accesstoroad/{guid})",
+            "readOnly": true
+          },
+          "geometry": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RyhtiGeometry"
+              }
+            ],
+            "description": "Aluegeometria (Geometriatyypin oltava Polygon tai MultiPolygon)"
+          },
+          "plotDivisionPlotKeys": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Tonttijakotontit joille kulkuyhteys"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Kulkuyhteys"
+      },
       "AdditionalInformation": {
         "required": [
           "type"
@@ -6309,6 +6347,14 @@
               "$ref": "#/components/schemas/BoundaryPoint"
             },
             "description": "Rajapisteet"
+          },
+          "accessesToRoad": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessToRoad"
+            },
+            "description": "Kulkuhteydet",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -9044,15 +9090,20 @@
       "MotherProperty": {
         "required": [
           "containedArea",
-          "fullyIncluded",
-          "propertyIdentifier"
+          "fullyIncluded"
         ],
         "type": "object",
         "properties": {
           "propertyIdentifier": {
             "minLength": 3,
             "type": "string",
-            "description": "Kiinteistötunnus"
+            "description": "Kiinteistötunnus",
+            "nullable": true
+          },
+          "unseparatedParcelIdentifier": {
+            "type": "string",
+            "description": "Määräalatunnus",
+            "nullable": true
           },
           "containedArea": {
             "allOf": [
@@ -9372,6 +9423,14 @@
               "$ref": "#/components/schemas/GeneralRegulationGroup"
             },
             "description": "Kaavamääräysryhmät",
+            "nullable": true
+          },
+          "presentationAlignments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PresentationAlignment"
+            },
+            "description": "Esitystavankohdistus",
             "nullable": true
           },
           "periodOfValidity": {
@@ -9897,7 +9956,16 @@
           },
           "relatedBindingPlotDivisionMatterUri": {
             "type": "string",
-            "description": "pysyväSitovaTonttijaonTunnus",
+            "description": "Deprecated, use relatedBindingPlotDivisionMatterUris",
+            "nullable": true,
+            "deprecated": true
+          },
+          "relatedBindingPlotDivisionMatterUris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Liittyvät pysyvät tonttijakoasiat (URI)",
             "nullable": true
           },
           "recordNumbers": {
@@ -10247,7 +10315,16 @@
           },
           "relatedBindingPlotDivisionMatterUri": {
             "type": "string",
-            "description": "pysyväSitovaTonttijaonTunnus",
+            "description": "Deprecated, use relatedBindingPlotDivisionMatterUris",
+            "nullable": true,
+            "deprecated": true
+          },
+          "relatedBindingPlotDivisionMatterUris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Liittyvät pysyvät tonttijakoasiat (URI)",
             "nullable": true
           },
           "recordNumbers": {
@@ -10413,7 +10490,16 @@
           },
           "relatedBindingPlotDivisionMatterUri": {
             "type": "string",
-            "description": "pysyväSitovaTonttijaonTunnus",
+            "description": "Deprecated, use relatedBindingPlotDivisionMatterUris",
+            "nullable": true,
+            "deprecated": true
+          },
+          "relatedBindingPlotDivisionMatterUris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Liittyvät pysyvät tonttijakoasiat (URI)",
             "nullable": true
           },
           "recordNumbers": {
@@ -11966,6 +12052,41 @@
         },
         "additionalProperties": false,
         "description": "Positiivinen numeerinen arvo"
+      },
+      "PresentationAlignment": {
+        "required": [
+          "geometry",
+          "planObjectKey",
+          "planRegulationGroupKey"
+        ],
+        "type": "object",
+        "properties": {
+          "planObjectKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "planRegulationGroupKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "geometry": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RyhtiGeometry"
+              }
+            ]
+          },
+          "rotation": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "ProblemDetails": {
         "type": "object",
