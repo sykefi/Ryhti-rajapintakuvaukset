@@ -5063,7 +5063,8 @@
           "decisionText",
           "engagingParty",
           "lifeCycleState",
-          "publicNoticeDate"
+          "publicNoticeDate",
+          "relatedApplication"
         ],
         "type": "object",
         "properties": {
@@ -5160,6 +5161,11 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "relatedApplication": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "decisionDocument": {
@@ -5227,7 +5233,8 @@
           "decisionMakerType",
           "decisionText",
           "lifeCycleState",
-          "publicNoticeDate"
+          "publicNoticeDate",
+          "relatedApplication"
         ],
         "type": "object",
         "properties": {
@@ -5324,6 +5331,11 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "relatedApplication": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "decisionDocument": {
@@ -6413,7 +6425,8 @@
               "decisionText",
               "decisionMakerType",
               "decisionMakerFirstName",
-              "decisionMakerName"
+              "decisionMakerName",
+              "relatedApplication"
             ],
             "allOf": [
               {
@@ -7096,7 +7109,8 @@
               "decisionText",
               "decisionMakerType",
               "decisionMakerFirstName",
-              "decisionMakerName"
+              "decisionMakerName",
+              "relatedApplication"
             ],
             "allOf": [
               {
@@ -7434,7 +7448,8 @@
               "decisionText",
               "decisionMakerType",
               "decisionMakerFirstName",
-              "decisionMakerName"
+              "decisionMakerName",
+              "relatedApplication"
             ],
             "allOf": [
               {
@@ -7677,7 +7692,8 @@
               "decisionText",
               "decisionMakerType",
               "decisionMakerFirstName",
-              "decisionMakerName"
+              "decisionMakerName",
+              "relatedApplication"
             ],
             "allOf": [
               {
@@ -8174,7 +8190,8 @@
           "decisionMakerType",
           "decisionText",
           "lifeCycleState",
-          "publicNoticeDate"
+          "publicNoticeDate",
+          "relatedApplication"
         ],
         "type": "object",
         "properties": {
@@ -8271,6 +8288,11 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "relatedApplication": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "decisionDocument": {
@@ -8301,7 +8323,8 @@
           "decisionMakerType",
           "decisionText",
           "lifeCycleState",
-          "publicNoticeDate"
+          "publicNoticeDate",
+          "relatedApplication"
         ],
         "type": "object",
         "properties": {
@@ -8398,6 +8421,11 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "relatedApplication": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "decisionDocument": {
@@ -8991,7 +9019,8 @@
           "decisionText",
           "demolitionPermitDecisionKey",
           "lifeCycleState",
-          "publicNoticeDate"
+          "publicNoticeDate",
+          "relatedApplication"
         ],
         "type": "object",
         "properties": {
@@ -9088,6 +9117,11 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "relatedApplication": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "demolitionPermitDecisionKey": {
@@ -9156,7 +9190,8 @@
           "decisionText",
           "demolitionPermitDecisionKey",
           "lifeCycleState",
-          "publicNoticeDate"
+          "publicNoticeDate",
+          "relatedApplication"
         ],
         "type": "object",
         "properties": {
@@ -9253,6 +9288,11 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "relatedApplication": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "demolitionPermitDecisionKey": {
@@ -9389,7 +9429,8 @@
               "decisionText",
               "decisionMakerType",
               "decisionMakerFirstName",
-              "decisionMakerName"
+              "decisionMakerName",
+              "relatedApplication"
             ],
             "allOf": [
               {
@@ -9778,7 +9819,8 @@
           "deviationPermitDecisionKey",
           "engagingParty",
           "lifeCycleState",
-          "publicNoticeDate"
+          "publicNoticeDate",
+          "relatedApplication"
         ],
         "type": "object",
         "properties": {
@@ -9875,6 +9917,11 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "relatedApplication": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "deviationPermitDecisionKey": {
@@ -9923,7 +9970,8 @@
           "decisionText",
           "deviationPermitDecisionKey",
           "lifeCycleState",
-          "publicNoticeDate"
+          "publicNoticeDate",
+          "relatedApplication"
         ],
         "type": "object",
         "properties": {
@@ -10020,6 +10068,11 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "relatedApplication": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "deviationPermitDecisionKey": {
@@ -10130,7 +10183,8 @@
               "decisionText",
               "decisionMakerType",
               "decisionMakerFirstName",
-              "decisionMakerName"
+              "decisionMakerName",
+              "relatedApplication"
             ],
             "allOf": [
               {
@@ -10820,7 +10874,8 @@
           "decisionText",
           "extensionDecisionKey",
           "lifeCycleState",
-          "publicNoticeDate"
+          "publicNoticeDate",
+          "relatedApplication"
         ],
         "type": "object",
         "properties": {
@@ -10917,6 +10972,11 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "relatedApplication": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "decisionDocument": {
@@ -10947,7 +11007,8 @@
           "decisionMakerType",
           "decisionText",
           "lifeCycleState",
-          "publicNoticeDate"
+          "publicNoticeDate",
+          "relatedApplication"
         ],
         "type": "object",
         "properties": {
@@ -11044,6 +11105,11 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "relatedApplication": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "decisionDocument": {
@@ -11774,7 +11840,8 @@
               "decisionText",
               "decisionMakerType",
               "decisionMakerFirstName",
-              "decisionMakerName"
+              "decisionMakerName",
+              "relatedApplication"
             ],
             "allOf": [
               {
@@ -12024,7 +12091,8 @@
               "decisionText",
               "decisionMakerType",
               "decisionMakerFirstName",
-              "decisionMakerName"
+              "decisionMakerName",
+              "relatedApplication"
             ],
             "allOf": [
               {
@@ -13082,7 +13150,8 @@
               "decisionText",
               "decisionMakerType",
               "decisionMakerFirstName",
-              "decisionMakerName"
+              "decisionMakerName",
+              "relatedApplication"
             ],
             "allOf": [
               {
@@ -14245,7 +14314,8 @@
           "engagingParty",
           "landscapeWorkPermitDecisionKey",
           "lifeCycleState",
-          "publicNoticeDate"
+          "publicNoticeDate",
+          "relatedApplication"
         ],
         "type": "object",
         "properties": {
@@ -14342,6 +14412,11 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "relatedApplication": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "landscapeWorkPermitDecisionKey": {
@@ -14405,7 +14480,8 @@
           "decisionText",
           "landscapeWorkPermitDecisionKey",
           "lifeCycleState",
-          "publicNoticeDate"
+          "publicNoticeDate",
+          "relatedApplication"
         ],
         "type": "object",
         "properties": {
@@ -14502,6 +14578,11 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "relatedApplication": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "landscapeWorkPermitDecisionKey": {
@@ -14624,7 +14705,8 @@
               "decisionText",
               "decisionMakerType",
               "decisionMakerFirstName",
-              "decisionMakerName"
+              "decisionMakerName",
+              "relatedApplication"
             ],
             "allOf": [
               {
