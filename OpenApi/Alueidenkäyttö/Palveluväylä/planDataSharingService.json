@@ -1,0 +1,1828 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Ryhti API",
+    "description": "<h2>Kaavojen muutostietorajapinta</h2>",
+    "contact": {
+      "name": "Feedback",
+      "url": "https://www.syke.fi/en-US/SYKE_Info/Contact_information/Feedback_form(10043)?r=38611"
+    },
+    "license": {
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "version": "1"
+  },
+  "servers": [
+    {
+      "url": "/plan-change-information"
+    }
+  ],
+  "paths": {
+    "/api/PlanInformationForProperty/{propertyIdentifier}": {
+      "get": {
+        "tags": [
+          "PlanInformationForProperty"
+        ],
+        "parameters": [
+          {
+            "name": "propertyIdentifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanInformationForProperty"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanInformationForProperty"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanInformationForProperty"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PropertyIdentifiersOfChangedBindingPlotDivisions/{correlationId}": {
+      "get": {
+        "tags": [
+          "PropertyIdentifiersOfChangedBindingPlotDivisions"
+        ],
+        "parameters": [
+          {
+            "name": "correlationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PropertyIdentifiersOfChangedPlans/{correlationId}": {
+      "get": {
+        "tags": [
+          "PropertyIdentifiersOfChangedPlans"
+        ],
+        "parameters": [
+          {
+            "name": "correlationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Status/health": {
+      "get": {
+        "tags": [
+          "Status"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthReport"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthReport"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthReport"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AdditionalInformation": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/tyyppi",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/paakayttotarkoitus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/osaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/poisluettavaKayttotarkoitus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/valiaikainenMaarays",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/vaihtoehtoinen",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/ohjeellinenSijainti",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/ehdottomastiNoudatettava",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/yhteystarve",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/hairionTorjuntatarve",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/meluntorjuntatarve",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/ymparistoTaiMaisemavaurionKorjaustarve",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/terveyshaitanPoistamistarve",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/merkittavyys",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/kansainvalinen",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/valtakunnallinen",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/maakunnallinen",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/seudullinen",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/alueellinen",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/paikallinen",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/eriTahojenTarpeisiinVaraaminen",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/varattuKunnanKayttoon",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/varattuValtionKayttoon",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/varattuYleiseenKayttoon",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/varattuYksityiseenKayttoon",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/varattuAlueenSisaiseenKayttoon",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/ymparistomuutoksenLaji",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/olemassaOleva",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/sailytettava",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/uusi",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/olennaisestiMuuttuva",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/reservialue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/kehitettava",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/merkittavastiParannettava",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/eheytettavaTaiTiivistettava",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/rakentamisenOhjaus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/kerroksetJotaMaaraysKoskee",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/kayttotarkoituskohdistus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/kayttotarkoituksenOsuusKerrosalastaK-m2",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/kayttotarkoituksenOsuusKerrosalastaPros",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/kayttotarkoituksenOsuusRakennustilavuudestaK-m3",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/kayttotarkoituksenOsuusRakennustilavuudestaPros",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/kayttotarkoituksenOsuusMaapintaAlasta",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/rakennusluvanPeruste",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/rakentamistapaohjeHuomioitava",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/sitovaTonttijakoLaadittava",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/tontilleAjoSallittu",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/VaarallistenKemikaalienValmistusJaVarastointiSallittu",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/ymparistoAsettaaToiminnanLaadulleErityisiaVaatimuksia",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/melunLahde",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/autopaikkojenSijoittuminenSallittu",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/maanalainenTila"
+            ],
+            "type": "string",
+            "description": "Määräystä täydentävä tieto, jolla ohjataan alueidenkäyttöä ja rakentamista. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji\">http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji</a>"
+          },
+          "value": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeValue"
+              },
+              {
+                "$ref": "#/components/schemas/NumericValue"
+              },
+              {
+                "$ref": "#/components/schemas/NumericRange"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveNumericValue"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveNumericRange"
+              },
+              {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
+              {
+                "$ref": "#/components/schemas/DecimalRange"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveDecimalValue"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveDecimalRange"
+              },
+              {
+                "$ref": "#/components/schemas/SpotElevation"
+              },
+              {
+                "$ref": "#/components/schemas/IdentifierValue"
+              },
+              {
+                "$ref": "#/components/schemas/LocalizedTextValue"
+              },
+              {
+                "$ref": "#/components/schemas/TextValue"
+              },
+              {
+                "$ref": "#/components/schemas/TimePeriodValue"
+              },
+              {
+                "$ref": "#/components/schemas/TimePeriodDateOnlyValue"
+              }
+            ],
+            "description": "Arvo",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AttributeValue": {
+        "type": "object",
+        "properties": {
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Enumeraatio joka määrittää Arvo-luokkien (Domain.ValueObjects.AttributeValue) tyypin.\r\nJokaisella konkreettisella Arvo-luokan (Domain.ValueObjects.AttributeValue) toteutuksella tulee olla sitä vastaava DataType enumeraation arvo."
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeInformationPropertyIdentifiersResponse": {
+        "type": "object",
+        "properties": {
+          "lastSeen": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "upToDate": {
+            "type": "boolean"
+          },
+          "propertyIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "CodeValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Koodiston arvo (uri)"
+          },
+          "codeList": {
+            "type": "string",
+            "description": "Koodisto"
+          },
+          "title": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Nimi"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"code\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Koodiston arvo"
+      },
+      "DecimalRange": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "minimumValue": {
+            "type": "number",
+            "description": "Minimiarvo",
+            "format": "double"
+          },
+          "maximumValue": {
+            "type": "number",
+            "description": "Maksimiarvo",
+            "format": "double"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"decimalRange\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Desimaaliarvoväli"
+      },
+      "DecimalValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "number": {
+            "type": "number",
+            "description": "Desimaaliluku",
+            "format": "double"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"decimal\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Desimaaliluku"
+      },
+      "HealthReport": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "Unhealthy",
+              "Degraded",
+              "Healthy"
+            ],
+            "type": "string",
+            "readOnly": true
+          },
+          "totalDuration": {
+            "type": "string",
+            "format": "date-span",
+            "readOnly": true
+          },
+          "entries": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/HealthReportEntry"
+            },
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HealthReportEntry": {
+        "type": "object",
+        "properties": {
+          "duration": {
+            "type": "string",
+            "format": "date-span",
+            "readOnly": true
+          },
+          "status": {
+            "enum": [
+              "Unhealthy",
+              "Degraded",
+              "Healthy"
+            ],
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentifierValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "description": "Tunnus"
+          },
+          "registerIdentifier": {
+            "type": "string",
+            "description": "Järjestelmän tunnus"
+          },
+          "registerName": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Järjestelmän nimi"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"identifier\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Tunnus"
+      },
+      "LanguageString": {
+        "type": "object",
+        "properties": {
+          "fin": {
+            "type": "string",
+            "description": "suomi",
+            "nullable": true
+          },
+          "swe": {
+            "type": "string",
+            "description": "ruotsi",
+            "nullable": true
+          },
+          "smn": {
+            "type": "string",
+            "description": "inarinsaame",
+            "nullable": true
+          },
+          "sms": {
+            "type": "string",
+            "description": "koltansaame",
+            "nullable": true
+          },
+          "sme": {
+            "type": "string",
+            "description": "pohjoissaame",
+            "nullable": true
+          },
+          "eng": {
+            "type": "string",
+            "description": "englanti",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
+      },
+      "LocalizedTextValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "text": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Kielistetty teksti"
+          },
+          "syntax": {
+            "type": "string",
+            "description": "Syntaksi"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"localizedText\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Lokalisoitu teksti"
+      },
+      "NumericRange": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "minimumValue": {
+            "type": "integer",
+            "description": "Minimiarvo",
+            "format": "int32"
+          },
+          "maximumValue": {
+            "type": "integer",
+            "description": "Maksimiarvo",
+            "format": "int32"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"numericRange\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Numeerinen arvoväli"
+      },
+      "NumericValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "number": {
+            "type": "integer",
+            "description": "Numero",
+            "format": "int32"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"numeric\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Numeerinen arvo"
+      },
+      "PlanInformationForProperty": {
+        "required": [
+          "plans",
+          "propertyArea",
+          "propertyIdentifier",
+          "unseparatedParcelIdentifiers"
+        ],
+        "type": "object",
+        "properties": {
+          "propertyIdentifier": {
+            "type": "string"
+          },
+          "propertyArea": {
+            "type": "number",
+            "format": "double"
+          },
+          "unseparatedParcelIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "plans": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanInformationForPropertyPlan"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlanInformationForPropertyPlan": {
+        "type": "object",
+        "properties": {
+          "planKey": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "permanentPlanIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "planType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/31",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/32",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/33",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/34",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/35",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavalaji/code/39"
+            ],
+            "type": "string",
+            "nullable": true
+          },
+          "producerPlanIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "timeOfInitiation": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "administrativeAreaIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "approvalDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "periodOfValidity": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TimePeriodDateOnly"
+              }
+            ],
+            "nullable": true
+          },
+          "relatedBindingPlotDivisionMatterUris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "planArea": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "propertyAreaOfPlanArea": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "propertyCoverageOfPlan": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "planObjects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanInformationForPropertyPlanObject"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlanInformationForPropertyPlanObject": {
+        "type": "object",
+        "properties": {
+          "planObjectKey": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "mainUseCaseRegulationGroupTitle": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "mainUseCaseLetterIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "planObjectArea": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "planObjectGrossFloorArea": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "planObjectBuildingVolume": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "planObjectAreaOfProperty": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "planObjectAreaCoverageOfProperty": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "permittedBuildingAreaOfProperty": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "permittedBuildingVolumeOfProperty": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "planRegulationGroups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanInformationForPropertyPlanRegulationGroup"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlanInformationForPropertyPlanRegulation": {
+        "type": "object",
+        "properties": {
+          "planRegulationKey": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "type": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/asumisenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/asuinpientaloalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/erillistenAsuinpientalojenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rivitalojenJaMuidenKytkettyjenAsuinpientalojenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/asuinkerrostaloalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/asumistaPalvelevaYhteiskayttoinenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maatilanTalouskeskuksenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kylaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/taajamatoimintojenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/keskustatoimintojenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/keskustatoimintojenAlakeskus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/tyopaikkojenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/toimitilojenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/toimistorakennustenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/palvelujenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/liikerakennustenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/myymalarakennustenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/vahittaiskaupanSuuryksikko",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/vahittaiskaupanMyymalakeskittyma",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/huviJaViihdeRakennustenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/yleistenRakennustenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/hoitoalanRakennustenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/museorakennustenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/urheiluJaLiikuntaRakennustenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kulttuurirakennustenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/uskonnollistenYhteisojenRakennustenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/opetusrakennustenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/teollisuusalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/varastoalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/vapaaAjanAsumisenJaMatkailunAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/vapaaAjanAsumisenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/matkailupalvelujenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/leirintaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/asuntovaunualue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/siirtolapuutarhaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/palstaviljelyalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/viheralue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/virkistysalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/lahivirkistysalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/uimaranta",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/puisto",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/leikkipuisto",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/leikkiJaOleskelualue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/urheiluJaVirkistyspalvelujenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/retkeilyJaUlkoiluAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/ulkoiluTaiVirkistysReitti",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/viheryhteys",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/ekologisenKompensaationAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/istutettavaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/puuTaiPuurivi",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/vihertehokkuus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maaJaMetsatalousAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maaJaMetsatalousalueJollaErityistaUlkoilunOhjaamistarvetta",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maaJaMetsatalousalueJollaErityisiaYmparistoarvoja",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maatalousalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/pelto",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/metsatalousalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kotielaintaloudenSuuryksikonAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/puutarhaJaKasvihuoneAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/poronhoitoalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/erityisalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/energiahuollonAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/tuulivoimalaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/aurinkovoimalaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maaAinestenOttoalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/turvetuotantoalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaivosalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maaAinestenVastaanottoTaiLajitysAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/jatteenkasittelyalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/ampumarataAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/puolustusvoimienAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/moottoriurheilualue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/mastoalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/yhdyskuntateknisenHuollonAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/JohtoPutkiTaiLinja",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/sahkolinja",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaasulinja",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/vesijohtoTaiViemari",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/hulevesienHallintaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/jatehuollonAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kiertotaloudenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/ymparistohairionTorjunnanRakenne",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/melueste",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/tulvapenger",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojaviheralue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/hautausmaa",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/liikennealue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maaliikenteenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maantie",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maantienNakemaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maantienSuojaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/moottoriTaiMoottoriliikenneTie",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaksiajoratainenTieTaiKatu",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtatie",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kantatie",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/seututie",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/yhdystie",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/tie",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/katu",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/paakatu",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kokoojakatu",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/hidaskatu",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/pihakatu",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kadunOsaJollaOnAjoneuvoliittymakielto",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/ajoyhteys",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/ajoluiska",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/huoltoajoalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/liittyma",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suuntaisliittyma",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/eritasoliittyma",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/liikennetunneli",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/eritasoristeys",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/ylikulku",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/alikulku",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/katuaukioTaiTori",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/moottorikelkkailureitti",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/pyorailyalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/jalankulkualue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/pysakoinninAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/pysakointilaitostenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/huoltoasemaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/polttoaineenJakeluasema",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/raideliikenteenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rautatienNakemaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rautatienSuojaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/paarata",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/yhdysrata",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/sivurata",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaupunkirata",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/metro",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/raitiotie",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/varikko",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/terminaalialue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/henkiloliikenteenTerminaalialue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/linjaAutoasema",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/raideliikenteenAsemaTaiSeisake",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/pysakki",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/tavaraliikenteenTerminaalialue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/joukkoliikenteenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/lentoliikenteenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/vesiliikenteenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/satama-alue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/venesatama",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/venevalkama",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kanava",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/vesivayla",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/laivavayla",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/venevayla",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/lossiTaiLauttaYhteys",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/vesialue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/pohjavesialue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/ymparistoarvojenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojelualue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/luonnonsuojelualue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/natura2000VerkostonAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennussuojelualue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennusperinnonSuojelemisestaAnnetunLainNojallaSuojeltuRakennus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtionOmistamienRakennustenSuojelustaAnnetunAsetuksenNojallaSuojeltuRakennus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojeltuKirkollinenRakennus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojeltuOrtodoksinenKirkkoTaiRukoushuone",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/muinaismuistoAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/luontoarvoiltaanArvokasAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/luonnonMonimuotoisuudenKannaltaErityisenTarkeaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/luonnonRauhanKannaltaTarkeaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/arvokasGeologinenMuodostuma",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kulttuuriymparistoarvojenAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/merkittavaRakennettuKulttuuriymparisto",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiMerkittavaRakennettuKulttuuriymparisto",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaupunkiTaiKylakuvallisestiArvokasAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/muuArkeologinenKohde",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiMerkittavaArkeologinenKohde",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/historiallinenKohde",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/unesconMaailmanperintokohde",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/saamelaiskulttuurinKannaltaTarkeaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maisemallisestiArvokasAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maisemanhoitoalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiArvokasMaisemaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kansallinenKaupunkipuisto",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/ymparistohairioalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/melualue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/tarinaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/tulvariskialue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/radonriskialue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/pilaantunutMaaAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/vaaraAlue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojavyohyke",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/konsultointivyohyke",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kunnanTaiKaupunginOsa",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/korttelialueTaiKorttelialueenOsa",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennuspaikka",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/sitovanTonttijaonMukainenTontti",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/ohjeellinenRakennuspaikka",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennusala",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennusalaJolleSaaSijoittaaTalousrakennuksen",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennusalaJolleSaaSijoittaaSaunan",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennusalanSivuJotaKoskeeTarkempiMaarays",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennusalanSivuJohonRakennusOnRakennettavaKiinni",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennuksenSivuJossaSuoraUloskayntiPorrashuoneista",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/ikkunatonSeina",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennukseenJatettavaKulkuaukko",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/uloke",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennuksenHarjanSuunta",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valokatteinenTila",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/alueJotaKoskeeKehittamisperiaate",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/yhdyskuntarakenteenLaajenemissuunta",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kehittamisvyohyke",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/selvitysalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kehittamisalue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suunnittelutarvealue",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/nimisto",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kadunTaiTienNimi",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/torinTaiKatuaukionNimi",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/puistonTaiMuunYleisenAlueenNimi",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaupunginTaiKunnanosanNimi",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/aluetunnukset",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/korttelinNumero",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/tontinTaiRakennuspaikanNumero",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaupunginTaiKunnanosanNumero",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakentamisenMaara",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/sallittuKerrosala",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/sallittuRakennustilavuus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/tehokkuusluku",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakentamisenSuhdeAlueenPintaAlaan",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valjyysluku",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maanpaallinenKerroslukuLuku",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maanpaallinenKerroslukuArvovali",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maanalainenKerroslukuLuku",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maanalainenKerroslukuArvovali",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kellarinSallittuOsuusKerrosalasta",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/ullakonSallittuOsuusKerrosalasta",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/asuntojenMaara",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennuspaikkojenMaara",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/tuulivoimaloidenMaara",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/korkeusasema",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maanpinnanKorkeusasema",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/vesikatonYlimmanKohdanKorkeusasema",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/julkisivupinnanJaVesikatonLeikkauskohdanKorkeusasema",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/julkisivunEnimmaiskorkeus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennustenRakenteidenJaLaitteidenYlinKorkeusasema",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/alinPainovoimainenViemarointitaso",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennustenRakenteidenJaLaitteidenAlinKorkeusasema",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kosteudelleAlttiidenRakenteidenAlinRakentamiskorkeus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/tuulivoimalanEnimmaiskorkeus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakentamisenTapa",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kattokaltevuus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/aaneneristavyys",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/liikenteenSuureet",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/pysakoinninMaara",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/autopaikkojenMaara",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/autopaikkojenMaaraAsuntoaKohden",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kerrosneliomaaraYhtaAutopaikkaaKohden",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/pyorapaikkojenMaara",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/pyorapaikkojenMaaraAsuntoaKohden",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kerrosneliomaaraYhtaPyorapaikkaaKohden",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/sanallinenMaarays",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakentamisrajoitusYleiskaava",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakentamisrajoitusMaakuntakaava",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maaraAikainenRakentamisrajoitus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/toimenpiderajoitus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maaraAikainenKieltoRakennuksenRakentamiseksi",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suunnittelumaarays",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakentamismaarays",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojelumaarays"
+            ],
+            "type": "string"
+          },
+          "value": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeValue"
+              },
+              {
+                "$ref": "#/components/schemas/NumericValue"
+              },
+              {
+                "$ref": "#/components/schemas/NumericRange"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveNumericValue"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveNumericRange"
+              },
+              {
+                "$ref": "#/components/schemas/DecimalValue"
+              },
+              {
+                "$ref": "#/components/schemas/DecimalRange"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveDecimalValue"
+              },
+              {
+                "$ref": "#/components/schemas/PositiveDecimalRange"
+              },
+              {
+                "$ref": "#/components/schemas/SpotElevation"
+              },
+              {
+                "$ref": "#/components/schemas/IdentifierValue"
+              },
+              {
+                "$ref": "#/components/schemas/LocalizedTextValue"
+              },
+              {
+                "$ref": "#/components/schemas/TextValue"
+              },
+              {
+                "$ref": "#/components/schemas/TimePeriodValue"
+              },
+              {
+                "$ref": "#/components/schemas/TimePeriodDateOnlyValue"
+              }
+            ],
+            "nullable": true
+          },
+          "additionalInformations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AdditionalInformation"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlanInformationForPropertyPlanRegulationGroup": {
+        "type": "object",
+        "properties": {
+          "planRegulationGroupKey": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "titleOfPlanRegulation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "letterIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "planRegulations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanInformationForPropertyPlanRegulation"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PositiveDecimalRange": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "minimumValue": {
+            "type": "number",
+            "description": "Minimiarvo",
+            "format": "double"
+          },
+          "maximumValue": {
+            "type": "number",
+            "description": "Maksimiarvo",
+            "format": "double"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"positiveDecimalRange\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Positiivinen desimaaliarvoväli"
+      },
+      "PositiveDecimalValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "number": {
+            "type": "number",
+            "description": "Desimaali",
+            "format": "double"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"positiveDecimal\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Positiivinen desimaali"
+      },
+      "PositiveNumericRange": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "minimumValue": {
+            "type": "integer",
+            "description": "Minimiarvo",
+            "format": "int32"
+          },
+          "maximumValue": {
+            "type": "integer",
+            "description": "Maksimiarvo",
+            "format": "int32"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"positiveNumericRange\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Positiivinen arvoväli"
+      },
+      "PositiveNumericValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "number": {
+            "type": "integer",
+            "description": "Numero",
+            "format": "int32"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"positiveNumeric\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Positiivinen numeerinen arvo"
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "SpotElevation": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "number": {
+            "type": "integer",
+            "description": "Arvo",
+            "format": "int32"
+          },
+          "unitOfMeasure": {
+            "type": "string",
+            "description": "Mittayksikkö"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"spotElevation\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Korkeuspiste"
+      },
+      "TextValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Teksti"
+          },
+          "syntax": {
+            "type": "string",
+            "description": "Syntaksi"
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"text\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "Teksti"
+      },
+      "TimePeriodDateOnly": {
+        "type": "object",
+        "properties": {
+          "begin": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "end": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TimePeriodDateOnlyValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "begin": {
+            "type": "string",
+            "description": "Alkupäivä",
+            "format": "date",
+            "nullable": true
+          },
+          "end": {
+            "type": "string",
+            "description": "Loppupäivä",
+            "format": "date",
+            "nullable": true
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"timePeriodDateOnly\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "TimePeriodDateOnly"
+      },
+      "TimePeriodValue": {
+        "required": [
+          "dataType"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AttributeValue"
+          }
+        ],
+        "properties": {
+          "beginUtc": {
+            "type": "string",
+            "description": "Alkuaika",
+            "format": "date-time"
+          },
+          "endUtc": {
+            "type": "string",
+            "description": "Loppuaika",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dataType": {
+            "enum": [
+              "LocalizedText",
+              "Text",
+              "Numeric",
+              "NumericRange",
+              "PositiveNumeric",
+              "PositiveNumericRange",
+              "Decimal",
+              "DecimalRange",
+              "PositiveDecimal",
+              "PositiveDecimalRange",
+              "Code",
+              "Identifier",
+              "SpotElevation",
+              "TimePeriod",
+              "TimePeriodDateOnly"
+            ],
+            "type": "string",
+            "description": "Pakollinen arvo: \"timePeriod\""
+          }
+        },
+        "additionalProperties": false,
+        "description": "TimePeriod"
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Enter 'Bearer' [space] and then your valid token in the text input below.\r\n\r\nExample: \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\"",
+        "name": "Authorization",
+        "in": "header"
+      },
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://identitytest.ymparisto.fi/connect/token",
+            "scopes": {
+              "ryhti.plan.read": "Muutostietojen lukuoikeus."
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    },
+    {
+      "oauth2": [ ]
+    }
+  ]
+}
