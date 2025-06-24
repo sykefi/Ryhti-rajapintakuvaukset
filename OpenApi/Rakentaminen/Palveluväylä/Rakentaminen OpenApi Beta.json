@@ -601,6 +601,26 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Käyttäjä on saavuttanut päivittäisen toisistaan eroavien hakujen maksimimäärän",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -6438,7 +6458,7 @@
               "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/14"
             ],
             "type": "string",
-            "description": "Rakennuskohteen omistajan laji. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/OmistajanLahde"
+            "description": "Rakennuskohteen omistajan laji. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/Omistajalaji"
           }
         },
         "additionalProperties": false,
@@ -6462,7 +6482,7 @@
               "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/3"
             ],
             "type": "string",
-            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -7443,28 +7463,11 @@
             "nullable": true
           },
           "property": {
-            "required": [
-              "municipalityNumber",
-              "propertyIdentifier",
-              "status",
-              "type",
-              "relationToBaseProperty"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/Property"
+                "$ref": "#/components/schemas/ChangeInformationProperty"
               }
             ],
-            "description": "Kiinteistö",
-            "nullable": true
-          },
-          "parcel": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/UnseparatedParcel"
-              }
-            ],
-            "description": "Määräala",
             "nullable": true
           }
         },
@@ -8667,6 +8670,18 @@
           "locatedOnUnseparatedParcel": {
             "type": "boolean",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeInformationProperty": {
+        "type": "object",
+        "properties": {
+          "propertyIdentifier": {
+            "type": "string"
+          },
+          "municipalityNumber": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -9967,7 +9982,7 @@
               "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/3"
             ],
             "type": "string",
-            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -10533,7 +10548,7 @@
               "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/3"
             ],
             "type": "string",
-            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -10588,7 +10603,7 @@
               "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/3"
             ],
             "type": "string",
-            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -14786,7 +14801,7 @@
               "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/3"
             ],
             "type": "string",
-            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -15594,61 +15609,6 @@
           }
         },
         "additionalProperties": { }
-      },
-      "Property": {
-        "required": [
-          "municipalityNumber",
-          "propertyIdentifier",
-          "relationToBaseProperty",
-          "status",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "municipalityNumber": {
-            "type": "string"
-          },
-          "propertyIdentifier": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "string"
-          },
-          "registrationDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "endDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "landArea": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "geometry": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/RyhtiGeometry"
-              }
-            ],
-            "nullable": true
-          },
-          "type": {
-            "type": "string"
-          },
-          "relationToBaseProperty": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Kiinteistö"
       },
       "PublicBuilding": {
         "type": "object",
@@ -17559,38 +17519,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "UnseparatedParcel": {
-        "type": "object",
-        "properties": {
-          "municipalityNumber": {
-            "type": "string"
-          },
-          "unseparatedParcelIdentifier": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string"
-          },
-          "registrationDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "endDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "type": {
-            "type": "string"
-          },
-          "relationToBaseProperty": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Määräala"
       },
       "UsageData": {
         "required": [

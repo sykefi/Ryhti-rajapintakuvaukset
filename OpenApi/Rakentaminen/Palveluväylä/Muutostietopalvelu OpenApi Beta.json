@@ -4905,80 +4905,6 @@
         "additionalProperties": false,
         "description": "Rakennuskohteen sijaintitiedot"
       },
-      "BuildingObjectOwner": {
-        "required": [
-          "buildingObjectOwnerKey",
-          "differentOwner",
-          "ownerOperator",
-          "ownerType"
-        ],
-        "type": "object",
-        "properties": {
-          "buildingObjectOwnerKey": {
-            "type": "string",
-            "description": "",
-            "format": "uuid"
-          },
-          "ownerOperator": {
-            "required": [
-              "isPerson"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Operator"
-              }
-            ],
-            "description": ""
-          },
-          "differentOwner": {
-            "type": "boolean",
-            "description": ""
-          },
-          "tenureStatus": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LanguageString"
-              }
-            ],
-            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
-            "nullable": true
-          },
-          "ownerContactOperator": {
-            "required": [
-              "isPerson"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Operator"
-              }
-            ],
-            "description": "",
-            "nullable": true
-          },
-          "ownerType": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/01",
-              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/02",
-              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/03",
-              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/04",
-              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/05",
-              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/06",
-              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/07",
-              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/08",
-              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/09",
-              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/10",
-              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/11",
-              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/12",
-              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/13",
-              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/14"
-            ],
-            "type": "string",
-            "description": "Rakennuskohteen omistajan laji. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/OmistajanLahde"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Rakennuskohteen omistaja"
-      },
       "BuildingPermitApplication": {
         "required": [
           "applicationContent",
@@ -4997,7 +4923,7 @@
               "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/3"
             ],
             "type": "string",
-            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -5584,28 +5510,11 @@
             "nullable": true
           },
           "property": {
-            "required": [
-              "municipalityNumber",
-              "propertyIdentifier",
-              "status",
-              "type",
-              "relationToBaseProperty"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/Property"
+                "$ref": "#/components/schemas/ChangeInformationProperty"
               }
             ],
-            "description": "Kiinteistö",
-            "nullable": true
-          },
-          "parcel": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/UnseparatedParcel"
-              }
-            ],
-            "description": "Määräala",
             "nullable": true
           }
         },
@@ -5794,7 +5703,7 @@
           "buildingObjectOwner": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BuildingObjectOwner"
+              "$ref": "#/components/schemas/ChangeInformationBuildingObjectOwner"
             },
             "nullable": true
           },
@@ -6225,7 +6134,7 @@
           "buildingObjectOwner": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BuildingObjectOwner"
+              "$ref": "#/components/schemas/ChangeInformationBuildingObjectOwner"
             },
             "description": "Rakennuskohteen omistaja",
             "nullable": true
@@ -6375,6 +6284,80 @@
             "items": {
               "$ref": "#/components/schemas/ChangeInformationBuildingChangeDiffDto"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeInformationBuildingObjectOwner": {
+        "type": "object",
+        "properties": {
+          "buildingObjectOwnerKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "ownerOperator": {
+            "required": [
+              "isPerson"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Operator"
+              }
+            ],
+            "description": "Toimija"
+          },
+          "ownerSource": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/OmistajanLahde/code/01",
+              "http://uri.suomi.fi/codelist/rytj/OmistajanLahde/code/02",
+              "http://uri.suomi.fi/codelist/rytj/OmistajanLahde/code/03",
+              "http://uri.suomi.fi/codelist/rytj/OmistajanLahde/code/04"
+            ],
+            "type": "string"
+          },
+          "differentOwner": {
+            "type": "boolean"
+          },
+          "tenureStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "ownerContactOperator": {
+            "required": [
+              "isPerson"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Operator"
+              }
+            ],
+            "description": "Toimija",
+            "nullable": true
+          },
+          "ownerType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/01",
+              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/02",
+              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/03",
+              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/04",
+              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/05",
+              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/06",
+              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/07",
+              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/08",
+              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/09",
+              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/10",
+              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/11",
+              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/12",
+              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/13",
+              "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/14"
+            ],
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -7357,7 +7340,7 @@
           "buildingObjectOwner": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BuildingObjectOwner"
+              "$ref": "#/components/schemas/ChangeInformationBuildingObjectOwner"
             }
           }
         },
@@ -7870,6 +7853,18 @@
         },
         "additionalProperties": false
       },
+      "ChangeInformationProperty": {
+        "type": "object",
+        "properties": {
+          "propertyIdentifier": {
+            "type": "string"
+          },
+          "municipalityNumber": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "ChangeInformationStructure": {
         "required": [
           "address",
@@ -8049,7 +8044,7 @@
           "buildingObjectOwner": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BuildingObjectOwner"
+              "$ref": "#/components/schemas/ChangeInformationBuildingObjectOwner"
             },
             "description": "Rakennuskohteen omistaja",
             "nullable": true
@@ -8970,7 +8965,7 @@
               "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/3"
             ],
             "type": "string",
-            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -9712,7 +9707,7 @@
               "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/3"
             ],
             "type": "string",
-            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -9767,7 +9762,7 @@
               "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/3"
             ],
             "type": "string",
-            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -11422,7 +11417,7 @@
           "buildingObjectOwner": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BuildingObjectOwner"
+              "$ref": "#/components/schemas/ChangeInformationBuildingObjectOwner"
             },
             "nullable": true
           },
@@ -14207,7 +14202,7 @@
               "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/3"
             ],
             "type": "string",
-            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -14262,7 +14257,7 @@
               "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/3"
             ],
             "type": "string",
-            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji\">http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji</a>",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -15404,61 +15399,6 @@
         },
         "additionalProperties": { }
       },
-      "Property": {
-        "required": [
-          "municipalityNumber",
-          "propertyIdentifier",
-          "relationToBaseProperty",
-          "status",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "municipalityNumber": {
-            "type": "string"
-          },
-          "propertyIdentifier": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "string"
-          },
-          "registrationDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "endDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "landArea": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "geometry": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/RyhtiGeometry"
-              }
-            ],
-            "nullable": true
-          },
-          "type": {
-            "type": "string"
-          },
-          "relationToBaseProperty": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Kiinteistö"
-      },
       "Purpose": {
         "required": [
           "isPrimary",
@@ -16581,38 +16521,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "UnseparatedParcel": {
-        "type": "object",
-        "properties": {
-          "municipalityNumber": {
-            "type": "string"
-          },
-          "unseparatedParcelIdentifier": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string"
-          },
-          "registrationDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "endDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "type": {
-            "type": "string"
-          },
-          "relationToBaseProperty": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Määräala"
       },
       "UsageData": {
         "required": [
