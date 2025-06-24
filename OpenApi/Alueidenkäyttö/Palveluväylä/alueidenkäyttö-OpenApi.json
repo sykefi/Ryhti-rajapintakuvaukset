@@ -9659,7 +9659,8 @@
             "items": {
               "$ref": "#/components/schemas/CancelledGroupRelations"
             },
-            "description": "Kumottavan ryhmän kohdistus. Kuvaa kaavakohteesta kumoutuvat kaavamääräysryhmät."
+            "description": "Kumottavan ryhmän kohdistus. Kuvaa kaavakohteesta kumoutuvat kaavamääräysryhmät.",
+            "nullable": true
           },
           "planObjectCancellationInfos": {
             "type": "array",
