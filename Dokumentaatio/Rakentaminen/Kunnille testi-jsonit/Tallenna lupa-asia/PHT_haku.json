@@ -1,0 +1,16 @@
+{
+  "municipalityNumber": "837",
+  "permanentPermitId": "300001529N",
+  "dvvCaseIdentifier": "83700056-06128011010",
+  "constructionAction": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
+  "permanentBuildingId": "900066511K",
+  "addressNumber": 1,
+  "changeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/01",
+  "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/02",
+  "apartmentIdentifierLetterSuffix": "A",
+  "apartmentNumber": 1,
+  "apartmentSubdivisionLetter": "a",
+  "numberOfRooms": 2,
+  "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/01",
+  "floorArea": 45.5
+}

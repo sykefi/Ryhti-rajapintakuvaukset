@@ -1,0 +1,14 @@
+{
+  "municipalityNumber": "837",
+  "propertyIdentifier": "83770500010146",
+  "pointLocation": {
+    "srid": "3067",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [ 337161, 6839056 ]
+    }},
+  "typeOfPurpose": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0110",
+  "dvvCaseIdentifier": "83700056-06128011010",
+  "constructionAction": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
+  "permanentPermitIdentifier": "300001529N"
+}
