@@ -16,8 +16,9 @@ Rakennetun ympäristön tietojärjestelmän ensimmäiset julkiset rajapinnat kaa
 
 Lisää tietoa Suomen ympäristökeskuksen sovelluskehittäjäportaalissa https://api-developer.ymparisto.fi/
 
-## Rakentamisen rajapintakuvaukset
-Rakentamisen rajapintakuvauksia kehitetään. Rajapinnoille ei ole vielä määritelty tarkkaa julkaisuajankohtaa.
+## Rakentamisen esimerkki-jsonit
+Testatessa voi hyödyntää esimerkki-jsoneita, jotka on julkaistu GitHubiin. 
+[Kunnille testi-jsonit](https://github.com/sykefi/Ryhti-rajapintakuvaukset/tree/fffafaaaa89a95e757e73b0d8816404de22fc441/Dokumentaatio/Rakentaminen/Kunnille%20testi-jsonit)
 
 ## OpenApi-kuvaukset
 Rajapintojen kuvaukset löytyvät kansiosta OpenApi. OpenApi-kuvaukset ovat JSON-muodossa ja niitä voi katsella esim. https://editor.swagger.io/ sivuston avulla kopioimalla JSON-tiedoston sisällön sinne.
