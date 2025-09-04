@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Ryhti API",
-    "description": "<h2>Kaavojen muutostietorajapinta</h2>",
+    "description": "<h2>Rakennetun ympäristön alueidenkäytön muutostietopalveluiden OpenAPI - kuvaukset</h2>",
     "contact": {
       "name": "Feedback",
       "url": "https://www.syke.fi/en-US/SYKE_Info/Contact_information/Feedback_form(10043)?r=38611"
@@ -19,15 +19,98 @@
     }
   ],
   "paths": {
+    "/api/Authenticate": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Hae OAuth2 -token käyttäen client credentials tunnusta ja salaisuutta.",
+        "description": "ClientId välitetään querysting parametrina ja clientSecrect http bodyssä. <b>X-Token-Expires-In</b> http headerissa palautuu tokenin voimassaoloaika sekunneissa.",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "query",
+            "description": "OAuth clientId.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "OAuth clientSecret välitetään http bodyssä heittomerkkien sisällä. Esim. ```\"minunsalaisuus\"```",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OAuth token, joka pitää välittää Authorization headerissä muissa api-kutsuissa.\r\n            ```X-Token-Expires-In``` http header kertoo sekunneissa tokeninen voimassaoloajan.\r\n            Muita api-rajapintoja kutsuttaessa lisää kutsuun Authorization header seuraavasti: ```Authorization: Bearer [token]```",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/PlanInformationForProperty/{propertyIdentifier}": {
       "get": {
         "tags": [
-          "PlanInformationForProperty"
+          "Plans"
         ],
+        "summary": "Rajapinta asemakaavojen ajantasatiedon hakemiseen kiinteistöittäin kiinteistö- tai määräalatunnuksella",
         "parameters": [
           {
             "name": "propertyIdentifier",
             "in": "path",
+            "description": "Kiinteistö- tai määräalatunnus (pitkässä muodossa)",
             "required": true,
             "schema": {
               "type": "string"
@@ -78,75 +161,17 @@
         }
       }
     },
-    "/api/PropertyIdentifiersOfChangedBindingPlotDivisions/{correlationId}": {
-      "get": {
-        "tags": [
-          "PropertyIdentifiersOfChangedBindingPlotDivisions"
-        ],
-        "parameters": [
-          {
-            "name": "correlationId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/PropertyIdentifiersOfChangedPlans/{correlationId}": {
       "get": {
         "tags": [
-          "PropertyIdentifiersOfChangedPlans"
+          "Plans"
         ],
+        "summary": "Etsi tapahtumatunnisteella kiinteistötunnukset, joiden alueella on tallennettu kaavatietoja tapahtuman jälkeen",
         "parameters": [
           {
             "name": "correlationId",
             "in": "path",
+            "description": "Viimeksi nähdyn tapahtuman tunniste",
             "required": true,
             "schema": {
               "type": "string",
@@ -203,9 +228,11 @@
         "tags": [
           "Status"
         ],
+        "summary": "Rajapinnan toimivuuden tarkistus.",
+        "description": "Antaa tiedon rajapinnan toimivuudesta.",
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Rajapinta toimii oletetusti.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -223,6 +250,9 @@
                 }
               }
             }
+          },
+          "503": {
+            "description": "Rajapinnan toiminnassa ongelmia."
           }
         }
       }
