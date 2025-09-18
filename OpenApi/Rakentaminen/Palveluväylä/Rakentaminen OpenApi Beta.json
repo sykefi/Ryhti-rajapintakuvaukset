@@ -504,127 +504,6 @@
         }
       }
     },
-    "/api/BuildingPublic/{permanentBuildingIdentifier}": {
-      "get": {
-        "tags": [
-          "Building"
-        ],
-        "summary": "Hae karkeutettu julkinen rakennustieto, josta on poistettu henkilötiedot.",
-        "parameters": [
-          {
-            "name": "permanentBuildingIdentifier",
-            "in": "path",
-            "description": "Rakennuskohteen pysyvä yksilöivä tunnus.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Rakennuskohteen haku onnistui.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicBuilding"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicBuilding"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicBuilding"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Rakennuskohdetta ei löytynyt pysyvällä rakennustunnuksella.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Käyttäjältä puuttuu tarvittava scope.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Ei oikeutta lukea rakennuskohteen tietoja.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Käyttäjä on saavuttanut päivittäisen toisistaan eroavien hakujen maksimimäärän",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/BuildingObject/Validate": {
       "post": {
         "tags": [
@@ -1662,17 +1541,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/GeneralizedBuildingPermitIssue"
+                  "$ref": "#/components/schemas/GeneralizedBuildingPermitIssueNoPersonData"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GeneralizedBuildingPermitIssue"
+                  "$ref": "#/components/schemas/GeneralizedBuildingPermitIssueNoPersonData"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GeneralizedBuildingPermitIssue"
+                  "$ref": "#/components/schemas/GeneralizedBuildingPermitIssueNoPersonData"
                 }
               }
             }
@@ -1774,107 +1653,6 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GeneralizedBuildingPermitIssue"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Rakentamislupaa ei löytynyt pysyvällä rakentamislupatunnuksella.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Käyttäjältä puuttuu tarvittava scope.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Ei oikeutta lukea rakentamisluvan tietoja.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/BuildingPermitPublic/{buildingPermitId}": {
-      "get": {
-        "tags": [
-          "BuildingPermit"
-        ],
-        "summary": "Hae karkeutettu julkinen rakentamislupa-asia ilman henkilötietoja.",
-        "parameters": [
-          {
-            "name": "buildingPermitId",
-            "in": "path",
-            "description": "Rakentamislupa-asian pysyvä yksilöivä lupatunnus.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Karkeutetun rakentamisluvan hakeminen onnistui.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicBuildingPermitIssue"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicBuildingPermitIssue"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicBuildingPermitIssue"
                 }
               }
             }
@@ -6303,6 +6081,16 @@
           "numberOfStoreysChange": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "changeInPermittedVolume": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "changeInPermittedRidgeHeight": {
+            "type": "number",
+            "format": "double",
             "nullable": true
           }
         },
@@ -12099,6 +11887,18 @@
             "description": "",
             "format": "int32",
             "nullable": true
+          },
+          "permittedVolume": {
+            "type": "integer",
+            "description": "",
+            "format": "int32",
+            "nullable": true
+          },
+          "permittedRidgeHeight": {
+            "type": "number",
+            "description": "",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -12894,6 +12694,148 @@
         },
         "additionalProperties": false
       },
+      "GeneralizedBuildingPermitIssueNoPersonData": {
+        "required": [
+          "dateOfInitiation",
+          "lifeCycleState",
+          "municipalityNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "dateOfInitiation": {
+            "type": "string",
+            "description": "Vireilletulopäivä",
+            "format": "date",
+            "nullable": true
+          },
+          "lifeCycleState": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/1",
+              "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/2",
+              "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/3",
+              "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/4"
+            ],
+            "type": "string",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila</a>",
+            "nullable": true
+          },
+          "municipalityNumber": {
+            "type": "string"
+          },
+          "permanentPermitIdentifier": {
+            "type": "string"
+          },
+          "decision": {
+            "required": [
+              "lifeCycleState",
+              "decisionDate",
+              "dateOfDecision",
+              "dateOfValidityOfDecision",
+              "publicNoticeDate",
+              "decisionText",
+              "decisionMakerType",
+              "decisionMakerFirstName",
+              "decisionMakerName",
+              "relatedApplication"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingPermitDecisionNoPersonData"
+              }
+            ],
+            "description": "Rakentamislupapäätös",
+            "nullable": true
+          },
+          "extensionDecision": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExtensionDecisionNoPersonData"
+            },
+            "nullable": true
+          },
+          "changePermit": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChangePermitNoPersonData"
+            },
+            "nullable": true
+          },
+          "buildingPermitApplication": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingPermitApplication"
+            },
+            "description": "Rakentamislupahakemus",
+            "nullable": true
+          },
+          "constructionAction": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GeneralizedConstructionActionNoPersonData"
+            }
+          },
+          "buildingSite": {
+            "required": [
+              "buildingSiteKey",
+              "stormWaterTreatmentType",
+              "buildingSiteAddress",
+              "tenure"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingSite"
+              }
+            ],
+            "description": "Rakennuspaikka",
+            "nullable": true
+          },
+          "attachment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
+            },
+            "nullable": true
+          },
+          "constructionProject": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ConstructionProjectNoPersonData"
+              }
+            ],
+            "nullable": true
+          },
+          "updateType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/01",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/02",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/03",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/04",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/05",
+              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
+            ],
+            "type": "string",
+            "description": "Rakentamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne\">http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne</a>",
+            "nullable": true
+          },
+          "updateDescription": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "locationPermitObject": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GeneralizedLocationPermitObjectNoPersonData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "GeneralizedBuildingSection": {
         "type": "object",
         "properties": {
@@ -13486,6 +13428,177 @@
         },
         "additionalProperties": false
       },
+      "GeneralizedConstructionActionNoPersonData": {
+        "type": "object",
+        "properties": {
+          "constructionActionKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "constructionActionType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/02",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/03",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/04",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/05",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/06",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/07",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/08",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/09"
+            ],
+            "type": "string",
+            "description": "Rakentamistoimenpide. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide\">http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide</a>",
+            "nullable": true
+          },
+          "buildingObjectChange": {
+            "required": [
+              "buildingObjectChangeKey"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingObjectChange"
+              }
+            ],
+            "description": "Rakennuskohteen muutos",
+            "nullable": true
+          },
+          "descriptionOfAction": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "areaUndergoingChanges": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "reasonForDemolition": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/01",
+              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/02",
+              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/03",
+              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/04",
+              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/05"
+            ],
+            "type": "string",
+            "description": "Purkamisen syy. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/PurkamisenSyy\">http://uri.suomi.fi/codelist/rytj/PurkamisenSyy</a>",
+            "nullable": true
+          },
+          "renovation": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "renovationRate": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "building": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GeneralizedBuildingNoPersonData"
+              }
+            ],
+            "nullable": true
+          },
+          "finishedBuilding": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GeneralizedBuildingNoPersonData"
+              }
+            ],
+            "nullable": true
+          },
+          "structure": {
+            "required": [
+              "structureKey",
+              "permanentStructureIdentifier",
+              "temporary",
+              "structureMainPurpose",
+              "buildingObjectType",
+              "address"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/StructureNoPersonData"
+              }
+            ],
+            "nullable": true
+          },
+          "areaToBeBuiltForSpecificActivities": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChangeInformationAreaToBeBuiltForSpecificActivitiesNoPersonData"
+              }
+            ],
+            "nullable": true
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "completionDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "commissioningDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "statusOfConstructionAction": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/1",
+              "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/2",
+              "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/3",
+              "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/4",
+              "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/5"
+            ],
+            "type": "string",
+            "description": "Rakentamistoimenpiteen tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila\">http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila</a>",
+            "nullable": true
+          },
+          "fullyApprovedForUse": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "businessConstruction": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "changeType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/muutostyo/code/01",
+              "http://uri.suomi.fi/codelist/rytj/muutostyo/code/02",
+              "http://uri.suomi.fi/codelist/rytj/muutostyo/code/03"
+            ],
+            "type": "string",
+            "description": "Muutostyön tarkenne. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/muutostyo\">http://uri.suomi.fi/codelist/rytj/muutostyo</a>",
+            "nullable": true
+          },
+          "dvvPermitIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "locatedOnUnseparatedParcel": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "GeneralizedLocationPermitObject": {
         "type": "object",
         "properties": {
@@ -13567,6 +13680,382 @@
             "items": {
               "$ref": "#/components/schemas/BuildingObjectOwner"
             }
+          },
+          "address": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Address"
+            }
+          },
+          "locationPermitObjectType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/SijoittamislupakohteenLaji/code/01",
+              "http://uri.suomi.fi/codelist/rytj/SijoittamislupakohteenLaji/code/02",
+              "http://uri.suomi.fi/codelist/rytj/SijoittamislupakohteenLaji/code/03"
+            ],
+            "type": "string"
+          },
+          "buildingMainPurpose": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/01",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/011",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0110",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0111",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0112",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/012",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0120",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0121",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/013",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0130",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/014",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0140",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/02",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/021",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0210",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0211",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/03",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/031",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0310",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0311",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0319",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/032",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0320",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0321",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0322",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0329",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/033",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0330",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/04",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/040",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0400",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/05",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/051",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0510",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0511",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0512",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0513",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0514",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/052",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0520",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0521",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/059",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0590",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/06",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/061",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0610",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0611",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0612",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0613",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0614",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0615",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0619",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/062",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0620",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0621",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/063",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0630",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/07",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/071",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0710",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0711",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0712",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0713",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0714",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/072",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0720",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/073",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0730",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0731",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0739",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/074",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0740",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0741",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0742",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0743",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0744",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0749",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/079",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0790",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/08",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/081",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0810",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/082",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0820",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/083",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0830",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/084",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0840",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0841",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/089",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0890",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0891",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/09",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/091",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0910",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0911",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0912",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0919",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/092",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0920",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/093",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0930",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0939",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/10",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/101",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1010",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1011",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/109",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1090",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1091",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/11",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/111",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1110",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/112",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1120",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/113",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1130",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/12",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/121",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1210",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1211",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1212",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1213",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1214",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1215",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/13",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/131",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1310",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1311",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1319",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/14",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/141",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1410",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1411",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1412",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1413",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1414",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1415",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1416",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1419",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/149",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1490",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1491",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1492",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1493",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1499",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/19",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/191",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1910",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1911",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1912",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1919"
+            ],
+            "type": "string",
+            "nullable": true
+          },
+          "structureMainPurpose": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/001",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/002",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/003",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/004",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/005",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/006",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/007",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/008",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/009",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/010",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/011",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/012",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/013",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/014",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/015",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/016",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/017",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/018",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/019",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/020",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/021",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/022",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/023",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/024",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/025",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/026",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/027",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/028",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/029",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/030",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/031",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/032",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/033",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/034",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/035",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/036",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/037",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/038",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/039",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/040",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/041",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/042",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/043",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/044",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/045",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/046",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/047",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/048",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/049",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/050",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/051",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/052",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/053",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/054",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/055",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/056",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/057",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/058",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/059",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/060",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/061",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/062",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/063",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/064",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/065",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/066",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/067",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/068",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/069",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/070"
+            ],
+            "type": "string",
+            "nullable": true
+          },
+          "specificActivitiesAreaType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rakrek/erityistatoimintaavartenrakennettavanalueentyyppi/code/01",
+              "http://uri.suomi.fi/codelist/rakrek/erityistatoimintaavartenrakennettavanalueentyyppi/code/02",
+              "http://uri.suomi.fi/codelist/rakrek/erityistatoimintaavartenrakennettavanalueentyyppi/code/03",
+              "http://uri.suomi.fi/codelist/rakrek/erityistatoimintaavartenrakennettavanalueentyyppi/code/04",
+              "http://uri.suomi.fi/codelist/rakrek/erityistatoimintaavartenrakennettavanalueentyyppi/code/05",
+              "http://uri.suomi.fi/codelist/rakrek/erityistatoimintaavartenrakennettavanalueentyyppi/code/06",
+              "http://uri.suomi.fi/codelist/rakrek/erityistatoimintaavartenrakennettavanalueentyyppi/code/07",
+              "http://uri.suomi.fi/codelist/rakrek/erityistatoimintaavartenrakennettavanalueentyyppi/code/08",
+              "http://uri.suomi.fi/codelist/rakrek/erityistatoimintaavartenrakennettavanalueentyyppi/code/99"
+            ],
+            "type": "string",
+            "nullable": true
+          },
+          "facadeMaterial": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacadeMaterial"
+            },
+            "nullable": true
+          },
+          "volume": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "grossFloorArea": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "totalArea": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "specificActivitiesAreaArea": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "attachment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingAttachmentDocument"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GeneralizedLocationPermitObjectNoPersonData": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "description": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "geometry": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RyhtiGeometry"
+              }
+            ],
+            "nullable": true
+          },
+          "locationPermitObjectKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "buildingObjectType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/1",
+              "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/2"
+            ],
+            "type": "string"
+          },
+          "location": {
+            "required": [
+              "buildingObjectLocationDataKey",
+              "pointLocation"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingObjectLocationData"
+              }
+            ],
+            "description": "Rakennuskohteen sijaintitiedot"
+          },
+          "administrativeLocationUnit": {
+            "required": [
+              "administrativeLocationUnitKey",
+              "propertyIdentifier"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AdministrativeLocationUnit"
+              }
+            ],
+            "description": "Hallinnollinen sijaintiyksikkö"
+          },
+          "decisionAdministrativeLocationUnit": {
+            "required": [
+              "administrativeLocationUnitKey",
+              "propertyIdentifier"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AdministrativeLocationUnit"
+              }
+            ],
+            "description": "Hallinnollinen sijaintiyksikkö"
           },
           "address": {
             "type": "array",
@@ -16444,712 +16933,6 @@
         },
         "additionalProperties": { }
       },
-      "PublicBuilding": {
-        "type": "object",
-        "properties": {
-          "buildingKey": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "permanentBuildingIdentifier": {
-            "type": "string"
-          },
-          "temporary": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "demolitionDeadline": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "numberOfStoreys": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "buildingSection": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PublicBuildingSection"
-            },
-            "nullable": true
-          },
-          "mainPurpose": {
-            "type": "string",
-            "nullable": true
-          },
-          "buildingObjectType": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/1",
-              "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/2"
-            ],
-            "type": "string"
-          },
-          "location": {
-            "required": [
-              "buildingObjectLocationDataKey",
-              "pointLocation"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingObjectLocationData"
-              }
-            ],
-            "description": "Rakennuskohteen sijaintitiedot",
-            "nullable": true
-          },
-          "administrativeLocationUnit": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
-              }
-            ]
-          },
-          "decisionAdministrativeLocationUnit": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationAdministrativeLocationUnit"
-              }
-            ],
-            "nullable": true
-          },
-          "address": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Address"
-            },
-            "nullable": true
-          },
-          "name": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LanguageString"
-              }
-            ],
-            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
-            "nullable": true
-          },
-          "description": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LanguageString"
-              }
-            ],
-            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
-            "nullable": true
-          },
-          "addChangeEvent": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "renovationDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "mainPurpose1994": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "numberOfNewApartments": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "numberOfDeletedApartments": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PublicBuildingPermitIssue": {
-        "required": [
-          "dateOfInitiation",
-          "lifeCycleState",
-          "municipalityNumber"
-        ],
-        "type": "object",
-        "properties": {
-          "dateOfInitiation": {
-            "type": "string",
-            "description": "Vireilletulopäivä",
-            "format": "date",
-            "nullable": true
-          },
-          "lifeCycleState": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/1",
-              "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/2",
-              "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/3",
-              "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/4"
-            ],
-            "type": "string",
-            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila</a>",
-            "nullable": true
-          },
-          "municipalityNumber": {
-            "type": "string"
-          },
-          "permanentPermitIdentifier": {
-            "type": "string"
-          },
-          "decision": {
-            "required": [
-              "lifeCycleState",
-              "decisionDate",
-              "dateOfDecision",
-              "dateOfValidityOfDecision",
-              "publicNoticeDate",
-              "decisionText",
-              "decisionMakerType",
-              "decisionMakerFirstName",
-              "decisionMakerName",
-              "relatedApplication"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingPermitDecisionNoPersonData"
-              }
-            ],
-            "description": "Rakentamislupapäätös",
-            "nullable": true
-          },
-          "extensionDecision": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ExtensionDecisionNoPersonData"
-            },
-            "nullable": true
-          },
-          "changePermit": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ChangePermitNoPersonData"
-            },
-            "nullable": true
-          },
-          "buildingPermitApplication": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BuildingPermitApplication"
-            },
-            "description": "Rakentamislupahakemus",
-            "nullable": true
-          },
-          "constructionAction": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PublicConstructionAction"
-            }
-          },
-          "buildingSite": {
-            "required": [
-              "buildingSiteKey",
-              "stormWaterTreatmentType",
-              "buildingSiteAddress",
-              "tenure"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingSite"
-              }
-            ],
-            "description": "Rakennuspaikka",
-            "nullable": true
-          },
-          "attachment": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
-            },
-            "nullable": true
-          },
-          "constructionProject": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ConstructionProjectNoPersonData"
-              }
-            ],
-            "nullable": true
-          },
-          "updateType": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/01",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/02",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/03",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/04",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/05",
-              "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
-            ],
-            "type": "string",
-            "description": "Rakentamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne\">http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne</a>",
-            "nullable": true
-          },
-          "updateDescription": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LanguageString"
-              }
-            ],
-            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PublicBuildingSection": {
-        "type": "object",
-        "properties": {
-          "buildingSectionKey": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "lifeCycleState": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/01",
-              "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/02",
-              "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/03",
-              "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/04",
-              "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/05",
-              "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/06",
-              "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/07",
-              "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/08",
-              "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/99"
-            ],
-            "type": "string",
-            "nullable": true
-          },
-          "completionDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "protectionMethod": {
-            "type": "string",
-            "nullable": true
-          },
-          "cultureHistoricalSignificance": {
-            "type": "string",
-            "nullable": true
-          },
-          "materialData": {
-            "required": [
-              "constructionMethod",
-              "buildingMaterialOfLoadBearingStructures",
-              "wideBodiedBuilding"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/MaterialData"
-              }
-            ],
-            "description": "Materiaalitiedot",
-            "nullable": true
-          },
-          "energyData": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/EnergyDataNoPersonData"
-              }
-            ],
-            "nullable": true
-          },
-          "interiorData": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/InteriorData"
-              }
-            ],
-            "description": "Sisätilojen tiedot",
-            "nullable": true
-          },
-          "exteriorData": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ExteriorData"
-              }
-            ],
-            "description": "Ulkokuoren tiedot",
-            "nullable": true
-          },
-          "buildingServicesEngineeringData": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingServicesEngineeringData"
-              }
-            ],
-            "description": "Talotekniikkatiedot",
-            "nullable": true
-          },
-          "usageData": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/PublicUsageData"
-              }
-            ]
-          },
-          "equipment": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Equipment"
-            },
-            "nullable": true
-          },
-          "entrance": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Entrance"
-            },
-            "nullable": true
-          },
-          "assemblyFacility": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AssemblyFacility"
-            },
-            "nullable": true
-          },
-          "elevator": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Elevator"
-            },
-            "nullable": true
-          },
-          "apartment": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ChangeInformationApartment"
-            },
-            "nullable": true
-          },
-          "constructionDesign": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConstructionDesignNoPersonData"
-            },
-            "nullable": true
-          },
-          "buildingInformationModel": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BuildingInformationModelNoPersonData"
-            },
-            "nullable": true
-          },
-          "specialDesign": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SpecialDesignNoPersonData"
-            },
-            "nullable": true
-          },
-          "attachment": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
-            },
-            "nullable": true
-          },
-          "partitionReason": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/1",
-              "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/2",
-              "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/3"
-            ],
-            "type": "string"
-          },
-          "partitionDescription": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LanguageString"
-              }
-            ],
-            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
-            "nullable": true
-          },
-          "civilDefenceShelter": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CivilDefenceShelter"
-            },
-            "nullable": true
-          },
-          "relatedFinishedBuildingSection": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "demolitionDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "reasonForDemolition": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/01",
-              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/02",
-              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/03",
-              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/04",
-              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/05"
-            ],
-            "type": "string",
-            "nullable": true
-          },
-          "demolitionMaterialAndConstructionWasteReport": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DemolitionMaterialAndConstructionWasteReportNoPersonData"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PublicConstructionAction": {
-        "type": "object",
-        "properties": {
-          "constructionActionKey": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "constructionActionType": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/02",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/03",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/04",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/05",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/06",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/07",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/08",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/09"
-            ],
-            "type": "string",
-            "description": "Rakentamistoimenpide. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide\">http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide</a>",
-            "nullable": true
-          },
-          "buildingObjectChange": {
-            "required": [
-              "buildingObjectChangeKey"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingObjectChange"
-              }
-            ],
-            "description": "Rakennuskohteen muutos",
-            "nullable": true
-          },
-          "descriptionOfAction": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LanguageString"
-              }
-            ],
-            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
-            "nullable": true
-          },
-          "areaUndergoingChanges": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "reasonForDemolition": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/01",
-              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/02",
-              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/03",
-              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/04",
-              "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/05"
-            ],
-            "type": "string",
-            "description": "Purkamisen syy. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/PurkamisenSyy\">http://uri.suomi.fi/codelist/rytj/PurkamisenSyy</a>",
-            "nullable": true
-          },
-          "renovation": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "renovationRate": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "building": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/PublicBuilding"
-              }
-            ],
-            "nullable": true
-          },
-          "finishedBuilding": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/PublicBuilding"
-              }
-            ],
-            "nullable": true
-          },
-          "structure": {
-            "required": [
-              "structureKey",
-              "permanentStructureIdentifier",
-              "temporary",
-              "structureMainPurpose",
-              "buildingObjectType",
-              "address"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/StructureNoPersonData"
-              }
-            ],
-            "nullable": true
-          },
-          "areaToBeBuiltForSpecificActivities": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationAreaToBeBuiltForSpecificActivitiesNoPersonData"
-              }
-            ],
-            "nullable": true
-          },
-          "startDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "completionDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "commissioningDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "statusOfConstructionAction": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/1",
-              "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/2",
-              "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/3",
-              "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/4",
-              "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/5"
-            ],
-            "type": "string",
-            "description": "Rakentamistoimenpiteen tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila\">http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila</a>",
-            "nullable": true
-          },
-          "fullyApprovedForUse": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "businessConstruction": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "changeType": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/muutostyo/code/01",
-              "http://uri.suomi.fi/codelist/rytj/muutostyo/code/02",
-              "http://uri.suomi.fi/codelist/rytj/muutostyo/code/03"
-            ],
-            "type": "string",
-            "description": "Muutostyön tarkenne. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/muutostyo\">http://uri.suomi.fi/codelist/rytj/muutostyo</a>",
-            "nullable": true
-          },
-          "dvvPermitIdentifier": {
-            "type": "string",
-            "nullable": true
-          },
-          "expiryDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "locatedOnUnseparatedParcel": {
-            "type": "boolean",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PublicPurpose": {
-        "type": "object",
-        "properties": {
-          "purposeKey": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "isPrimary": {
-            "type": "boolean",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PublicUsageData": {
-        "type": "object",
-        "properties": {
-          "commissioningDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "usageStatus": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/vtj/rake_kaytossaolotilanne/code/01",
-              "http://uri.suomi.fi/codelist/vtj/rake_kaytossaolotilanne/code/02",
-              "http://uri.suomi.fi/codelist/vtj/rake_kaytossaolotilanne/code/03",
-              "http://uri.suomi.fi/codelist/vtj/rake_kaytossaolotilanne/code/04",
-              "http://uri.suomi.fi/codelist/vtj/rake_kaytossaolotilanne/code/05",
-              "http://uri.suomi.fi/codelist/vtj/rake_kaytossaolotilanne/code/06",
-              "http://uri.suomi.fi/codelist/vtj/rake_kaytossaolotilanne/code/07",
-              "http://uri.suomi.fi/codelist/vtj/rake_kaytossaolotilanne/code/08",
-              "http://uri.suomi.fi/codelist/vtj/rake_kaytossaolotilanne/code/09",
-              "http://uri.suomi.fi/codelist/vtj/rake_kaytossaolotilanne/code/10",
-              "http://uri.suomi.fi/codelist/vtj/rake_kaytossaolotilanne/code/11"
-            ],
-            "type": "string",
-            "description": "Rakennuksen käytössäolotilanne. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne\">http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne</a>",
-            "nullable": true
-          },
-          "purpose": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PublicPurpose"
-            },
-            "nullable": true
-          },
-          "usefulFloorArea": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "intendedWorkingLife": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "plannedUserCount": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "Purpose": {
         "required": [
           "isPrimary",
@@ -18453,7 +18236,8 @@
               "ryhti.building.persons.read": "Oikeus lukea karkeutettua rakennustietoa, josta on poistettu turvakiellollisten toimijoiden henkilötiedot.",
               "ryhti.building.nd-persons.read": "Oikeus lukea karkeutettua rakennustietoa, joka sisältää myös turvakiellollisten toimijoiden henkilötiedot.",
               "ryhti.building.all.read": "Oikeus lukea kaikkea rakennustietoa.",
-              "ryhti.building.write": "Oikeus kirjoittaa kaikkea rakennustietoa."
+              "ryhti.building.write": "Oikeus kirjoittaa kaikkea rakennustietoa.",
+              "ryhti.building.data-quality.read": "Oikeus lukea datan laadunvalvonnan tietoja."
             }
           }
         }
