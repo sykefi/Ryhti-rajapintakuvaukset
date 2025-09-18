@@ -4894,6 +4894,16 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "changeInPermittedVolume": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "changeInPermittedRidgeHeight": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -11255,6 +11265,18 @@
             "type": "integer",
             "description": "",
             "format": "int32",
+            "nullable": true
+          },
+          "permittedVolume": {
+            "type": "integer",
+            "description": "",
+            "format": "int32",
+            "nullable": true
+          },
+          "permittedRidgeHeight": {
+            "type": "number",
+            "description": "",
+            "format": "double",
             "nullable": true
           }
         },
