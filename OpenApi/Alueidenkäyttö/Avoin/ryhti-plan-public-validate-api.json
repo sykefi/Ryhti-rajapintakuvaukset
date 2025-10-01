@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.1",
     "info": {
-        "title": "Ryhti API",
+        "title": "Ryhti Plan Public Validate API",
         "description": "<h2>Ryhti - kaavasuunnitelmien julkinen validointirajapinta</h2>\r\n\r\nJulkinen rajapinta kaavasuunnitelmien validointiin.\r\n\r\nLisää tietoa rakennetun ympäristön tietojärjestelmästä: <a href=\"https://ryhti.syke.fi/\">https://ryhti.syke.fi/</a>\r\n<br/>",
         "contact": {
             "name": "Feedback",
@@ -11,8 +11,13 @@
             "name": "CC BY 4.0",
             "url": "https://creativecommons.org/licenses/by/4.0/"
         },
-        "version": "1"
+        "version": "1.0"
     },
+    "servers": [
+        {
+            "url": "https://api-test.ymparisto.fi/ryhti/plan-public"
+        }
+    ],
     "paths": {
         "/api/Plan/Validate": {
             "post": {
@@ -20,6 +25,8 @@
                     "Plan"
                 ],
                 "summary": "Rajapinta yksittäisen kaavan validointiin ilman kaava-asiaa.",
+                "description": "Rajapinta yksittäisen kaavan validointiin ilman kaava-asiaa.",
+                "operationId": "post-api-plan-validate-plantype-plantype-administrativeareaidentifiers-admin",
                 "parameters": [
                     {
                         "name": "planType",
@@ -29,15 +36,13 @@
                         "schema": {
                             "type": "string"
                         },
-                        "example": "21"
+                        "example": 21
                     },
                     {
                         "name": "administrativeAreaIdentifiers",
                         "in": "query",
                         "description": "Kunta- tai maakuntakoodi. \r\n\r\nEsimerkki : 049",
                         "required": true,
-                        "style": "form",
-                        "explode": false,
                         "schema": {
                             "type": "array",
                             "items": {
@@ -57,6 +62,698 @@
                                     }
                                 ],
                                 "description": "Kaava"
+                            },
+                            "example": {
+                                "planKey": "string",
+                                "planUri": "string",
+                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                "legalEffectOfLocalMasterPlans": [
+                                    "http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK/code/1"
+                                ],
+                                "scale": 0,
+                                "officialUseOnly": true,
+                                "planMaps": [
+                                    {
+                                        "planMapKey": "string",
+                                        "planMapUri": "string",
+                                        "name": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "fileKey": "string",
+                                        "coordinateSystem": "string"
+                                    }
+                                ],
+                                "geographicalArea": {
+                                    "srid": "3067",
+                                    "geometry": {
+                                        "coordinates": "[100.0, 0.0]",
+                                        "type": "Point"
+                                    }
+                                },
+                                "planDescription": "string",
+                                "planAnnexes": [
+                                    {
+                                        "attachmentDocumentKey": "string",
+                                        "documentIdentifier": "string",
+                                        "name": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "personalDataContent": "string",
+                                        "categoryOfPublicity": "string",
+                                        "accessibility": true,
+                                        "retentionTime": "string",
+                                        "confirmationDate": "string",
+                                        "languages": [
+                                            "string"
+                                        ],
+                                        "fileKey": "string",
+                                        "descriptors": [
+                                            {
+                                                "descriptorIdentifier": "string",
+                                                "vocabulary": "string",
+                                                "descriptor": "string"
+                                            }
+                                        ],
+                                        "documentDate": "string",
+                                        "arrivedDate": "string",
+                                        "planAttachmentDocumentUri": "string",
+                                        "typeOfAttachment": "string",
+                                        "documentSpecification": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "documentCreatorOperators": [
+                                            {
+                                                "planOperatorKey": "string",
+                                                "planOperatorUri": "string",
+                                                "firstName": "string",
+                                                "lastName": "string",
+                                                "title": "string",
+                                                "organizationName": "string",
+                                                "businessId": "string"
+                                            }
+                                        ],
+                                        "relatedPlanAttachmentDocuments": [
+                                            "string"
+                                        ]
+                                    }
+                                ],
+                                "otherPlanMaterials": [
+                                    {
+                                        "otherPlanMaterialKey": "string",
+                                        "otherPlanMaterialUri": "string",
+                                        "name": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "fileKey": "string",
+                                        "otherPlanMaterialLink": "string",
+                                        "personalDataContent": "string",
+                                        "categoryOfPublicity": "string"
+                                    }
+                                ],
+                                "planCancellationInfos": [
+                                    {
+                                        "planCancellationInfoKey": "string",
+                                        "planCancellationInfoUri": "string",
+                                        "cancelledPlanUri": "string",
+                                        "cancelsEntirePlan": true,
+                                        "cancelledPlanObjectUris": [
+                                            "string"
+                                        ],
+                                        "cancelledRegulationUris": [
+                                            "string"
+                                        ],
+                                        "cancelledRecommendationUris": [
+                                            "string"
+                                        ],
+                                        "cancelledGroupRelations": [
+                                            {
+                                                "planRegulationGroupUri": "string",
+                                                "planObjectUri": "string"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "planReport": {
+                                    "planReportKey": "string",
+                                    "planReportUri": "string",
+                                    "attachmentDocuments": [
+                                        {
+                                            "attachmentDocumentKey": "string",
+                                            "documentIdentifier": "string",
+                                            "name": {
+                                                "fin": "string",
+                                                "swe": "string",
+                                                "smn": "string",
+                                                "sms": "string",
+                                                "sme": "string",
+                                                "eng": "string"
+                                            },
+                                            "personalDataContent": "string",
+                                            "categoryOfPublicity": "string",
+                                            "accessibility": true,
+                                            "retentionTime": "string",
+                                            "confirmationDate": "string",
+                                            "languages": [
+                                                "string"
+                                            ],
+                                            "fileKey": "string",
+                                            "descriptors": [
+                                                {
+                                                    "descriptorIdentifier": "string",
+                                                    "vocabulary": "string",
+                                                    "descriptor": "string"
+                                                }
+                                            ],
+                                            "documentDate": "string",
+                                            "arrivedDate": "string",
+                                            "planAttachmentDocumentUri": "string",
+                                            "typeOfAttachment": "string",
+                                            "documentSpecification": {
+                                                "fin": "string",
+                                                "swe": "string",
+                                                "smn": "string",
+                                                "sms": "string",
+                                                "sme": "string",
+                                                "eng": "string"
+                                            },
+                                            "documentCreatorOperators": [
+                                                {
+                                                    "planOperatorKey": "string",
+                                                    "planOperatorUri": "string",
+                                                    "firstName": "string",
+                                                    "lastName": "string",
+                                                    "title": "string",
+                                                    "organizationName": "string",
+                                                    "businessId": "string"
+                                                }
+                                            ],
+                                            "relatedPlanAttachmentDocuments": [
+                                                "string"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "generalRegulationGroups": [
+                                    {
+                                        "generalRegulationGroupKey": "string",
+                                        "generalRegulationGroupUri": "string",
+                                        "titleOfPlanRegulation": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "planRegulations": [
+                                            {
+                                                "planRegulationKey": "string",
+                                                "planRegulationUri": "string",
+                                                "value": {
+                                                    "code": "string",
+                                                    "codeList": "string",
+                                                    "title": {
+                                                        "fin": "string",
+                                                        "swe": "string",
+                                                        "smn": "string",
+                                                        "sms": "string",
+                                                        "sme": "string",
+                                                        "eng": "string"
+                                                    },
+                                                    "dataType": "LocalizedText"
+                                                },
+                                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                                "type": "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/asumisenAlue",
+                                                "verbalRegulations": [
+                                                    "http://uri.suomi.fi/codelist/rytj/RY_Sanallisen_Kaavamaarayksen_Laji/code/rakentamistapa"
+                                                ],
+                                                "additionalInformations": [
+                                                    {
+                                                        "type": "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/tyyppi",
+                                                        "value": {
+                                                            "code": "string",
+                                                            "codeList": "string",
+                                                            "title": {
+                                                                "fin": "string",
+                                                                "swe": "string",
+                                                                "smn": "string",
+                                                                "sms": "string",
+                                                                "sme": "string",
+                                                                "eng": "string"
+                                                            },
+                                                            "dataType": "LocalizedText"
+                                                        }
+                                                    }
+                                                ],
+                                                "relatedDocuments": [
+                                                    {
+                                                        "attachmentDocumentKey": "string",
+                                                        "documentIdentifier": "string",
+                                                        "name": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "personalDataContent": "string",
+                                                        "categoryOfPublicity": "string",
+                                                        "accessibility": true,
+                                                        "retentionTime": "string",
+                                                        "confirmationDate": "string",
+                                                        "languages": [
+                                                            "string"
+                                                        ],
+                                                        "fileKey": "string",
+                                                        "descriptors": [
+                                                            {
+                                                                "descriptorIdentifier": "string",
+                                                                "vocabulary": "string",
+                                                                "descriptor": "string"
+                                                            }
+                                                        ],
+                                                        "documentDate": "string",
+                                                        "arrivedDate": "string",
+                                                        "planAttachmentDocumentUri": "string",
+                                                        "typeOfAttachment": "string",
+                                                        "documentSpecification": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "documentCreatorOperators": [
+                                                            {
+                                                                "planOperatorKey": "string",
+                                                                "planOperatorUri": "string",
+                                                                "firstName": "string",
+                                                                "lastName": "string",
+                                                                "title": "string",
+                                                                "organizationName": "string",
+                                                                "businessId": "string"
+                                                            }
+                                                        ],
+                                                        "relatedPlanAttachmentDocuments": [
+                                                            "string"
+                                                        ]
+                                                    }
+                                                ],
+                                                "planThemes": [
+                                                    "string"
+                                                ],
+                                                "periodOfValidity": {
+                                                    "begin": "string",
+                                                    "end": "string"
+                                                },
+                                                "subjectIdentifiers": [
+                                                    "string"
+                                                ],
+                                                "regulationNumber": "string"
+                                            }
+                                        ],
+                                        "planRecommendations": [
+                                            {
+                                                "planRecommendationKey": "string",
+                                                "planRecommendationUri": "string",
+                                                "value": {
+                                                    "fin": "string",
+                                                    "swe": "string",
+                                                    "smn": "string",
+                                                    "sms": "string",
+                                                    "sme": "string",
+                                                    "eng": "string"
+                                                },
+                                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                                "relatedDocuments": [
+                                                    {
+                                                        "attachmentDocumentKey": "string",
+                                                        "documentIdentifier": "string",
+                                                        "name": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "personalDataContent": "string",
+                                                        "categoryOfPublicity": "string",
+                                                        "accessibility": true,
+                                                        "retentionTime": "string",
+                                                        "confirmationDate": "string",
+                                                        "languages": [
+                                                            "string"
+                                                        ],
+                                                        "fileKey": "string",
+                                                        "descriptors": [
+                                                            {
+                                                                "descriptorIdentifier": "string",
+                                                                "vocabulary": "string",
+                                                                "descriptor": "string"
+                                                            }
+                                                        ],
+                                                        "documentDate": "string",
+                                                        "arrivedDate": "string",
+                                                        "planAttachmentDocumentUri": "string",
+                                                        "typeOfAttachment": "string",
+                                                        "documentSpecification": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "documentCreatorOperators": [
+                                                            {
+                                                                "planOperatorKey": "string",
+                                                                "planOperatorUri": "string",
+                                                                "firstName": "string",
+                                                                "lastName": "string",
+                                                                "title": "string",
+                                                                "organizationName": "string",
+                                                                "businessId": "string"
+                                                            }
+                                                        ],
+                                                        "relatedPlanAttachmentDocuments": [
+                                                            "string"
+                                                        ]
+                                                    }
+                                                ],
+                                                "planThemes": [
+                                                    "string"
+                                                ],
+                                                "periodOfValidity": {
+                                                    "begin": "string",
+                                                    "end": "string"
+                                                },
+                                                "recommendationNumber": 0
+                                            }
+                                        ],
+                                        "groupNumber": 0
+                                    }
+                                ],
+                                "periodOfValidity": {
+                                    "begin": "string",
+                                    "end": "string"
+                                },
+                                "approvalDate": "string",
+                                "planners": [
+                                    {
+                                        "planOperatorKey": "string",
+                                        "planOperatorUri": "string",
+                                        "firstName": "string",
+                                        "lastName": "string",
+                                        "title": "string",
+                                        "organizationName": "string",
+                                        "businessId": "string"
+                                    }
+                                ],
+                                "partiallyCancelledPlanObjectInfos": [
+                                    {
+                                        "partiallyCancelledPlanObjectInfoKey": "string",
+                                        "cancelledPlanUri": "string",
+                                        "partiallyCancelledPlanObjectUri": "string",
+                                        "validityGeometry": {
+                                            "srid": "3067",
+                                            "geometry": {
+                                                "coordinates": "[100.0, 0.0]",
+                                                "type": "Point"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "planObjects": [
+                                    {
+                                        "planObjectKey": "string",
+                                        "planObjectUri": "string",
+                                        "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                        "undergroundStatus": "string",
+                                        "geometry": {
+                                            "srid": "3067",
+                                            "geometry": {
+                                                "coordinates": "[100.0, 0.0]",
+                                                "type": "Point"
+                                            }
+                                        },
+                                        "name": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "description": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "verticalLimit": {
+                                            "minimumValue": 0,
+                                            "maximumValue": 0,
+                                            "unitOfMeasure": "string",
+                                            "dataType": "LocalizedText"
+                                        },
+                                        "relatedPlanSourceDataKeys": [
+                                            "string"
+                                        ],
+                                        "relatedPlanSourceDataUris": [
+                                            "string"
+                                        ],
+                                        "periodOfValidity": {
+                                            "begin": "string",
+                                            "end": "string"
+                                        },
+                                        "objectNumber": 0,
+                                        "relatedPlanObjectKeys": [
+                                            "string"
+                                        ]
+                                    }
+                                ],
+                                "planRegulationGroups": [
+                                    {
+                                        "planRegulationGroupKey": "string",
+                                        "planRegulationGroupUri": "string",
+                                        "titleOfPlanRegulation": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "letterIdentifier": "string",
+                                        "planRegulations": [
+                                            {
+                                                "planRegulationKey": "string",
+                                                "planRegulationUri": "string",
+                                                "value": {
+                                                    "code": "string",
+                                                    "codeList": "string",
+                                                    "title": {
+                                                        "fin": "string",
+                                                        "swe": "string",
+                                                        "smn": "string",
+                                                        "sms": "string",
+                                                        "sme": "string",
+                                                        "eng": "string"
+                                                    },
+                                                    "dataType": "LocalizedText"
+                                                },
+                                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                                "type": "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/asumisenAlue",
+                                                "verbalRegulations": [
+                                                    "http://uri.suomi.fi/codelist/rytj/RY_Sanallisen_Kaavamaarayksen_Laji/code/rakentamistapa"
+                                                ],
+                                                "additionalInformations": [
+                                                    {
+                                                        "type": "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/tyyppi",
+                                                        "value": {
+                                                            "code": "string",
+                                                            "codeList": "string",
+                                                            "title": {
+                                                                "fin": "string",
+                                                                "swe": "string",
+                                                                "smn": "string",
+                                                                "sms": "string",
+                                                                "sme": "string",
+                                                                "eng": "string"
+                                                            },
+                                                            "dataType": "LocalizedText"
+                                                        }
+                                                    }
+                                                ],
+                                                "relatedDocuments": [
+                                                    {
+                                                        "attachmentDocumentKey": "string",
+                                                        "documentIdentifier": "string",
+                                                        "name": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "personalDataContent": "string",
+                                                        "categoryOfPublicity": "string",
+                                                        "accessibility": true,
+                                                        "retentionTime": "string",
+                                                        "confirmationDate": "string",
+                                                        "languages": [
+                                                            "string"
+                                                        ],
+                                                        "fileKey": "string",
+                                                        "descriptors": [
+                                                            {
+                                                                "descriptorIdentifier": "string",
+                                                                "vocabulary": "string",
+                                                                "descriptor": "string"
+                                                            }
+                                                        ],
+                                                        "documentDate": "string",
+                                                        "arrivedDate": "string",
+                                                        "planAttachmentDocumentUri": "string",
+                                                        "typeOfAttachment": "string",
+                                                        "documentSpecification": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "documentCreatorOperators": [
+                                                            {
+                                                                "planOperatorKey": "string",
+                                                                "planOperatorUri": "string",
+                                                                "firstName": "string",
+                                                                "lastName": "string",
+                                                                "title": "string",
+                                                                "organizationName": "string",
+                                                                "businessId": "string"
+                                                            }
+                                                        ],
+                                                        "relatedPlanAttachmentDocuments": [
+                                                            "string"
+                                                        ]
+                                                    }
+                                                ],
+                                                "planThemes": [
+                                                    "string"
+                                                ],
+                                                "periodOfValidity": {
+                                                    "begin": "string",
+                                                    "end": "string"
+                                                },
+                                                "subjectIdentifiers": [
+                                                    "string"
+                                                ],
+                                                "regulationNumber": "string"
+                                            }
+                                        ],
+                                        "planRecommendations": [
+                                            {
+                                                "planRecommendationKey": "string",
+                                                "planRecommendationUri": "string",
+                                                "value": {
+                                                    "fin": "string",
+                                                    "swe": "string",
+                                                    "smn": "string",
+                                                    "sms": "string",
+                                                    "sme": "string",
+                                                    "eng": "string"
+                                                },
+                                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                                "relatedDocuments": [
+                                                    {
+                                                        "attachmentDocumentKey": "string",
+                                                        "documentIdentifier": "string",
+                                                        "name": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "personalDataContent": "string",
+                                                        "categoryOfPublicity": "string",
+                                                        "accessibility": true,
+                                                        "retentionTime": "string",
+                                                        "confirmationDate": "string",
+                                                        "languages": [
+                                                            "string"
+                                                        ],
+                                                        "fileKey": "string",
+                                                        "descriptors": [
+                                                            {
+                                                                "descriptorIdentifier": "string",
+                                                                "vocabulary": "string",
+                                                                "descriptor": "string"
+                                                            }
+                                                        ],
+                                                        "documentDate": "string",
+                                                        "arrivedDate": "string",
+                                                        "planAttachmentDocumentUri": "string",
+                                                        "typeOfAttachment": "string",
+                                                        "documentSpecification": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "documentCreatorOperators": [
+                                                            {
+                                                                "planOperatorKey": "string",
+                                                                "planOperatorUri": "string",
+                                                                "firstName": "string",
+                                                                "lastName": "string",
+                                                                "title": "string",
+                                                                "organizationName": "string",
+                                                                "businessId": "string"
+                                                            }
+                                                        ],
+                                                        "relatedPlanAttachmentDocuments": [
+                                                            "string"
+                                                        ]
+                                                    }
+                                                ],
+                                                "planThemes": [
+                                                    "string"
+                                                ],
+                                                "periodOfValidity": {
+                                                    "begin": "string",
+                                                    "end": "string"
+                                                },
+                                                "recommendationNumber": 0
+                                            }
+                                        ],
+                                        "colorNumber": "string",
+                                        "groupNumber": 0
+                                    }
+                                ],
+                                "planRegulationGroupRelations": [
+                                    {
+                                        "planObjectKey": "string",
+                                        "planRegulationGroupKey": "string"
+                                    }
+                                ],
+                                "relatedPlanObjectRegulationGroupRelations": [
+                                    {
+                                        "relatedPlanObjectUri": "string",
+                                        "regulationGroupKey": "string"
+                                    }
+                                ]
                             }
                         },
                         "text/json": {
@@ -67,6 +764,698 @@
                                     }
                                 ],
                                 "description": "Kaava"
+                            },
+                            "example": {
+                                "planKey": "string",
+                                "planUri": "string",
+                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                "legalEffectOfLocalMasterPlans": [
+                                    "http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK/code/1"
+                                ],
+                                "scale": 0,
+                                "officialUseOnly": true,
+                                "planMaps": [
+                                    {
+                                        "planMapKey": "string",
+                                        "planMapUri": "string",
+                                        "name": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "fileKey": "string",
+                                        "coordinateSystem": "string"
+                                    }
+                                ],
+                                "geographicalArea": {
+                                    "srid": "3067",
+                                    "geometry": {
+                                        "coordinates": "[100.0, 0.0]",
+                                        "type": "Point"
+                                    }
+                                },
+                                "planDescription": "string",
+                                "planAnnexes": [
+                                    {
+                                        "attachmentDocumentKey": "string",
+                                        "documentIdentifier": "string",
+                                        "name": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "personalDataContent": "string",
+                                        "categoryOfPublicity": "string",
+                                        "accessibility": true,
+                                        "retentionTime": "string",
+                                        "confirmationDate": "string",
+                                        "languages": [
+                                            "string"
+                                        ],
+                                        "fileKey": "string",
+                                        "descriptors": [
+                                            {
+                                                "descriptorIdentifier": "string",
+                                                "vocabulary": "string",
+                                                "descriptor": "string"
+                                            }
+                                        ],
+                                        "documentDate": "string",
+                                        "arrivedDate": "string",
+                                        "planAttachmentDocumentUri": "string",
+                                        "typeOfAttachment": "string",
+                                        "documentSpecification": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "documentCreatorOperators": [
+                                            {
+                                                "planOperatorKey": "string",
+                                                "planOperatorUri": "string",
+                                                "firstName": "string",
+                                                "lastName": "string",
+                                                "title": "string",
+                                                "organizationName": "string",
+                                                "businessId": "string"
+                                            }
+                                        ],
+                                        "relatedPlanAttachmentDocuments": [
+                                            "string"
+                                        ]
+                                    }
+                                ],
+                                "otherPlanMaterials": [
+                                    {
+                                        "otherPlanMaterialKey": "string",
+                                        "otherPlanMaterialUri": "string",
+                                        "name": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "fileKey": "string",
+                                        "otherPlanMaterialLink": "string",
+                                        "personalDataContent": "string",
+                                        "categoryOfPublicity": "string"
+                                    }
+                                ],
+                                "planCancellationInfos": [
+                                    {
+                                        "planCancellationInfoKey": "string",
+                                        "planCancellationInfoUri": "string",
+                                        "cancelledPlanUri": "string",
+                                        "cancelsEntirePlan": true,
+                                        "cancelledPlanObjectUris": [
+                                            "string"
+                                        ],
+                                        "cancelledRegulationUris": [
+                                            "string"
+                                        ],
+                                        "cancelledRecommendationUris": [
+                                            "string"
+                                        ],
+                                        "cancelledGroupRelations": [
+                                            {
+                                                "planRegulationGroupUri": "string",
+                                                "planObjectUri": "string"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "planReport": {
+                                    "planReportKey": "string",
+                                    "planReportUri": "string",
+                                    "attachmentDocuments": [
+                                        {
+                                            "attachmentDocumentKey": "string",
+                                            "documentIdentifier": "string",
+                                            "name": {
+                                                "fin": "string",
+                                                "swe": "string",
+                                                "smn": "string",
+                                                "sms": "string",
+                                                "sme": "string",
+                                                "eng": "string"
+                                            },
+                                            "personalDataContent": "string",
+                                            "categoryOfPublicity": "string",
+                                            "accessibility": true,
+                                            "retentionTime": "string",
+                                            "confirmationDate": "string",
+                                            "languages": [
+                                                "string"
+                                            ],
+                                            "fileKey": "string",
+                                            "descriptors": [
+                                                {
+                                                    "descriptorIdentifier": "string",
+                                                    "vocabulary": "string",
+                                                    "descriptor": "string"
+                                                }
+                                            ],
+                                            "documentDate": "string",
+                                            "arrivedDate": "string",
+                                            "planAttachmentDocumentUri": "string",
+                                            "typeOfAttachment": "string",
+                                            "documentSpecification": {
+                                                "fin": "string",
+                                                "swe": "string",
+                                                "smn": "string",
+                                                "sms": "string",
+                                                "sme": "string",
+                                                "eng": "string"
+                                            },
+                                            "documentCreatorOperators": [
+                                                {
+                                                    "planOperatorKey": "string",
+                                                    "planOperatorUri": "string",
+                                                    "firstName": "string",
+                                                    "lastName": "string",
+                                                    "title": "string",
+                                                    "organizationName": "string",
+                                                    "businessId": "string"
+                                                }
+                                            ],
+                                            "relatedPlanAttachmentDocuments": [
+                                                "string"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "generalRegulationGroups": [
+                                    {
+                                        "generalRegulationGroupKey": "string",
+                                        "generalRegulationGroupUri": "string",
+                                        "titleOfPlanRegulation": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "planRegulations": [
+                                            {
+                                                "planRegulationKey": "string",
+                                                "planRegulationUri": "string",
+                                                "value": {
+                                                    "code": "string",
+                                                    "codeList": "string",
+                                                    "title": {
+                                                        "fin": "string",
+                                                        "swe": "string",
+                                                        "smn": "string",
+                                                        "sms": "string",
+                                                        "sme": "string",
+                                                        "eng": "string"
+                                                    },
+                                                    "dataType": "LocalizedText"
+                                                },
+                                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                                "type": "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/asumisenAlue",
+                                                "verbalRegulations": [
+                                                    "http://uri.suomi.fi/codelist/rytj/RY_Sanallisen_Kaavamaarayksen_Laji/code/rakentamistapa"
+                                                ],
+                                                "additionalInformations": [
+                                                    {
+                                                        "type": "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/tyyppi",
+                                                        "value": {
+                                                            "code": "string",
+                                                            "codeList": "string",
+                                                            "title": {
+                                                                "fin": "string",
+                                                                "swe": "string",
+                                                                "smn": "string",
+                                                                "sms": "string",
+                                                                "sme": "string",
+                                                                "eng": "string"
+                                                            },
+                                                            "dataType": "LocalizedText"
+                                                        }
+                                                    }
+                                                ],
+                                                "relatedDocuments": [
+                                                    {
+                                                        "attachmentDocumentKey": "string",
+                                                        "documentIdentifier": "string",
+                                                        "name": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "personalDataContent": "string",
+                                                        "categoryOfPublicity": "string",
+                                                        "accessibility": true,
+                                                        "retentionTime": "string",
+                                                        "confirmationDate": "string",
+                                                        "languages": [
+                                                            "string"
+                                                        ],
+                                                        "fileKey": "string",
+                                                        "descriptors": [
+                                                            {
+                                                                "descriptorIdentifier": "string",
+                                                                "vocabulary": "string",
+                                                                "descriptor": "string"
+                                                            }
+                                                        ],
+                                                        "documentDate": "string",
+                                                        "arrivedDate": "string",
+                                                        "planAttachmentDocumentUri": "string",
+                                                        "typeOfAttachment": "string",
+                                                        "documentSpecification": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "documentCreatorOperators": [
+                                                            {
+                                                                "planOperatorKey": "string",
+                                                                "planOperatorUri": "string",
+                                                                "firstName": "string",
+                                                                "lastName": "string",
+                                                                "title": "string",
+                                                                "organizationName": "string",
+                                                                "businessId": "string"
+                                                            }
+                                                        ],
+                                                        "relatedPlanAttachmentDocuments": [
+                                                            "string"
+                                                        ]
+                                                    }
+                                                ],
+                                                "planThemes": [
+                                                    "string"
+                                                ],
+                                                "periodOfValidity": {
+                                                    "begin": "string",
+                                                    "end": "string"
+                                                },
+                                                "subjectIdentifiers": [
+                                                    "string"
+                                                ],
+                                                "regulationNumber": "string"
+                                            }
+                                        ],
+                                        "planRecommendations": [
+                                            {
+                                                "planRecommendationKey": "string",
+                                                "planRecommendationUri": "string",
+                                                "value": {
+                                                    "fin": "string",
+                                                    "swe": "string",
+                                                    "smn": "string",
+                                                    "sms": "string",
+                                                    "sme": "string",
+                                                    "eng": "string"
+                                                },
+                                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                                "relatedDocuments": [
+                                                    {
+                                                        "attachmentDocumentKey": "string",
+                                                        "documentIdentifier": "string",
+                                                        "name": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "personalDataContent": "string",
+                                                        "categoryOfPublicity": "string",
+                                                        "accessibility": true,
+                                                        "retentionTime": "string",
+                                                        "confirmationDate": "string",
+                                                        "languages": [
+                                                            "string"
+                                                        ],
+                                                        "fileKey": "string",
+                                                        "descriptors": [
+                                                            {
+                                                                "descriptorIdentifier": "string",
+                                                                "vocabulary": "string",
+                                                                "descriptor": "string"
+                                                            }
+                                                        ],
+                                                        "documentDate": "string",
+                                                        "arrivedDate": "string",
+                                                        "planAttachmentDocumentUri": "string",
+                                                        "typeOfAttachment": "string",
+                                                        "documentSpecification": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "documentCreatorOperators": [
+                                                            {
+                                                                "planOperatorKey": "string",
+                                                                "planOperatorUri": "string",
+                                                                "firstName": "string",
+                                                                "lastName": "string",
+                                                                "title": "string",
+                                                                "organizationName": "string",
+                                                                "businessId": "string"
+                                                            }
+                                                        ],
+                                                        "relatedPlanAttachmentDocuments": [
+                                                            "string"
+                                                        ]
+                                                    }
+                                                ],
+                                                "planThemes": [
+                                                    "string"
+                                                ],
+                                                "periodOfValidity": {
+                                                    "begin": "string",
+                                                    "end": "string"
+                                                },
+                                                "recommendationNumber": 0
+                                            }
+                                        ],
+                                        "groupNumber": 0
+                                    }
+                                ],
+                                "periodOfValidity": {
+                                    "begin": "string",
+                                    "end": "string"
+                                },
+                                "approvalDate": "string",
+                                "planners": [
+                                    {
+                                        "planOperatorKey": "string",
+                                        "planOperatorUri": "string",
+                                        "firstName": "string",
+                                        "lastName": "string",
+                                        "title": "string",
+                                        "organizationName": "string",
+                                        "businessId": "string"
+                                    }
+                                ],
+                                "partiallyCancelledPlanObjectInfos": [
+                                    {
+                                        "partiallyCancelledPlanObjectInfoKey": "string",
+                                        "cancelledPlanUri": "string",
+                                        "partiallyCancelledPlanObjectUri": "string",
+                                        "validityGeometry": {
+                                            "srid": "3067",
+                                            "geometry": {
+                                                "coordinates": "[100.0, 0.0]",
+                                                "type": "Point"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "planObjects": [
+                                    {
+                                        "planObjectKey": "string",
+                                        "planObjectUri": "string",
+                                        "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                        "undergroundStatus": "string",
+                                        "geometry": {
+                                            "srid": "3067",
+                                            "geometry": {
+                                                "coordinates": "[100.0, 0.0]",
+                                                "type": "Point"
+                                            }
+                                        },
+                                        "name": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "description": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "verticalLimit": {
+                                            "minimumValue": 0,
+                                            "maximumValue": 0,
+                                            "unitOfMeasure": "string",
+                                            "dataType": "LocalizedText"
+                                        },
+                                        "relatedPlanSourceDataKeys": [
+                                            "string"
+                                        ],
+                                        "relatedPlanSourceDataUris": [
+                                            "string"
+                                        ],
+                                        "periodOfValidity": {
+                                            "begin": "string",
+                                            "end": "string"
+                                        },
+                                        "objectNumber": 0,
+                                        "relatedPlanObjectKeys": [
+                                            "string"
+                                        ]
+                                    }
+                                ],
+                                "planRegulationGroups": [
+                                    {
+                                        "planRegulationGroupKey": "string",
+                                        "planRegulationGroupUri": "string",
+                                        "titleOfPlanRegulation": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "letterIdentifier": "string",
+                                        "planRegulations": [
+                                            {
+                                                "planRegulationKey": "string",
+                                                "planRegulationUri": "string",
+                                                "value": {
+                                                    "code": "string",
+                                                    "codeList": "string",
+                                                    "title": {
+                                                        "fin": "string",
+                                                        "swe": "string",
+                                                        "smn": "string",
+                                                        "sms": "string",
+                                                        "sme": "string",
+                                                        "eng": "string"
+                                                    },
+                                                    "dataType": "LocalizedText"
+                                                },
+                                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                                "type": "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/asumisenAlue",
+                                                "verbalRegulations": [
+                                                    "http://uri.suomi.fi/codelist/rytj/RY_Sanallisen_Kaavamaarayksen_Laji/code/rakentamistapa"
+                                                ],
+                                                "additionalInformations": [
+                                                    {
+                                                        "type": "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/tyyppi",
+                                                        "value": {
+                                                            "code": "string",
+                                                            "codeList": "string",
+                                                            "title": {
+                                                                "fin": "string",
+                                                                "swe": "string",
+                                                                "smn": "string",
+                                                                "sms": "string",
+                                                                "sme": "string",
+                                                                "eng": "string"
+                                                            },
+                                                            "dataType": "LocalizedText"
+                                                        }
+                                                    }
+                                                ],
+                                                "relatedDocuments": [
+                                                    {
+                                                        "attachmentDocumentKey": "string",
+                                                        "documentIdentifier": "string",
+                                                        "name": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "personalDataContent": "string",
+                                                        "categoryOfPublicity": "string",
+                                                        "accessibility": true,
+                                                        "retentionTime": "string",
+                                                        "confirmationDate": "string",
+                                                        "languages": [
+                                                            "string"
+                                                        ],
+                                                        "fileKey": "string",
+                                                        "descriptors": [
+                                                            {
+                                                                "descriptorIdentifier": "string",
+                                                                "vocabulary": "string",
+                                                                "descriptor": "string"
+                                                            }
+                                                        ],
+                                                        "documentDate": "string",
+                                                        "arrivedDate": "string",
+                                                        "planAttachmentDocumentUri": "string",
+                                                        "typeOfAttachment": "string",
+                                                        "documentSpecification": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "documentCreatorOperators": [
+                                                            {
+                                                                "planOperatorKey": "string",
+                                                                "planOperatorUri": "string",
+                                                                "firstName": "string",
+                                                                "lastName": "string",
+                                                                "title": "string",
+                                                                "organizationName": "string",
+                                                                "businessId": "string"
+                                                            }
+                                                        ],
+                                                        "relatedPlanAttachmentDocuments": [
+                                                            "string"
+                                                        ]
+                                                    }
+                                                ],
+                                                "planThemes": [
+                                                    "string"
+                                                ],
+                                                "periodOfValidity": {
+                                                    "begin": "string",
+                                                    "end": "string"
+                                                },
+                                                "subjectIdentifiers": [
+                                                    "string"
+                                                ],
+                                                "regulationNumber": "string"
+                                            }
+                                        ],
+                                        "planRecommendations": [
+                                            {
+                                                "planRecommendationKey": "string",
+                                                "planRecommendationUri": "string",
+                                                "value": {
+                                                    "fin": "string",
+                                                    "swe": "string",
+                                                    "smn": "string",
+                                                    "sms": "string",
+                                                    "sme": "string",
+                                                    "eng": "string"
+                                                },
+                                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                                "relatedDocuments": [
+                                                    {
+                                                        "attachmentDocumentKey": "string",
+                                                        "documentIdentifier": "string",
+                                                        "name": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "personalDataContent": "string",
+                                                        "categoryOfPublicity": "string",
+                                                        "accessibility": true,
+                                                        "retentionTime": "string",
+                                                        "confirmationDate": "string",
+                                                        "languages": [
+                                                            "string"
+                                                        ],
+                                                        "fileKey": "string",
+                                                        "descriptors": [
+                                                            {
+                                                                "descriptorIdentifier": "string",
+                                                                "vocabulary": "string",
+                                                                "descriptor": "string"
+                                                            }
+                                                        ],
+                                                        "documentDate": "string",
+                                                        "arrivedDate": "string",
+                                                        "planAttachmentDocumentUri": "string",
+                                                        "typeOfAttachment": "string",
+                                                        "documentSpecification": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "documentCreatorOperators": [
+                                                            {
+                                                                "planOperatorKey": "string",
+                                                                "planOperatorUri": "string",
+                                                                "firstName": "string",
+                                                                "lastName": "string",
+                                                                "title": "string",
+                                                                "organizationName": "string",
+                                                                "businessId": "string"
+                                                            }
+                                                        ],
+                                                        "relatedPlanAttachmentDocuments": [
+                                                            "string"
+                                                        ]
+                                                    }
+                                                ],
+                                                "planThemes": [
+                                                    "string"
+                                                ],
+                                                "periodOfValidity": {
+                                                    "begin": "string",
+                                                    "end": "string"
+                                                },
+                                                "recommendationNumber": 0
+                                            }
+                                        ],
+                                        "colorNumber": "string",
+                                        "groupNumber": 0
+                                    }
+                                ],
+                                "planRegulationGroupRelations": [
+                                    {
+                                        "planObjectKey": "string",
+                                        "planRegulationGroupKey": "string"
+                                    }
+                                ],
+                                "relatedPlanObjectRegulationGroupRelations": [
+                                    {
+                                        "relatedPlanObjectUri": "string",
+                                        "regulationGroupKey": "string"
+                                    }
+                                ]
                             }
                         },
                         "application/*+json": {
@@ -77,10 +1466,701 @@
                                     }
                                 ],
                                 "description": "Kaava"
+                            },
+                            "example": {
+                                "planKey": "string",
+                                "planUri": "string",
+                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                "legalEffectOfLocalMasterPlans": [
+                                    "http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK/code/1"
+                                ],
+                                "scale": 0,
+                                "officialUseOnly": true,
+                                "planMaps": [
+                                    {
+                                        "planMapKey": "string",
+                                        "planMapUri": "string",
+                                        "name": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "fileKey": "string",
+                                        "coordinateSystem": "string"
+                                    }
+                                ],
+                                "geographicalArea": {
+                                    "srid": "3067",
+                                    "geometry": {
+                                        "coordinates": "[100.0, 0.0]",
+                                        "type": "Point"
+                                    }
+                                },
+                                "planDescription": "string",
+                                "planAnnexes": [
+                                    {
+                                        "attachmentDocumentKey": "string",
+                                        "documentIdentifier": "string",
+                                        "name": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "personalDataContent": "string",
+                                        "categoryOfPublicity": "string",
+                                        "accessibility": true,
+                                        "retentionTime": "string",
+                                        "confirmationDate": "string",
+                                        "languages": [
+                                            "string"
+                                        ],
+                                        "fileKey": "string",
+                                        "descriptors": [
+                                            {
+                                                "descriptorIdentifier": "string",
+                                                "vocabulary": "string",
+                                                "descriptor": "string"
+                                            }
+                                        ],
+                                        "documentDate": "string",
+                                        "arrivedDate": "string",
+                                        "planAttachmentDocumentUri": "string",
+                                        "typeOfAttachment": "string",
+                                        "documentSpecification": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "documentCreatorOperators": [
+                                            {
+                                                "planOperatorKey": "string",
+                                                "planOperatorUri": "string",
+                                                "firstName": "string",
+                                                "lastName": "string",
+                                                "title": "string",
+                                                "organizationName": "string",
+                                                "businessId": "string"
+                                            }
+                                        ],
+                                        "relatedPlanAttachmentDocuments": [
+                                            "string"
+                                        ]
+                                    }
+                                ],
+                                "otherPlanMaterials": [
+                                    {
+                                        "otherPlanMaterialKey": "string",
+                                        "otherPlanMaterialUri": "string",
+                                        "name": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "fileKey": "string",
+                                        "otherPlanMaterialLink": "string",
+                                        "personalDataContent": "string",
+                                        "categoryOfPublicity": "string"
+                                    }
+                                ],
+                                "planCancellationInfos": [
+                                    {
+                                        "planCancellationInfoKey": "string",
+                                        "planCancellationInfoUri": "string",
+                                        "cancelledPlanUri": "string",
+                                        "cancelsEntirePlan": true,
+                                        "cancelledPlanObjectUris": [
+                                            "string"
+                                        ],
+                                        "cancelledRegulationUris": [
+                                            "string"
+                                        ],
+                                        "cancelledRecommendationUris": [
+                                            "string"
+                                        ],
+                                        "cancelledGroupRelations": [
+                                            {
+                                                "planRegulationGroupUri": "string",
+                                                "planObjectUri": "string"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "planReport": {
+                                    "planReportKey": "string",
+                                    "planReportUri": "string",
+                                    "attachmentDocuments": [
+                                        {
+                                            "attachmentDocumentKey": "string",
+                                            "documentIdentifier": "string",
+                                            "name": {
+                                                "fin": "string",
+                                                "swe": "string",
+                                                "smn": "string",
+                                                "sms": "string",
+                                                "sme": "string",
+                                                "eng": "string"
+                                            },
+                                            "personalDataContent": "string",
+                                            "categoryOfPublicity": "string",
+                                            "accessibility": true,
+                                            "retentionTime": "string",
+                                            "confirmationDate": "string",
+                                            "languages": [
+                                                "string"
+                                            ],
+                                            "fileKey": "string",
+                                            "descriptors": [
+                                                {
+                                                    "descriptorIdentifier": "string",
+                                                    "vocabulary": "string",
+                                                    "descriptor": "string"
+                                                }
+                                            ],
+                                            "documentDate": "string",
+                                            "arrivedDate": "string",
+                                            "planAttachmentDocumentUri": "string",
+                                            "typeOfAttachment": "string",
+                                            "documentSpecification": {
+                                                "fin": "string",
+                                                "swe": "string",
+                                                "smn": "string",
+                                                "sms": "string",
+                                                "sme": "string",
+                                                "eng": "string"
+                                            },
+                                            "documentCreatorOperators": [
+                                                {
+                                                    "planOperatorKey": "string",
+                                                    "planOperatorUri": "string",
+                                                    "firstName": "string",
+                                                    "lastName": "string",
+                                                    "title": "string",
+                                                    "organizationName": "string",
+                                                    "businessId": "string"
+                                                }
+                                            ],
+                                            "relatedPlanAttachmentDocuments": [
+                                                "string"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "generalRegulationGroups": [
+                                    {
+                                        "generalRegulationGroupKey": "string",
+                                        "generalRegulationGroupUri": "string",
+                                        "titleOfPlanRegulation": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "planRegulations": [
+                                            {
+                                                "planRegulationKey": "string",
+                                                "planRegulationUri": "string",
+                                                "value": {
+                                                    "code": "string",
+                                                    "codeList": "string",
+                                                    "title": {
+                                                        "fin": "string",
+                                                        "swe": "string",
+                                                        "smn": "string",
+                                                        "sms": "string",
+                                                        "sme": "string",
+                                                        "eng": "string"
+                                                    },
+                                                    "dataType": "LocalizedText"
+                                                },
+                                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                                "type": "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/asumisenAlue",
+                                                "verbalRegulations": [
+                                                    "http://uri.suomi.fi/codelist/rytj/RY_Sanallisen_Kaavamaarayksen_Laji/code/rakentamistapa"
+                                                ],
+                                                "additionalInformations": [
+                                                    {
+                                                        "type": "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/tyyppi",
+                                                        "value": {
+                                                            "code": "string",
+                                                            "codeList": "string",
+                                                            "title": {
+                                                                "fin": "string",
+                                                                "swe": "string",
+                                                                "smn": "string",
+                                                                "sms": "string",
+                                                                "sme": "string",
+                                                                "eng": "string"
+                                                            },
+                                                            "dataType": "LocalizedText"
+                                                        }
+                                                    }
+                                                ],
+                                                "relatedDocuments": [
+                                                    {
+                                                        "attachmentDocumentKey": "string",
+                                                        "documentIdentifier": "string",
+                                                        "name": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "personalDataContent": "string",
+                                                        "categoryOfPublicity": "string",
+                                                        "accessibility": true,
+                                                        "retentionTime": "string",
+                                                        "confirmationDate": "string",
+                                                        "languages": [
+                                                            "string"
+                                                        ],
+                                                        "fileKey": "string",
+                                                        "descriptors": [
+                                                            {
+                                                                "descriptorIdentifier": "string",
+                                                                "vocabulary": "string",
+                                                                "descriptor": "string"
+                                                            }
+                                                        ],
+                                                        "documentDate": "string",
+                                                        "arrivedDate": "string",
+                                                        "planAttachmentDocumentUri": "string",
+                                                        "typeOfAttachment": "string",
+                                                        "documentSpecification": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "documentCreatorOperators": [
+                                                            {
+                                                                "planOperatorKey": "string",
+                                                                "planOperatorUri": "string",
+                                                                "firstName": "string",
+                                                                "lastName": "string",
+                                                                "title": "string",
+                                                                "organizationName": "string",
+                                                                "businessId": "string"
+                                                            }
+                                                        ],
+                                                        "relatedPlanAttachmentDocuments": [
+                                                            "string"
+                                                        ]
+                                                    }
+                                                ],
+                                                "planThemes": [
+                                                    "string"
+                                                ],
+                                                "periodOfValidity": {
+                                                    "begin": "string",
+                                                    "end": "string"
+                                                },
+                                                "subjectIdentifiers": [
+                                                    "string"
+                                                ],
+                                                "regulationNumber": "string"
+                                            }
+                                        ],
+                                        "planRecommendations": [
+                                            {
+                                                "planRecommendationKey": "string",
+                                                "planRecommendationUri": "string",
+                                                "value": {
+                                                    "fin": "string",
+                                                    "swe": "string",
+                                                    "smn": "string",
+                                                    "sms": "string",
+                                                    "sme": "string",
+                                                    "eng": "string"
+                                                },
+                                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                                "relatedDocuments": [
+                                                    {
+                                                        "attachmentDocumentKey": "string",
+                                                        "documentIdentifier": "string",
+                                                        "name": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "personalDataContent": "string",
+                                                        "categoryOfPublicity": "string",
+                                                        "accessibility": true,
+                                                        "retentionTime": "string",
+                                                        "confirmationDate": "string",
+                                                        "languages": [
+                                                            "string"
+                                                        ],
+                                                        "fileKey": "string",
+                                                        "descriptors": [
+                                                            {
+                                                                "descriptorIdentifier": "string",
+                                                                "vocabulary": "string",
+                                                                "descriptor": "string"
+                                                            }
+                                                        ],
+                                                        "documentDate": "string",
+                                                        "arrivedDate": "string",
+                                                        "planAttachmentDocumentUri": "string",
+                                                        "typeOfAttachment": "string",
+                                                        "documentSpecification": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "documentCreatorOperators": [
+                                                            {
+                                                                "planOperatorKey": "string",
+                                                                "planOperatorUri": "string",
+                                                                "firstName": "string",
+                                                                "lastName": "string",
+                                                                "title": "string",
+                                                                "organizationName": "string",
+                                                                "businessId": "string"
+                                                            }
+                                                        ],
+                                                        "relatedPlanAttachmentDocuments": [
+                                                            "string"
+                                                        ]
+                                                    }
+                                                ],
+                                                "planThemes": [
+                                                    "string"
+                                                ],
+                                                "periodOfValidity": {
+                                                    "begin": "string",
+                                                    "end": "string"
+                                                },
+                                                "recommendationNumber": 0
+                                            }
+                                        ],
+                                        "groupNumber": 0
+                                    }
+                                ],
+                                "periodOfValidity": {
+                                    "begin": "string",
+                                    "end": "string"
+                                },
+                                "approvalDate": "string",
+                                "planners": [
+                                    {
+                                        "planOperatorKey": "string",
+                                        "planOperatorUri": "string",
+                                        "firstName": "string",
+                                        "lastName": "string",
+                                        "title": "string",
+                                        "organizationName": "string",
+                                        "businessId": "string"
+                                    }
+                                ],
+                                "partiallyCancelledPlanObjectInfos": [
+                                    {
+                                        "partiallyCancelledPlanObjectInfoKey": "string",
+                                        "cancelledPlanUri": "string",
+                                        "partiallyCancelledPlanObjectUri": "string",
+                                        "validityGeometry": {
+                                            "srid": "3067",
+                                            "geometry": {
+                                                "coordinates": "[100.0, 0.0]",
+                                                "type": "Point"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "planObjects": [
+                                    {
+                                        "planObjectKey": "string",
+                                        "planObjectUri": "string",
+                                        "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                        "undergroundStatus": "string",
+                                        "geometry": {
+                                            "srid": "3067",
+                                            "geometry": {
+                                                "coordinates": "[100.0, 0.0]",
+                                                "type": "Point"
+                                            }
+                                        },
+                                        "name": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "description": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "verticalLimit": {
+                                            "minimumValue": 0,
+                                            "maximumValue": 0,
+                                            "unitOfMeasure": "string",
+                                            "dataType": "LocalizedText"
+                                        },
+                                        "relatedPlanSourceDataKeys": [
+                                            "string"
+                                        ],
+                                        "relatedPlanSourceDataUris": [
+                                            "string"
+                                        ],
+                                        "periodOfValidity": {
+                                            "begin": "string",
+                                            "end": "string"
+                                        },
+                                        "objectNumber": 0,
+                                        "relatedPlanObjectKeys": [
+                                            "string"
+                                        ]
+                                    }
+                                ],
+                                "planRegulationGroups": [
+                                    {
+                                        "planRegulationGroupKey": "string",
+                                        "planRegulationGroupUri": "string",
+                                        "titleOfPlanRegulation": {
+                                            "fin": "string",
+                                            "swe": "string",
+                                            "smn": "string",
+                                            "sms": "string",
+                                            "sme": "string",
+                                            "eng": "string"
+                                        },
+                                        "letterIdentifier": "string",
+                                        "planRegulations": [
+                                            {
+                                                "planRegulationKey": "string",
+                                                "planRegulationUri": "string",
+                                                "value": {
+                                                    "code": "string",
+                                                    "codeList": "string",
+                                                    "title": {
+                                                        "fin": "string",
+                                                        "swe": "string",
+                                                        "smn": "string",
+                                                        "sms": "string",
+                                                        "sme": "string",
+                                                        "eng": "string"
+                                                    },
+                                                    "dataType": "LocalizedText"
+                                                },
+                                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                                "type": "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/asumisenAlue",
+                                                "verbalRegulations": [
+                                                    "http://uri.suomi.fi/codelist/rytj/RY_Sanallisen_Kaavamaarayksen_Laji/code/rakentamistapa"
+                                                ],
+                                                "additionalInformations": [
+                                                    {
+                                                        "type": "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayksen_Lisatiedonlaji/code/tyyppi",
+                                                        "value": {
+                                                            "code": "string",
+                                                            "codeList": "string",
+                                                            "title": {
+                                                                "fin": "string",
+                                                                "swe": "string",
+                                                                "smn": "string",
+                                                                "sms": "string",
+                                                                "sme": "string",
+                                                                "eng": "string"
+                                                            },
+                                                            "dataType": "LocalizedText"
+                                                        }
+                                                    }
+                                                ],
+                                                "relatedDocuments": [
+                                                    {
+                                                        "attachmentDocumentKey": "string",
+                                                        "documentIdentifier": "string",
+                                                        "name": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "personalDataContent": "string",
+                                                        "categoryOfPublicity": "string",
+                                                        "accessibility": true,
+                                                        "retentionTime": "string",
+                                                        "confirmationDate": "string",
+                                                        "languages": [
+                                                            "string"
+                                                        ],
+                                                        "fileKey": "string",
+                                                        "descriptors": [
+                                                            {
+                                                                "descriptorIdentifier": "string",
+                                                                "vocabulary": "string",
+                                                                "descriptor": "string"
+                                                            }
+                                                        ],
+                                                        "documentDate": "string",
+                                                        "arrivedDate": "string",
+                                                        "planAttachmentDocumentUri": "string",
+                                                        "typeOfAttachment": "string",
+                                                        "documentSpecification": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "documentCreatorOperators": [
+                                                            {
+                                                                "planOperatorKey": "string",
+                                                                "planOperatorUri": "string",
+                                                                "firstName": "string",
+                                                                "lastName": "string",
+                                                                "title": "string",
+                                                                "organizationName": "string",
+                                                                "businessId": "string"
+                                                            }
+                                                        ],
+                                                        "relatedPlanAttachmentDocuments": [
+                                                            "string"
+                                                        ]
+                                                    }
+                                                ],
+                                                "planThemes": [
+                                                    "string"
+                                                ],
+                                                "periodOfValidity": {
+                                                    "begin": "string",
+                                                    "end": "string"
+                                                },
+                                                "subjectIdentifiers": [
+                                                    "string"
+                                                ],
+                                                "regulationNumber": "string"
+                                            }
+                                        ],
+                                        "planRecommendations": [
+                                            {
+                                                "planRecommendationKey": "string",
+                                                "planRecommendationUri": "string",
+                                                "value": {
+                                                    "fin": "string",
+                                                    "swe": "string",
+                                                    "smn": "string",
+                                                    "sms": "string",
+                                                    "sme": "string",
+                                                    "eng": "string"
+                                                },
+                                                "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                                                "relatedDocuments": [
+                                                    {
+                                                        "attachmentDocumentKey": "string",
+                                                        "documentIdentifier": "string",
+                                                        "name": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "personalDataContent": "string",
+                                                        "categoryOfPublicity": "string",
+                                                        "accessibility": true,
+                                                        "retentionTime": "string",
+                                                        "confirmationDate": "string",
+                                                        "languages": [
+                                                            "string"
+                                                        ],
+                                                        "fileKey": "string",
+                                                        "descriptors": [
+                                                            {
+                                                                "descriptorIdentifier": "string",
+                                                                "vocabulary": "string",
+                                                                "descriptor": "string"
+                                                            }
+                                                        ],
+                                                        "documentDate": "string",
+                                                        "arrivedDate": "string",
+                                                        "planAttachmentDocumentUri": "string",
+                                                        "typeOfAttachment": "string",
+                                                        "documentSpecification": {
+                                                            "fin": "string",
+                                                            "swe": "string",
+                                                            "smn": "string",
+                                                            "sms": "string",
+                                                            "sme": "string",
+                                                            "eng": "string"
+                                                        },
+                                                        "documentCreatorOperators": [
+                                                            {
+                                                                "planOperatorKey": "string",
+                                                                "planOperatorUri": "string",
+                                                                "firstName": "string",
+                                                                "lastName": "string",
+                                                                "title": "string",
+                                                                "organizationName": "string",
+                                                                "businessId": "string"
+                                                            }
+                                                        ],
+                                                        "relatedPlanAttachmentDocuments": [
+                                                            "string"
+                                                        ]
+                                                    }
+                                                ],
+                                                "planThemes": [
+                                                    "string"
+                                                ],
+                                                "periodOfValidity": {
+                                                    "begin": "string",
+                                                    "end": "string"
+                                                },
+                                                "recommendationNumber": 0
+                                            }
+                                        ],
+                                        "colorNumber": "string",
+                                        "groupNumber": 0
+                                    }
+                                ],
+                                "planRegulationGroupRelations": [
+                                    {
+                                        "planObjectKey": "string",
+                                        "planRegulationGroupKey": "string"
+                                    }
+                                ],
+                                "relatedPlanObjectRegulationGroupRelations": [
+                                    {
+                                        "relatedPlanObjectUri": "string",
+                                        "regulationGroupKey": "string"
+                                    }
+                                ]
                             }
                         }
-                    },
-                    "required": true
+                    }
                 },
                 "responses": {
                     "200": {
@@ -92,16 +2172,35 @@
                             "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
+                                },
+                                "examples": {
+                                    "default": {
+                                        "value": null
+                                    }
                                 }
                             },
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string"
                                 }
                             },
                             "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string"
                                 }
                             }
                         }
@@ -112,16 +2211,37 @@
                             "text/plain": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "examples": {
+                                    "default": {
+                                        "value": null
+                                    }
                                 }
                             },
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
                                 }
                             },
                             "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
                                 }
                             }
                         }
@@ -1069,11 +3189,17 @@
             "PartiallyCancelledPlanObjectInfo": {
                 "required": [
                     "cancelledPlanUri",
+                    "partiallyCancelledPlanObjectInfoKey",
                     "partiallyCancelledPlanObjectUri",
                     "validityGeometry"
                 ],
                 "type": "object",
                 "properties": {
+                    "partiallyCancelledPlanObjectInfoKey": {
+                        "type": "string",
+                        "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
+                        "format": "uuid"
+                    },
                     "cancelledPlanUri": {
                         "minLength": 1,
                         "type": "string",
@@ -1158,6 +3284,11 @@
                         "type": "integer",
                         "description": "Mittakaava",
                         "format": "int32",
+                        "nullable": true
+                    },
+                    "officialUseOnly": {
+                        "type": "boolean",
+                        "description": "Vain viranomaiskäyttöön",
                         "nullable": true
                     },
                     "planMaps": {
@@ -1245,7 +3376,7 @@
                         "description": "Laatija",
                         "nullable": true
                     },
-                    "partiallyCancelledPlanObjects": {
+                    "partiallyCancelledPlanObjectInfos": {
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/PartiallyCancelledPlanObjectInfo"
@@ -2584,7 +4715,8 @@
                             "3882",
                             "3883",
                             "3884",
-                            "3885"
+                            "3885",
+                            "4326"
                         ],
                         "type": "string",
                         "description": "Gauss Krüger projektio; SRID koodi; SRID nimi\r\n\r\n   19;3873;ETRS89 / GK19FIN EPSG:3873\r\n\r\n   20;3874;ETRS89 / GK20FIN EPSG:3874\r\n\r\n   21;3875;ETRS89 / GK21FIN EPSG:3875\r\n\r\n   22;3876;ETRS89 / GK22FIN EPSG:3876\r\n\r\n   23;3877;ETRS89 / GK23FIN EPSG:3877\r\n\r\n   24;3878;ETRS89 / GK24FIN EPSG:3878\r\n\r\n   25;3879;ETRS89 / GK25FIN EPSG:3879\r\n\r\n   26;3880;ETRS89 / GK26FIN EPSG:3880\r\n\r\n   27;3881;ETRS89 / GK27FIN EPSG:3881\r\n\r\n   28;3882;ETRS89 / GK28FIN EPSG:3882\r\n\r\n   29;3883;ETRS89 / GK29FIN EPSG:3883\r\n\r\n   30;3884;ETRS89 / GK30FIN EPSG:3884\r\n\r\n   31;3885;ETRS89 / GK31FIN EPSG:3885\r\n\r\n   3067 TM35FIN\r\n"
@@ -2853,29 +4985,24 @@
             }
         },
         "securitySchemes": {
-            "Bearer": {
+            "apiKeyHeader": {
                 "type": "apiKey",
-                "description": "Enter 'Bearer' [space] and then your valid token in the text input below.\r\n\r\nExample: \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\"",
-                "name": "Authorization",
+                "name": "Ocp-Apim-Subscription-Key",
                 "in": "header"
             },
-            "oauth2": {
-                "type": "oauth2",
-                "flows": {
-                    "clientCredentials": {
-                        "tokenUrl": "https://identitytest.ymparisto.fi/connect/token",
-                        "scopes": {}
-                    }
-                }
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "subscription-key",
+                "in": "query"
             }
         }
     },
     "security": [
         {
-            "Bearer": []
+            "apiKeyHeader": []
         },
         {
-            "oauth2": []
+            "apiKeyQuery": []
         }
     ]
 }
