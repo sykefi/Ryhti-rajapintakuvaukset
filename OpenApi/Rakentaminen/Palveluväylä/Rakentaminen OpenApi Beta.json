@@ -5734,6 +5734,22 @@
             "type": "string",
             "format": "date",
             "nullable": true
+          },
+          "buildingProductList": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingProductList"
+              }
+            ],
+            "description": "Rakennustuoteluettelo",
+            "nullable": true
+          },
+          "buildingPurposeForLowCarbonAssessment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingPurposeForLowCarbonAssessment"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -5937,6 +5953,154 @@
           }
         },
         "additionalProperties": false
+      },
+      "BuildingBuildingProduct": {
+        "type": "object",
+        "properties": {
+          "buildingBuildingProductKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "buildingProductType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/RakennustuotteenLaji/code/01",
+              "http://uri.suomi.fi/codelist/rytj/RakennustuotteenLaji/code/02",
+              "http://uri.suomi.fi/codelist/rytj/RakennustuotteenLaji/code/03",
+              "http://uri.suomi.fi/codelist/rytj/RakennustuotteenLaji/code/04",
+              "http://uri.suomi.fi/codelist/rytj/RakennustuotteenLaji/code/05",
+              "http://uri.suomi.fi/codelist/rytj/RakennustuotteenLaji/code/06",
+              "http://uri.suomi.fi/codelist/rytj/RakennustuotteenLaji/code/07",
+              "http://uri.suomi.fi/codelist/rytj/RakennustuotteenLaji/code/08",
+              "http://uri.suomi.fi/codelist/rytj/RakennustuotteenLaji/code/09"
+            ],
+            "type": "string"
+          },
+          "productDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "productAmount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productAmountUnit": {
+            "type": "string"
+          },
+          "productUtilizationAmount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "productUtilizationAmountUnit": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Rakennuksen rakennustuotteet ja niiden hyödyntäminen"
+      },
+      "BuildingCarbonFootprint": {
+        "type": "object",
+        "properties": {
+          "a1_A3ManufacturingOfBuildingProducts": {
+            "type": "number",
+            "format": "double"
+          },
+          "a4Transports": {
+            "type": "number",
+            "format": "double"
+          },
+          "a5ConstructionSiteOperations": {
+            "type": "number",
+            "format": "double"
+          },
+          "b1ProductUse": {
+            "type": "number",
+            "format": "double"
+          },
+          "b2Maintenance": {
+            "type": "number",
+            "format": "double"
+          },
+          "b4ProductReplacements": {
+            "type": "number",
+            "format": "double"
+          },
+          "b6EnergyUse": {
+            "type": "number",
+            "format": "double"
+          },
+          "c1Demolition": {
+            "type": "number",
+            "format": "double"
+          },
+          "c2TransportOfDemolitionWaste": {
+            "type": "number",
+            "format": "double"
+          },
+          "c3TreatmentOfDemolitionWaste": {
+            "type": "number",
+            "format": "double"
+          },
+          "c4FinalDisposalOfDemolitionWaste": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalCarbonFootprint": {
+            "type": "number",
+            "format": "double"
+          },
+          "buildingCarbonFootprintKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "reasonForExceedingThreshold": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ReasonForExceedingThreshold"
+              }
+            ],
+            "description": "Rakennuksen Hiilijalanjälkeen Raja-arvoista poikkeamisen peruste"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Rakennuksen hiilijalanjälki"
+      },
+      "BuildingCarbonHandprint": {
+        "type": "object",
+        "properties": {
+          "carbonation": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "recycling": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "carbonStorageEffectOfProducts": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "amountOfReusableMaterial": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "excessRenewableEnergy": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "buildingCarbonHandprintKey": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Rakennuksen hiilikädenjälki"
       },
       "BuildingInformationModel": {
         "required": [
@@ -6812,6 +6976,144 @@
         "additionalProperties": false,
         "description": "Rakentamislupa-asia"
       },
+      "BuildingProductList": {
+        "type": "object",
+        "properties": {
+          "buildingProductListKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "preparationDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "nameOfPreparer": {
+            "type": "string"
+          },
+          "buildingBuildingProduct": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingBuildingProduct"
+              }
+            ],
+            "description": "Rakennuksen rakennustuotteet ja niiden hyödyntäminen"
+          },
+          "buildingSiteBuildingProduct": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingSiteBuildingProduct"
+              }
+            ],
+            "description": "Rakennuspaikan rakennustuotteet ja niiden hyödyntäminen"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Rakennustuoteluettelo"
+      },
+      "BuildingProductListNoPersonData": {
+        "type": "object",
+        "properties": {
+          "buildingProductListKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "preparationDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "buildingBuildingProduct": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingBuildingProduct"
+              }
+            ],
+            "description": "Rakennuksen rakennustuotteet ja niiden hyödyntäminen"
+          },
+          "buildingSiteBuildingProduct": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingSiteBuildingProduct"
+              }
+            ],
+            "description": "Rakennuspaikan rakennustuotteet ja niiden hyödyntäminen"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BuildingPurposeForLowCarbonAssessment": {
+        "type": "object",
+        "properties": {
+          "buildingPurposeForLowCarbonAssessmentKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "isPrimary": {
+            "type": "boolean"
+          },
+          "buildingPurposeForLowCarbonAssessmentType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/1",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/2",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/3",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/4",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/5",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/6",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/7",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/8",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/9"
+            ],
+            "type": "string"
+          },
+          "climateReport": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ClimateReport"
+              }
+            ],
+            "description": "Ilmastoselvitys",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Käyttötarkoitus vähähiilisyyden arvioinnissa"
+      },
+      "BuildingPurposeForLowCarbonAssessmentNoPersonData": {
+        "type": "object",
+        "properties": {
+          "buildingPurposeForLowCarbonAssessmentKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "isPrimary": {
+            "type": "boolean"
+          },
+          "buildingPurposeForLowCarbonAssessmentType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/1",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/2",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/3",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/4",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/5",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/6",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/7",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/8",
+              "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/9"
+            ],
+            "type": "string"
+          },
+          "climateReport": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ClimateReportNoPersonData"
+              }
+            ],
+            "description": "Ilmastoselvitys",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Käyttötarkoitus vähähiilisyyden arvioinnissa"
+      },
       "BuildingSection": {
         "required": [
           "buildingSectionKey",
@@ -7182,6 +7484,153 @@
         },
         "additionalProperties": false,
         "description": "Rakennuspaikka"
+      },
+      "BuildingSiteBuildingProduct": {
+        "type": "object",
+        "properties": {
+          "buildingSiteBuildingProductKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "buildingSiteKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "buildingSiteBuildingProductType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/RakennuspaikanRakennustuotteenLaji/code/01",
+              "http://uri.suomi.fi/codelist/rytj/RakennuspaikanRakennustuotteenLaji/code/02",
+              "http://uri.suomi.fi/codelist/rytj/RakennuspaikanRakennustuotteenLaji/code/03",
+              "http://uri.suomi.fi/codelist/rytj/RakennuspaikanRakennustuotteenLaji/code/04"
+            ],
+            "type": "string"
+          },
+          "productDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "productAmount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productAmountUnit": {
+            "type": "string"
+          },
+          "productUtilizationAmount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "productUtilizationAmountUnit": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Rakennuspaikan rakennustuotteet ja niiden hyödyntäminen"
+      },
+      "BuildingSiteCarbonFootprint": {
+        "type": "object",
+        "properties": {
+          "a1_A3ManufacturingOfBuildingProducts": {
+            "type": "number",
+            "format": "double"
+          },
+          "a4Transports": {
+            "type": "number",
+            "format": "double"
+          },
+          "a5ConstructionSiteOperations": {
+            "type": "number",
+            "format": "double"
+          },
+          "b1ProductUse": {
+            "type": "number",
+            "format": "double"
+          },
+          "b2Maintenance": {
+            "type": "number",
+            "format": "double"
+          },
+          "b4ProductReplacements": {
+            "type": "number",
+            "format": "double"
+          },
+          "b6EnergyUse": {
+            "type": "number",
+            "format": "double"
+          },
+          "c1Demolition": {
+            "type": "number",
+            "format": "double"
+          },
+          "c2TransportOfDemolitionWaste": {
+            "type": "number",
+            "format": "double"
+          },
+          "c3TreatmentOfDemolitionWaste": {
+            "type": "number",
+            "format": "double"
+          },
+          "c4FinalDisposalOfDemolitionWaste": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalCarbonFootprint": {
+            "type": "number",
+            "format": "double"
+          },
+          "buildingSiteCarbonFootprintKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "buildingSiteKey": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Rakennuspaikan hiilijalanjälki"
+      },
+      "BuildingSiteCarbonHandprint": {
+        "type": "object",
+        "properties": {
+          "carbonation": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "recycling": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "carbonStorageEffectOfProducts": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "amountOfReusableMaterial": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "excessRenewableEnergy": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "buildingSiteCarbonHandprintKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "buildingSiteKey": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Rakennuspaikan hiilikädenjälki"
       },
       "CalculatoryDeliveredEnergyUsage": {
         "required": [
@@ -7941,6 +8390,22 @@
           "numberOfDeletedApartments": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "buildingPurposeForLowCarbonAssessment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingPurposeForLowCarbonAssessment"
+            },
+            "nullable": true
+          },
+          "buildingProductList": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingProductList"
+              }
+            ],
+            "description": "Rakennustuoteluettelo",
             "nullable": true
           }
         },
@@ -9106,6 +9571,143 @@
         },
         "additionalProperties": false,
         "description": "Väestönsuojan muut rakennukset"
+      },
+      "ClimateReport": {
+        "type": "object",
+        "properties": {
+          "climateReportKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "usedCalculationSoftware": {
+            "type": "string"
+          },
+          "preparationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "nameOfPreparer": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "assessmentPeriodLength": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "assessmentPeriodStartDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "assessmentPeriodEndDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "buildingCarbonFootprint": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingCarbonFootprint"
+              }
+            ],
+            "description": "Rakennuksen hiilijalanjälki"
+          },
+          "buildingCarbonHandprint": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingCarbonHandprint"
+              }
+            ],
+            "description": "Rakennuksen hiilikädenjälki"
+          },
+          "buildingSiteCarbonFootprint": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingSiteCarbonFootprint"
+              }
+            ],
+            "description": "Rakennuspaikan hiilijalanjälki"
+          },
+          "buildingSiteCarbonHandprint": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingSiteCarbonHandprint"
+              }
+            ],
+            "description": "Rakennuspaikan hiilikädenjälki"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ilmastoselvitys"
+      },
+      "ClimateReportNoPersonData": {
+        "type": "object",
+        "properties": {
+          "climateReportKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "usedCalculationSoftware": {
+            "type": "string"
+          },
+          "preparationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "assessmentPeriodLength": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "assessmentPeriodStartDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "assessmentPeriodEndDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "buildingCarbonFootprint": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingCarbonFootprint"
+              }
+            ],
+            "description": "Rakennuksen hiilijalanjälki"
+          },
+          "buildingCarbonHandprint": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingCarbonHandprint"
+              }
+            ],
+            "description": "Rakennuksen hiilikädenjälki"
+          },
+          "buildingSiteCarbonFootprint": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingSiteCarbonFootprint"
+              }
+            ],
+            "description": "Rakennuspaikan hiilijalanjälki"
+          },
+          "buildingSiteCarbonHandprint": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingSiteCarbonHandprint"
+              }
+            ],
+            "description": "Rakennuspaikan hiilikädenjälki"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ilmastoselvitys"
       },
       "ConstructionAction": {
         "required": [
@@ -12417,6 +13019,22 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "buildingPurposeForLowCarbonAssessment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingPurposeForLowCarbonAssessment"
+            },
+            "nullable": true
+          },
+          "buildingProductList": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingProductList"
+              }
+            ],
+            "description": "Rakennustuoteluettelo",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -12538,6 +13156,21 @@
           "numberOfDeletedApartments": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "buildingPurposeForLowCarbonAssessment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingPurposeForLowCarbonAssessmentNoPersonData"
+            },
+            "nullable": true
+          },
+          "buildingProductList": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingProductListNoPersonData"
+              }
+            ],
             "nullable": true
           }
         },
@@ -17110,6 +17743,21 @@
         "additionalProperties": false,
         "description": "Käyttötarkoitus"
       },
+      "ReasonForExceedingThreshold": {
+        "type": "object",
+        "properties": {
+          "reasonForExceedingThresholdKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "explanation": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Rakennuksen Hiilijalanjälkeen Raja-arvoista poikkeamisen peruste"
+      },
       "RyhtiGeometry": {
         "required": [
           "geometry",
@@ -18226,13 +18874,7 @@
           "clientCredentials": {
             "tokenUrl": "https://identitytest.ymparisto.fi/connect/token",
             "scopes": {
-              "ryhti.building.owners.all": "(VAHNENTUNUT) Oikeus rakennuksen kaikkin omistajatietoihin, ml turvakiellon alaiset.",
-              "ryhti.building.owners.limited": "(VAHNENTUNUT) Oikeus omistajatietoihin, ilman turvakiellon alaisia tietoja.",
-              "ryhti.building.foremen": "(VAHNENTUNUT) Oikeudet työnjohtajien ja suunnittelijoiden tietoihin.",
-              "ryhti.building.all": "(VAHNENTUNUT) Oikeus rakennustietoon.",
-              "ryhti.building.generalized": "(VAHNENTUNUT) Oikeus karkeutettuun rakennustietoon.",
               "ryhti.building.public.read": "Oikeus lukea julkista rakennustietoa, josta on poistettu henkilötiedot.",
-              "ryhti.building.basic.read": "Oikeus lukea karkeutettua rakennustietoa, josta on poistettu henkilötiedot.",
               "ryhti.building.persons.read": "Oikeus lukea karkeutettua rakennustietoa, josta on poistettu turvakiellollisten toimijoiden henkilötiedot.",
               "ryhti.building.nd-persons.read": "Oikeus lukea karkeutettua rakennustietoa, joka sisältää myös turvakiellollisten toimijoiden henkilötiedot.",
               "ryhti.building.all.read": "Oikeus lukea kaikkea rakennustietoa.",
