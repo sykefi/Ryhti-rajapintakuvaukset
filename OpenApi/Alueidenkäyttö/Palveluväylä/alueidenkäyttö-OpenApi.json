@@ -10710,6 +10710,13 @@
             },
             "description": "LiittyväKohde UUID/localID",
             "nullable": true
+          },
+          "relatedPlanObjectUris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -11137,11 +11144,9 @@
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/arvokasGeologinenMuodostuma",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kulttuuriymparistoarvojenAlue",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/merkittavaRakennettuKulttuuriymparisto",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiMerkittavaRakennettuKulttuuriymparisto",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaupunkiTaiKylakuvallisestiArvokasAlue",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/muuArkeologinenKohde",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiMerkittavaArkeologinenKohde",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/arkeologinenKohde",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/historiallinenKohde",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaupunkiTaiKylakuvallisestiArvokasAlue",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/unesconMaailmanperintokohde",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/saamelaiskulttuurinKannaltaTarkeaAlue",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maisemallisestiArvokasAlue",
@@ -11157,6 +11162,7 @@
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/vaaraAlue",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojavyohyke",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/konsultointivyohyke",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaupunginTaiKunnanosa",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kunnanTaiKaupunginOsa",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/korttelialueTaiKorttelialueenOsa",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennuspaikka",
@@ -11232,7 +11238,13 @@
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maaraAikainenKieltoRakennuksenRakentamiseksi",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suunnittelumaarays",
               "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakentamismaarays",
-              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojelumaarays"
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojelumaarays",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/talousrakennus",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/sauna",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/paivakoti",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiMerkittavaRakennettuKulttuuriymparisto",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiMerkittavaArkeologinenKohde",
+              "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/muuArkeologinenKohde"
             ],
             "type": "string",
             "description": "Määräys tai määräyksen osa, jolla ohjataan alueidenkäyttöä ja rakentamista. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji\">http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji</a>"
@@ -11707,11 +11719,9 @@
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/arvokasGeologinenMuodostuma",
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kulttuuriymparistoarvojenAlue",
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/merkittavaRakennettuKulttuuriymparisto",
-                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiMerkittavaRakennettuKulttuuriymparisto",
-                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaupunkiTaiKylakuvallisestiArvokasAlue",
-                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/muuArkeologinenKohde",
-                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiMerkittavaArkeologinenKohde",
+                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/arkeologinenKohde",
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/historiallinenKohde",
+                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaupunkiTaiKylakuvallisestiArvokasAlue",
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/unesconMaailmanperintokohde",
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/saamelaiskulttuurinKannaltaTarkeaAlue",
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maisemallisestiArvokasAlue",
@@ -11727,6 +11737,7 @@
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/vaaraAlue",
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojavyohyke",
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/konsultointivyohyke",
+                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaupunginTaiKunnanosa",
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kunnanTaiKaupunginOsa",
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/korttelialueTaiKorttelialueenOsa",
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennuspaikka",
@@ -11802,7 +11813,13 @@
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maaraAikainenKieltoRakennuksenRakentamiseksi",
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suunnittelumaarays",
                 "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakentamismaarays",
-                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojelumaarays"
+                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojelumaarays",
+                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/talousrakennus",
+                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/sauna",
+                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/paivakoti",
+                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiMerkittavaRakennettuKulttuuriymparisto",
+                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiMerkittavaArkeologinenKohde",
+                "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/muuArkeologinenKohde"
               ],
               "type": "string"
             },

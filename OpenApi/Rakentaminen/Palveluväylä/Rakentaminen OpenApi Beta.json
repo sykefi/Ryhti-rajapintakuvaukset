@@ -5389,6 +5389,23 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "chargingPoint": {
+            "required": [
+              "chargingPointKey",
+              "preCabling",
+              "chargingPointCount",
+              "otherCablingRoutes",
+              "bikespaceCount",
+              "conduit"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChargingPoint"
+              }
+            ],
+            "description": "Latauspiste",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -5750,6 +5767,23 @@
               "$ref": "#/components/schemas/BuildingPurposeForLowCarbonAssessment"
             },
             "nullable": true
+          },
+          "chargingPoint": {
+            "required": [
+              "chargingPointKey",
+              "preCabling",
+              "chargingPointCount",
+              "otherCablingRoutes",
+              "bikespaceCount",
+              "conduit"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChargingPoint"
+              }
+            ],
+            "description": "Latauspiste",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -6055,12 +6089,11 @@
             "format": "uuid"
           },
           "reasonForExceedingThreshold": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ReasonForExceedingThreshold"
-              }
-            ],
-            "description": "Rakennuksen Hiilijalanjälkeen Raja-arvoista poikkeamisen peruste"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReasonForExceedingThreshold"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -8407,6 +8440,27 @@
             ],
             "description": "Rakennustuoteluettelo",
             "nullable": true
+          },
+          "publicUsage": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "chargingPoint": {
+            "required": [
+              "chargingPointKey",
+              "preCabling",
+              "chargingPointCount",
+              "otherCablingRoutes",
+              "bikespaceCount",
+              "conduit"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChargingPoint"
+              }
+            ],
+            "description": "Latauspiste",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8818,7 +8872,7 @@
           "civilDefenceShelter": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CivilDefenceShelter"
+              "$ref": "#/components/schemas/ChangeInformationCivilDefenceShelter"
             },
             "nullable": true
           },
@@ -8852,6 +8906,77 @@
           }
         },
         "additionalProperties": false
+      },
+      "ChangeInformationCivilDefenceShelter": {
+        "required": [
+          "civilDefenceShelterCapacity",
+          "civilDefenceShelterKey"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "description": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "geometry": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RyhtiGeometry"
+              }
+            ],
+            "nullable": true
+          },
+          "civilDefenceShelterKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "civilDefenceShelterClass": {
+            "type": "string",
+            "description": "Väestönsuojan luokka. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/VaestonsuojaLuokka\">http://uri.suomi.fi/codelist/rytj/VaestonsuojaLuokka</a>",
+            "nullable": true
+          },
+          "civilDefenceShelterCapacity": {
+            "type": "integer",
+            "description": "Väestönsuojan suojapaikkojen määrä",
+            "format": "int32"
+          },
+          "civilDefenceShelterShared": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "civilDefenceShelterAdditionalInformation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "civilDefenceShelterOtherBuildings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CivilDefenceShelterOtherBuildings"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Väestönsuoja"
       },
       "ChangeInformationConstructionAction": {
         "required": [
@@ -9187,6 +9312,23 @@
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
             "nullable": true
           },
+          "chargingPoint": {
+            "required": [
+              "chargingPointKey",
+              "preCabling",
+              "chargingPointCount",
+              "otherCablingRoutes",
+              "bikespaceCount",
+              "conduit"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChargingPoint"
+              }
+            ],
+            "description": "Latauspiste",
+            "nullable": true
+          },
           "structureSection": {
             "type": "array",
             "items": {
@@ -9476,6 +9618,42 @@
           }
         },
         "additionalProperties": false
+      },
+      "ChargingPoint": {
+        "required": [
+          "bikespaceCount",
+          "chargingPointCount",
+          "chargingPointKey",
+          "conduit",
+          "otherCablingRoutes",
+          "preCabling"
+        ],
+        "type": "object",
+        "properties": {
+          "chargingPointKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "preCabling": {
+            "type": "boolean"
+          },
+          "chargingPointCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "otherCablingRoutes": {
+            "type": "boolean"
+          },
+          "bikespaceCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "conduit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Latauspiste"
       },
       "CivilDefenceShelter": {
         "required": [
@@ -13035,6 +13213,27 @@
             ],
             "description": "Rakennustuoteluettelo",
             "nullable": true
+          },
+          "publicUsage": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "chargingPoint": {
+            "required": [
+              "chargingPointKey",
+              "preCabling",
+              "chargingPointCount",
+              "otherCablingRoutes",
+              "bikespaceCount",
+              "conduit"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChargingPoint"
+              }
+            ],
+            "description": "Latauspiste",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -13171,6 +13370,27 @@
                 "$ref": "#/components/schemas/BuildingProductListNoPersonData"
               }
             ],
+            "nullable": true
+          },
+          "publicUsage": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "chargingPoint": {
+            "required": [
+              "chargingPointKey",
+              "preCabling",
+              "chargingPointCount",
+              "otherCablingRoutes",
+              "bikespaceCount",
+              "conduit"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChargingPoint"
+              }
+            ],
+            "description": "Latauspiste",
             "nullable": true
           }
         },
@@ -13647,7 +13867,7 @@
           "civilDefenceShelter": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CivilDefenceShelter"
+              "$ref": "#/components/schemas/ChangeInformationCivilDefenceShelter"
             },
             "nullable": true
           },
@@ -13855,7 +14075,7 @@
           "civilDefenceShelter": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CivilDefenceShelter"
+              "$ref": "#/components/schemas/ChangeInformationCivilDefenceShelter"
             },
             "nullable": true
           },
@@ -17750,9 +17970,27 @@
             "type": "string",
             "format": "uuid"
           },
+          "justificationType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji/code/01",
+              "http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji/code/11",
+              "http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji/code/12",
+              "http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji/code/13",
+              "http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji/code/14",
+              "http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji/code/15",
+              "http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji/code/02",
+              "http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji/code/21",
+              "http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji/code/22"
+            ],
+            "type": "string"
+          },
           "explanation": {
             "type": "string",
             "nullable": true
+          },
+          "exceedingAmount": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false,
@@ -18069,6 +18307,23 @@
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
             "nullable": true
           },
+          "chargingPoint": {
+            "required": [
+              "chargingPointKey",
+              "preCabling",
+              "chargingPointCount",
+              "otherCablingRoutes",
+              "bikespaceCount",
+              "conduit"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChargingPoint"
+              }
+            ],
+            "description": "Latauspiste",
+            "nullable": true
+          },
           "structureSection": {
             "type": "array",
             "items": {
@@ -18265,6 +18520,23 @@
               }
             ],
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "chargingPoint": {
+            "required": [
+              "chargingPointKey",
+              "preCabling",
+              "chargingPointCount",
+              "otherCablingRoutes",
+              "bikespaceCount",
+              "conduit"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChargingPoint"
+              }
+            ],
+            "description": "Latauspiste",
             "nullable": true
           },
           "structureSection": {
@@ -18879,7 +19151,8 @@
               "ryhti.building.nd-persons.read": "Oikeus lukea karkeutettua rakennustietoa, joka sisältää myös turvakiellollisten toimijoiden henkilötiedot.",
               "ryhti.building.all.read": "Oikeus lukea kaikkea rakennustietoa.",
               "ryhti.building.write": "Oikeus kirjoittaa kaikkea rakennustietoa.",
-              "ryhti.building.data-quality.read": "Oikeus lukea datan laadunvalvonnan tietoja."
+              "ryhti.building.data-quality.read": "Oikeus lukea datan laadunvalvonnan tietoja.",
+              "ryhti.building.epbd.write": "Oikeus päivittää EPBD tietoja."
             }
           }
         }
