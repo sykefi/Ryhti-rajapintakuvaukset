@@ -7385,6 +7385,20 @@
               "$ref": "#/components/schemas/DemolitionMaterialAndConstructionWasteReport"
             },
             "nullable": true
+          },
+          "internalNetwork": {
+            "required": [
+              "internalNetworkKey",
+              "antennaNetwork",
+              "genericOpticalCabling",
+              "genericPairCabling"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InternalNetwork"
+              }
+            ],
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -7402,11 +7416,30 @@
             "nullable": true
           },
           "sewerageMethodType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/jatevesienkasittely/code/01",
+              "http://uri.suomi.fi/codelist/rytj/jatevesienkasittely/code/02",
+              "http://uri.suomi.fi/codelist/rytj/jatevesienkasittely/code/03",
+              "http://uri.suomi.fi/codelist/rytj/jatevesienkasittely/code/04",
+              "http://uri.suomi.fi/codelist/rytj/jatevesienkasittely/code/05",
+              "http://uri.suomi.fi/codelist/rytj/jatevesienkasittely/code/06",
+              "http://uri.suomi.fi/codelist/rytj/jatevesienkasittely/code/99"
+            ],
             "type": "string",
             "description": "Jätevesien käsittelyn laji. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/jatevesienkasittely",
             "nullable": true
           },
           "householdWaterType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/talousvesi/code/01",
+              "http://uri.suomi.fi/codelist/rytj/talousvesi/code/02",
+              "http://uri.suomi.fi/codelist/rytj/talousvesi/code/0201",
+              "http://uri.suomi.fi/codelist/rytj/talousvesi/code/0202",
+              "http://uri.suomi.fi/codelist/rytj/talousvesi/code/0203",
+              "http://uri.suomi.fi/codelist/rytj/talousvesi/code/0204",
+              "http://uri.suomi.fi/codelist/rytj/talousvesi/code/03",
+              "http://uri.suomi.fi/codelist/rytj/talousvesi/code/04"
+            ],
             "type": "string",
             "description": "Talousveden laji. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/talousvesi",
             "nullable": true
@@ -8903,6 +8936,20 @@
               "$ref": "#/components/schemas/DemolitionMaterialAndConstructionWasteReport"
             },
             "nullable": true
+          },
+          "internalNetwork": {
+            "required": [
+              "internalNetworkKey",
+              "antennaNetwork",
+              "genericOpticalCabling",
+              "genericPairCabling"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InternalNetwork"
+              }
+            ],
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8973,6 +9020,10 @@
               "$ref": "#/components/schemas/CivilDefenceShelterOtherBuildings"
             },
             "nullable": true
+          },
+          "shelterArea": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false,
@@ -9722,6 +9773,10 @@
               "$ref": "#/components/schemas/CivilDefenceShelterOtherBuildings"
             },
             "nullable": true
+          },
+          "shelterArea": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false,
@@ -10505,6 +10560,14 @@
           },
           "message": {
             "type": "string",
+            "nullable": true
+          },
+          "localizedMessage": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LocalizedMessage"
+              }
+            ],
             "nullable": true
           },
           "instance": {
@@ -11938,6 +12001,10 @@
           "loadCapacity": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "fireFighterElevator": {
+            "type": "boolean",
             "nullable": true
           }
         },
@@ -13897,6 +13964,20 @@
             "items": {
               "$ref": "#/components/schemas/DemolitionMaterialAndConstructionWasteReport"
             }
+          },
+          "internalNetwork": {
+            "required": [
+              "internalNetworkKey",
+              "antennaNetwork",
+              "genericOpticalCabling",
+              "genericPairCabling"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InternalNetwork"
+              }
+            ],
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -14105,6 +14186,20 @@
             "items": {
               "$ref": "#/components/schemas/DemolitionMaterialAndConstructionWasteReportNoPersonData"
             },
+            "nullable": true
+          },
+          "internalNetwork": {
+            "required": [
+              "internalNetworkKey",
+              "antennaNetwork",
+              "genericOpticalCabling",
+              "genericPairCabling"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InternalNetwork"
+              }
+            ],
             "nullable": true
           }
         },
@@ -16573,6 +16668,35 @@
         "additionalProperties": false,
         "description": "Sisätilojen tiedot"
       },
+      "InternalNetwork": {
+        "required": [
+          "antennaNetwork",
+          "genericOpticalCabling",
+          "genericPairCabling",
+          "internalNetworkKey"
+        ],
+        "type": "object",
+        "properties": {
+          "internalNetworkKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "antennaNetwork": {
+            "type": "boolean"
+          },
+          "existingFiberOpticNetwork": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "genericOpticalCabling": {
+            "type": "boolean"
+          },
+          "genericPairCabling": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "LandscapeWorkPermitApplication": {
         "required": [
           "applicationContent",
@@ -16972,6 +17096,24 @@
         },
         "additionalProperties": false,
         "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
+      },
+      "LocalizedMessage": {
+        "type": "object",
+        "properties": {
+          "fi": {
+            "type": "string",
+            "nullable": true
+          },
+          "sv": {
+            "type": "string",
+            "nullable": true
+          },
+          "en": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "LocationPermitObject": {
         "type": "object",

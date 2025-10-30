@@ -6761,6 +6761,14 @@
             ],
             "description": "Päätöksentekijä",
             "nullable": true
+          },
+          "bindingPlotDivisionCancellations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BindingPlotDivisionCancellationInfo"
+            },
+            "description": "Kumoutumistieto",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -7453,6 +7461,14 @@
           },
           "message": {
             "type": "string",
+            "nullable": true
+          },
+          "localizedMessage": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LocalizedMessage"
+              }
+            ],
             "nullable": true
           },
           "instance": {
@@ -9052,6 +9068,24 @@
         },
         "additionalProperties": false,
         "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
+      },
+      "LocalizedMessage": {
+        "type": "object",
+        "properties": {
+          "fi": {
+            "type": "string",
+            "nullable": true
+          },
+          "sv": {
+            "type": "string",
+            "nullable": true
+          },
+          "en": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "LocalizedTextValue": {
         "required": [
