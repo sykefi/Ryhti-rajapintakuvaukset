@@ -7289,6 +7289,20 @@
             "description": "",
             "nullable": true
           },
+          "entranceInOtherBuildingSection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntranceInOtherBuildingSection"
+            },
+            "nullable": true
+          },
+          "elevatorInOtherBuildingSection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ElevatorInOtherBuildingSection"
+            },
+            "nullable": true
+          },
           "apartment": {
             "type": "array",
             "items": {
@@ -8847,6 +8861,20 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Elevator"
+            },
+            "nullable": true
+          },
+          "entranceInOtherBuildingSection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntranceInOtherBuildingSection"
+            },
+            "nullable": true
+          },
+          "elevatorInOtherBuildingSection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ElevatorInOtherBuildingSection"
             },
             "nullable": true
           },
@@ -12011,6 +12039,28 @@
         "additionalProperties": false,
         "description": "Hissi"
       },
+      "ElevatorInOtherBuildingSection": {
+        "required": [
+          "elevatorInOtherBuildingSectionKey",
+          "otherElevatorBuildingIdentifier",
+          "otherElevatorKey"
+        ],
+        "type": "object",
+        "properties": {
+          "elevatorInOtherBuildingSectionKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "otherElevatorKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "otherElevatorBuildingIdentifier": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "EnergyData": {
         "required": [
           "energyDataKey"
@@ -12373,6 +12423,32 @@
         },
         "additionalProperties": false,
         "description": "Sisäänkäynti"
+      },
+      "EntranceInOtherBuildingSection": {
+        "required": [
+          "entranceInOtherBuildingSectionKey",
+          "isPrimary",
+          "otherEntranceBuildingIdentifier",
+          "otherEntranceKey"
+        ],
+        "type": "object",
+        "properties": {
+          "entranceInOtherBuildingSectionKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "otherEntranceKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "isPrimary": {
+            "type": "boolean"
+          },
+          "otherEntranceBuildingIdentifier": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
       },
       "Equipment": {
         "required": [
@@ -13879,6 +13955,20 @@
             },
             "nullable": true
           },
+          "entranceInOtherBuildingSection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntranceInOtherBuildingSection"
+            },
+            "nullable": true
+          },
+          "elevatorInOtherBuildingSection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ElevatorInOtherBuildingSection"
+            },
+            "nullable": true
+          },
           "apartment": {
             "type": "array",
             "items": {
@@ -14084,6 +14174,20 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Entrance"
+            },
+            "nullable": true
+          },
+          "entranceInOtherBuildingSection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntranceInOtherBuildingSection"
+            },
+            "nullable": true
+          },
+          "elevatorInOtherBuildingSection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ElevatorInOtherBuildingSection"
             },
             "nullable": true
           },

@@ -8560,6 +8560,14 @@
               "$ref": "#/components/schemas/LandUseRestrictionMatterPhase"
             },
             "description": "Vaiheet"
+          },
+          "originalAdministrativeAreaIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Alkuperäiset hallinnollisen alueen tunnukset",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8738,6 +8746,7 @@
           "administrativeAreaIdentifiers",
           "landUseRestrictionType",
           "name",
+          "originalAdministrativeAreaIdentifiers",
           "permanentLandUseRestrictionIdentifier",
           "phases",
           "timeOfInitiation"
@@ -8834,6 +8843,13 @@
             "type": "string",
             "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/landuserestrictionmatter/{identifier})",
             "readOnly": true
+          },
+          "originalAdministrativeAreaIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Alkuperäiset hallinnollisen alueen tunnukset"
           },
           "phases": {
             "type": "array",
@@ -9923,6 +9939,9 @@
           },
           "coordinateSystem": {
             "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rakrek/ETRS89/code/EPSG3067"
+            ],
             "type": "string"
           }
         },
@@ -12340,7 +12359,7 @@
           },
           "projectName": {
             "type": "string",
-            "description": "Kaavahankkeen pysyvä nimi. Nimi on uniikki eikä sitä voi vaihtaa."
+            "description": "Hankkeen pysyvä nimi. Nimi on uniikki eikä sitä voi vaihtaa."
           }
         },
         "additionalProperties": false,
