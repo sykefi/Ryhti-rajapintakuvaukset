@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
     "title": "Ryhti API",
     "description": "<h2>Rakennetun ympäristön alueidenkäytön muutostietopalveluiden OpenAPI - kuvaukset</h2>",

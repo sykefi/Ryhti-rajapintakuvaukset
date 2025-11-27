@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
     "title": "Ryhti API",
     "description": "<h2>Rakennetun ympäristön muutostietorajapinta</h2>\r\n\r\nLisää tietoa rakennetun ympäristön tietojärjestelmästä: <a href=\"https://ryhti.syke.fi/\">https://ryhti.syke.fi/</a>\r\n<br/>",
@@ -8088,9 +8088,6 @@
           "permanentPermitIdentifier": {
             "type": "string"
           },
-          "recordNumber": {
-            "type": "string"
-          },
           "buildingSite": {
             "required": [
               "buildingSiteKey",
@@ -10927,9 +10924,6 @@
           "permanentPermitIdentifier": {
             "type": "string"
           },
-          "recordNumber": {
-            "type": "string"
-          },
           "buildingSite": {
             "required": [
               "buildingSiteKey",
@@ -12184,7 +12178,7 @@
           "permanentStructureIdentifierReference": {
             "type": "string"
           },
-          "buildingSectionReference": {
+          "structureSectionReference": {
             "type": "array",
             "items": {
               "type": "string",
@@ -15903,7 +15897,7 @@
           "permanentStructureIdentifierReference": {
             "type": "string"
           },
-          "buildingSectionReference": {
+          "structureSectionReference": {
             "type": "array",
             "items": {
               "type": "string",
@@ -17524,7 +17518,7 @@
           "permanentStructureIdentifierReference": {
             "type": "string"
           },
-          "buildingSectionReference": {
+          "structureSectionReference": {
             "type": "array",
             "items": {
               "type": "string",

@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
     "title": "Ryhti API",
     "description": "<h2>Rakennetun ympäristön OpenApi kuvaukset </h2>\r\nEnsimmäisen vaiheen rakentamisen OpenApi rajapinnat kumppanitestaukseen.\r\n\r\n<b>HUOM!</b> Rajapintakuvaukset voivat vielä muuttua kumppanitestauksen ja kommenttien perusteella.\r\n\r\nLisää tietoa rakennetun ympäristön tietojärjestelmästä: <a href=\"https://ryhti.syke.fi/\">https://ryhti.syke.fi/</a>\r\n<br/>",
@@ -4149,27 +4149,30 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/GetPermanentBuildingIdentifierCommand"
+                    "$ref": "#/components/schemas/CreatePermanentBuildingIdentifierCommand"
                   }
-                ]
+                ],
+                "description": "Command for creating permanent building identifier."
               }
             },
             "text/json": {
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/GetPermanentBuildingIdentifierCommand"
+                    "$ref": "#/components/schemas/CreatePermanentBuildingIdentifierCommand"
                   }
-                ]
+                ],
+                "description": "Command for creating permanent building identifier."
               }
             },
             "application/*+json": {
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/GetPermanentBuildingIdentifierCommand"
+                    "$ref": "#/components/schemas/CreatePermanentBuildingIdentifierCommand"
                   }
-                ]
+                ],
+                "description": "Command for creating permanent building identifier."
               }
             }
           }
@@ -4272,27 +4275,30 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/GetPermanentApartmentIdentifierCommand"
+                    "$ref": "#/components/schemas/CreatePermanentApartmentIdentifierCommand"
                   }
-                ]
+                ],
+                "description": "Command for creating permanent apartment identifier."
               }
             },
             "text/json": {
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/GetPermanentApartmentIdentifierCommand"
+                    "$ref": "#/components/schemas/CreatePermanentApartmentIdentifierCommand"
                   }
-                ]
+                ],
+                "description": "Command for creating permanent apartment identifier."
               }
             },
             "application/*+json": {
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/GetPermanentApartmentIdentifierCommand"
+                    "$ref": "#/components/schemas/CreatePermanentApartmentIdentifierCommand"
                   }
-                ]
+                ],
+                "description": "Command for creating permanent apartment identifier."
               }
             }
           }
@@ -4395,27 +4401,30 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
+                    "$ref": "#/components/schemas/CreatePermanentPermitIdentifierCommand"
                   }
-                ]
+                ],
+                "description": "Command for creating permanent permit identifier."
               }
             },
             "text/json": {
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
+                    "$ref": "#/components/schemas/CreatePermanentPermitIdentifierCommand"
                   }
-                ]
+                ],
+                "description": "Command for creating permanent permit identifier."
               }
             },
             "application/*+json": {
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/GetPermanentPermitIdentifierCommand"
+                    "$ref": "#/components/schemas/CreatePermanentPermitIdentifierCommand"
                   }
-                ]
+                ],
+                "description": "Command for creating permanent permit identifier."
               }
             }
           }
@@ -4518,27 +4527,30 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/GetPermanentStructureIdentifierCommand"
+                    "$ref": "#/components/schemas/CreatePermanentStructureIdentifierCommand"
                   }
-                ]
+                ],
+                "description": "Command for creating permanent structure identifier."
               }
             },
             "text/json": {
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/GetPermanentStructureIdentifierCommand"
+                    "$ref": "#/components/schemas/CreatePermanentStructureIdentifierCommand"
                   }
-                ]
+                ],
+                "description": "Command for creating permanent structure identifier."
               }
             },
             "application/*+json": {
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/GetPermanentStructureIdentifierCommand"
+                    "$ref": "#/components/schemas/CreatePermanentStructureIdentifierCommand"
                   }
-                ]
+                ],
+                "description": "Command for creating permanent structure identifier."
               }
             }
           }
@@ -10579,6 +10591,456 @@
         "additionalProperties": false,
         "description": "Jäähdytystapa"
       },
+      "CreatePermanentApartmentIdentifierCommand": {
+        "type": "object",
+        "properties": {
+          "municipalityNumber": {
+            "type": "string"
+          },
+          "permanentPermitId": {
+            "type": "string",
+            "nullable": true
+          },
+          "dvvCaseIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "constructionAction": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/02",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/03",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/04",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/05",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/06",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/07",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/08",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/09"
+            ],
+            "type": "string",
+            "nullable": true
+          },
+          "permanentBuildingId": {
+            "type": "string"
+          },
+          "addressNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "changeType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/01",
+              "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/02",
+              "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/03"
+            ],
+            "type": "string",
+            "nullable": true
+          },
+          "apartmentType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+              "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/02"
+            ],
+            "type": "string"
+          },
+          "apartmentIdentifierLetterSuffix": {
+            "type": "string",
+            "nullable": true
+          },
+          "apartmentNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "apartmentSubdivisionLetter": {
+            "type": "string",
+            "nullable": true
+          },
+          "numberOfRooms": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "kitchenType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/01",
+              "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/02",
+              "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/03",
+              "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/04"
+            ],
+            "type": "string",
+            "nullable": true
+          },
+          "floorArea": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "apartmentEquipment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApartmentEquipment"
+            },
+            "nullable": true
+          },
+          "buildingSectionKey": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "apartmentKey": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "isWaterCloset": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "apartmentStorey": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Command for creating permanent apartment identifier."
+      },
+      "CreatePermanentBuildingIdentifierCommand": {
+        "type": "object",
+        "properties": {
+          "municipalityNumber": {
+            "type": "string"
+          },
+          "propertyIdentifier": {
+            "type": "string"
+          },
+          "pointLocation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RyhtiGeometry"
+              }
+            ]
+          },
+          "typeOfPurpose": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/01",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/011",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0110",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0111",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0112",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/012",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0120",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0121",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/013",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0130",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/014",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0140",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/02",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/021",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0210",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0211",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/03",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/031",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0310",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0311",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0319",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/032",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0320",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0321",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0322",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0329",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/033",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0330",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/04",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/040",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0400",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/05",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/051",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0510",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0511",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0512",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0513",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0514",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/052",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0520",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0521",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/059",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0590",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/06",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/061",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0610",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0611",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0612",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0613",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0614",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0615",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0619",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/062",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0620",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0621",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/063",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0630",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/07",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/071",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0710",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0711",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0712",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0713",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0714",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/072",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0720",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/073",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0730",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0731",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0739",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/074",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0740",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0741",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0742",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0743",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0744",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0749",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/079",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0790",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/08",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/081",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0810",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/082",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0820",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/083",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0830",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/084",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0840",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0841",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/089",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0890",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0891",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/09",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/091",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0910",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0911",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0912",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0919",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/092",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0920",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/093",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0930",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0939",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/10",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/101",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1010",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1011",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/109",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1090",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1091",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/11",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/111",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1110",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/112",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1120",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/113",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1130",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/12",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/121",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1210",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1211",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1212",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1213",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1214",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1215",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/13",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/131",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1310",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1311",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1319",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/14",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/141",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1410",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1411",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1412",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1413",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1414",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1415",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1416",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1419",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/149",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1490",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1491",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1492",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1493",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1499",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/19",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/191",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1910",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1911",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1912",
+              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1919"
+            ],
+            "type": "string"
+          },
+          "dvvCaseIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "constructionAction": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/02",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/03",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/04",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/05",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/06",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/07",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/08",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/09"
+            ],
+            "type": "string",
+            "nullable": true
+          },
+          "permanentPermitIdentifier": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Command for creating permanent building identifier."
+      },
+      "CreatePermanentPermitIdentifierCommand": {
+        "type": "object",
+        "properties": {
+          "municipalityNumber": {
+            "type": "string"
+          },
+          "municipalityPermitId": {
+            "type": "string"
+          },
+          "permitType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/RakennusvalvontaAsianTyyppi/code/01",
+              "http://uri.suomi.fi/codelist/rytj/RakennusvalvontaAsianTyyppi/code/02",
+              "http://uri.suomi.fi/codelist/rytj/RakennusvalvontaAsianTyyppi/code/03",
+              "http://uri.suomi.fi/codelist/rytj/RakennusvalvontaAsianTyyppi/code/04"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Command for creating permanent permit identifier."
+      },
+      "CreatePermanentStructureIdentifierCommand": {
+        "type": "object",
+        "properties": {
+          "municipalityNumber": {
+            "type": "string"
+          },
+          "propertyIdentifier": {
+            "type": "string"
+          },
+          "pointLocation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RyhtiGeometry"
+              }
+            ]
+          },
+          "purposeType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/001",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/002",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/003",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/004",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/005",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/006",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/007",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/008",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/009",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/010",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/011",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/012",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/013",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/014",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/015",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/016",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/017",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/018",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/019",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/020",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/021",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/022",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/023",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/024",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/025",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/026",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/027",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/028",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/029",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/030",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/031",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/032",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/033",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/034",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/035",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/036",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/037",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/038",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/039",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/040",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/041",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/042",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/043",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/044",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/045",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/046",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/047",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/048",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/049",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/050",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/051",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/052",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/053",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/054",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/055",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/056",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/057",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/058",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/059",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/060",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/061",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/062",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/063",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/064",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/065",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/066",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/067",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/068",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/069",
+              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/070"
+            ],
+            "type": "string"
+          },
+          "constructionAction": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/02",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/03",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/04",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/05",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/06",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/07",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/08",
+              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/09"
+            ],
+            "type": "string",
+            "nullable": true
+          },
+          "permanentPermitIdentifier": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Command for creating permanent structure identifier."
+      },
       "CustomValidationError": {
         "type": "object",
         "properties": {
@@ -11701,9 +12163,6 @@
           "permanentPermitIdentifier": {
             "type": "string"
           },
-          "recordNumber": {
-            "type": "string"
-          },
           "buildingSite": {
             "required": [
               "buildingSiteKey",
@@ -11826,9 +12285,6 @@
             "type": "string"
           },
           "permanentPermitIdentifier": {
-            "type": "string"
-          },
-          "recordNumber": {
             "type": "string"
           },
           "buildingSite": {
@@ -13183,7 +13639,7 @@
           "permanentStructureIdentifierReference": {
             "type": "string"
           },
-          "buildingSectionReference": {
+          "structureSectionReference": {
             "type": "array",
             "items": {
               "type": "string",
@@ -15851,452 +16307,6 @@
         },
         "additionalProperties": false
       },
-      "GetPermanentApartmentIdentifierCommand": {
-        "type": "object",
-        "properties": {
-          "municipalityNumber": {
-            "type": "string"
-          },
-          "permanentPermitId": {
-            "type": "string",
-            "nullable": true
-          },
-          "dvvCaseIdentifier": {
-            "type": "string",
-            "nullable": true
-          },
-          "constructionAction": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/02",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/03",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/04",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/05",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/06",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/07",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/08",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/09"
-            ],
-            "type": "string",
-            "nullable": true
-          },
-          "permanentBuildingId": {
-            "type": "string"
-          },
-          "addressNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "changeType": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/01",
-              "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/02",
-              "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/03"
-            ],
-            "type": "string",
-            "nullable": true
-          },
-          "apartmentType": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
-              "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/02"
-            ],
-            "type": "string"
-          },
-          "apartmentIdentifierLetterSuffix": {
-            "type": "string",
-            "nullable": true
-          },
-          "apartmentNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "apartmentSubdivisionLetter": {
-            "type": "string",
-            "nullable": true
-          },
-          "numberOfRooms": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "kitchenType": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/01",
-              "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/02",
-              "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/03",
-              "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/04"
-            ],
-            "type": "string",
-            "nullable": true
-          },
-          "floorArea": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "apartmentEquipment": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ApartmentEquipment"
-            },
-            "nullable": true
-          },
-          "buildingSectionKey": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "apartmentKey": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "isWaterCloset": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "apartmentStorey": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetPermanentBuildingIdentifierCommand": {
-        "type": "object",
-        "properties": {
-          "municipalityNumber": {
-            "type": "string"
-          },
-          "propertyIdentifier": {
-            "type": "string"
-          },
-          "pointLocation": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/RyhtiGeometry"
-              }
-            ]
-          },
-          "typeOfPurpose": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/01",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/011",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0110",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0111",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0112",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/012",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0120",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0121",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/013",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0130",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/014",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0140",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/02",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/021",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0210",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0211",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/03",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/031",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0310",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0311",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0319",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/032",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0320",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0321",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0322",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0329",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/033",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0330",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/04",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/040",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0400",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/05",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/051",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0510",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0511",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0512",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0513",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0514",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/052",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0520",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0521",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/059",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0590",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/06",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/061",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0610",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0611",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0612",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0613",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0614",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0615",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0619",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/062",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0620",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0621",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/063",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0630",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/07",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/071",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0710",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0711",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0712",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0713",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0714",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/072",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0720",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/073",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0730",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0731",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0739",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/074",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0740",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0741",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0742",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0743",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0744",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0749",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/079",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0790",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/08",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/081",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0810",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/082",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0820",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/083",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0830",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/084",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0840",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0841",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/089",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0890",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0891",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/09",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/091",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0910",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0911",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0912",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0919",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/092",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0920",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/093",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0930",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0939",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/10",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/101",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1010",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1011",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/109",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1090",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1091",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/11",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/111",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1110",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/112",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1120",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/113",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1130",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/12",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/121",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1210",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1211",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1212",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1213",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1214",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1215",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/13",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/131",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1310",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1311",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1319",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/14",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/141",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1410",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1411",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1412",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1413",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1414",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1415",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1416",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1419",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/149",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1490",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1491",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1492",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1493",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1499",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/19",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/191",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1910",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1911",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1912",
-              "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1919"
-            ],
-            "type": "string"
-          },
-          "dvvCaseIdentifier": {
-            "type": "string",
-            "nullable": true
-          },
-          "constructionAction": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/02",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/03",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/04",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/05",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/06",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/07",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/08",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/09"
-            ],
-            "type": "string",
-            "nullable": true
-          },
-          "permanentPermitIdentifier": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetPermanentPermitIdentifierCommand": {
-        "type": "object",
-        "properties": {
-          "municipalityNumber": {
-            "type": "string"
-          },
-          "municipalityPermitId": {
-            "type": "string"
-          },
-          "permitType": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/RakennusvalvontaAsianTyyppi/code/01",
-              "http://uri.suomi.fi/codelist/rytj/RakennusvalvontaAsianTyyppi/code/02",
-              "http://uri.suomi.fi/codelist/rytj/RakennusvalvontaAsianTyyppi/code/03",
-              "http://uri.suomi.fi/codelist/rytj/RakennusvalvontaAsianTyyppi/code/04"
-            ],
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetPermanentStructureIdentifierCommand": {
-        "type": "object",
-        "properties": {
-          "municipalityNumber": {
-            "type": "string"
-          },
-          "propertyIdentifier": {
-            "type": "string"
-          },
-          "pointLocation": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/RyhtiGeometry"
-              }
-            ]
-          },
-          "purposeType": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/001",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/002",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/003",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/004",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/005",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/006",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/007",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/008",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/009",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/010",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/011",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/012",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/013",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/014",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/015",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/016",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/017",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/018",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/019",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/020",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/021",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/022",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/023",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/024",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/025",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/026",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/027",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/028",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/029",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/030",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/031",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/032",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/033",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/034",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/035",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/036",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/037",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/038",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/039",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/040",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/041",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/042",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/043",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/044",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/045",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/046",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/047",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/048",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/049",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/050",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/051",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/052",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/053",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/054",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/055",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/056",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/057",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/058",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/059",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/060",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/061",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/062",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/063",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/064",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/065",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/066",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/067",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/068",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/069",
-              "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/070"
-            ],
-            "type": "string"
-          },
-          "constructionAction": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/02",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/03",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/04",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/05",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/06",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/07",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/08",
-              "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/09"
-            ],
-            "type": "string",
-            "nullable": true
-          },
-          "permanentPermitIdentifier": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "GuidingStatute": {
         "required": [
           "guidingStatuteKey"
@@ -16739,7 +16749,7 @@
           "permanentStructureIdentifierReference": {
             "type": "string"
           },
-          "buildingSectionReference": {
+          "structureSectionReference": {
             "type": "array",
             "items": {
               "type": "string",
@@ -17994,7 +18004,7 @@
           "permanentStructureIdentifierReference": {
             "type": "string"
           },
-          "buildingSectionReference": {
+          "structureSectionReference": {
             "type": "array",
             "items": {
               "type": "string",

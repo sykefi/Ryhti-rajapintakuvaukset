@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
     "title": "Ryhti API",
     "description": "<h2>Rakennetun ympäristön alueidenkäytön OpenApi kuvaukset</h2>\r\nEnsimmäisen vaiheen kaavoituksen rajapinnat kumppanitestaukseen.\r\n\r\n<b>HUOM!</b> Rajapintakuvaukset voivat vielä muuttua kumppanitestauksen ja kommenttien perusteella.\r\n\r\nKaavoituksen tietomallien sanalliset kuvaukset löytyvät osoitteesta\r\n<a href=\"https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-kaavoitus/kaavatietomallin-tietomaaritykset/\">https://ryhti.syke.fi/alueidenkaytto/tietomallimuotoinen-kaavoitus/kaavatietomallin-tietomaaritykset/</a>\r\n\r\nLisää tietoa rakennetun ympäristön tietojärjestelmästä: <a href=\"https://ryhti.syke.fi/\">https://ryhti.syke.fi/</a>\r\n<br/>",
