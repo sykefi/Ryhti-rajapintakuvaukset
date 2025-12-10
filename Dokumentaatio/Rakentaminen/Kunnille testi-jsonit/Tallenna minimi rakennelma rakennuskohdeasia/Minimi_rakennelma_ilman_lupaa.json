@@ -1,0 +1,96 @@
+{
+    "buildingObjectIssueKey": "d640ed02-cb70-4030-96f5-e3bc57bb3c4f",
+    "municipalityNumber": "837",
+    "constructionAction": {
+        "constructionActionKey": "220f9a64-da2a-408a-8d18-f981eb6fa2c1",
+        "constructionActionType": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
+        "descriptionOfAction": {
+            "fin": "string"
+        },
+        "finishedStructure": {
+            "structureKey": "45bb23a5-8e38-4789-91f4-42a2112ffd71",
+            "permanentStructureIdentifier": "4000011308",
+            "temporary": false,
+            "structureSection": [
+                {
+                    "structureSectionKey": "abcc8927-915b-402f-87b6-78c813156de4",
+                    "lifeCycleState": "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/03",
+                    "completionDate": "2023-04-03",
+                    "materialData": {
+                        "constructionMethod": "http://uri.suomi.fi/codelist/vtj/Rake_runkotapa/code/01",
+                        "buildingMaterialOfLoadBearingStructures": [
+                            {
+                                "buildingMaterialOfLoadBearingStructuresKey": "96c0a280-a7a0-4d2d-afdb-075e998beef5",
+                                "isPrimary": true,
+                                "buildingMaterialOfLoadBearingStructuresType": "http://uri.suomi.fi/codelist/rytj/kantavanrakenteenrakennusaine/code/04"
+                            }
+                        ]
+                    },
+                    "structurePurpose": "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/007",
+                    "partitionReason": "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/2"
+                }
+            ],
+            "structureMainPurpose": "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/007",
+            "buildingObjectType": "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/2",
+            "location": {
+                "buildingObjectLocationDataKey": "01a6d78a-7740-4380-8d41-2ec164b28477",
+                "votingDistrictNumber": "001",
+                "pointLocation": {
+                    "srid": "3067",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            337060,
+                            6839072
+                        ]
+                    }
+                }
+            },
+            "administrativeLocationUnit": {
+                "administrativeLocationUnitKey": "1c26300b-3cd0-4db7-8e86-6634a43fff9e",
+                "propertyIdentifier": "83770500010146"
+            },
+            "buildingObjectOwner": [
+                {
+                    "buildingObjectOwnerKey": "4c806648-4274-4139-8181-0280a9999811",
+                    "ownerOperator": {
+                        "otherId": "muutunnus",
+                        "isPerson": true,
+                        "firstName": "Name",
+                        "familyName": "FamilyName"
+                    },
+                    "ownerType": "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/01"
+                }
+            ],
+            "address": [
+                {
+                    "addressKey": "846d4e43-8a79-4c44-a866-6de1ce35697c",
+                    "addressName": {
+                        "fin": "Koulutie"
+                    },
+                    "postalCode": "33100",
+                    "addressNumber": 1
+                }
+            ]
+        },
+        "completionDate": "2023-04-03",
+        "statusOfConstructionAction": "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/5",
+        "businessConstruction": true
+    },
+    "buildingSite": {
+        "buildingSiteKey": "bc7bf7d0-98c4-4eb9-9ec9-b4797b2911f4",
+        "stormWaterTreatmentType": "http://uri.suomi.fi/codelist/rytj/hulevedenkasittely/code/01",
+        "statusOfPlan": "http://uri.suomi.fi/codelist/vtj/Rake_kaava/code/01",
+        "buildingSiteAddress": [
+            {
+                "addressKey": "4f95c8c7-c72c-40db-8950-973c966241a8",
+                "addressName": {
+                    "fin": "Koulutie"
+                },
+                "postalCode": "42700",
+                "addressNumber": 1
+            }
+        ],
+        "tenure": "http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste/code/1"
+    }
+}
