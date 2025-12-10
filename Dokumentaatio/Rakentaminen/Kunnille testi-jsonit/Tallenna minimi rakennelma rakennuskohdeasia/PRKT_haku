@@ -1,0 +1,12 @@
+{
+  "municipalityNumber": "837",
+  "propertyIdentifier": "83770500010146",
+  "pointLocation": {
+    "srid": "3067",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [ 337060, 6839072 ]
+    }},
+  "purposeType": "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/007",
+  "constructionAction": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01"
+}
