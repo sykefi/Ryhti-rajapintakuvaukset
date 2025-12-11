@@ -1115,126 +1115,6 @@
         }
       }
     },
-    "/api/BindingPlotDivisionMatter/{permanentBindingPlotDivisionIdentifier}/planEffects": {
-      "post": {
-        "tags": [
-          "BindingPlotDivisionMatter"
-        ],
-        "summary": "Rajapinta kaavan vaikutusten luomiseen.",
-        "parameters": [
-          {
-            "name": "permanentBindingPlotDivisionIdentifier",
-            "in": "path",
-            "description": "Pysyvä yksilöivä tunnus sitovan tonttijaon asialle.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Kaavan vaikutukset.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PlanEffects"
-                  }
-                ],
-                "description": "KaavanVaikutukset"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PlanEffects"
-                  }
-                ],
-                "description": "KaavanVaikutukset"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PlanEffects"
-                  }
-                ],
-                "description": "KaavanVaikutukset"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "Kaavan vaikutukset tallennettu, paluuarvona uri tallennettuun resurssiin.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Unprocessable Content",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/BuildingOrdinance/PermanentBuildingOrdinanceIdentifier": {
       "post": {
         "tags": [
@@ -9870,41 +9750,6 @@
         "additionalProperties": false,
         "description": "Kaavapäätös"
       },
-      "PlanEffects": {
-        "required": [
-          "bindingPlotDivisionUri",
-          "relatedPlotDivisionPlots",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Kaavan vaikutuksen laji. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/kaavanVaikutuksenLaji\">http://uri.suomi.fi/codelist/rytj/kaavanVaikutuksenLaji</a>"
-          },
-          "bindingPlotDivisionUri": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/bindingplotdivision/{bindingplotdivisionkey}) sitovaan tonttijakoon."
-          },
-          "fullyIncluded": {
-            "type": "boolean",
-            "description": "Jos arvo on true, kaavan vaikutus kohdistuu sitovaan tonttijakoon kokonaisuudessaan, muuten tonttijakotontti kohtaisesti.",
-            "nullable": true
-          },
-          "relatedPlotDivisionPlots": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RelatedPlotDivisionPlot"
-            },
-            "description": "Tonttijakotontin yksilöivätunnus, jota vaikutus koskee."
-          }
-        },
-        "additionalProperties": false,
-        "description": "KaavanVaikutukset"
-      },
       "PlanMap": {
         "required": [
           "coordinateSystem",
@@ -10769,6 +10614,7 @@
             "items": {
               "type": "string"
             },
+            "description": "Liittyvä jo tallennetun kaavakohten Uri",
             "nullable": true
           }
         },
@@ -12235,46 +12081,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "RelatedPlotDivisionPlot": {
-        "required": [
-          "referenceUri",
-          "relatedPlans"
-        ],
-        "type": "object",
-        "properties": {
-          "referenceUri": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/plotdivisionplot/{plotdivisionplotkey}) sitovassa tonttijaossa osoitettuun tonttijakotonttiin."
-          },
-          "relatedPlans": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RelatedPlan"
-            },
-            "description": "Tonttijakotontin alueelle kohdistuvan vaikuttavan kaavan pysyvä kaavatunnus"
-          },
-          "areaReservationRegulationUris": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{planregulationkey}) kaavassa osoitettuun aluevarauksen kaavamääräykseen.",
-            "nullable": true
-          },
-          "volumeOfBuildingRegulationUris": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{planregulationkey}) kaavassa osoitettuun rakentamisen määrän kaavamääräykseen.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "LiittyväTonttijakotontti"
       },
       "RelatedRegulationGroupPlanObjectRelation": {
         "type": "object",

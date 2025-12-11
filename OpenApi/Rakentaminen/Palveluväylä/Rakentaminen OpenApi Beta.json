@@ -6579,7 +6579,8 @@
               "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/4"
             ],
             "type": "string",
-            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>"
+            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>",
+            "nullable": true
           },
           "decisionDate": {
             "type": "string",
@@ -6745,7 +6746,8 @@
               "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/4"
             ],
             "type": "string",
-            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>"
+            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>",
+            "nullable": true
           },
           "decisionDate": {
             "type": "string",
@@ -9494,7 +9496,8 @@
               "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/4"
             ],
             "type": "string",
-            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>"
+            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>",
+            "nullable": true
           },
           "decisionDate": {
             "type": "string",
@@ -9623,7 +9626,8 @@
               "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/4"
             ],
             "type": "string",
-            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>"
+            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>",
+            "nullable": true
           },
           "decisionDate": {
             "type": "string",
@@ -11263,7 +11267,8 @@
               "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/4"
             ],
             "type": "string",
-            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>"
+            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>",
+            "nullable": true
           },
           "decisionDate": {
             "type": "string",
@@ -11884,7 +11889,8 @@
               "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/4"
             ],
             "type": "string",
-            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>"
+            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>",
+            "nullable": true
           },
           "decisionDate": {
             "type": "string",
@@ -12031,7 +12037,8 @@
               "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/4"
             ],
             "type": "string",
-            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>"
+            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>",
+            "nullable": true
           },
           "decisionDate": {
             "type": "string",
@@ -12985,7 +12992,8 @@
               "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/4"
             ],
             "type": "string",
-            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>"
+            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>",
+            "nullable": true
           },
           "decisionDate": {
             "type": "string",
@@ -13114,7 +13122,8 @@
               "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/4"
             ],
             "type": "string",
-            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>"
+            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>",
+            "nullable": true
           },
           "decisionDate": {
             "type": "string",
@@ -16909,7 +16918,8 @@
               "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/4"
             ],
             "type": "string",
-            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>"
+            "description": "Päätöksen elinkaaren tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila</a>",
+            "nullable": true
           },
           "decisionDate": {
             "type": "string",
