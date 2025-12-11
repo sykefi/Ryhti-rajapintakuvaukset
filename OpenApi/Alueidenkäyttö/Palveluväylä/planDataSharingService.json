@@ -1092,11 +1092,36 @@
             "format": "double",
             "nullable": true
           },
-          "planRegulationGroups": {
+          "directRegulationGroups": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PlanInformationForPropertyPlanRegulationGroup"
             },
+            "description": "Regulations that are directly from this plan object\r\nOnly regulations effecting calculations.",
+            "nullable": true
+          },
+          "regulationGroupsViaPlanObjects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanInformationForPropertyPlanRegulationGroup"
+            },
+            "description": "Regulations that are from related plan objects inside the same plan (so linked with RelatedPlanObjectKeys attribute)\r\nOnly regulations effecting calculations.",
+            "nullable": true
+          },
+          "regulationGroupsFromPhasedPlans": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanInformationForPropertyPlanRegulationGroup"
+            },
+            "description": "Regulations that are added to the plan object via phased plan (so linked with RelatedPlanObjectRegulationGroupRelations attribute in the phased plan).\r\nOnly regulations effecting calculations.",
+            "nullable": true
+          },
+          "regulationGroupsFromPhasedPlanViaPlanObjects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanInformationForPropertyPlanRegulationGroup"
+            },
+            "description": "Regulations that are added from phased plan via related plan object (so linked with RelatedPlanObjectUris in the phased plan).\r\nOnly regulations effecting calculations.",
             "nullable": true
           }
         },
