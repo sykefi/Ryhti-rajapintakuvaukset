@@ -27,8 +27,8 @@
                         ]
                     },
                     "exteriorData": {
-                            "flightObstacle": false,
-                            "relationToGroundLevel": "http://uri.suomi.fi/codelist/rytj/Suhde_pintaan/code/01"
+                        "flightObstacle": false,
+                        "relationToGroundLevel": "http://uri.suomi.fi/codelist/rytj/Suhde_pintaan/code/01"
                     },
                     "structurePurpose": "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/007",
                     "partitionReason": "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/2"
@@ -99,3 +99,4 @@
     }
 
 }
+
