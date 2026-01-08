@@ -879,17 +879,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/OperatorChangeInfoCollectionDto"
+                  "$ref": "#/components/schemas/ChangeInformationOperatorChangeInfoCollectionDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OperatorChangeInfoCollectionDto"
+                  "$ref": "#/components/schemas/ChangeInformationOperatorChangeInfoCollectionDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OperatorChangeInfoCollectionDto"
+                  "$ref": "#/components/schemas/ChangeInformationOperatorChangeInfoCollectionDto"
                 }
               }
             }
@@ -6898,15 +6898,11 @@
             "format": "uuid"
           },
           "ownerOperator": {
-            "required": [
-              "isPerson"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/Operator"
+                "$ref": "#/components/schemas/ChangeInformationOperator"
               }
-            ],
-            "description": "Toimija"
+            ]
           },
           "ownerSource": {
             "enum": [
@@ -6930,15 +6926,11 @@
             "nullable": true
           },
           "ownerContactOperator": {
-            "required": [
-              "isPerson"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/Operator"
+                "$ref": "#/components/schemas/ChangeInformationOperator"
               }
             ],
-            "description": "Toimija",
             "nullable": true
           },
           "ownerType": {
@@ -8556,6 +8548,161 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChangeInformationLandscapeWorkPermitIssueChangeDiffDto"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeInformationOperator": {
+        "type": "object",
+        "properties": {
+          "personalIdentityCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessId": {
+            "type": "string",
+            "nullable": true
+          },
+          "otherId": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPerson": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "familyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "organizationName": {
+            "type": "string",
+            "nullable": true
+          },
+          "nonDisclosureForSafety": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "operatorAddress": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactAddress"
+            },
+            "nullable": true
+          },
+          "languageCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "nationalityCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "deathDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeInformationOperatorChangeDiffDto": {
+        "type": "object",
+        "properties": {
+          "changeType": {
+            "type": "string"
+          },
+          "objectKey": {
+            "nullable": true
+          },
+          "objectType": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentKey": {
+            "nullable": true
+          },
+          "parentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentChain": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParentTypeKey"
+            }
+          },
+          "objectState": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChangeInformationOperator"
+              }
+            ],
+            "nullable": true
+          },
+          "objectStatePrev": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChangeInformationOperator"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeInformationOperatorChangeInfoCollectionDto": {
+        "type": "object",
+        "properties": {
+          "lastSeen": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PaginationToken"
+              }
+            ],
+            "nullable": true
+          },
+          "upToDate": {
+            "type": "boolean"
+          },
+          "changes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChangeInformationOperatorChangeInfoDto"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeInformationOperatorChangeInfoDto": {
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "eventTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "objectKey": { },
+          "objectState": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChangeInformationOperator"
+              }
+            ],
+            "nullable": true
+          },
+          "diff": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChangeInformationOperatorChangeDiffDto"
             }
           }
         },
@@ -17241,115 +17388,6 @@
         },
         "additionalProperties": false,
         "description": "Toimija"
-      },
-      "OperatorChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "required": [
-              "isPerson"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Operator"
-              }
-            ],
-            "description": "Toimija",
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "required": [
-              "isPerson"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Operator"
-              }
-            ],
-            "description": "Toimija",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "OperatorChangeInfoCollectionDto": {
-        "type": "object",
-        "properties": {
-          "lastSeen": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/PaginationToken"
-              }
-            ],
-            "nullable": true
-          },
-          "upToDate": {
-            "type": "boolean"
-          },
-          "changes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OperatorChangeInfoDto"
-            }
-          }
-        },
-        "additionalProperties": false
-      },
-      "OperatorChangeInfoDto": {
-        "type": "object",
-        "properties": {
-          "eventId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "eventTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "objectKey": { },
-          "objectState": {
-            "required": [
-              "isPerson"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Operator"
-              }
-            ],
-            "description": "Toimija",
-            "nullable": true
-          },
-          "diff": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OperatorChangeDiffDto"
-            }
-          }
-        },
-        "additionalProperties": false
       },
       "PaginationToken": {
         "type": "object",

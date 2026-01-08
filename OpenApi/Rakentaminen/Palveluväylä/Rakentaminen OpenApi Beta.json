@@ -8534,15 +8534,11 @@
             "format": "uuid"
           },
           "ownerOperator": {
-            "required": [
-              "isPerson"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/Operator"
+                "$ref": "#/components/schemas/ChangeInformationOperator"
               }
-            ],
-            "description": "Toimija"
+            ]
           },
           "ownerSource": {
             "enum": [
@@ -8566,15 +8562,11 @@
             "nullable": true
           },
           "ownerContactOperator": {
-            "required": [
-              "isPerson"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/Operator"
+                "$ref": "#/components/schemas/ChangeInformationOperator"
               }
             ],
-            "description": "Toimija",
             "nullable": true
           },
           "ownerType": {
@@ -9234,6 +9226,64 @@
           },
           "locatedOnUnseparatedParcel": {
             "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeInformationOperator": {
+        "type": "object",
+        "properties": {
+          "personalIdentityCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessId": {
+            "type": "string",
+            "nullable": true
+          },
+          "otherId": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPerson": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "familyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "organizationName": {
+            "type": "string",
+            "nullable": true
+          },
+          "nonDisclosureForSafety": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "operatorAddress": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactAddress"
+            },
+            "nullable": true
+          },
+          "languageCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "nationalityCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "deathDate": {
+            "type": "string",
+            "format": "date",
             "nullable": true
           }
         },
