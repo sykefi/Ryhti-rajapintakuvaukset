@@ -7568,7 +7568,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Yleiskaavamääräysryhmä"
+        "description": "Yleismääräysryhmä"
       },
       "GeoJsonGeometry": {
         "type": "object",
@@ -9612,6 +9612,14 @@
               "$ref": "#/components/schemas/PlanObjectCancellationInfo"
             },
             "description": "Kumottavat kaavakohteet",
+            "nullable": true
+          },
+          "cancelledGeneralRegulationGroupUris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Kumottavat yleismääräysryhmät",
             "nullable": true
           }
         },
