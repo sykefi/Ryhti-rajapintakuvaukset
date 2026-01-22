@@ -5625,6 +5625,53 @@
         },
         "additionalProperties": false
       },
+      "BuildingProtectionMethod": {
+        "type": "object",
+        "properties": {
+          "buildingProtectionMethodKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "protectionMethod": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfLegalValidity": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "objectName": {
+            "type": "string"
+          },
+          "buildingName": {
+            "type": "string",
+            "nullable": true
+          },
+          "objectDescription": {
+            "type": "string"
+          },
+          "additionalInformation": {
+            "type": "string",
+            "nullable": true
+          },
+          "informationLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "prohibitionOfEndangerment": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "prohibitionOfEndangermentEffectiveDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Rakennuksen suojelutapa"
+      },
       "BuildingPurposeForLowCarbonAssessment": {
         "type": "object",
         "properties": {
@@ -6788,6 +6835,17 @@
               }
             ],
             "description": "Latauspiste",
+            "nullable": true
+          },
+          "buildingProtectionMethod": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingProtectionMethod"
+            },
+            "nullable": true
+          },
+          "buildingCultureHistoricalSignificance": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -9784,7 +9842,8 @@
               "http://uri.suomi.fi/codelist/rytj/tietolahde/code/01",
               "http://uri.suomi.fi/codelist/rytj/tietolahde/code/02",
               "http://uri.suomi.fi/codelist/rytj/tietolahde/code/03",
-              "http://uri.suomi.fi/codelist/rytj/tietolahde/code/04"
+              "http://uri.suomi.fi/codelist/rytj/tietolahde/code/04",
+              "http://uri.suomi.fi/codelist/rytj/tietolahde/code/05"
             ],
             "type": "string",
             "description": "Tietolähde. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/tietolahde\">http://uri.suomi.fi/codelist/rytj/tietolahde</a>"
@@ -12509,6 +12568,17 @@
             ],
             "description": "Latauspiste",
             "nullable": true
+          },
+          "buildingProtectionMethod": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingProtectionMethod"
+            },
+            "nullable": true
+          },
+          "buildingCultureHistoricalSignificance": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -12763,6 +12833,17 @@
               }
             ],
             "description": "Latauspiste",
+            "nullable": true
+          },
+          "buildingProtectionMethod": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingProtectionMethod"
+            },
+            "nullable": true
+          },
+          "buildingCultureHistoricalSignificance": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -18314,7 +18395,8 @@
               "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/99"
             ],
             "type": "string",
-            "description": "Rakennelman elinkaaren vaihe. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rakrek/rakelinvaih"
+            "description": "Rakennelman elinkaaren vaihe. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rakrek/rakelinvaih",
+            "nullable": true
           },
           "completionDate": {
             "type": "string",
@@ -18499,7 +18581,8 @@
               "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/3"
             ],
             "type": "string",
-            "description": "Rakennelman osan osittelun laji. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji"
+            "description": "Rakennelman osan osittelun laji. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji",
+            "nullable": true
           },
           "partitionDescription": {
             "allOf": [
