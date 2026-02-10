@@ -6166,7 +6166,8 @@
             "description": "Enumeraatio joka määrittää Arvo-luokkien (Domain.ValueObjects.AttributeValue) tyypin.\r\nJokaisella konkreettisella Arvo-luokan (Domain.ValueObjects.AttributeValue) toteutuksella tulee olla sitä vastaava DataType enumeraation arvo."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Base class for attribute values representing typed values with units of measure.\r\nNote: CustomSwaggerSchemaFilter overrides Swagger descriptions to show property-specific XML comments (#31650),\r\ne.g., \"Positiivinen numeerinen arvo\" is replaced to be \"Rakentamisen määrä\"."
       },
       "BindingPlotDivision": {
         "required": [
@@ -9055,7 +9056,7 @@
                 "$ref": "#/components/schemas/PositiveNumericValue"
               }
             ],
-            "description": "Positiivinen numeerinen arvo"
+            "description": "Sisältyvä pinta-ala"
           },
           "fullyIncluded": {
             "type": "boolean",
@@ -10573,7 +10574,7 @@
                 "$ref": "#/components/schemas/DecimalRange"
               }
             ],
-            "description": "Desimaaliarvoväli",
+            "description": "PystysuuntainenRajaus",
             "nullable": true
           },
           "relatedPlanSourceDataKeys": {
@@ -10857,6 +10858,7 @@
                 "$ref": "#/components/schemas/TimePeriodDateOnlyValue"
               }
             ],
+            "description": "Base class for attribute values representing typed values with units of measure.\r\nNote: CustomSwaggerSchemaFilter overrides Swagger descriptions to show property-specific XML comments (#31650),\r\ne.g., \"Positiivinen numeerinen arvo\" is replaced to be \"Rakentamisen määrä\".",
             "nullable": true
           },
           "lifeCycleStatus": {
@@ -11416,8 +11418,7 @@
           "motherProperties",
           "plotDivisionPlotIdentifier",
           "plotDivisionPlotKey",
-          "relatedPlans",
-          "volumeOfBuilding"
+          "relatedPlans"
         ],
         "type": "object",
         "properties": {
@@ -11442,7 +11443,7 @@
                 "$ref": "#/components/schemas/PositiveNumericValue"
               }
             ],
-            "description": "Positiivinen numeerinen arvo",
+            "description": "Pinta-ala",
             "nullable": true
           },
           "projectedArea": {
@@ -11451,7 +11452,7 @@
                 "$ref": "#/components/schemas/PositiveNumericValue"
               }
             ],
-            "description": "Positiivinen numeerinen arvo",
+            "description": "Projisoitu pinta-ala",
             "nullable": true
           },
           "areaReservations": {
@@ -11743,7 +11744,27 @@
                 "$ref": "#/components/schemas/PositiveNumericValue"
               }
             ],
-            "description": "Positiivinen numeerinen arvo"
+            "description": "Rakentamisen määrä (vanhentunut, käytä PermittedBuildingArea tai PermittedBuildingVolume)",
+            "nullable": true,
+            "deprecated": true
+          },
+          "permittedBuildingArea": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PositiveNumericValue"
+              }
+            ],
+            "description": "Sallittu rakennusala (m²)",
+            "nullable": true
+          },
+          "permittedBuildingVolume": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PositiveNumericValue"
+              }
+            ],
+            "description": "Sallittu rakennustilavuus (m³)",
+            "nullable": true
           },
           "motherProperties": {
             "minItems": 1,
@@ -11780,7 +11801,7 @@
                 "$ref": "#/components/schemas/DecimalRange"
               }
             ],
-            "description": "Desimaaliarvoväli",
+            "description": "Pystysuuntainen rajaus",
             "nullable": true
           },
           "areaReservationRegulationUris": {
