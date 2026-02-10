@@ -5203,15 +5203,6 @@
           "apartmentNumber": {
             "type": "integer",
             "format": "int32"
-          },
-          "specificationOfLocationFloor": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/sijaintikerroksenTarkenne/code/01",
-              "http://uri.suomi.fi/codelist/rytj/sijaintikerroksenTarkenne/code/02"
-            ],
-            "type": "string",
-            "description": "Sijaintikerroksen tarkenne. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/sijaintikerroksenTarkenne\">http://uri.suomi.fi/codelist/rytj/sijaintikerroksenTarkenne</a>",
-            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -7974,15 +7965,6 @@
           "apartmentNumber": {
             "type": "integer",
             "format": "int32"
-          },
-          "specificationOfLocationFloor": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/sijaintikerroksenTarkenne/code/01",
-              "http://uri.suomi.fi/codelist/rytj/sijaintikerroksenTarkenne/code/02"
-            ],
-            "type": "string",
-            "description": "Sijaintikerroksen tarkenne. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/sijaintikerroksenTarkenne\">http://uri.suomi.fi/codelist/rytj/sijaintikerroksenTarkenne</a>",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -10832,14 +10814,6 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
-          },
-          "specificationOfLocationFloor": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/sijaintikerroksenTarkenne/code/01",
-              "http://uri.suomi.fi/codelist/rytj/sijaintikerroksenTarkenne/code/02"
-            ],
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -13018,10 +12992,6 @@
           },
           "isAccessible": {
             "type": "boolean"
-          },
-          "isRescueDepartmentsAttackPassage": {
-            "type": "boolean",
-            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -15007,6 +14977,14 @@
             "nullable": true
           },
           "building": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GeneralizedBuilding"
+              }
+            ],
+            "nullable": true
+          },
+          "finishedBuilding": {
             "allOf": [
               {
                 "$ref": "#/components/schemas/GeneralizedBuilding"
