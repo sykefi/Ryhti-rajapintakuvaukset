@@ -5,10 +5,10 @@
     "srid": "3067",
     "geometry": {
       "type": "Point",
-      "coordinates": [ 337161, 6839056 ]
+      "coordinates": [ 337155, 6839138 ]
     }},
   "typeOfPurpose": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0110",
-  "dvvCaseIdentifier": "83700056-06128011010",
+  "dvvCaseIdentifier": "83700056-04801011010",
   "constructionAction": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
-  "permanentPermitIdentifier": "300001529N"
+  "permanentPermitIdentifier": "300002302L"
 }
