@@ -7113,14 +7113,16 @@
             "nullable": true
           },
           "objectName": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "buildingName": {
             "type": "string",
             "nullable": true
           },
           "objectDescription": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "additionalInformation": {
             "type": "string",
