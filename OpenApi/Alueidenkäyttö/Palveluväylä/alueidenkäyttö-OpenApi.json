@@ -1115,6 +1115,132 @@
         }
       }
     },
+    "/api/BindingPlotDivisionMatter/{permanentBindingPlotDivisionIdentifier}/planEffects/{permanentPlanIdentifier}": {
+      "post": {
+        "tags": [
+          "BindingPlotDivisionMatter"
+        ],
+        "summary": "Rajapinta uusien kaavan vaikutusten luomiseen.",
+        "parameters": [
+          {
+            "name": "permanentBindingPlotDivisionIdentifier",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus sitovan tonttijaon asialle.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "permanentPlanIdentifier",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus kaavalle.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Kaavan vaikutukset.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PlanEffects"
+                  }
+                ],
+                "description": "Kaavan vaikutukset"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PlanEffects"
+                  }
+                ],
+                "description": "Kaavan vaikutukset"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PlanEffects"
+                  }
+                ],
+                "description": "Kaavan vaikutukset"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Kaavan vaikutukset tallennettu, paluuarvona uri tallennettuun resurssiin.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/BuildingOrdinance/PermanentBuildingOrdinanceIdentifier": {
       "post": {
         "tags": [
@@ -9758,6 +9884,108 @@
         },
         "additionalProperties": false,
         "description": "Kaavapäätös"
+      },
+      "PlanEffects": {
+        "required": [
+          "notInAccordanceWithPlan",
+          "permanentPlanIdentifier"
+        ],
+        "type": "object",
+        "properties": {
+          "notInAccordanceWithPlan": {
+            "type": "boolean",
+            "description": "Onko kaavan mukainen"
+          },
+          "bindingPlotDivisionPermanentIdentifier": {
+            "type": "string",
+            "description": "Tonttijaon tunniste",
+            "nullable": true
+          },
+          "permanentPlanIdentifier": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Kaavan pysyvä tunniste"
+          },
+          "planEffectsPlots": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlanEffectsPlot"
+            },
+            "description": "Kaavan vaikutukset tonttijakotonttikohtaisesti",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Kaavan vaikutukset"
+      },
+      "PlanEffectsPlot": {
+        "required": [
+          "notInAccordanceWithPlan"
+        ],
+        "type": "object",
+        "properties": {
+          "notInAccordanceWithPlan": {
+            "type": "boolean",
+            "description": "Onko kaavan mukainen"
+          },
+          "areaReservationTypeUris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Aluevaraus: kaavanmääräyslaji.\r\nLista kaavanmääräyslajin URI-tunnisteita koodistosta http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji",
+            "nullable": true
+          },
+          "areaReservationRegulationUris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{planregulationkey}) kaavassa osoitettuun aluevarauksen kaavamääräykseen.",
+            "nullable": true
+          },
+          "permittedBuildingUris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{planregulationkey}) kaavassa osoitettuun sallitun rakennuksen kaavamääräykseen.",
+            "nullable": true
+          },
+          "volumeOfBuildingRegulationUris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{planregulationkey})\r\nkaavassa osoitettuun rakentamisen määrän kaavamääräykseen.",
+            "nullable": true
+          },
+          "areaReservationLetterIdentifier": {
+            "type": "string",
+            "description": "Aluevarauksen kirjaintunnus",
+            "nullable": true
+          },
+          "permittedBuildingArea": {
+            "type": "integer",
+            "description": "Rakentamisen määrä, kerrosala m2",
+            "format": "int32",
+            "nullable": true
+          },
+          "permittedBuildingVolume": {
+            "type": "integer",
+            "description": "Rakentamisen määrä, rakennustilavuus m3",
+            "format": "int32",
+            "nullable": true
+          },
+          "plotDivisionPlotKey": {
+            "type": "string",
+            "description": "Tonttijakotontin tunniste (PlotDivisionPlotKey), johon kaavan vaikutus kohdistuu.\r\nValinnainen taaksepäin yhteensopivuuden vuoksi.",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Liittyvä tonttijakotontti\r\nKaavanVaikutukset Tonttijakotonttikohtaisesti"
       },
       "PlanMap": {
         "required": [
