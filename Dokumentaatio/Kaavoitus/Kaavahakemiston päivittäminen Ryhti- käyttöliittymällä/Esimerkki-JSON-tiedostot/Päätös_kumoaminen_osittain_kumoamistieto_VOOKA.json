@@ -1,0 +1,9 @@
+{
+"planCancellationInfos": [
+    {
+        "planCancellationInfoKey": "7c9c55e0-efb4-4bb2-b947-e289e8ee11f4",
+        "cancelledPlanUri": "https://uri.rakennetunymparistontietojarjestelma.fi/plan/acd87ef5-23d0-4267-8868-fd9e2cd12f34",
+        "cancelsEntirePlan": false
+    }
+]
+}

@@ -1,0 +1,27 @@
+{
+                        "planKey": "710a39b7-e070-4bf8-b63e-31e75109a9ac",
+                        "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/13",
+                        "legalEffectOfLocalMasterPlans": [
+                            "http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK/code/1"
+                        ],
+                        "scale": 10000,
+                        "geographicalArea": {
+                            "srid": "3067",
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [ [ [ 105199.984094590909081, 6684742.419977754354477 ], [ 105199.984094590909081, 6684921.705943477340043 ], [ 105449.440035662235459, 6684921.705943477340043 ], [ 105449.440035662235459, 6684742.419977754354477 ], [ 105199.984094590909081, 6684742.419977754354477 ] ] ]
+
+                            }
+                        },
+                        "planCancellationInfos": [
+                            {
+                                "planCancellationInfoKey": "397b5ab1-936d-4620-aff9-6979aedf489d",
+                                "cancelledPlanUri": "https://uri.rakennetunymparistontietojarjestelma.fi/plan/7c121e07-79c9-48d1-8436-8e2ad4ca917b",
+                                "cancelsEntirePlan": false
+                            }
+                        ],
+                        "periodOfValidity": {
+                            "begin": "2025-11-13"
+                        },
+                        "approvalDate": "2025-03-17"
+                    }

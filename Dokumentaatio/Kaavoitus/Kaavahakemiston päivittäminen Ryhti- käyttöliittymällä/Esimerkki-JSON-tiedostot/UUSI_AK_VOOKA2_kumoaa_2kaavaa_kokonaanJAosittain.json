@@ -1,0 +1,28 @@
+{
+                        "planKey": "4c9ae1ee-86d3-4555-b131-6b141bf59ceb",
+                        "lifeCycleStatus": "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/13",
+                        "scale": 1000,
+                        "geographicalArea": {
+                            "srid": "3067",
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [ [ [ 105522.782667682186002, 6684824.484392012469471 ], [ 105522.782667682186002, 6684989.0549551025033 ], [ 105676.359650646874798, 6684989.0549551025033 ], [ 105676.359650646874798, 6684824.484392012469471 ], [ 105522.782667682186002, 6684824.484392012469471 ] ] ]
+                            }
+                        },
+                        "planCancellationInfos": [
+                            {
+                                "planCancellationInfoKey": "040f0db1-a319-4159-a884-c47e05158e94",
+                                "cancelledPlanUri": "https://uri.rakennetunymparistontietojarjestelma.fi/plan/24462ef7-1071-4072-bdc9-9bb97aec8cf1",
+                                "cancelsEntirePlan": true
+                            },
+                            {
+                                "planCancellationInfoKey": "a642a65d-ec76-4a6a-87bc-789fb6970f2a",
+                                "cancelledPlanUri": "https://uri.rakennetunymparistontietojarjestelma.fi/plan/dcebbe73-090e-413c-84b3-6efc507fca7b",
+                                "cancelsEntirePlan": false
+                            }
+                        ],
+                        "periodOfValidity": {
+                            "begin": "2025-11-13"
+                        },
+                        "approvalDate": "2025-03-17"
+                    }
