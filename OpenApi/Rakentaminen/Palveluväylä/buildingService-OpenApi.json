@@ -5417,7 +5417,6 @@
               "preCabling",
               "chargingPointCount",
               "otherCablingRoutes",
-              "bikespaceCount",
               "conduit"
             ],
             "allOf": [
@@ -5795,7 +5794,6 @@
               "preCabling",
               "chargingPointCount",
               "otherCablingRoutes",
-              "bikespaceCount",
               "conduit"
             ],
             "allOf": [
@@ -8580,7 +8578,6 @@
               "preCabling",
               "chargingPointCount",
               "otherCablingRoutes",
-              "bikespaceCount",
               "conduit"
             ],
             "allOf": [
@@ -9540,7 +9537,6 @@
               "preCabling",
               "chargingPointCount",
               "otherCablingRoutes",
-              "bikespaceCount",
               "conduit"
             ],
             "allOf": [
@@ -9845,7 +9841,6 @@
       },
       "ChargingPoint": {
         "required": [
-          "bikespaceCount",
           "chargingPointCount",
           "chargingPointKey",
           "conduit",
@@ -9870,7 +9865,8 @@
           },
           "bikespaceCount": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "conduit": {
             "type": "boolean"
@@ -13974,7 +13970,6 @@
               "preCabling",
               "chargingPointCount",
               "otherCablingRoutes",
-              "bikespaceCount",
               "conduit"
             ],
             "allOf": [
@@ -14143,7 +14138,6 @@
               "preCabling",
               "chargingPointCount",
               "otherCablingRoutes",
-              "bikespaceCount",
               "conduit"
             ],
             "allOf": [
@@ -18735,7 +18729,6 @@
               "preCabling",
               "chargingPointCount",
               "otherCablingRoutes",
-              "bikespaceCount",
               "conduit"
             ],
             "allOf": [
@@ -18950,7 +18943,6 @@
               "preCabling",
               "chargingPointCount",
               "otherCablingRoutes",
-              "bikespaceCount",
               "conduit"
             ],
             "allOf": [

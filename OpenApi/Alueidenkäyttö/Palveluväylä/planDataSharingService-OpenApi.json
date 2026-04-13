@@ -100,6 +100,230 @@
         }
       }
     },
+    "/api/BindingPlotDivisionInformationForProperty/{propertyIdentifier}": {
+      "get": {
+        "tags": [
+          "BindingPlotDivisions"
+        ],
+        "summary": "Rajapinta sitovien tonttijakojen ajantasatiedon hakemiseen kiinteistöittäin kiinteistötunnuksella.",
+        "parameters": [
+          {
+            "name": "propertyIdentifier",
+            "in": "path",
+            "description": "Kiinteistötunnus pitkässä muodossa (14 merkkiä, esim. 83700000000001).",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Kiinteistö löytyi ja sitä leikkaavat sitovat tonttijaot palautetaan.\r\nJos geometriaa leikkaavia sitovia tonttijakoja ei löydy, palautetaan tyhjä lista.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlotDivisionInformationForProperty"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlotDivisionInformationForProperty"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlotDivisionInformationForProperty"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Kiinteistötunnuksella ei löydy kiinteistöä tai kiinteistöltä puuttuu geometria.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Kiinteistötunnus on väärässä muodossa (täytyy olla tasan 14 merkkiä).",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/BindingPlotDivisionForUnseparatedParcel/{unseparatedParcelIdentifier}": {
+      "get": {
+        "tags": [
+          "BindingPlotDivisions"
+        ],
+        "summary": "Rajapinta sitovien tonttijakojen ajantasatiedon hakemiseen määräalatunnuksella.",
+        "parameters": [
+          {
+            "name": "unseparatedParcelIdentifier",
+            "in": "path",
+            "description": "Määräalatunus pitkässä muodossa (19 merkkiä, esim. 83700000000001M0001).",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Määräala löytyi ja sitä leikkaavat sitovat tonttijaot palautetaan.\r\nJos määräalan geometria ei ole aluemuotoinen tai sitä leikkaavia sitovia tonttijakoja ei löydy, palautetaan tyhjä lista.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlotDivisionInformationForUnseparatedParcel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlotDivisionInformationForUnseparatedParcel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlotDivisionInformationForUnseparatedParcel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Määräalaa ei löydy",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Määräalatunnus on väärässä muodossa (täytyy olla tasan 19 merkkiä).",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PropertyIdentifiersOfChangedBindingPlotDivisions/{correlationId}": {
+      "get": {
+        "tags": [
+          "BindingPlotDivisions"
+        ],
+        "summary": "Etsi tapahtumatunnisteella kiinteistötunnukset, joiden alueella on tallennettu sitovia tonttijakoja tapahtuman jälkeen",
+        "parameters": [
+          {
+            "name": "correlationId",
+            "in": "path",
+            "description": "Viimeksi nähdyn tapahtuman tunniste",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/PlanInformationForProperty/{propertyIdentifier}": {
       "get": {
         "tags": [
@@ -172,66 +396,6 @@
             "name": "correlationId",
             "in": "path",
             "description": "Viimeksi nähdyn tapahtuman tunniste",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeInformationPropertyIdentifiersResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/PropertyIdentifiersOfChangedBindingPlotDivisions/{correlationId}": {
-      "get": {
-        "tags": [
-          "PropertyIdentifiersOfChangedBindingPlotDivisions"
-        ],
-        "parameters": [
-          {
-            "name": "correlationId",
-            "in": "path",
             "required": true,
             "schema": {
               "type": "string",
@@ -816,6 +980,40 @@
         },
         "additionalProperties": false,
         "description": "Lokalisoitu teksti"
+      },
+      "MotherProperty": {
+        "required": [
+          "containedArea",
+          "fullyIncluded"
+        ],
+        "type": "object",
+        "properties": {
+          "propertyIdentifier": {
+            "minLength": 3,
+            "type": "string",
+            "description": "Kiinteistötunnus",
+            "nullable": true
+          },
+          "unseparatedParcelIdentifier": {
+            "type": "string",
+            "description": "Määräalatunnus",
+            "nullable": true
+          },
+          "containedArea": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PositiveNumericValue"
+              }
+            ],
+            "description": "Sisältyvä pinta-ala"
+          },
+          "fullyIncluded": {
+            "type": "boolean",
+            "description": "Sisältyy kokonaan"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Muodostajakiinteistö"
       },
       "NumericRange": {
         "required": [
@@ -1501,6 +1699,232 @@
         },
         "additionalProperties": false
       },
+      "PlotDivisionInformationForProperty": {
+        "required": [
+          "bindingPlotDivisions",
+          "propertyArea",
+          "propertyIdentifier",
+          "unseparatedParcelIdentifiers"
+        ],
+        "type": "object",
+        "properties": {
+          "propertyIdentifier": {
+            "type": "string"
+          },
+          "propertyArea": {
+            "type": "number",
+            "format": "double"
+          },
+          "unseparatedParcelIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Luettelo kiinteistöön liittyvistä määräaloista."
+          },
+          "bindingPlotDivisions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlotDivisionInformationForPropertyPlotDivision"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlotDivisionInformationForPropertyPlotDivision": {
+        "required": [
+          "administrativeAreaIdentifier",
+          "bindingPlotDivisionType",
+          "name",
+          "periodOfValidity",
+          "permanentBindingPlotDivisionIdentifier",
+          "plotDivisionPlots",
+          "timeOfInitiation"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
+          },
+          "description": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "bindingPlotDivisionType": {
+            "type": "string"
+          },
+          "permanentBindingPlotDivisionIdentifier": {
+            "type": "string"
+          },
+          "producerBindingPlotDivisionIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeOfInitiation": {
+            "type": "string",
+            "format": "date"
+          },
+          "administrativeAreaIdentifier": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "approvalDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "periodOfValidity": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TimePeriodDateOnly"
+              }
+            ]
+          },
+          "plotDivisionPlots": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlotDivisionInformationForPropertyPlotDivisionPlot"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlotDivisionInformationForPropertyPlotDivisionPlot": {
+        "required": [
+          "areaReservationLetterIdentifier",
+          "plotDivisionPlotKey"
+        ],
+        "type": "object",
+        "properties": {
+          "plotDivisionPlotKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "motherProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MotherProperty"
+            }
+          },
+          "area": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "projectedArea": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ryhti_AreaOfIntersection": {
+            "type": "number",
+            "format": "double"
+          },
+          "areaReservations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "areaReservationLetterIdentifier": {
+            "type": "string"
+          },
+          "permittedBuildingArea": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "permittedBuildingVolume": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "relatedPlans": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RelatedPlan"
+            }
+          },
+          "relationToBasicProperty": {
+            "type": "string",
+            "nullable": true
+          },
+          "verticalLimit": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DecimalRange"
+              }
+            ],
+            "description": "Desimaaliarvoväli",
+            "nullable": true
+          },
+          "upToDateAreaReservation": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "upToDateAreaReservationLetterIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "upToDatePermittedBuildingArea": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "upToDatePermittedBuildingVolume": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "upToDatePermittedBuildingRegulationUris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlotDivisionInformationForUnseparatedParcel": {
+        "required": [
+          "bindingPlotDivisions",
+          "unseparatedParcelArea",
+          "unseparatedParcelIdentifier"
+        ],
+        "type": "object",
+        "properties": {
+          "unseparatedParcelIdentifier": {
+            "type": "string"
+          },
+          "unseparatedParcelArea": {
+            "type": "number",
+            "format": "double"
+          },
+          "bindingPlotDivisions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlotDivisionInformationForPropertyPlotDivision"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "PositiveDecimalRange": {
         "required": [
           "dataType"
@@ -1717,6 +2141,23 @@
           }
         },
         "additionalProperties": { }
+      },
+      "RelatedPlan": {
+        "type": "object",
+        "properties": {
+          "relatedPlanUri": {
+            "type": "string",
+            "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/plan/{plankey}) tonttijakotontin alueelle kohdistuvaan vaikuttavaan kaavaan.",
+            "nullable": true
+          },
+          "relatedProducerPlanIdentifier": {
+            "type": "string",
+            "description": "Alueelle kohdistuvan vaikuttavan kaavan tuottajan kaavatunnus.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Liittyvä kaava"
       },
       "SpotElevation": {
         "required": [
