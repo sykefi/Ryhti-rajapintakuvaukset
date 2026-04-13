@@ -5028,8 +5028,8 @@
             "nullable": true
           },
           "floorAreaChange": {
-            "type": "integer",
-            "format": "int32",
+            "type": "number",
+            "format": "double",
             "nullable": true
           },
           "basementAreaChange": {
@@ -5240,7 +5240,6 @@
           "dateOfValidityOfDecision",
           "decisionDate",
           "decisionDocument",
-          "decisionMakerFirstName",
           "decisionMakerName",
           "decisionMakerType",
           "decisionText",
@@ -5408,7 +5407,6 @@
           "dateOfDecision",
           "dateOfValidityOfDecision",
           "decisionDate",
-          "decisionMakerFirstName",
           "decisionMakerName",
           "decisionMakerType",
           "decisionText",
@@ -6384,6 +6382,11 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "bikespaceCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -6516,6 +6519,11 @@
             "nullable": true
           },
           "specificActivitiesAreaArea": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "bikespaceCount": {
             "type": "integer",
             "format": "int32",
             "nullable": true
@@ -6857,6 +6865,11 @@
           "buildingCultureHistoricalSignificance": {
             "type": "string",
             "nullable": true
+          },
+          "bikespaceCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -7069,7 +7082,6 @@
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
-              "decisionMakerFirstName",
               "decisionMakerName",
               "relatedApplication"
             ],
@@ -7862,7 +7874,6 @@
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
-              "decisionMakerFirstName",
               "decisionMakerName",
               "relatedApplication"
             ],
@@ -8198,7 +8209,6 @@
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
-              "decisionMakerFirstName",
               "decisionMakerName",
               "relatedApplication"
             ],
@@ -8442,7 +8452,6 @@
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
-              "decisionMakerFirstName",
               "decisionMakerName",
               "relatedApplication"
             ],
@@ -8958,6 +8967,11 @@
             "description": "Latauspiste",
             "nullable": true
           },
+          "bikespaceCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
           "structureSection": {
             "type": "array",
             "items": {
@@ -9119,7 +9133,6 @@
           "dateOfValidityOfDecision",
           "decisionDate",
           "decisionDocument",
-          "decisionMakerFirstName",
           "decisionMakerName",
           "decisionMakerType",
           "decisionText",
@@ -9249,7 +9262,6 @@
           "dateOfDecision",
           "dateOfValidityOfDecision",
           "decisionDate",
-          "decisionMakerFirstName",
           "decisionMakerName",
           "decisionMakerType",
           "decisionText",
@@ -9394,11 +9406,6 @@
           },
           "otherCablingRoutes": {
             "type": "boolean"
-          },
-          "bikespaceCount": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
           },
           "conduit": {
             "type": "boolean"
@@ -10039,7 +10046,6 @@
           "dateOfValidityOfDecision",
           "decisionDate",
           "decisionDocument",
-          "decisionMakerFirstName",
           "decisionMakerName",
           "decisionMakerType",
           "decisionText",
@@ -10207,7 +10213,6 @@
           "dateOfValidityOfDecision",
           "decisionDate",
           "decisionDocument",
-          "decisionMakerFirstName",
           "decisionMakerName",
           "decisionMakerType",
           "decisionText",
@@ -10448,7 +10453,6 @@
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
-              "decisionMakerFirstName",
               "decisionMakerName",
               "relatedApplication"
             ],
@@ -10833,7 +10837,6 @@
           "decisionDate",
           "decisionDocument",
           "decisionInForceUntil",
-          "decisionMakerFirstName",
           "decisionMakerName",
           "decisionMakerType",
           "decisionText",
@@ -10982,7 +10985,6 @@
           "decisionDate",
           "decisionDocument",
           "decisionInForceUntil",
-          "decisionMakerFirstName",
           "decisionMakerName",
           "decisionMakerType",
           "decisionText",
@@ -11194,7 +11196,6 @@
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
-              "decisionMakerFirstName",
               "decisionMakerName",
               "relatedApplication"
             ],
@@ -11436,23 +11437,23 @@
             "nullable": true
           },
           "insideLength": {
-            "type": "integer",
-            "format": "int32",
+            "type": "number",
+            "format": "double",
             "nullable": true
           },
           "insideWidth": {
-            "type": "integer",
-            "format": "int32",
+            "type": "number",
+            "format": "double",
             "nullable": true
           },
           "doorOpeningWidth": {
-            "type": "integer",
-            "format": "int32",
+            "type": "number",
+            "format": "double",
             "nullable": true
           },
           "doorOpeningHeight": {
-            "type": "integer",
-            "format": "int32",
+            "type": "number",
+            "format": "double",
             "nullable": true
           },
           "passengerCapacity": {
@@ -11932,7 +11933,6 @@
           "dateOfValidityOfDecision",
           "decisionDate",
           "decisionDocument",
-          "decisionMakerFirstName",
           "decisionMakerName",
           "decisionMakerType",
           "decisionText",
@@ -12063,7 +12063,6 @@
           "dateOfDecision",
           "dateOfValidityOfDecision",
           "decisionDate",
-          "decisionMakerFirstName",
           "decisionMakerName",
           "decisionMakerType",
           "decisionText",
@@ -12591,6 +12590,11 @@
           "buildingCultureHistoricalSignificance": {
             "type": "string",
             "nullable": true
+          },
+          "bikespaceCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -12856,6 +12860,11 @@
           "buildingCultureHistoricalSignificance": {
             "type": "string",
             "nullable": true
+          },
+          "bikespaceCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -13002,7 +13011,6 @@
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
-              "decisionMakerFirstName",
               "decisionMakerName",
               "relatedApplication"
             ],
@@ -13260,7 +13268,6 @@
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
-              "decisionMakerFirstName",
               "decisionMakerName",
               "relatedApplication"
             ],
@@ -14372,7 +14379,6 @@
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
-              "decisionMakerFirstName",
               "decisionMakerName",
               "relatedApplication"
             ],
@@ -16316,7 +16322,6 @@
           "decisionDate",
           "decisionDocument",
           "decisionInForceUntil",
-          "decisionMakerFirstName",
           "decisionMakerName",
           "decisionMakerType",
           "decisionText",
@@ -16480,7 +16485,6 @@
           "decisionDate",
           "decisionDocument",
           "decisionInForceUntil",
-          "decisionMakerFirstName",
           "decisionMakerName",
           "decisionMakerType",
           "decisionText",
@@ -16707,7 +16711,6 @@
               "publicNoticeDate",
               "decisionText",
               "decisionMakerType",
-              "decisionMakerFirstName",
               "decisionMakerName",
               "relatedApplication"
             ],
@@ -18222,6 +18225,11 @@
               }
             ],
             "description": "Latauspiste",
+            "nullable": true
+          },
+          "bikespaceCount": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           },
           "structureSection": {
