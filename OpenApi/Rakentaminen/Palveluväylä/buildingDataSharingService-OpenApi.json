@@ -5574,20 +5574,16 @@
             "type": "string"
           },
           "buildingBuildingProduct": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingBuildingProduct"
-              }
-            ],
-            "description": "Rakennuksen rakennustuotteet ja niiden hyödyntäminen"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingBuildingProduct"
+            }
           },
           "buildingSiteBuildingProduct": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingSiteBuildingProduct"
-              }
-            ],
-            "description": "Rakennuspaikan rakennustuotteet ja niiden hyödyntäminen"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingSiteBuildingProduct"
+            }
           }
         },
         "additionalProperties": false,
@@ -5605,20 +5601,16 @@
             "format": "date"
           },
           "buildingBuildingProduct": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingBuildingProduct"
-              }
-            ],
-            "description": "Rakennuksen rakennustuotteet ja niiden hyödyntäminen"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingBuildingProduct"
+            }
           },
           "buildingSiteBuildingProduct": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingSiteBuildingProduct"
-              }
-            ],
-            "description": "Rakennuspaikan rakennustuotteet ja niiden hyödyntäminen"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingSiteBuildingProduct"
+            }
           }
         },
         "additionalProperties": false
@@ -9452,10 +9444,7 @@
             "format": "date-time"
           },
           "nameOfPreparer": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
+            "type": "string",
             "nullable": true
           },
           "assessmentPeriodLength": {
@@ -11522,9 +11511,9 @@
             "nullable": true
           },
           "computationalEnergyEfficiencyComparand": {
-            "type": "number",
+            "type": "integer",
             "description": "",
-            "format": "double",
+            "format": "int32",
             "nullable": true
           },
           "heatingMethod": {
@@ -11632,8 +11621,8 @@
             "nullable": true
           },
           "computationalEnergyEfficiencyComparand": {
-            "type": "number",
-            "format": "double",
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           },
           "heatingMethod": {
