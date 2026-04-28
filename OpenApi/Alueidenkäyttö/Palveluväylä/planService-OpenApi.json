@@ -12243,10 +12243,12 @@
         "properties": {
           "planObjectKey": {
             "type": "string",
+            "description": "Key of the plan object this presentation alignment is associated with.",
             "format": "uuid"
           },
           "planRegulationGroupKey": {
             "type": "string",
+            "description": "Key of the plan regulation group this presentation alignment is associated with.",
             "format": "uuid"
           },
           "geometry": {
@@ -12254,15 +12256,18 @@
               {
                 "$ref": "#/components/schemas/RyhtiGeometry"
               }
-            ]
+            ],
+            "description": "Geometry of the presentation alignment. Allowed types: Point, LineString."
           },
           "rotation": {
             "type": "integer",
+            "description": "Rotation of the presentation alignment in degrees. Allowed range: -360 to 360.",
             "format": "int32",
             "nullable": true
           },
           "language": {
             "type": "string",
+            "description": "Language of the presentation alignment.\r\nCode value from: http://uri.suomi.fi/codelist/rytj/ryhtikielet\r\n\r\nAllowed values:\r\n<list type=\"bullet\"><item><description>fi - suomi</description></item><item><description>sv - ruotsi</description></item><item><description>en - englanti</description></item><item><description>smn - inarinsaame</description></item><item><description>sms - koltansaame</description></item><item><description>se - pohjoissaame</description></item></list>",
             "nullable": true
           }
         },
