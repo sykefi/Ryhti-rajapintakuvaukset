@@ -6085,6 +6085,41 @@
         "additionalProperties": false,
         "description": "Määräyksestä poikkeaminen"
       },
+      "ChangeDiff": {
+        "type": "object",
+        "properties": {
+          "changeType": {
+            "type": "string"
+          },
+          "objectKey": {
+            "nullable": true
+          },
+          "objectType": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentKey": {
+            "nullable": true
+          },
+          "parentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentChain": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParentTypeKey"
+            }
+          },
+          "objectState": {
+            "nullable": true
+          },
+          "objectStatePrev": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ChangeInformationAdministrativeLocationUnit": {
         "type": "object",
         "properties": {
@@ -6866,51 +6901,6 @@
         },
         "additionalProperties": false
       },
-      "ChangeInformationBuildingChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationBuilding"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationBuilding"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ChangeInformationBuildingChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -6957,7 +6947,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ChangeInformationBuildingChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -7179,61 +7169,6 @@
         },
         "additionalProperties": false
       },
-      "ChangeInformationBuildingPermitIssueChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "required": [
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "required": [
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssue"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ChangeInformationBuildingPermitIssueChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -7285,7 +7220,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ChangeInformationBuildingPermitIssueChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -7327,17 +7262,11 @@
             "nullable": true
           },
           "materialData": {
-            "required": [
-              "constructionMethod",
-              "buildingMaterialOfLoadBearingStructures",
-              "wideBodiedBuilding"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/MaterialData"
+                "$ref": "#/components/schemas/ChangeInformationMaterialData"
               }
             ],
-            "description": "Materiaalitiedot",
             "nullable": true
           },
           "energyData": {
@@ -7920,63 +7849,6 @@
         },
         "additionalProperties": false
       },
-      "ChangeInformationDemolitionPermitIssueChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "required": [
-              "demolitionPermitApplication",
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationDemolitionPermitIssue"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "required": [
-              "demolitionPermitApplication",
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationDemolitionPermitIssue"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ChangeInformationDemolitionPermitIssueChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -8029,7 +7901,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ChangeInformationDemolitionPermitIssueChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -8245,65 +8117,6 @@
         },
         "additionalProperties": false
       },
-      "ChangeInformationDeviationPermitIssueChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "required": [
-              "permanentPermitIdentifier",
-              "buildingSite",
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationDeviationPermitIssue"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "required": [
-              "permanentPermitIdentifier",
-              "buildingSite",
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationDeviationPermitIssue"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ChangeInformationDeviationPermitIssueChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -8357,7 +8170,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ChangeInformationDeviationPermitIssueChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -8504,65 +8317,6 @@
         },
         "additionalProperties": false
       },
-      "ChangeInformationLandscapeWorkPermitIssueChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "required": [
-              "permanentPermitIdentifier",
-              "buildingSite",
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationLandscapeWorkPermitIssue"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "required": [
-              "permanentPermitIdentifier",
-              "buildingSite",
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationLandscapeWorkPermitIssue"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ChangeInformationLandscapeWorkPermitIssueChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -8616,8 +8370,47 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ChangeInformationLandscapeWorkPermitIssueChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeInformationMaterialData": {
+        "type": "object",
+        "properties": {
+          "constructionMethod": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/vtj/Rake_runkotapa/code/01",
+              "http://uri.suomi.fi/codelist/vtj/Rake_runkotapa/code/02"
+            ],
+            "type": "string",
+            "nullable": true
+          },
+          "buildingMaterialOfLoadBearingStructures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingMaterialOfLoadBearingStructures"
+            }
+          },
+          "facadeMaterial": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacadeMaterial"
+            },
+            "nullable": true
+          },
+          "fireClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "wideBodiedBuilding": {
+            "type": "boolean"
+          },
+          "reusableMaterialAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8680,51 +8473,6 @@
         },
         "additionalProperties": false
       },
-      "ChangeInformationOperatorChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationOperator"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationOperator"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ChangeInformationOperatorChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -8771,7 +8519,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ChangeInformationOperatorChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -8997,67 +8745,6 @@
         },
         "additionalProperties": false
       },
-      "ChangeInformationStructureChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "required": [
-              "structureKey",
-              "permanentStructureIdentifier",
-              "temporary",
-              "structureMainPurpose",
-              "buildingObjectType",
-              "address"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationStructure"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "required": [
-              "structureKey",
-              "permanentStructureIdentifier",
-              "temporary",
-              "structureMainPurpose",
-              "buildingObjectType",
-              "address"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChangeInformationStructure"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ChangeInformationStructureChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -9112,7 +8799,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ChangeInformationStructureChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -10492,65 +10179,6 @@
         },
         "additionalProperties": false
       },
-      "DemolitionPermitIssueNoPersonDataChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "required": [
-              "demolitionDecision",
-              "demolitionPermitApplication",
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/DemolitionPermitIssueNoPersonData"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "required": [
-              "demolitionDecision",
-              "demolitionPermitApplication",
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/DemolitionPermitIssueNoPersonData"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "DemolitionPermitIssueNoPersonDataChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -10604,7 +10232,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DemolitionPermitIssueNoPersonDataChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -11228,65 +10856,6 @@
         },
         "additionalProperties": false
       },
-      "DeviationPermitIssueNoPersonDataChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "required": [
-              "permanentPermitIdentifier",
-              "buildingSite",
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/DeviationPermitIssueNoPersonData"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "required": [
-              "permanentPermitIdentifier",
-              "buildingSite",
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/DeviationPermitIssueNoPersonData"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "DeviationPermitIssueNoPersonDataChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -11340,7 +10909,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DeviationPermitIssueNoPersonDataChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -12588,51 +12157,6 @@
         },
         "additionalProperties": false
       },
-      "GeneralizedBuildingChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GeneralizedBuilding"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GeneralizedBuilding"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "GeneralizedBuildingChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -12679,7 +12203,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GeneralizedBuildingChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -12858,51 +12382,6 @@
         },
         "additionalProperties": false
       },
-      "GeneralizedBuildingNoPersonDataChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GeneralizedBuildingNoPersonData"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GeneralizedBuildingNoPersonData"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "GeneralizedBuildingNoPersonDataChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -12949,7 +12428,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GeneralizedBuildingNoPersonDataChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -13105,61 +12584,6 @@
         },
         "additionalProperties": false
       },
-      "GeneralizedBuildingPermitIssueChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "required": [
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GeneralizedBuildingPermitIssue"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "required": [
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GeneralizedBuildingPermitIssue"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "GeneralizedBuildingPermitIssueChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -13211,7 +12635,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GeneralizedBuildingPermitIssueChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -13358,61 +12782,6 @@
         },
         "additionalProperties": false
       },
-      "GeneralizedBuildingPermitIssueNoPersonDataChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "required": [
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GeneralizedBuildingPermitIssueNoPersonData"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "required": [
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GeneralizedBuildingPermitIssueNoPersonData"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "GeneralizedBuildingPermitIssueNoPersonDataChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -13464,7 +12833,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GeneralizedBuildingPermitIssueNoPersonDataChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -13506,17 +12875,11 @@
             "nullable": true
           },
           "materialData": {
-            "required": [
-              "constructionMethod",
-              "buildingMaterialOfLoadBearingStructures",
-              "wideBodiedBuilding"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/MaterialData"
+                "$ref": "#/components/schemas/ChangeInformationMaterialData"
               }
             ],
-            "description": "Materiaalitiedot",
             "nullable": true
           },
           "energyData": {
@@ -13746,17 +13109,11 @@
             "nullable": true
           },
           "materialData": {
-            "required": [
-              "constructionMethod",
-              "buildingMaterialOfLoadBearingStructures",
-              "wideBodiedBuilding"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/MaterialData"
+                "$ref": "#/components/schemas/ChangeInformationMaterialData"
               }
             ],
-            "description": "Materiaalitiedot",
             "nullable": true
           },
           "energyData": {
@@ -14422,63 +13779,6 @@
         },
         "additionalProperties": false
       },
-      "GeneralizedDemolitionPermitIssueChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "required": [
-              "demolitionPermitApplication",
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GeneralizedDemolitionPermitIssue"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "required": [
-              "demolitionPermitApplication",
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GeneralizedDemolitionPermitIssue"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "GeneralizedDemolitionPermitIssueChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -14531,7 +13831,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GeneralizedDemolitionPermitIssueChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -15364,37 +14664,19 @@
         },
         "additionalProperties": false
       },
-      "GeoJsonGeometry": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Tuetut geometriatyypit"
-          }
-        },
-        "additionalProperties": false,
-        "description": "GeoJson geometria (abstrakti luokka, katso toteutukset)"
-      },
       "GeoJsonLineStringGeometry": {
         "required": [
           "coordinates",
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "LineString"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -15403,25 +14685,11 @@
                 "type": "number",
                 "format": "double"
               }
-            },
-            "description": "Koordinaatit",
-            "example": "[ [100.0, 0.0], [101.0, 1.0] ]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"lineString\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+        "description": "GeoJSON LineString"
       },
       "GeoJsonMultiLineStringGeometry": {
         "required": [
@@ -15429,12 +14697,13 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "MultiLineString"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -15446,25 +14715,11 @@
                   "format": "double"
                 }
               }
-            },
-            "description": "Koordinaatit",
-            "example": "[ [[100.0, 0.0], [101.0, 1.0]], [[101.0, 1.0], [100.0, 1.0]] ]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"lineString\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+        "description": "GeoJSON MultiLineString"
       },
       "GeoJsonMultiPointGeometry": {
         "required": [
@@ -15472,12 +14727,13 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "MultiPoint"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -15486,25 +14742,11 @@
                 "type": "number",
                 "format": "double"
               }
-            },
-            "description": "Koordinaatit",
-            "example": "[ [100.0, 0.0], [101.0, 1.0] ]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"multiPoint\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "MultiPoint GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPoint\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+        "description": "GeoJSON MultiPoint"
       },
       "GeoJsonMultiPolygonGeometry": {
         "required": [
@@ -15512,12 +14754,13 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "MultiPolygon"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -15532,25 +14775,11 @@
                   }
                 }
               }
-            },
-            "description": "Koordinaatit",
-            "example": "[ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"multiPolygon\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "MultiPolygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPolygon\", \"coordinates\": [ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ] }"
+        "description": "GeoJSON MultiPolygon"
       },
       "GeoJsonPointGeometry": {
         "required": [
@@ -15558,36 +14787,23 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "Point"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
               "type": "number",
               "format": "double"
-            },
-            "description": "Koordinaatit",
-            "example": "[100.0, 0.0]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"point\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "Point GeoJson\r\n\r\nEsimerkki: { \"type\": \"point\", \"coordinates\": [100.0, 0.0] }"
+        "description": "GeoJSON Point"
       },
       "GeoJsonPolygonGeometry": {
         "required": [
@@ -15595,12 +14811,13 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "Polygon"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -15612,25 +14829,11 @@
                   "format": "double"
                 }
               }
-            },
-            "description": "Koordinaatit",
-            "example": " [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"polygon\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "Polygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
+        "description": "GeoJSON Polygon"
       },
       "GetChangeInfo": {
         "required": [
@@ -16755,65 +15958,6 @@
         },
         "additionalProperties": false
       },
-      "LandscapeWorkPermitIssueNoPersonDataChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "required": [
-              "permanentPermitIdentifier",
-              "buildingSite",
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssueNoPersonData"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "required": [
-              "permanentPermitIdentifier",
-              "buildingSite",
-              "dateOfInitiation",
-              "lifeCycleState",
-              "municipalityNumber"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LandscapeWorkPermitIssueNoPersonData"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "LandscapeWorkPermitIssueNoPersonDataChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -16867,7 +16011,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LandscapeWorkPermitIssueNoPersonDataChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -17008,7 +16152,8 @@
               "http://uri.suomi.fi/codelist/rytj/SijoittamislupakohteenLaji/code/02",
               "http://uri.suomi.fi/codelist/rytj/SijoittamislupakohteenLaji/code/03"
             ],
-            "type": "string"
+            "type": "string",
+            "description": ""
           },
           "buildingMainPurpose": {
             "enum": [
@@ -17941,7 +17086,7 @@
                 "$ref": "#/components/schemas/GeoJsonMultiPolygonGeometry"
               }
             ],
-            "description": "Geometria GeoJson rakenteella: https://geojson.org/"
+            "description": "Geometria GeoJSON rakenteella: https://geojson.org/"
           }
         },
         "additionalProperties": false
@@ -18246,67 +17391,6 @@
         },
         "additionalProperties": false
       },
-      "StructureNoPersonDataChangeDiffDto": {
-        "type": "object",
-        "properties": {
-          "changeType": {
-            "type": "string"
-          },
-          "objectKey": {
-            "nullable": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentKey": {
-            "nullable": true
-          },
-          "parentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "parentChain": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ParentTypeKey"
-            }
-          },
-          "objectState": {
-            "required": [
-              "structureKey",
-              "permanentStructureIdentifier",
-              "temporary",
-              "structureMainPurpose",
-              "buildingObjectType",
-              "address"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/StructureNoPersonData"
-              }
-            ],
-            "nullable": true
-          },
-          "objectStatePrev": {
-            "required": [
-              "structureKey",
-              "permanentStructureIdentifier",
-              "temporary",
-              "structureMainPurpose",
-              "buildingObjectType",
-              "address"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/StructureNoPersonData"
-              }
-            ],
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "StructureNoPersonDataChangeInfoCollectionDto": {
         "type": "object",
         "properties": {
@@ -18361,7 +17445,7 @@
           "diff": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/StructureNoPersonDataChangeDiffDto"
+              "$ref": "#/components/schemas/ChangeDiff"
             }
           }
         },
@@ -18662,17 +17746,11 @@
             "nullable": true
           },
           "materialData": {
-            "required": [
-              "constructionMethod",
-              "buildingMaterialOfLoadBearingStructures",
-              "wideBodiedBuilding"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/MaterialData"
+                "$ref": "#/components/schemas/ChangeInformationMaterialData"
               }
             ],
-            "description": "Materiaalitiedot",
             "nullable": true
           },
           "energyData": {
