@@ -8936,17 +8936,11 @@
             "nullable": true
           },
           "materialData": {
-            "required": [
-              "constructionMethod",
-              "buildingMaterialOfLoadBearingStructures",
-              "wideBodiedBuilding"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/MaterialData"
+                "$ref": "#/components/schemas/ChangeInformationMaterialData"
               }
             ],
-            "description": "Materiaalitiedot",
             "nullable": true
           },
           "energyData": {
@@ -9524,6 +9518,45 @@
               }
             ],
             "description": "Rakentamishanke",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeInformationMaterialData": {
+        "type": "object",
+        "properties": {
+          "constructionMethod": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/vtj/Rake_runkotapa/code/01",
+              "http://uri.suomi.fi/codelist/vtj/Rake_runkotapa/code/02"
+            ],
+            "type": "string",
+            "nullable": true
+          },
+          "buildingMaterialOfLoadBearingStructures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingMaterialOfLoadBearingStructures"
+            }
+          },
+          "facadeMaterial": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacadeMaterial"
+            },
+            "nullable": true
+          },
+          "fireClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "wideBodiedBuilding": {
+            "type": "boolean"
+          },
+          "reusableMaterialAmount": {
+            "type": "number",
+            "format": "double",
             "nullable": true
           }
         },
@@ -15004,17 +15037,11 @@
             "nullable": true
           },
           "materialData": {
-            "required": [
-              "constructionMethod",
-              "buildingMaterialOfLoadBearingStructures",
-              "wideBodiedBuilding"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/MaterialData"
+                "$ref": "#/components/schemas/ChangeInformationMaterialData"
               }
             ],
-            "description": "Materiaalitiedot",
             "nullable": true
           },
           "energyData": {
@@ -15244,17 +15271,11 @@
             "nullable": true
           },
           "materialData": {
-            "required": [
-              "constructionMethod",
-              "buildingMaterialOfLoadBearingStructures",
-              "wideBodiedBuilding"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/MaterialData"
+                "$ref": "#/components/schemas/ChangeInformationMaterialData"
               }
             ],
-            "description": "Materiaalitiedot",
             "nullable": true
           },
           "energyData": {
@@ -16747,37 +16768,19 @@
         },
         "additionalProperties": false
       },
-      "GeoJsonGeometry": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Tuetut geometriatyypit"
-          }
-        },
-        "additionalProperties": false,
-        "description": "GeoJson geometria (abstrakti luokka, katso toteutukset)"
-      },
       "GeoJsonLineStringGeometry": {
         "required": [
           "coordinates",
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "LineString"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -16786,25 +16789,11 @@
                 "type": "number",
                 "format": "double"
               }
-            },
-            "description": "Koordinaatit",
-            "example": "[ [100.0, 0.0], [101.0, 1.0] ]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"lineString\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+        "description": "GeoJSON LineString"
       },
       "GeoJsonMultiLineStringGeometry": {
         "required": [
@@ -16812,12 +16801,13 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "MultiLineString"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -16829,25 +16819,11 @@
                   "format": "double"
                 }
               }
-            },
-            "description": "Koordinaatit",
-            "example": "[ [[100.0, 0.0], [101.0, 1.0]], [[101.0, 1.0], [100.0, 1.0]] ]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"lineString\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+        "description": "GeoJSON MultiLineString"
       },
       "GeoJsonMultiPointGeometry": {
         "required": [
@@ -16855,12 +16831,13 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "MultiPoint"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -16869,25 +16846,11 @@
                 "type": "number",
                 "format": "double"
               }
-            },
-            "description": "Koordinaatit",
-            "example": "[ [100.0, 0.0], [101.0, 1.0] ]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"multiPoint\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "MultiPoint GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPoint\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+        "description": "GeoJSON MultiPoint"
       },
       "GeoJsonMultiPolygonGeometry": {
         "required": [
@@ -16895,12 +16858,13 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "MultiPolygon"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -16915,25 +16879,11 @@
                   }
                 }
               }
-            },
-            "description": "Koordinaatit",
-            "example": "[ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"multiPolygon\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "MultiPolygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPolygon\", \"coordinates\": [ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ] }"
+        "description": "GeoJSON MultiPolygon"
       },
       "GeoJsonPointGeometry": {
         "required": [
@@ -16941,36 +16891,23 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "Point"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
               "type": "number",
               "format": "double"
-            },
-            "description": "Koordinaatit",
-            "example": "[100.0, 0.0]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"point\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "Point GeoJson\r\n\r\nEsimerkki: { \"type\": \"point\", \"coordinates\": [100.0, 0.0] }"
+        "description": "GeoJSON Point"
       },
       "GeoJsonPolygonGeometry": {
         "required": [
@@ -16978,12 +16915,13 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "Polygon"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -16995,25 +16933,11 @@
                   "format": "double"
                 }
               }
-            },
-            "description": "Koordinaatit",
-            "example": " [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"polygon\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "Polygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
+        "description": "GeoJSON Polygon"
       },
       "GetBuildingOwnerResponse": {
         "type": "object",
@@ -18139,7 +18063,8 @@
               "http://uri.suomi.fi/codelist/rytj/SijoittamislupakohteenLaji/code/02",
               "http://uri.suomi.fi/codelist/rytj/SijoittamislupakohteenLaji/code/03"
             ],
-            "type": "string"
+            "type": "string",
+            "description": ""
           },
           "buildingMainPurpose": {
             "enum": [
@@ -19113,7 +19038,7 @@
                 "$ref": "#/components/schemas/GeoJsonMultiPolygonGeometry"
               }
             ],
-            "description": "Geometria GeoJson rakenteella: https://geojson.org/"
+            "description": "Geometria GeoJSON rakenteella: https://geojson.org/"
           }
         },
         "additionalProperties": false
@@ -19935,17 +19860,11 @@
             "nullable": true
           },
           "materialData": {
-            "required": [
-              "constructionMethod",
-              "buildingMaterialOfLoadBearingStructures",
-              "wideBodiedBuilding"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/MaterialData"
+                "$ref": "#/components/schemas/ChangeInformationMaterialData"
               }
             ],
-            "description": "Materiaalitiedot",
             "nullable": true
           },
           "energyData": {

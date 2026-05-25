@@ -6496,11 +6496,18 @@
       },
       "BindingPlotDivisionCancellationInfo": {
         "required": [
+          "bindingPlotDivisionCancellationInfoKey",
           "cancelledBindingPlotDivisionUri",
           "cancelsEntireBindingPlotDivision"
         ],
         "type": "object",
         "properties": {
+          "bindingPlotDivisionCancellationInfoKey": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Tiedon tuottajatahon tietojärjestelmän generoima kumoutumistiedon versioriippumaton tunnus",
+            "format": "uuid"
+          },
           "cancelledBindingPlotDivisionUri": {
             "minLength": 1,
             "type": "string",
@@ -7107,11 +7114,18 @@
       },
       "BoundaryPoint": {
         "required": [
+          "boundaryPointKey",
           "boundaryPointOrPegId",
           "geometry"
         ],
         "type": "object",
         "properties": {
+          "boundaryPointKey": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Tiedon tuottajatahon tietojärjestelmän generoima rajapisteen versioriippumaton tunnus",
+            "format": "uuid"
+          },
           "boundaryPointOrPegId": {
             "minLength": 1,
             "type": "string",
@@ -9161,10 +9175,17 @@
       "MotherProperty": {
         "required": [
           "containedArea",
-          "fullyIncluded"
+          "fullyIncluded",
+          "motherPropertyKey"
         ],
         "type": "object",
         "properties": {
+          "motherPropertyKey": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Tiedon tuottajatahon tietojärjestelmän generoima muodostajakiinteistön versioriippumaton tunnus",
+            "format": "uuid"
+          },
           "propertyIdentifier": {
             "minLength": 3,
             "type": "string",
@@ -12301,12 +12322,21 @@
         "additionalProperties": { }
       },
       "RelatedPlan": {
+        "required": [
+          "relatedPlanKey"
+        ],
         "type": "object",
         "properties": {
           "relatedPlanUri": {
             "type": "string",
             "description": "Viittaustunnus (https://uri.rakennetunymparistontietojarjestelma.fi/plan/{plankey}) tonttijakotontin alueelle kohdistuvaan vaikuttavaan kaavaan.",
             "nullable": true
+          },
+          "relatedPlanKey": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Tiedon tuottajatahon tietojärjestelmän generoima vaikuttavan kaavan versioriippumaton tunnus",
+            "format": "uuid"
           },
           "relatedProducerPlanIdentifier": {
             "type": "string",
