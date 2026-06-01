@@ -1,0 +1,6 @@
+POST https://ryhtiapi-dev.env.fi/building/api/file?municipalityId=837
+content-type: multipart/form-data; boundary=--------------------------31b40fae2cdf390860ef19e1
+
+### Response: 201 Created
+
+e352b9dc-fefb-4618-be97-e851a3923679

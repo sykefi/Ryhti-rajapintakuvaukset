@@ -1,0 +1,388 @@
+POST https://ryhtiapi-dev.env.fi/building/api/DemolitionPermit/3000043345
+content-type: application/json
+
+{
+  "permanentPermitIdentifier": "3000043345",
+  "dateOfInitiation": "2026-05-29",
+  "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/4",
+  "municipalityNumber": "837",
+  "extensionDecision": null,
+  "changePermit": null,
+  "constructionAction": [
+    {
+      "constructionActionKey": "d8af1d99-8083-468a-899e-054a99e9f300",
+      "constructionActionType": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/05",
+      "buildingObjectChange": null,
+      "descriptionOfAction": {
+        "fin": "Rakentamistoimenpiteen kuvaus",
+        "swe": "Beskrivning av byggåtgärd",
+        "smn": "Rakentamistoimenpiteen kuvaus",
+        "sms": "Rakentamistoimenpiteen kuvaus",
+        "sme": "Rakentamistoimenpiteen kuvaus",
+        "eng": "Description of construction action"
+      },
+      "areaUndergoingChanges": null,
+      "reasonForDemolition": "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/04",
+      "renovation": false,
+      "renovationRate": 0,
+      "building": {
+        "buildingKey": "c2716bd6-9116-4db5-882e-9f3ac45bd31b",
+        "permanentBuildingIdentifier": "900044279D",
+        "numberOfStoreys": 2,
+        "mainPurpose": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0110",
+        "buildingObjectType": "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/1",
+        "location": {
+          "buildingObjectLocationDataKey": "d5217a49-9375-4d64-85c8-35eb545013dd",
+          "votingDistrictNumber": "001",
+          "pointLocation": {
+            "srid": "3067",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                337769,
+                6839222
+              ]
+            }
+          },
+          "geometry": null
+        },
+        "administrativeLocationUnit": {
+          "administrativeLocationUnitKey": "d3a24835-6524-4ebe-ab0c-66772b45696c",
+          "propertyIdentifier": "83770500010146",
+          "unseparatedParcelIdentifier": null,
+          "unitIdentifier": null
+        },
+        "decisionAdministrativeLocationUnit": {
+          "administrativeLocationUnitKey": "e2376f29-a828-4854-9284-aad47ca4578f",
+          "propertyIdentifier": "83770500010146",
+          "unseparatedParcelIdentifier": null,
+          "unitIdentifier": null
+        },
+        "buildingObjectOwner": [
+          {
+            "buildingObjectOwnerKey": "d254311e-c98f-42a2-b9f1-c412b80ff0c7",
+            "ownerOperator": {
+              "personalIdentityCode": "010170-999R",
+              "businessId": null,
+              "otherId": null,
+              "isPerson": true,
+              "firstName": "Etunimi1",
+              "familyName": "Sukunimi1",
+              "organizationName": null,
+              "operatorAddress": null,
+              "languageCode": "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/fi",
+              "nationalityCode": "http://uri.suomi.fi/codelist/jhs/valtio_1_20120101/code/246",
+              "deathDate": null
+            },
+            "differentOwner": true,
+            "tenureStatus": {
+              "fin": "Hallintaperuste 1",
+              "swe": "Besittningsförhållande 1",
+              "smn": "Hallintaperuste 1",
+              "sms": "Hallintaperuste 1",
+              "sme": "Hallintaperuste 1",
+              "eng": "TenureStatus 1"
+            },
+            "ownerContactOperator": null,
+            "ownerType": "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/01"
+          }
+        ],
+        "address": [
+          {
+            "addressKey": "38b7065a-d79f-4642-89df-17d4d841e2f1",
+            "addressName": {
+              "fin": "Vuokkolantie",
+              "swe": "Vuokkolovägen"
+            },
+            "numberPartOfAddressNumber": 55,
+            "subdivisionLetterOfAddressNumber": "a",
+            "postalCode": "33100",
+            "location": {
+              "srid": "3067",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  337489,
+                  6840116
+                ]
+              }
+            },
+            "addressNumber": 1,
+            "numberPartOfAddressNumber2": null,
+            "subdivisionLetterOfAddressNumber2": null
+          },
+          {
+            "addressKey": "15c674d0-50c6-4ae7-a0c2-732cdb1e399d",
+            "addressName": {
+              "fin": "Vuokkolantie",
+              "swe": "Vuokkolovägen"
+            },
+            "numberPartOfAddressNumber": 59,
+            "subdivisionLetterOfAddressNumber": "c",
+            "postalCode": "33100",
+            "location": {
+              "srid": "3067",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  337769,
+                  6839222
+                ]
+              }
+            },
+            "addressNumber": 2,
+            "numberPartOfAddressNumber2": null,
+            "subdivisionLetterOfAddressNumber2": null
+          }
+        ],
+        "name": null,
+        "description": {
+          "fin": "Asuinkerrostalo, jossa on useita huoneistoja"
+        },
+        "buildingProductList": null,
+        "chargingPoint": null,
+        "bikespaceCount": null,
+        "buildingPurposeForLowCarbonAssessment": null
+      },
+      "structure": null,
+      "areaToBeBuiltForSpecificActivities": null,
+      "startDate": null,
+      "completionDate": null,
+      "commissioningDate": null,
+      "finishedAreaToBeBuiltForSpecificActivities": null,
+      "statusOfConstructionAction": "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/1",
+      "fullyApprovedForUse": null,
+      "businessConstruction": true,
+      "changeType": null,
+      "expiryDate": null
+    }
+  ],
+  "buildingSite": {
+    "buildingSiteKey": "de87baf5-68bc-4856-9d3d-b27efba46cbc",
+    "area": 3,
+    "stormWaterTreatmentType": "http://uri.suomi.fi/codelist/rytj/hulevedenkasittely/code/01",
+    "buildingSiteAddress": [
+      {
+        "addressKey": "4d8a4c20-a0ce-49b4-9947-43004694a78d",
+        "addressName": {
+          "fin": "Koulutie",
+          "swe": "Skolgatan"
+        },
+        "numberPartOfAddressNumber": 0,
+        "subdivisionLetterOfAddressNumber": "a",
+        "postalCode": "42700",
+        "location": {
+          "srid": "3067",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              386023.53933660605,
+              6672105.533725229
+            ]
+          }
+        },
+        "addressNumber": 1,
+        "numberPartOfAddressNumber2": 3,
+        "subdivisionLetterOfAddressNumber2": "a"
+      }
+    ],
+    "spatialPlan": "6706100",
+    "statusOfPlan": "http://uri.suomi.fi/codelist/vtj/Rake_kaava/code/01",
+    "name": null,
+    "description": null,
+    "geometry": {
+      "srid": "3067",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          386023.53933660605,
+          6672105.533725229
+        ]
+      }
+    },
+    "tenure": "http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste/code/1"
+  },
+  "attachment": [
+    {
+      "attachmentDocumentKey": "28ec5dbd-cb60-41ff-93a3-8d7224c1e301",
+      "attachmentType": "http://uri.suomi.fi/codelist/rytj/ravaasiaki/code/01",
+      "documentIdentifier": "LUP-2024-001",
+      "name": {
+        "fin": "Liite",
+        "swe": "Bilaga",
+        "smn": "Liite",
+        "sms": "Liite",
+        "sme": "Liite",
+        "eng": "Attachment"
+      },
+      "personalDataContent": "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/3",
+      "categoryOfPublicity": "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+      "accessibility": true,
+      "retentionTime": "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/01",
+      "confirmationDate": "2023-03-29",
+      "languages": [
+        "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/fi"
+      ],
+      "fileKey": "922cc3c4-120a-40fc-a43d-e38e483e3569",
+      "documentDate": "2023-03-17",
+      "arrivedDate": null,
+      "documentCreatorPersonalIdentityCode": null,
+      "documentCreatorOtherId": null,
+      "documentCreatorFirstName": null,
+      "documentCreatorFamilyName": null
+    }
+  ],
+  "constructionProject": {
+    "constructionProjectKey": "46d0e351-8468-438c-aa82-fbe87bee8c6a",
+    "descriptionOfConstructionProject": {
+      "fin": "Rakennushankkeen kuvaus",
+      "swe": "Beskrivning av byggprojekt",
+      "smn": "Rakennushankkeen kuvaus",
+      "sms": "Rakennushankkeen kuvaus",
+      "sme": "Rakennushankkeen kuvaus",
+      "eng": "Description of construction project"
+    },
+    "startDate": "2026-05-29",
+    "planner": null,
+    "foreman": null,
+    "inspection": null
+  },
+  "demolitionPermitApplication": [
+    {
+      "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/2",
+      "applicationContent": "Rakennuslupahakemus rakennuksen muutostöitä varten",
+      "dateOfReception": "2026-05-29",
+      "callForDeviation": null,
+      "permitApplicationType": null,
+      "demolitionPermitApplicationKey": "304cacea-c708-46cc-8744-daa237deec21"
+    }
+  ],
+  "demolitionDecision": {
+    "acceptedDeviation": [
+      {
+        "acceptedDeviationKey": "22aebd86-a631-48d6-9a5a-583db969aed8",
+        "deviationType": "http://uri.suomi.fi/codelist/rytj/PoikkeamisenLaji/code/01",
+        "contentOfDeviation": {
+          "fin": "Poikkeamisen sisältö",
+          "swe": "Avvikelsens innehåll",
+          "smn": "Poikkeamisen sisältö",
+          "sms": "Poikkeamisen sisältö",
+          "sme": "Poikkeamisen sisältö",
+          "eng": "Content of deviation"
+        }
+      }
+    ],
+    "permitRegulation": [
+      {
+        "permitRegulationKey": "3ed5efb5-47bd-4508-b039-80a09b6802f4",
+        "permitRegulationType": "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M01",
+        "textOfPermitRegulation": {
+          "fin": "Lupamääräyksen teksti",
+          "swe": "Texten för lovvillkoret",
+          "smn": "Lupamääräyksen teksti",
+          "sms": "Lupamääräyksen teksti",
+          "sme": "Lupamääräyksen teksti",
+          "eng": "Text of permit regulation"
+        }
+      }
+    ],
+    "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/11",
+    "decisionDate": "2026-05-29",
+    "dateOfDecision": "2026-05-29",
+    "dateOfValidityOfDecision": "2026-05-29",
+    "decisionDocument": {
+      "attachmentType": "http://uri.suomi.fi/codelist/rytj/ravaasiaki/code/01",
+      "documentIdentifier": "LUP-2024-001",
+      "attachmentDocumentKey": "1eaa52b2-1f79-4123-876a-598e28f3203b",
+      "name": {
+        "fin": "Rakennuslupapäätös",
+        "swe": "Bygglovsbeslut",
+        "smn": "Rakennuslupapäätös",
+        "sms": "Rakennuslupapäätös",
+        "sme": "Rakennuslupapäätös",
+        "eng": "Building Permit Decision"
+      },
+      "personalDataContent": "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/3",
+      "categoryOfPublicity": "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+      "accessibility": true,
+      "retentionTime": "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/01",
+      "confirmationDate": "2023-03-29",
+      "languages": [
+        "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/fi"
+      ],
+      "fileKey": "922cc3c4-120a-40fc-a43d-e38e483e3569",
+      "documentDate": "2023-03-16",
+      "arrivedDate": null,
+      "documentCreatorPersonalIdentityCode": null,
+      "documentCreatorOtherId": null,
+      "documentCreatorFirstName": null,
+      "documentCreatorFamilyName": null
+    },
+    "decisionArticle": "§ 125",
+    "publicNoticeDate": "2026-05-29",
+    "decisionText": {
+      "fin": "Lupa myönnetään hakemuksen mukaisesti",
+      "swe": "Tillstånd beviljas enligt ansökan",
+      "smn": "Lupa myönnetään hakemuksen mukaisesti",
+      "sms": "Lupa myönnetään hakemuksen mukaisesti",
+      "sme": "Lupa myönnetään hakemuksen mukaisesti",
+      "eng": "Permit granted as applied"
+    },
+    "guidingStatute": [
+      {
+        "guidingStatuteKey": "1d60b712-a2d4-4587-8806-1b2710646d70",
+        "statuteName": {
+          "fin": "Maankäyttö- ja rakennuslaki",
+          "swe": "Mark- och bygglag",
+          "smn": "Maankäyttö- ja rakennuslaki",
+          "sms": "Maankäyttö- ja rakennuslaki",
+          "sme": "Maankäyttö- ja rakennuslaki",
+          "eng": "Land Use and Building Act"
+        },
+        "statuteCollectionNumber": 2023,
+        "statuteCollectionYear": 2023,
+        "chapter": 0,
+        "section": 0,
+        "subSection": 0,
+        "paragraph": 0,
+        "subParagraph": "§ 125 a"
+      }
+    ],
+    "relatedPermit": null,
+    "permitApplicationType": null,
+    "constructionToBeStartedBy": "2026-06-01",
+    "constructionToBeCompletedBy": "2026-12-31",
+    "constructionToBeStartedByExtension": null,
+    "constructionToBeCompletedByExtension": null,
+    "engagingParty": [
+      {
+        "engagingPartyKey": "ab7fe061-b53a-42ba-80b6-950a2e811026",
+        "personalIdentityCode": "010170-999R",
+        "businessId": null,
+        "otherId": null,
+        "isPerson": true,
+        "firstName": "Matti",
+        "familyName": "Virtanen",
+        "organizationName": null,
+        "applicantContactOperator": null,
+        "deathDate": null
+      }
+    ],
+    "decisionMakerType": "http://uri.suomi.fi/codelist/rytj/PaatoksenTekija/code/01",
+    "decisionMakerFirstName": "Viranomainen",
+    "decisionMakerName": {
+      "fin": "Rakennusvalvontaviranomainen",
+      "swe": "Byggnadstillsynsmyndigheten",
+      "smn": "Rakennusvalvontaviranomainen",
+      "sms": "Rakennusvalvontaviranomainen",
+      "sme": "Rakennusvalvontaviranomainen",
+      "eng": "Building Control Authority"
+    },
+    "demolitionPermitDecisionKey": "346184f6-78d1-4742-a689-5df3b8076d6d",
+    "relatedApplication": "304cacea-c708-46cc-8744-daa237deec21"
+  }
+}
+
+### Response: 201 Created
+
+3000043345
