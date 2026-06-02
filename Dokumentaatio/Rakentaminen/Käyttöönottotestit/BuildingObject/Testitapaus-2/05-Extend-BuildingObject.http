@@ -1,0 +1,926 @@
+POST https://ryhtiapi-test.env.fi/building/api/BuildingObject/616eaf1c-92c7-4892-a9df-3d9cd95b84d5
+content-type: application/json
+
+{
+  "buildingObjectIssueKey": "616eaf1c-92c7-4892-a9df-3d9cd95b84d5",
+  "municipalityNumber": "837",
+  "constructionAction": {
+    "constructionActionKey": "426ae948-0e39-4d54-9842-d892739e7d27",
+    "constructionActionType": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/09",
+    "buildingObjectChange": null,
+    "descriptionOfAction": {
+      "fin": "Rakennuksen laajennus — uusi rakennusosa D (3 huoneistoa)"
+    },
+    "areaUndergoingChanges": null,
+    "reasonForDemolition": null,
+    "renovation": false,
+    "renovationRate": 0,
+    "building": null,
+    "finishedBuilding": {
+      "buildingKey": "a8a4a7fb-c0e1-4971-ad33-20f2e37304c5",
+      "permanentBuildingIdentifier": "9000448262",
+      "temporary": false,
+      "demolitionDeadline": null,
+      "numberOfStoreys": 6,
+      "buildingSection": [
+        {
+          "buildingSectionKey": "7145229a-760f-4270-b052-f431835d002c",
+          "lifeCycleState": "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/03",
+          "completionDate": "2024-12-31",
+          "partitionReason": "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/2",
+          "materialData": {
+            "constructionMethod": "http://uri.suomi.fi/codelist/vtj/Rake_runkotapa/code/01",
+            "buildingMaterialOfLoadBearingStructures": [
+              {
+                "buildingMaterialOfLoadBearingStructuresKey": "02784899-1b9d-427d-9109-6c6b96d3ffe9",
+                "buildingMaterialOfLoadBearingStructuresType": "http://uri.suomi.fi/codelist/rytj/kantavanrakenteenrakennusaine/code/01",
+                "isPrimary": true
+              }
+            ],
+            "facadeMaterial": [
+              {
+                "facadeMaterialKey": "f9e710b6-b4ad-4134-b859-49c42ce1108d",
+                "facadeMaterialType": "http://uri.suomi.fi/codelist/rytj/julkisivunrakennusaine/code/01",
+                "isPrimary": true
+              }
+            ],
+            "fireClass": "http://uri.suomi.fi/codelist/rytj/Paloluokka/code/01",
+            "wideBodiedBuilding": false,
+            "reusableMaterialAmount": 10000
+          },
+          "energyData": {
+            "energyDataKey": "b55db2fb-b175-497c-95f9-1aedd8dc3389",
+            "energyEfficiencyRating": "http://uri.suomi.fi/codelist/rytj/Energiatehokkuusluokka/code/01",
+            "computationalEnergyEfficiencyComparand": 150,
+            "heatingMethod": [
+              {
+                "heatingMethodKey": "6929f576-820a-48d1-a5fb-9c342d6ff79d",
+                "heatingMethodType": "http://uri.suomi.fi/codelist/rytj/lammitystapa/code/01",
+                "isPrimary": true
+              }
+            ],
+            "heatingEnergySource": [
+              {
+                "heatingEnergySourceKey": "c0acae70-4d17-4cc8-ad6f-2d877346eecf",
+                "heatingEnergySourceType": "http://uri.suomi.fi/codelist/rytj/lammitysenergianlahde/code/01",
+                "isPrimary": true
+              }
+            ],
+            "coolingMethod": [
+              {
+                "coolingMethodKey": "20060d9b-f620-47ad-a7c0-6222531269ae",
+                "coolingMethodType": "http://uri.suomi.fi/codelist/rytj/jaahdytystapa/code/01",
+                "isPrimary": true
+              }
+            ],
+            "coolingEnergySource": [
+              {
+                "coolingEnergySourceKey": "656a0618-062f-409c-b8cf-590b5bfe107d",
+                "coolingEnergySourceType": "http://uri.suomi.fi/codelist/rytj/jaahdytys/code/01",
+                "isPrimary": true
+              }
+            ],
+            "electricalEnergySource": [
+              {
+                "electricalEnergySourceKey": "0b5085f1-3a23-444e-a3bf-67e3d04eee17",
+                "electricalEnergySourceType": "http://uri.suomi.fi/codelist/rytj/sahkoenergianlahde/code/01",
+                "isPrimary": true
+              }
+            ],
+            "netHeatedArea": 1800,
+            "heatedVolume": 5400,
+            "attachment": [
+              {
+                "attachmentType": "http://uri.suomi.fi/codelist/rytj/ravaasiaki/code/01",
+                "attachmentDocumentKey": "ddaef9a9-93c2-448b-8b26-e898a3a02ac6",
+                "documentIdentifier": "ENERGY-1780402705882",
+                "name": {
+                  "fin": "Energiatodistus"
+                },
+                "personalDataContent": "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/1",
+                "categoryOfPublicity": "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+                "accessibility": true,
+                "retentionTime": "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/01",
+                "confirmationDate": "2024-12-01",
+                "languages": [
+                  "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/fi"
+                ],
+                "fileKey": "246d6d16-3a85-490f-9155-6c1b2da1dd61",
+                "documentDate": "2026-06-02"
+              }
+            ],
+            "calculatoryDeliveredEnergyUsage": {
+              "calculatoryDeliveredEnergyUsageKey": "6e089edb-86b2-452a-94a0-35b96823469f",
+              "deliveredEnergyType": "http://uri.suomi.fi/codelist/rytj/ostoenergia/code/01",
+              "energyAmountYearly": 5000
+            },
+            "energyRatingSubindex": "http://uri.suomi.fi/codelist/rytj/energialuokkaAlaindeksi/code/03"
+          },
+          "apartment": [
+            {
+              "apartmentKey": "3c4f8864-8718-482f-94fd-65a57983e138",
+              "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/4",
+              "apartmentEquipment": [
+                {
+                  "apartmentEquipmentKey": "409bc91e-580c-4b91-91bd-d20a11431ea1",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/01",
+                  "numberOfEquipment": 2
+                },
+                {
+                  "apartmentEquipmentKey": "ce09f43a-af4b-4c3b-b400-559e9a58e780",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/02",
+                  "numberOfEquipment": 2
+                },
+                {
+                  "apartmentEquipmentKey": "a17e7c83-52d5-42a2-ba81-b9e5292b0142",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/03",
+                  "numberOfEquipment": 1
+                },
+                {
+                  "apartmentEquipmentKey": "b4c02e40-d958-438b-a77b-6a68cb6d9d57",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/04",
+                  "numberOfEquipment": 1
+                },
+                {
+                  "apartmentEquipmentKey": "2e288bba-ca57-47a2-a0b7-ed1472a39585",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/05",
+                  "numberOfEquipment": 1
+                }
+              ],
+              "apartmentIdentifier": "800062505W",
+              "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+              "floorArea": 120.5,
+              "numberOfRooms": 5,
+              "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/01",
+              "apartmentChangeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/02",
+              "addressNumber": 1,
+              "apartmentIdentifierLetterSuffix": "A",
+              "apartmentSubdivisionLetter": "a",
+              "apartmentNumber": 1
+            },
+            {
+              "apartmentKey": "ece6391a-7123-4a82-98f7-73bb924ea5d8",
+              "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/4",
+              "apartmentEquipment": [
+                {
+                  "apartmentEquipmentKey": "6583c4da-bd9b-4f70-9188-93ac325fdaa8",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/01",
+                  "numberOfEquipment": 1
+                },
+                {
+                  "apartmentEquipmentKey": "6f8ffbb1-b94c-4582-9a99-4b5efe6d394e",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/02",
+                  "numberOfEquipment": 1
+                }
+              ],
+              "apartmentIdentifier": "800062506X",
+              "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+              "floorArea": 62.5,
+              "numberOfRooms": 3,
+              "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/02",
+              "apartmentChangeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/02",
+              "addressNumber": 1,
+              "apartmentIdentifierLetterSuffix": "A",
+              "apartmentSubdivisionLetter": "a",
+              "apartmentNumber": 2
+            },
+            {
+              "apartmentKey": "be673df3-5391-429e-88ef-9ea43d4feb5c",
+              "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/4",
+              "apartmentEquipment": [
+                {
+                  "apartmentEquipmentKey": "95607f32-f42d-4035-bce1-868c81b8fe48",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/01",
+                  "numberOfEquipment": 1
+                },
+                {
+                  "apartmentEquipmentKey": "d71557d0-cc49-4e51-a30d-c64130a8c246",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/03",
+                  "numberOfEquipment": 1
+                }
+              ],
+              "apartmentIdentifier": "800062507Y",
+              "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+              "floorArea": 42,
+              "numberOfRooms": 2,
+              "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/03",
+              "apartmentChangeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/02",
+              "addressNumber": 1,
+              "apartmentIdentifierLetterSuffix": "A",
+              "apartmentSubdivisionLetter": "a",
+              "apartmentNumber": 3
+            },
+            {
+              "apartmentKey": "22e39f5e-f66e-401f-962b-aee6bff07e35",
+              "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/4",
+              "apartmentEquipment": [
+                {
+                  "apartmentEquipmentKey": "3e2f0f53-0c88-4def-be2d-32670d4f4c38",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/01",
+                  "numberOfEquipment": 1
+                },
+                {
+                  "apartmentEquipmentKey": "8dfdb8c9-1b79-4e50-8b58-5020d9206b33",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/02",
+                  "numberOfEquipment": 1
+                },
+                {
+                  "apartmentEquipmentKey": "d5bb2e54-1b11-4a40-945e-38ab40276c4a",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/04",
+                  "numberOfEquipment": 1
+                }
+              ],
+              "apartmentIdentifier": "8000625080",
+              "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+              "floorArea": 80.5,
+              "numberOfRooms": 4,
+              "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/01",
+              "apartmentChangeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/02",
+              "addressNumber": 3,
+              "apartmentIdentifierLetterSuffix": "B",
+              "apartmentSubdivisionLetter": "b",
+              "apartmentNumber": 1
+            },
+            {
+              "apartmentKey": "22055990-5a5c-4255-8a32-39910b4977f6",
+              "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/4",
+              "apartmentEquipment": [
+                {
+                  "apartmentEquipmentKey": "82a31bea-ad8b-4b09-9da1-dfba8b676526",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/01",
+                  "numberOfEquipment": 1
+                },
+                {
+                  "apartmentEquipmentKey": "a5706e8c-9a34-4e14-9114-838118cf68ec",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/05",
+                  "numberOfEquipment": 1
+                }
+              ],
+              "apartmentIdentifier": "8000625091",
+              "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+              "floorArea": 45,
+              "numberOfRooms": 2,
+              "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/02",
+              "apartmentChangeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/02",
+              "addressNumber": 3,
+              "apartmentIdentifierLetterSuffix": "B",
+              "apartmentSubdivisionLetter": "b",
+              "apartmentNumber": 2
+            },
+            {
+              "apartmentKey": "0f0254f2-ca1b-4818-80c1-3360815d9936",
+              "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/4",
+              "apartmentEquipment": [
+                {
+                  "apartmentEquipmentKey": "978bbb47-941f-4b60-a7a1-70bf62257716",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/02",
+                  "numberOfEquipment": 1
+                },
+                {
+                  "apartmentEquipmentKey": "ada04989-d2ab-42e4-8c7f-afe8850b8234",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/04",
+                  "numberOfEquipment": 1
+                }
+              ],
+              "apartmentIdentifier": "8000625102",
+              "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+              "floorArea": 55.5,
+              "numberOfRooms": 3,
+              "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/04",
+              "apartmentChangeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/02",
+              "addressNumber": 3,
+              "apartmentIdentifierLetterSuffix": "B",
+              "apartmentSubdivisionLetter": "b",
+              "apartmentNumber": 3
+            },
+            {
+              "apartmentKey": "0b84adb5-1797-414e-9009-36204a210ef4",
+              "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/4",
+              "apartmentEquipment": [
+                {
+                  "apartmentEquipmentKey": "65faa9d2-f499-421b-b279-388354df420c",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/01",
+                  "numberOfEquipment": 1
+                },
+                {
+                  "apartmentEquipmentKey": "b3f369d2-0d5b-4df5-a209-191438e261d3",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/03",
+                  "numberOfEquipment": 1
+                },
+                {
+                  "apartmentEquipmentKey": "ce633bd7-be65-4670-a2a2-3f5f58d20cb7",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/04",
+                  "numberOfEquipment": 1
+                }
+              ],
+              "apartmentIdentifier": "8000625113",
+              "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+              "floorArea": 75,
+              "numberOfRooms": 4,
+              "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/01",
+              "apartmentChangeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/02",
+              "addressNumber": 1,
+              "apartmentIdentifierLetterSuffix": "C",
+              "apartmentSubdivisionLetter": "c",
+              "apartmentNumber": 1
+            },
+            {
+              "apartmentKey": "995407b9-7eaf-423d-b429-a3aba33fc580",
+              "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/4",
+              "apartmentEquipment": [
+                {
+                  "apartmentEquipmentKey": "ec2cb876-2f31-408c-af32-c46d067c2e54",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/02",
+                  "numberOfEquipment": 1
+                },
+                {
+                  "apartmentEquipmentKey": "7cc9a9c6-9d45-4ad2-9a0a-b70e0526b1bd",
+                  "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/05",
+                  "numberOfEquipment": 1
+                }
+              ],
+              "apartmentIdentifier": "8000625124",
+              "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+              "floorArea": 50.5,
+              "numberOfRooms": 3,
+              "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/03",
+              "apartmentChangeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/02",
+              "addressNumber": 1,
+              "apartmentIdentifierLetterSuffix": "C",
+              "apartmentSubdivisionLetter": "c",
+              "apartmentNumber": 2
+            },
+            {
+              "apartmentKey": "6a201fa8-d5ed-4377-8e08-d140a08342bd",
+              "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/4",
+              "apartmentEquipment": [],
+              "apartmentIdentifier": "8000625135",
+              "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+              "floorArea": 20,
+              "numberOfRooms": 1,
+              "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/02",
+              "apartmentChangeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/02",
+              "addressNumber": 1,
+              "apartmentIdentifierLetterSuffix": "C",
+              "apartmentSubdivisionLetter": "c",
+              "apartmentNumber": 3
+            }
+          ],
+          "protectionMethod": "http://uri.suomi.fi/codelist/rytj/suojtapa/code/0103",
+          "cultureHistoricalSignificance": "http://uri.suomi.fi/codelist/rakrek/kulthistmer/code/2",
+          "interiorData": {
+            "floorArea": 2000,
+            "atticArea": 300,
+            "basementArea": 300
+          },
+          "exteriorData": {
+            "numberOfStoreys": 6,
+            "height": 15,
+            "flightObstacle": false,
+            "relationToGroundLevel": "http://uri.suomi.fi/codelist/rytj/Suhde_pintaan/code/01",
+            "volume": 6000,
+            "grossFloorArea": 2200,
+            "permittedBuildingArea": 2000,
+            "totalArea": 2600
+          },
+          "usageData": {
+            "commissioningDate": "2024-12-31",
+            "usageStatus": "http://uri.suomi.fi/codelist/vtj/rake_kaytossaolotilanne/code/01",
+            "purpose": [
+              {
+                "purposeKey": "69aa9839-2a94-4aa9-aa2f-138527ed7ce2",
+                "isPrimary": true,
+                "type": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0121"
+              },
+              {
+                "purposeKey": "be4726fa-3581-4935-8a9f-348d6b3a3322",
+                "isPrimary": false,
+                "type": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0311"
+              }
+            ],
+            "usefulFloorArea": 1800,
+            "intendedWorkingLife": 50,
+            "plannedUserCount": 50
+          },
+          "buildingServicesEngineeringData": {
+            "ventilationMethod": [
+              {
+                "ventilationMethodKey": "4459f99a-db8a-4b13-b121-17b6db5b2a3e",
+                "ventilationMethodType": "http://uri.suomi.fi/codelist/rytj/ilmanvaihto/code/01",
+                "isPrimary": true
+              }
+            ],
+            "sewerageMethodType": "http://uri.suomi.fi/codelist/rytj/jatevesienkasittely/code/01",
+            "householdWaterType": "http://uri.suomi.fi/codelist/rytj/talousvesi/code/01",
+            "networkConnection": [
+              {
+                "networkConnectionKey": "01b2435b-716d-4cbf-885e-4db177615d90",
+                "networkConnectionType": "http://uri.suomi.fi/codelist/rytj/verkliit/code/02",
+                "connected": true,
+                "connectionPoint": {
+                  "srid": "3067",
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                      386023.53933660605,
+                      6672105.533725229
+                    ]
+                  }
+                }
+              },
+              {
+                "networkConnectionKey": "686f24fe-c85b-4eff-a02f-052d05320e98",
+                "networkConnectionType": "http://uri.suomi.fi/codelist/rytj/verkliit/code/03",
+                "connected": true,
+                "connectionPoint": {
+                  "srid": "3067",
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                      386023.53933660605,
+                      6672105.533725229
+                    ]
+                  }
+                }
+              }
+            ],
+            "stormWaterTreatmentType": "http://uri.suomi.fi/codelist/rytj/hulevedenkasittely/code/01"
+          },
+          "entrance": [
+            {
+              "entranceKey": "355b97f0-6530-4af2-9206-a548183d77f5",
+              "isPrimary": true,
+              "entranceType": "http://uri.suomi.fi/codelist/rytj/sisaankaynti/code/03",
+              "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/rakennuksen-toim-osan-elinkaaren-vaihe/code/3",
+              "addressOfEntrance": "Kerrostalon Katu",
+              "isAccessible": true,
+              "name": {
+                "fin": "Pääsisäänkäynti"
+              },
+              "description": {
+                "fin": "Kerrostalon pääsisäänkäynti"
+              }
+            }
+          ],
+          "elevator": [
+            {
+              "elevatorKey": "76ced68b-71a8-4a51-8831-2e58d53e661d",
+              "elevatorType": "http://uri.suomi.fi/codelist/rytj/hissi/code/01",
+              "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/rakennuksen-toim-osan-elinkaaren-vaihe/code/3",
+              "insideLength": 2,
+              "insideWidth": 1,
+              "doorOpeningWidth": 1,
+              "doorOpeningHeight": 3,
+              "passengerCapacity": 8,
+              "loadCapacity": 630,
+              "fireFighterElevator": false,
+              "name": {
+                "fin": "Hissi 1"
+              },
+              "description": {
+                "fin": "Pääaulan hissi 1"
+              }
+            },
+            {
+              "elevatorKey": "6a88fc0a-8cd1-4604-bf99-c84936ed9fe5",
+              "elevatorType": "http://uri.suomi.fi/codelist/rytj/hissi/code/01",
+              "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/rakennuksen-toim-osan-elinkaaren-vaihe/code/3",
+              "insideLength": 2,
+              "insideWidth": 1,
+              "doorOpeningWidth": 1,
+              "doorOpeningHeight": 3,
+              "passengerCapacity": 8,
+              "loadCapacity": 630,
+              "fireFighterElevator": false,
+              "name": {
+                "fin": "Hissi 2"
+              },
+              "description": {
+                "fin": "Pääaulan hissi 2"
+              }
+            },
+            {
+              "elevatorKey": "3b3dc729-7443-446e-a446-6ffc5ad42691",
+              "elevatorType": "http://uri.suomi.fi/codelist/rytj/hissi/code/01",
+              "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/rakennuksen-toim-osan-elinkaaren-vaihe/code/3",
+              "insideLength": 2,
+              "insideWidth": 1,
+              "doorOpeningWidth": 1,
+              "doorOpeningHeight": 3,
+              "passengerCapacity": 8,
+              "loadCapacity": 630,
+              "fireFighterElevator": false,
+              "name": {
+                "fin": "Hissi 3"
+              },
+              "description": {
+                "fin": "Pääaulan hissi 3"
+              }
+            }
+          ],
+          "equipment": [
+            {
+              "equipmentKey": "8edeeec4-e3b9-43fe-8ef6-88bfdbaaadec",
+              "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/03"
+            },
+            {
+              "equipmentKey": "21ac3d86-59f4-4b11-b27e-1e12bd0fe374",
+              "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/04"
+            }
+          ],
+          "assemblyFacility": [
+            {
+              "assemblyFacilityKey": "c8fcfa28-56e4-48e3-8922-fca6a3c8fc89",
+              "capacityOfAssemblyFacilities": 100,
+              "name": {
+                "fin": "Kerrostalon Yhteinen Sali"
+              },
+              "description": {
+                "fin": "Kerrostalon yhteinen kokoontumistila"
+              }
+            }
+          ]
+        },
+        {
+          "buildingSectionKey": "cf330fe1-1c38-4950-8ff7-72c778ebdc3d",
+          "lifeCycleState": "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/03",
+          "completionDate": "2025-06-30",
+          "partitionReason": "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/2",
+          "materialData": {
+            "constructionMethod": "http://uri.suomi.fi/codelist/vtj/Rake_runkotapa/code/01",
+            "buildingMaterialOfLoadBearingStructures": [
+              {
+                "buildingMaterialOfLoadBearingStructuresKey": "7d65b5b7-5a14-4232-9974-ee895974d047",
+                "isPrimary": true,
+                "buildingMaterialOfLoadBearingStructuresType": "http://uri.suomi.fi/codelist/rytj/kantavanrakenteenrakennusaine/code/01"
+              }
+            ],
+            "facadeMaterial": [
+              {
+                "facadeMaterialKey": "3b4fbb2a-9452-43c5-9261-4e1eb37aef44",
+                "isPrimary": true,
+                "facadeMaterialType": "http://uri.suomi.fi/codelist/rytj/julkisivunrakennusaine/code/01"
+              }
+            ],
+            "wideBodiedBuilding": false
+          },
+          "usageData": {
+            "purpose": [
+              {
+                "purposeKey": "e8ab0258-ab10-4860-bfd1-1726f86dbf81",
+                "isPrimary": true,
+                "type": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0121"
+              },
+              {
+                "purposeKey": "7b12d6d6-69e2-4588-a48c-6cc227d20a49",
+                "isPrimary": false,
+                "type": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0311"
+              }
+            ],
+            "intendedWorkingLife": 50,
+            "plannedUserCount": 6
+          },
+          "interiorData": {
+            "floorArea": 90
+          },
+          "exteriorData": {
+            "numberOfStoreys": 3,
+            "totalArea": 110,
+            "grossFloorArea": 110,
+            "permittedBuildingArea": 110,
+            "volume": 330,
+            "height": 4,
+            "flightObstacle": false,
+            "relationToGroundLevel": "http://uri.suomi.fi/codelist/rytj/Suhde_pintaan/code/01"
+          }
+        },
+        {
+          "buildingSectionKey": "a7cfe1d0-4fec-48f3-8b2b-39496ae670da",
+          "lifeCycleState": "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/03",
+          "completionDate": "2025-06-30",
+          "partitionReason": "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/1",
+          "partitionDescription": {
+            "fin": "Asuinkäytön osa-alue (3/4)"
+          },
+          "relatedFinishedBuildingSection": "cf330fe1-1c38-4950-8ff7-72c778ebdc3d",
+          "materialData": {
+            "constructionMethod": "http://uri.suomi.fi/codelist/vtj/Rake_runkotapa/code/01",
+            "buildingMaterialOfLoadBearingStructures": [
+              {
+                "buildingMaterialOfLoadBearingStructuresKey": "e829ead2-8d16-4285-8c63-e4cc846a9988",
+                "isPrimary": true,
+                "buildingMaterialOfLoadBearingStructuresType": "http://uri.suomi.fi/codelist/rytj/kantavanrakenteenrakennusaine/code/01"
+              }
+            ],
+            "facadeMaterial": [
+              {
+                "facadeMaterialKey": "e8788ac7-3b3a-479e-bff4-98536ec0ef7b",
+                "isPrimary": true,
+                "facadeMaterialType": "http://uri.suomi.fi/codelist/rytj/julkisivunrakennusaine/code/01"
+              }
+            ],
+            "wideBodiedBuilding": false
+          },
+          "usageData": {
+            "purpose": [
+              {
+                "purposeKey": "88cd986b-963a-4612-835f-136f2feb9f42",
+                "isPrimary": true,
+                "type": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0121"
+              }
+            ],
+            "intendedWorkingLife": 50,
+            "plannedUserCount": 5
+          },
+          "interiorData": {
+            "floorArea": 1733
+          },
+          "exteriorData": {
+            "numberOfStoreys": 3,
+            "totalArea": 1733,
+            "grossFloorArea": 1733,
+            "permittedBuildingArea": 1733,
+            "volume": 248,
+            "height": 4,
+            "flightObstacle": false,
+            "relationToGroundLevel": "http://uri.suomi.fi/codelist/rytj/Suhde_pintaan/code/01"
+          },
+          "energyData": {
+            "energyDataKey": "64ac78ad-3f52-4cb9-9939-e815de378e1f",
+            "energyEfficiencyRating": "http://uri.suomi.fi/codelist/rytj/Energiatehokkuusluokka/code/01",
+            "computationalEnergyEfficiencyComparand": 120,
+            "netHeatedArea": 1733,
+            "heatedVolume": 248,
+            "energyRatingSubindex": "http://uri.suomi.fi/codelist/rytj/energialuokkaAlaindeksi/code/01",
+            "heatingMethod": [
+              {
+                "heatingMethodKey": "35dda513-24e5-4bd7-84fa-063de1905047",
+                "heatingMethodType": "http://uri.suomi.fi/codelist/rytj/lammitystapa/code/01",
+                "isPrimary": true
+              }
+            ],
+            "heatingEnergySource": [
+              {
+                "heatingEnergySourceKey": "c5bb87dc-a5b9-465c-ba54-1d58046bfd06",
+                "heatingEnergySourceType": "http://uri.suomi.fi/codelist/rytj/lammitysenergianlahde/code/01",
+                "isPrimary": true
+              }
+            ]
+          }
+        },
+        {
+          "buildingSectionKey": "9658558c-d313-4f52-bb77-5e42b00fcf1f",
+          "lifeCycleState": "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/03",
+          "completionDate": "2025-06-30",
+          "partitionReason": "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/1",
+          "partitionDescription": {
+            "fin": "Kaupallisen tilan osa-alue (1/4)"
+          },
+          "relatedFinishedBuildingSection": "7145229a-760f-4270-b052-f431835d002c",
+          "materialData": {
+            "constructionMethod": "http://uri.suomi.fi/codelist/vtj/Rake_runkotapa/code/01",
+            "buildingMaterialOfLoadBearingStructures": [
+              {
+                "buildingMaterialOfLoadBearingStructuresKey": "1d365119-8495-4d33-96c0-02d2cf8735ce",
+                "isPrimary": true,
+                "buildingMaterialOfLoadBearingStructuresType": "http://uri.suomi.fi/codelist/rytj/kantavanrakenteenrakennusaine/code/01"
+              }
+            ],
+            "facadeMaterial": [
+              {
+                "facadeMaterialKey": "1c947ded-6b72-4e1e-afe7-cfbc5c20e378",
+                "isPrimary": true,
+                "facadeMaterialType": "http://uri.suomi.fi/codelist/rytj/julkisivunrakennusaine/code/01"
+              }
+            ],
+            "wideBodiedBuilding": false
+          },
+          "usageData": {
+            "purpose": [
+              {
+                "purposeKey": "dc22639d-46be-4ea3-a228-90d6cb6ceef2",
+                "isPrimary": true,
+                "type": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0311"
+              }
+            ],
+            "intendedWorkingLife": 50,
+            "plannedUserCount": 20
+          },
+          "interiorData": {
+            "floorArea": 577
+          },
+          "exteriorData": {
+            "numberOfStoreys": 3,
+            "totalArea": 577,
+            "grossFloorArea": 577,
+            "permittedBuildingArea": 577,
+            "volume": 83,
+            "height": 4,
+            "flightObstacle": false,
+            "relationToGroundLevel": "http://uri.suomi.fi/codelist/rytj/Suhde_pintaan/code/01"
+          },
+          "energyData": {
+            "energyDataKey": "432136d4-7dc4-4cc0-94fd-459a94910aaf",
+            "energyEfficiencyRating": "http://uri.suomi.fi/codelist/rytj/Energiatehokkuusluokka/code/01",
+            "computationalEnergyEfficiencyComparand": 120,
+            "netHeatedArea": 577,
+            "heatedVolume": 83,
+            "energyRatingSubindex": "http://uri.suomi.fi/codelist/rytj/energialuokkaAlaindeksi/code/01",
+            "heatingMethod": [
+              {
+                "heatingMethodKey": "906edcbb-3c6e-47e0-ad93-85d2338e7683",
+                "heatingMethodType": "http://uri.suomi.fi/codelist/rytj/lammitystapa/code/01",
+                "isPrimary": true
+              }
+            ],
+            "heatingEnergySource": [
+              {
+                "heatingEnergySourceKey": "dbac8d8c-1012-4929-899e-4a59dc9587bf",
+                "heatingEnergySourceType": "http://uri.suomi.fi/codelist/rytj/lammitysenergianlahde/code/01",
+                "isPrimary": true
+              }
+            ]
+          }
+        }
+      ],
+      "mainPurpose": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0121",
+      "buildingObjectType": "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/2",
+      "location": {
+        "buildingObjectLocationDataKey": "063a5557-0cb6-4286-bdb3-a17590638e46",
+        "votingDistrictNumber": "001",
+        "pointLocation": {
+          "srid": "3067",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              336485,
+              6839240
+            ]
+          }
+        },
+        "geometry": []
+      },
+      "administrativeLocationUnit": {
+        "administrativeLocationUnitKey": "e1b9d864-8355-40a7-9682-a6aad1be19a2",
+        "unitIdentifier": null,
+        "propertyIdentifier": "83770500010146",
+        "unseparatedParcelIdentifier": null
+      },
+      "decisionAdministrativeLocationUnit": null,
+      "buildingObjectOwner": [
+        {
+          "buildingObjectOwnerKey": "be9bfcdd-79ba-4a43-92dc-6499d58fd2d6",
+          "ownerOperator": {
+            "businessId": "0111425-3",
+            "isPerson": false,
+            "organizationName": "HKFoods Oyj",
+            "operatorAddress": [
+              {
+                "addressKey": "993210ca-6ec7-42e4-bf51-735c45b8502f",
+                "poBoxAddress": {
+                  "fin": "50"
+                },
+                "contactAddressType": "http://uri.suomi.fi/codelist/rytj/yhteysosoitteenLaji/code/05",
+                "source": "http://uri.suomi.fi/codelist/rytj/tietolahde/code/05",
+                "addressName": {
+                  "fin": "Lemminkäisenkatu"
+                },
+                "numberPartOfAddressNumber": 48,
+                "postalCode": "20521"
+              }
+            ]
+          },
+          "differentOwner": true,
+          "tenureStatus": {
+            "fin": "Omistaja",
+            "eng": "Owner"
+          },
+          "ownerType": "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/05"
+        }
+      ],
+      "address": [
+        {
+          "addressKey": "00ebfbce-902b-40df-9695-32af6c3b68bd",
+          "addressNumber": 1,
+          "addressName": {
+            "fin": "Kerrostalon Katu"
+          },
+          "numberPartOfAddressNumber": 1,
+          "postalCode": "33100",
+          "location": {
+            "srid": "3067",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                336485,
+                6839240
+              ]
+            }
+          }
+        },
+        {
+          "addressKey": "7fb9a791-85a1-4bda-b63a-9362cd67c0f9",
+          "addressName": {
+            "fin": "Toimistosiipi Katu"
+          },
+          "numberPartOfAddressNumber": 10,
+          "subdivisionLetterOfAddressNumber": null,
+          "postalCode": "33100",
+          "location": {
+            "srid": "3067",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                336485,
+                6839240
+              ]
+            }
+          },
+          "addressNumber": 2,
+          "numberPartOfAddressNumber2": null,
+          "subdivisionLetterOfAddressNumber2": null
+        },
+        {
+          "addressKey": "a1c7e795-aef2-4c09-af31-f0f561962ed0",
+          "addressName": {
+            "fin": "Kerrostalon Katu"
+          },
+          "numberPartOfAddressNumber": 3,
+          "subdivisionLetterOfAddressNumber": null,
+          "postalCode": "33100",
+          "location": {
+            "srid": "3067",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                336485,
+                6839240
+              ]
+            }
+          },
+          "addressNumber": 3,
+          "numberPartOfAddressNumber2": null,
+          "subdivisionLetterOfAddressNumber2": null
+        }
+      ],
+      "name": null,
+      "description": null,
+      "renovationDate": null,
+      "buildingProductList": null,
+      "buildingPurposeForLowCarbonAssessment": null,
+      "chargingPoint": null,
+      "bikespaceCount": 10
+    },
+    "structure": null,
+    "areaToBeBuiltForSpecificActivities": null,
+    "startDate": null,
+    "completionDate": "2024-12-31",
+    "commissioningDate": null,
+    "finishedAreaToBeBuiltForSpecificActivities": null,
+    "statusOfConstructionAction": "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/5",
+    "fullyApprovedForUse": null,
+    "businessConstruction": false,
+    "changeType": null,
+    "dvvPermitIdentifier": null,
+    "expiryDate": null
+  },
+  "buildingSite": {
+    "buildingSiteKey": "0b168fcb-7024-430e-960e-731f9df6522e",
+    "area": 1000,
+    "stormWaterTreatmentType": "http://uri.suomi.fi/codelist/rytj/hulevedenkasittely/code/01",
+    "spatialPlan": null,
+    "statusOfPlan": "http://uri.suomi.fi/codelist/vtj/Rake_kaava/code/01",
+    "name": null,
+    "description": null,
+    "geometry": {
+      "srid": "3067",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          337091,
+          6839084
+        ]
+      }
+    },
+    "buildingSiteAddress": [
+      {
+        "addressKey": "c20fd3c4-f8ce-48f5-94b5-7874db76930c",
+        "addressName": {
+          "fin": "Rakennustie"
+        },
+        "numberPartOfAddressNumber": null,
+        "subdivisionLetterOfAddressNumber": null,
+        "postalCode": "33100",
+        "location": null,
+        "addressNumber": 1,
+        "numberPartOfAddressNumber2": null,
+        "subdivisionLetterOfAddressNumber2": null
+      }
+    ],
+    "tenure": "http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste/code/1"
+  }
+}
+
+### Response: 201 Created
+
+A1266: LY-tunnusta ei löydy LY-tunnusrekisteristä

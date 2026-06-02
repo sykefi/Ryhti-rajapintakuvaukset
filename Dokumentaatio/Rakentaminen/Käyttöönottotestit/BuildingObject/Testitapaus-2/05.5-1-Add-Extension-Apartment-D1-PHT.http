@@ -1,0 +1,54 @@
+POST https://ryhtiapi-test.env.fi/building/api/PermanentIdentifiers/ApartmentIdentifier
+content-type: application/json
+
+{
+  "municipalityNumber": "837",
+  "constructionAction": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
+  "permanentBuildingId": "9000448262",
+  "apartmentKey": "e6509ef4-d2db-493c-aa26-d94ba2302347",
+  "buildingSectionKey": "cf330fe1-1c38-4950-8ff7-72c778ebdc3d",
+  "addressNumber": 3,
+  "changeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/01",
+  "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+  "apartmentIdentifierLetterSuffix": "D",
+  "apartmentNumber": 1,
+  "apartmentSubdivisionLetter": "d",
+  "numberOfRooms": 4,
+  "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/01",
+  "floorArea": 100,
+  "apartmentEquipment": [
+    {
+      "apartmentEquipmentKey": "99968de8-2ad1-4a5a-8b83-a55035efddc4",
+      "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/01",
+      "numberOfEquipment": 2
+    },
+    {
+      "apartmentEquipmentKey": "af9205b0-14bd-4e8c-b80d-386647104ace",
+      "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/02",
+      "numberOfEquipment": 2
+    },
+    {
+      "apartmentEquipmentKey": "40367295-4668-4623-9458-1108221f3e20",
+      "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/03",
+      "numberOfEquipment": 1
+    },
+    {
+      "apartmentEquipmentKey": "7503f112-0617-4123-aa3d-ab1fa3ca27ef",
+      "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/04",
+      "numberOfEquipment": 1
+    },
+    {
+      "apartmentEquipmentKey": "dbb832c3-3e16-48b6-a586-8aa5b7c32469",
+      "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/05",
+      "numberOfEquipment": 1
+    }
+  ]
+}
+
+### Response: 201 Created
+
+{
+  "permanentApartmentIdentifier": "8000625146",
+  "response": "",
+  "created": true
+}

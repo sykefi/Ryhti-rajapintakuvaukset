@@ -1,0 +1,43 @@
+POST https://ryhtiapi-test.env.fi/building/api/PermanentIdentifiers/ApartmentIdentifier
+content-type: application/json
+
+{
+  "municipalityNumber": "837",
+  "constructionAction": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
+  "permanentBuildingId": "900044813M",
+  "apartmentKey": "83d41f69-cf74-4e1e-8f27-c54768393aa3",
+  "buildingSectionKey": "df9cb06a-8253-4646-a656-8248c296ae97",
+  "addressNumber": 3,
+  "changeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/01",
+  "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+  "apartmentIdentifierLetterSuffix": "C",
+  "apartmentNumber": 1,
+  "numberOfRooms": 3,
+  "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/01",
+  "floorArea": 75.5,
+  "apartmentEquipment": [
+    {
+      "apartmentEquipmentKey": "290b02eb-5417-400b-ba05-1d8efa8d089f",
+      "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/01",
+      "numberOfEquipment": 1
+    },
+    {
+      "apartmentEquipmentKey": "f02b2b39-b92e-4600-add3-814ef9aa85dc",
+      "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/02",
+      "numberOfEquipment": 1
+    },
+    {
+      "apartmentEquipmentKey": "76774086-1f7b-466d-8a7e-006c8795ea0b",
+      "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/05",
+      "numberOfEquipment": 1
+    }
+  ]
+}
+
+### Response: 201 Created
+
+{
+  "permanentApartmentIdentifier": "800062378T",
+  "response": "",
+  "created": true
+}

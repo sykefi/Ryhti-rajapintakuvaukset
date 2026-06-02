@@ -1,0 +1,222 @@
+POST https://ryhtiapi-dev.env.fi/building/api/DeviationPermit/3000043622
+content-type: application/json
+
+{
+  "permanentPermitIdentifier": "3000043622",
+  "dateOfInitiation": "2026-06-01",
+  "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/4",
+  "municipalityNumber": "837",
+  "deviationPermitDecision": {
+    "deviationPermitDecisionKey": "2437b5a0-1641-434a-8b5f-501d6b417281",
+    "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/11",
+    "decisionDate": "2026-06-01",
+    "dateOfDecision": "2026-06-01",
+    "dateOfValidityOfDecision": "2028-06-01",
+    "decisionInForceUntil": "2028-06-01",
+    "decisionMakerType": "http://uri.suomi.fi/codelist/rytj/PaatoksenTekija/code/01",
+    "decisionMakerFirstName": "Testi",
+    "decisionMakerName": {
+      "fin": "Rakennusvalvontaviranomainen"
+    },
+    "publicNoticeDate": "2026-06-01",
+    "decisionText": {
+      "fin": "Poikkeamislupa myönnetään hakemuksen mukaisesti."
+    },
+    "decisionDocument": {
+      "attachmentDocumentKey": "c3ad4ddd-f8de-4072-b7cc-5033040b7933",
+      "attachmentType": "http://uri.suomi.fi/codelist/rytj/ravaasiaki/code/01",
+      "documentIdentifier": "POIK-2026-001",
+      "name": {
+        "fin": "Poikkeamislupapäätös"
+      },
+      "personalDataContent": "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/1",
+      "categoryOfPublicity": "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+      "accessibility": true,
+      "retentionTime": "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/01",
+      "confirmationDate": "2026-06-01",
+      "languages": [
+        "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/fi"
+      ],
+      "fileKey": "26448408-1946-4a86-a5f5-dd4557526561",
+      "documentDate": "2026-06-01",
+      "arrivedDate": null,
+      "documentCreatorPersonalIdentityCode": null,
+      "documentCreatorOtherId": null,
+      "documentCreatorFirstName": null,
+      "documentCreatorFamilyName": null
+    },
+    "acceptedDeviation": [
+      {
+        "acceptedDeviationKey": "442475f8-92f5-45f5-ac1e-2cc2f186741a",
+        "deviationType": "http://uri.suomi.fi/codelist/rytj/PoikkeamisenLaji/code/01",
+        "contentOfDeviation": {
+          "fin": "Poikkeaminen rakennusjärjestyksen määräyksistä"
+        }
+      }
+    ],
+    "permitRegulation": null,
+    "engagingParty": [
+      {
+        "engagingPartyKey": "d06c26ac-1353-4e8f-a47e-39a4f982db4d",
+        "personalIdentityCode": "010170-999R",
+        "businessId": null,
+        "otherId": null,
+        "isPerson": true,
+        "firstName": "Testi",
+        "familyName": "Hakija",
+        "organizationName": null,
+        "applicantContactOperator": null,
+        "deathDate": null
+      }
+    ],
+    "relatedPermit": null
+  },
+  "deviationPermitApplication": {
+    "deviationPermitApplicationKey": "87ab9c9f-7614-40e8-aeac-c62cc4e1af5b",
+    "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/2",
+    "applicationContent": "Haetaan poikkeamislupaa rakennusjärjestyksen kaavamääräyksistä.",
+    "dateOfReception": "2026-06-01",
+    "callForDeviation": [
+      {
+        "callForDeviationKey": "cdd090ab-c922-429b-8f6c-d746ddb727cf",
+        "deviationType": "http://uri.suomi.fi/codelist/rytj/PoikkeamisenLaji/code/01",
+        "contentOfDeviation": {
+          "fin": "Kaavamääräyksistä poikkeaminen"
+        }
+      }
+    ],
+    "constructionDesign": [
+      {
+        "constructionDesignKey": "edd214b9-66ab-4836-80ad-144c09d7fe2c",
+        "constructionDesignType": "http://uri.suomi.fi/codelist/rytj/raksuunlajit/code/01",
+        "document": [
+          {
+            "attachmentDocumentKey": "dd996fdb-1e0e-4964-95c7-b0a812f7946d",
+            "attachmentType": "http://uri.suomi.fi/codelist/rytj/ravaasiaki/code/01",
+            "documentIdentifier": "POIK-SUUN-2026-001",
+            "name": {
+              "fin": "Suunnitelmapiirustus"
+            },
+            "personalDataContent": "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/3",
+            "categoryOfPublicity": "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+            "accessibility": true,
+            "retentionTime": "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/01",
+            "confirmationDate": "2026-06-01",
+            "languages": [
+              "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/fi"
+            ],
+            "fileKey": "26448408-1946-4a86-a5f5-dd4557526561",
+            "documentDate": "2026-06-01",
+            "arrivedDate": null,
+            "documentCreatorPersonalIdentityCode": null,
+            "documentCreatorOtherId": null,
+            "documentCreatorFirstName": null,
+            "documentCreatorFamilyName": null
+          }
+        ]
+      }
+    ]
+  },
+  "deviationObject": [
+    {
+      "deviationObjectKey": "63594068-3ffd-4f10-b720-eedf2e12ac00",
+      "buildingObjectType": "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/1",
+      "totalArea": 200,
+      "location": {
+        "buildingObjectLocationDataKey": "fba2f4f1-abed-464b-aa18-2509a5623e1f",
+        "votingDistrictNumber": "1234",
+        "pointLocation": {
+          "srid": "3067",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              337000,
+              6840000
+            ]
+          }
+        },
+        "geometry": null
+      },
+      "administrativeLocationUnit": {
+        "administrativeLocationUnitKey": "a4a86422-f71e-4e46-acf1-ffd02d804cb8",
+        "propertyIdentifier": "83770500010146"
+      },
+      "decisionAdministrativeLocationUnit": {
+        "administrativeLocationUnitKey": "8a3cee35-1b51-4ade-9cc8-f5e5b15e79fb",
+        "propertyIdentifier": "83770500010146"
+      },
+      "buildingObjectOwner": [
+        {
+          "buildingObjectOwnerKey": "e3327635-fa8c-4c00-bff0-0e6f2a34709d",
+          "ownerOperator": {
+            "personalIdentityCode": "010170-999R",
+            "businessId": null,
+            "otherId": null,
+            "isPerson": true,
+            "firstName": "Testi",
+            "familyName": "Omistaja",
+            "organizationName": null,
+            "nationalityCode": "http://uri.suomi.fi/codelist/jhs/valtio_1_20120101/code/246",
+            "languageCode": "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/fi",
+            "deathDate": null
+          },
+          "ownerType": "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/01"
+        }
+      ],
+      "address": [
+        {
+          "addressKey": "0e23ef79-40bf-49b6-b880-393c9fc299e8",
+          "addressName": {
+            "fin": "Testikatu"
+          },
+          "numberPartOfAddressNumber": 1,
+          "addressNumber": 1,
+          "postalCode": "33100",
+          "location": {
+            "srid": "3067",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                337000,
+                6840000
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "buildingSite": {
+    "buildingSiteKey": "7559074a-f4ae-4441-82a9-fb0e62a7e21b",
+    "area": 500,
+    "stormWaterTreatmentType": "http://uri.suomi.fi/codelist/rytj/hulevedenkasittely/code/01",
+    "buildingSiteAddress": [
+      {
+        "addressKey": "80a85eed-b61c-4faf-94bd-f2882d52fb58",
+        "addressName": {
+          "fin": "Testikatu"
+        },
+        "numberPartOfAddressNumber": 1,
+        "addressNumber": 1,
+        "postalCode": "33100",
+        "location": {
+          "srid": "3067",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              337000,
+              6840000
+            ]
+          }
+        }
+      }
+    ],
+    "tenure": "http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste/code/1"
+  },
+  "updateType": null,
+  "updateDescription": null
+}
+
+### Response: 201 Created
+
+3000043622
