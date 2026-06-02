@@ -1,0 +1,27 @@
+POST https://ryhtiapi-test.env.fi/building/api/PermanentIdentifiers/ApartmentIdentifier
+content-type: application/json
+
+{
+  "municipalityNumber": "837",
+  "constructionAction": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
+  "permanentBuildingId": "900044813M",
+  "apartmentKey": "3804ec24-d8e1-4988-bc17-3ca26a446b31",
+  "buildingSectionKey": "5a22f190-3cce-4085-b1ba-d0f25d078d2b",
+  "addressNumber": 2,
+  "changeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/01",
+  "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/02",
+  "apartmentIdentifierLetterSuffix": "A",
+  "apartmentNumber": 2,
+  "apartmentSubdivisionLetter": "a",
+  "numberOfRooms": 1,
+  "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/02",
+  "floorArea": 20
+}
+
+### Response: 201 Created
+
+{
+  "permanentApartmentIdentifier": "800062377S",
+  "response": "",
+  "created": true
+}

@@ -1,0 +1,226 @@
+POST https://ryhtiapi-dev.env.fi/building/api/LandscapeWorkPermit/3000043699
+content-type: application/json
+
+{
+  "permanentPermitIdentifier": "3000043699",
+  "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/4",
+  "municipalityNumber": "837",
+  "dateOfInitiation": "2026-06-01",
+  "updateType": null,
+  "updateDescription": null,
+  "landscapeWorkPermitDecision": {
+    "landscapeWorkPermitDecisionKey": "a70ed2d3-bf6f-47cc-a787-0fc9483b469b",
+    "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/11",
+    "decisionDate": "2026-06-01",
+    "dateOfDecision": "2026-06-01",
+    "dateOfValidityOfDecision": "2028-06-01",
+    "decisionInForceUntil": "2028-06-01",
+    "decisionMakerType": "http://uri.suomi.fi/codelist/rytj/PaatoksenTekija/code/01",
+    "decisionMakerFirstName": "Testi",
+    "decisionMakerName": {
+      "fin": "Rakennusvalvontaviranomainen"
+    },
+    "publicNoticeDate": "2026-06-01",
+    "decisionText": {
+      "fin": "Maisematyölupa myönnetään hakemuksen mukaisesti."
+    },
+    "decisionDocument": {
+      "attachmentDocumentKey": "6d0caaef-8d88-4120-bdef-19a9e6044cb2",
+      "attachmentType": "http://uri.suomi.fi/codelist/rytj/ravaasiaki/code/01",
+      "documentIdentifier": "MAIS-2026-001",
+      "name": {
+        "fin": "Maisematyölupapäätös"
+      },
+      "personalDataContent": "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/1",
+      "categoryOfPublicity": "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+      "accessibility": true,
+      "retentionTime": "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/01",
+      "confirmationDate": "2026-06-01",
+      "languages": [
+        "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/fi"
+      ],
+      "fileKey": "2284a033-882c-488c-b021-d479133e0723",
+      "documentDate": "2026-06-01",
+      "arrivedDate": null,
+      "documentCreatorPersonalIdentityCode": null,
+      "documentCreatorOtherId": null,
+      "documentCreatorFirstName": null,
+      "documentCreatorFamilyName": null
+    },
+    "engagingParty": [
+      {
+        "engagingPartyKey": "2187f883-7d8e-4170-8b05-1eceeceaf593",
+        "personalIdentityCode": "010170-999R",
+        "businessId": null,
+        "otherId": null,
+        "isPerson": true,
+        "firstName": "Testi",
+        "familyName": "Hakija",
+        "organizationName": null,
+        "applicantContactOperator": null,
+        "deathDate": null
+      }
+    ],
+    "acceptedDeviation": [],
+    "permitRegulation": [],
+    "relatedPermit": null,
+    "constructionToBeStartedBy": null,
+    "constructionToBeCompletedBy": null
+  },
+  "landscapeWorkPermitApplication": [
+    {
+      "landscapeWorkPermitApplicationKey": "d84febdb-9608-48bc-8573-e38202bc4c42",
+      "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/2",
+      "applicationContent": "Haetaan maisematyölupaa maisemaa muuttavalle toimenpiteelle.",
+      "dateOfReception": "2026-06-01",
+      "constructionDesign": [
+        {
+          "constructionDesignKey": "4aad7db6-018d-4b77-bbf1-b071972b51f2",
+          "constructionDesignType": "http://uri.suomi.fi/codelist/rytj/raksuunlajit/code/01",
+          "document": [
+            {
+              "attachmentDocumentKey": "9d697978-dfa9-4cfd-9c01-c7f84f7af68c",
+              "attachmentType": "http://uri.suomi.fi/codelist/rytj/ravaasiaki/code/01",
+              "documentIdentifier": "MAIS-SUUN-2026-001",
+              "name": {
+                "fin": "Suunnitelmapiirustus"
+              },
+              "personalDataContent": "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/3",
+              "categoryOfPublicity": "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+              "accessibility": true,
+              "retentionTime": "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/01",
+              "confirmationDate": "2026-06-01",
+              "languages": [
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/fi"
+              ],
+              "fileKey": "2284a033-882c-488c-b021-d479133e0723",
+              "documentDate": "2026-06-01",
+              "arrivedDate": null,
+              "documentCreatorPersonalIdentityCode": null,
+              "documentCreatorOtherId": null,
+              "documentCreatorFirstName": null,
+              "documentCreatorFamilyName": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "constructionAction": [
+    {
+      "constructionActionKey": "9d7ea7e1-82c5-4444-8c8c-06e625ca3e43",
+      "constructionActionType": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/08",
+      "statusOfConstructionAction": "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/1",
+      "renovation": false,
+      "businessConstruction": false,
+      "descriptionOfAction": {
+        "fin": "Maisemaa muuttava toimenpide."
+      },
+      "buildingObjectChange": null,
+      "reasonForDemolition": null,
+      "building": null,
+      "finishedBuilding": null,
+      "structure": null,
+      "areaToBeBuiltForSpecificActivities": {
+        "areaToBeBuiltForSpecificActivitiesKey": "66d88a10-9e0d-4d26-9d6c-3d6ce26074e9",
+        "specificActivitiesAreaType": "http://uri.suomi.fi/codelist/rakrek/erityistatoimintaavartenrakennettavanalueentyyppi/code/01",
+        "temporary": false,
+        "buildingObjectType": "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/1",
+        "location": {
+          "buildingObjectLocationDataKey": "878b2ceb-d1a7-4255-99ba-0c3b9a3e446e",
+          "votingDistrictNumber": "1234",
+          "pointLocation": {
+            "srid": "3067",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                337000,
+                6840000
+              ]
+            }
+          },
+          "geometry": null
+        },
+        "administrativeLocationUnit": {
+          "administrativeLocationUnitKey": "c9f6398f-b7a2-4ca2-a090-d62eb3bf2227",
+          "propertyIdentifier": "83770500010146"
+        },
+        "decisionAdministrativeLocationUnit": {
+          "administrativeLocationUnitKey": "b8d7cbba-8e60-44e9-aca8-5d9d01dda8f9",
+          "propertyIdentifier": "83770500010146"
+        },
+        "buildingObjectOwner": [
+          {
+            "buildingObjectOwnerKey": "a5e3d298-9886-4f22-8704-754bc145566d",
+            "ownerOperator": {
+              "personalIdentityCode": "010170-999R",
+              "businessId": null,
+              "otherId": null,
+              "isPerson": true,
+              "firstName": "Testi",
+              "familyName": "Omistaja",
+              "organizationName": null,
+              "languageCode": "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/fi",
+              "nationalityCode": "http://uri.suomi.fi/codelist/jhs/valtio_1_20120101/code/246",
+              "deathDate": null
+            },
+            "ownerType": "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/01"
+          }
+        ],
+        "address": [
+          {
+            "addressKey": "1233dc03-a1d1-4a86-b2f7-f2385586f1fe",
+            "addressName": {
+              "fin": "Testikatu"
+            },
+            "numberPartOfAddressNumber": 1,
+            "addressNumber": 1,
+            "postalCode": "33100",
+            "location": {
+              "srid": "3067",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  337000,
+                  6840000
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "buildingSite": {
+    "buildingSiteKey": "5b954e39-c682-4102-8752-e4cf4ded092f",
+    "area": 500,
+    "statusOfPlan": "http://uri.suomi.fi/codelist/vtj/Rake_kaava/code/01",
+    "stormWaterTreatmentType": "http://uri.suomi.fi/codelist/rytj/hulevedenkasittely/code/01",
+    "tenure": "http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste/code/1",
+    "buildingSiteAddress": [
+      {
+        "addressKey": "fe91effa-c3df-481a-bb16-e0d5cd54f6a5",
+        "addressName": {
+          "fin": "Testikatu"
+        },
+        "numberPartOfAddressNumber": 1,
+        "addressNumber": 1,
+        "postalCode": "33100",
+        "location": {
+          "srid": "3067",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              337000,
+              6840000
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
+
+### Response: 201 Created
+
+3000043699
