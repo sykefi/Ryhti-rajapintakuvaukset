@@ -1,0 +1,29 @@
+POST https://ryhtiapi-dev.env.fi/building/api/PermanentIdentifiers/BuildingIdentifier
+content-type: application/json
+
+{
+  "municipalityNumber": "837",
+  "propertyIdentifier": "83770500010146",
+  "pointLocation": {
+    "srid": "3067",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        335857,
+        6838795
+      ]
+    }
+  },
+  "typeOfPurpose": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0110",
+  "dvvCaseIdentifier": "83753290-04060011010",
+  "constructionAction": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
+  "permanentPermitIdentifier": "300004568P"
+}
+
+### Response: 201 Created
+
+{
+  "permanentBuildingIdentifier": "900046789C",
+  "response": "",
+  "created": true
+}
