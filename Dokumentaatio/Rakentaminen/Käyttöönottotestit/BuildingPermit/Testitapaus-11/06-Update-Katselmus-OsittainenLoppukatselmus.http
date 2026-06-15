@@ -1,0 +1,1279 @@
+PUT https://ryhtiapi-dev.env.fi/building/api/BuildingPermit/300004568P
+content-type: application/json
+
+{
+  "permanentPermitIdentifier": "300004568P",
+  "dateOfInitiation": "2023-01-29",
+  "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/4",
+  "municipalityNumber": "837",
+  "decision": {
+    "buildingPermitDecisionKey": "879e8482-6e85-4943-b0b3-49bc7ca273f2",
+    "acceptedDeviation": null,
+    "permitRegulation": [
+      {
+        "permitRegulationKey": "00d071eb-29ea-43eb-bdc5-86a69374db23",
+        "permitRegulationType": "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M01",
+        "textOfPermitRegulation": {
+          "fin": "Lupamääräyksen teksti",
+          "swe": "Texten för lovvillkoret",
+          "smn": "Lupamääräyksen teksti",
+          "sms": "Lupamääräyksen teksti",
+          "sme": "Lupamääräyksen teksti",
+          "eng": "Text of permit regulation"
+        }
+      }
+    ],
+    "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/paatoksen-elinkaaren-tila/code/11",
+    "decisionDate": "2023-03-29",
+    "dateOfDecision": "2023-03-30",
+    "dateOfValidityOfDecision": "2023-03-31",
+    "decisionDocument": {
+      "attachmentType": "http://uri.suomi.fi/codelist/rytj/ravaasiaki/code/01",
+      "documentIdentifier": "LUP-2024-001",
+      "attachmentDocumentKey": "1c7ce83e-18fb-4957-ab43-9a2e9f4d1a04",
+      "name": {
+        "fin": "Rakennuslupapäätös",
+        "swe": "Bygglovsbeslut",
+        "smn": "Rakennuslupapäätös",
+        "sms": "Rakennuslupapäätös",
+        "sme": "Rakennuslupapäätös",
+        "eng": "Building Permit Decision"
+      },
+      "personalDataContent": "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/3",
+      "categoryOfPublicity": "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+      "accessibility": true,
+      "retentionTime": "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/01",
+      "confirmationDate": "2023-03-29",
+      "languages": [
+        "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/fi"
+      ],
+      "fileKey": "1c949df7-722e-457a-ad50-d678d1c56bc2",
+      "documentDate": "2023-03-16",
+      "arrivedDate": null,
+      "documentCreatorPersonalIdentityCode": null,
+      "documentCreatorOtherId": null,
+      "documentCreatorFirstName": null,
+      "documentCreatorFamilyName": null
+    },
+    "decisionArticle": "§ 125",
+    "publicNoticeDate": "2023-05-01",
+    "decisionText": {
+      "fin": "Lupa myönnetään hakemuksen mukaisesti",
+      "swe": "Tillstånd beviljas enligt ansökan",
+      "smn": "Lupa myönnetään hakemuksen mukaisesti",
+      "sms": "Lupa myönnetään hakemuksen mukaisesti",
+      "sme": "Lupa myönnetään hakemuksen mukaisesti",
+      "eng": "Permit granted as applied"
+    },
+    "guidingStatute": null,
+    "relatedPermit": null,
+    "permitApplicationType": "http://uri.suomi.fi/codelist/rytj/LuvanSisalto/code/01",
+    "constructionToBeStartedBy": "2023-03-29",
+    "constructionToBeCompletedBy": "2025-03-28",
+    "constructionToBeStartedByExtension": null,
+    "constructionToBeCompletedByExtension": null,
+    "engagingParty": [
+      {
+        "engagingPartyKey": "56e90f91-9137-4a3b-8f0d-d6da4ed5ac95",
+        "personalIdentityCode": "010170-999R",
+        "businessId": null,
+        "otherId": null,
+        "isPerson": true,
+        "firstName": "Matti",
+        "familyName": "Virtanen",
+        "organizationName": null,
+        "applicantContactOperator": null,
+        "deathDate": null
+      }
+    ],
+    "decisionMakerType": "http://uri.suomi.fi/codelist/rytj/PaatoksenTekija/code/01",
+    "decisionMakerFirstName": "Viranomainen",
+    "decisionMakerName": {
+      "fin": "Rakennusvalvontaviranomainen",
+      "swe": "Byggnadstillsynsmyndigheten",
+      "smn": "Rakennusvalvontaviranomainen",
+      "sms": "Rakennusvalvontaviranomainen",
+      "sme": "Rakennusvalvontaviranomainen",
+      "eng": "Building Control Authority"
+    }
+  },
+  "extensionDecision": null,
+  "changePermit": null,
+  "buildingPermitApplication": [
+    {
+      "permitApplicationKey": "f2c92711-1a4a-4a39-b493-cd9b4233d169",
+      "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/code/2",
+      "applicationContent": "Rakennuslupahakemus rakennuksen muutostöitä varten",
+      "dateOfReception": "2023-03-28",
+      "callForDeviation": null,
+      "permitApplicationType": "http://uri.suomi.fi/codelist/rytj/LuvanSisalto/code/01",
+      "buildingPermitApplicationType": "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/01"
+    }
+  ],
+  "constructionAction": [
+    {
+      "constructionActionKey": "be67cf74-3220-4b2a-9612-793f3114d324",
+      "constructionActionType": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
+      "buildingObjectChange": null,
+      "descriptionOfAction": {
+        "fin": "Rakentamistoimenpiteen kuvaus",
+        "swe": "Beskrivning av byggåtgärd",
+        "smn": "Rakentamistoimenpiteen kuvaus",
+        "sms": "Rakentamistoimenpiteen kuvaus",
+        "sme": "Rakentamistoimenpiteen kuvaus",
+        "eng": "Description of construction action"
+      },
+      "areaUndergoingChanges": null,
+      "reasonForDemolition": null,
+      "renovation": false,
+      "renovationRate": 0,
+      "building": {
+        "buildingKey": "44443cd2-4e66-4cad-a991-4a49d651bf7f",
+        "permanentBuildingIdentifier": "900046789C",
+        "temporary": true,
+        "demolitionDeadline": "2123-12-29",
+        "numberOfStoreys": 2,
+        "buildingSection": [
+          {
+            "buildingSectionKey": "82a45598-17e4-4753-8eba-c33932edafde",
+            "lifeCycleState": "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/02",
+            "completionDate": null,
+            "protectionMethod": "http://uri.suomi.fi/codelist/rytj/suojtapa/code/02",
+            "cultureHistoricalSignificance": "http://uri.suomi.fi/codelist/rakrek/kulthistmer/code/1",
+            "materialData": {
+              "constructionMethod": "http://uri.suomi.fi/codelist/vtj/Rake_runkotapa/code/01",
+              "buildingMaterialOfLoadBearingStructures": [
+                {
+                  "buildingMaterialOfLoadBearingStructuresKey": "94a5ca2f-0a46-432e-b72f-c39e579bdd6d",
+                  "isPrimary": true,
+                  "buildingMaterialOfLoadBearingStructuresType": "http://uri.suomi.fi/codelist/rytj/kantavanrakenteenrakennusaine/code/01"
+                }
+              ],
+              "facadeMaterial": [
+                {
+                  "facadeMaterialKey": "19554262-7adf-4102-8e19-6f40b53e319d",
+                  "isPrimary": true,
+                  "facadeMaterialType": "http://uri.suomi.fi/codelist/rytj/julkisivunrakennusaine/code/01"
+                }
+              ],
+              "fireClass": "http://uri.suomi.fi/codelist/rytj/Paloluokka/code/00",
+              "wideBodiedBuilding": true,
+              "reusableMaterialAmount": 0
+            },
+            "energyData": {
+              "energyDataKey": "97a99e95-faf2-4de8-8129-d4931d88e6a7",
+              "energyEfficiencyRating": "http://uri.suomi.fi/codelist/rytj/Energiatehokkuusluokka/code/08",
+              "computationalEnergyEfficiencyComparand": 0,
+              "heatingMethod": [
+                {
+                  "heatingMethodKey": "d5a3ad79-952f-48d5-ba30-0648272d015f",
+                  "isPrimary": true,
+                  "heatingMethodType": "http://uri.suomi.fi/codelist/rytj/lammitystapa/code/01"
+                },
+                {
+                  "heatingMethodKey": "f69c470b-d081-4000-a4cf-1373e7124df0",
+                  "isPrimary": false,
+                  "heatingMethodType": "http://uri.suomi.fi/codelist/rytj/lammitystapa/code/02"
+                }
+              ],
+              "heatingEnergySource": [
+                {
+                  "heatingEnergySourceKey": "04b3199f-6216-417a-8be3-ad00f92cdb32",
+                  "isPrimary": true,
+                  "heatingEnergySourceType": "http://uri.suomi.fi/codelist/rytj/lammitysenergianlahde/code/01"
+                },
+                {
+                  "heatingEnergySourceKey": "f63a33c7-541f-47ce-8fbe-4479ac1dec0c",
+                  "isPrimary": false,
+                  "heatingEnergySourceType": "http://uri.suomi.fi/codelist/rytj/lammitysenergianlahde/code/02"
+                }
+              ],
+              "coolingMethod": [
+                {
+                  "coolingMethodKey": "001a0cbc-7d85-40d8-8a3a-5760808044a1",
+                  "isPrimary": true,
+                  "coolingMethodType": "http://uri.suomi.fi/codelist/rytj/jaahdytystapa/code/01"
+                },
+                {
+                  "coolingMethodKey": "d9a9c202-be54-4949-9749-6fa7dfcab77b",
+                  "isPrimary": false,
+                  "coolingMethodType": "http://uri.suomi.fi/codelist/rytj/jaahdytystapa/code/02"
+                }
+              ],
+              "coolingEnergySource": [
+                {
+                  "coolingEnergySourceKey": "96dc840b-96ec-4565-969b-ac4f0d7ef2ad",
+                  "isPrimary": true,
+                  "coolingEnergySourceType": "http://uri.suomi.fi/codelist/rytj/jaahdytys/code/01"
+                },
+                {
+                  "coolingEnergySourceKey": "8c09c5b6-79a3-4414-8b48-e5e6166c2fc2",
+                  "isPrimary": false,
+                  "coolingEnergySourceType": "http://uri.suomi.fi/codelist/rytj/jaahdytys/code/02"
+                }
+              ],
+              "electricalEnergySource": [
+                {
+                  "electricalEnergySourceKey": "61652c44-86fd-4d3d-89ee-dbe0bb4e3865",
+                  "isPrimary": true,
+                  "electricalEnergySourceType": "http://uri.suomi.fi/codelist/rytj/sahkoenergianlahde/code/01"
+                },
+                {
+                  "electricalEnergySourceKey": "73955a53-640c-49cc-add3-df91e8f52393",
+                  "isPrimary": false,
+                  "electricalEnergySourceType": "http://uri.suomi.fi/codelist/rytj/sahkoenergianlahde/code/02"
+                }
+              ],
+              "netHeatedArea": 0,
+              "heatedVolume": 0,
+              "attachment": null,
+              "calculatoryDeliveredEnergyUsage": null,
+              "energyRatingSubindex": "http://uri.suomi.fi/codelist/rytj/energialuokkaAlaindeksi/code/03"
+            },
+            "interiorData": {
+              "floorArea": 120,
+              "basementArea": 100,
+              "atticArea": 10
+            },
+            "exteriorData": {
+              "numberOfStoreys": 2,
+              "height": 7,
+              "flightObstacle": true,
+              "shape": {
+                "srid": "3067",
+                "geometry": {
+                  "type": "Polygon",
+                  "coordinates": [
+                    [
+                      [
+                        386023.53933660605,
+                        6672105.533725229
+                      ],
+                      [
+                        386024.53933660605,
+                        6672105.533725229
+                      ],
+                      [
+                        386024.53933660605,
+                        6672106.533725229
+                      ],
+                      [
+                        386023.53933660605,
+                        6672106.533725229
+                      ],
+                      [
+                        386023.53933660605,
+                        6672105.533725229
+                      ]
+                    ]
+                  ]
+                }
+              },
+              "relationToGroundLevel": "http://uri.suomi.fi/codelist/rytj/Suhde_pintaan/code/01",
+              "volume": 1000,
+              "grossFloorArea": 130,
+              "permittedBuildingArea": 300,
+              "totalArea": 130
+            },
+            "buildingServicesEngineeringData": {
+              "ventilationMethod": [
+                {
+                  "ventilationMethodKey": "91ea5e55-0ebf-48d5-851f-3d6c3245f215",
+                  "ventilationMethodType": "http://uri.suomi.fi/codelist/rytj/ilmanvaihto/code/01",
+                  "isPrimary": true
+                }
+              ],
+              "sewerageMethodType": "http://uri.suomi.fi/codelist/rytj/jatevesienkasittely/code/01",
+              "householdWaterType": "http://uri.suomi.fi/codelist/rytj/talousvesi/code/01",
+              "networkConnection": [
+                {
+                  "networkConnectionKey": "3821d3b4-d9d3-4c06-8fb4-85b974d27e9e",
+                  "networkConnectionType": "http://uri.suomi.fi/codelist/rytj/verkliit/code/01",
+                  "connected": true,
+                  "connectionPoint": {
+                    "srid": "3067",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        386023.53933660605,
+                        6672105.533725229
+                      ]
+                    }
+                  }
+                },
+                {
+                  "networkConnectionKey": "77b4c1f0-6218-417b-bb6b-be26562a25bd",
+                  "networkConnectionType": "http://uri.suomi.fi/codelist/rytj/verkliit/code/02",
+                  "connected": true,
+                  "connectionPoint": {
+                    "srid": "3067",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        386023.53933660605,
+                        6672105.533725229
+                      ]
+                    }
+                  }
+                },
+                {
+                  "networkConnectionKey": "1e788c19-a9c6-400b-ab0d-567ad539f5f7",
+                  "networkConnectionType": "http://uri.suomi.fi/codelist/rytj/verkliit/code/03",
+                  "connected": true,
+                  "connectionPoint": {
+                    "srid": "3067",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        386023.53933660605,
+                        6672105.533725229
+                      ]
+                    }
+                  }
+                },
+                {
+                  "networkConnectionKey": "ac3f0c7e-a3b6-479a-a9eb-e00b8956839f",
+                  "networkConnectionType": "http://uri.suomi.fi/codelist/rytj/verkliit/code/04",
+                  "connected": true,
+                  "connectionPoint": {
+                    "srid": "3067",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        386023.53933660605,
+                        6672105.533725229
+                      ]
+                    }
+                  }
+                },
+                {
+                  "networkConnectionKey": "3ebebd80-6275-4a23-9493-91718ac510e6",
+                  "networkConnectionType": "http://uri.suomi.fi/codelist/rytj/verkliit/code/05",
+                  "connected": true,
+                  "connectionPoint": {
+                    "srid": "3067",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        386023.53933660605,
+                        6672105.533725229
+                      ]
+                    }
+                  }
+                },
+                {
+                  "networkConnectionKey": "4e742a5e-c0e9-4c69-a4c8-77e11c0a5557",
+                  "networkConnectionType": "http://uri.suomi.fi/codelist/rytj/verkliit/code/07",
+                  "connected": true,
+                  "connectionPoint": {
+                    "srid": "3067",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        386023.53933660605,
+                        6672105.533725229
+                      ]
+                    }
+                  }
+                }
+              ],
+              "stormWaterTreatmentType": "http://uri.suomi.fi/codelist/rytj/hulevedenkasittely/code/01"
+            },
+            "usageData": {
+              "commissioningDate": "2026-06-02",
+              "usageStatus": null,
+              "purpose": [
+                {
+                  "purposeKey": "d7d5589e-8a63-46b1-87e1-e43229b598c4",
+                  "isPrimary": true,
+                  "type": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0110"
+                }
+              ],
+              "usefulFloorArea": 90,
+              "intendedWorkingLife": 50,
+              "plannedUserCount": 5
+            },
+            "equipment": [
+              {
+                "equipmentKey": "b0df73f6-52d2-4876-8d2d-83e3605f5bbb",
+                "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/01",
+                "equipmentCount": null
+              },
+              {
+                "equipmentKey": "f7ea5908-13cb-4c87-9e8d-67988bf10ca4",
+                "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/02",
+                "equipmentCount": null
+              },
+              {
+                "equipmentKey": "75d41da7-1db1-4b5d-9d37-c1c618f337dc",
+                "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/03",
+                "equipmentCount": null
+              },
+              {
+                "equipmentKey": "d6bd5914-5359-4e75-8535-a93864a49ba9",
+                "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/04",
+                "equipmentCount": null
+              },
+              {
+                "equipmentKey": "887efd90-455a-47a7-945a-3bd02cb11503",
+                "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/05",
+                "equipmentCount": null
+              },
+              {
+                "equipmentKey": "6fd7cbcb-3c1d-4bb5-b5c9-6f5d31f22162",
+                "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/06",
+                "equipmentCount": null
+              },
+              {
+                "equipmentKey": "8866a15d-bb1b-43bc-9d51-45563d706d05",
+                "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/10",
+                "equipmentCount": 1
+              }
+            ],
+            "assemblyFacility": [
+              {
+                "assemblyFacilityKey": "d287f978-aa1f-4261-a309-1cd8bb8d0caf",
+                "capacityOfAssemblyFacilities": 10,
+                "name": {
+                  "fin": "Kokoontumistila 1"
+                },
+                "description": {
+                  "fin": "Kuvaus 1"
+                },
+                "geometry": {
+                  "srid": "3067",
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                      380111,
+                      6904111
+                    ]
+                  }
+                }
+              }
+            ],
+            "apartment": [
+              {
+                "apartmentKey": "315536ba-790e-4940-82ec-6559bc4c1cb7",
+                "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/1",
+                "apartmentEquipment": [
+                  {
+                    "apartmentEquipmentKey": "5002ceb3-3d40-49ca-922c-64b672806326",
+                    "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/01",
+                    "numberOfEquipment": 99
+                  }
+                ],
+                "apartmentIdentifier": "800063612L",
+                "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+                "floorArea": 28,
+                "numberOfRooms": 1,
+                "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/01",
+                "apartmentChangeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/01",
+                "commissioningDate": null,
+                "addressNumber": 1,
+                "apartmentStorey": 1,
+                "specificationOfLocationFloor": null,
+                "apartmentIdentifierLetterSuffix": "A",
+                "apartmentSubdivisionLetter": "a",
+                "apartmentNumber": 1
+              }
+            ],
+            "constructionDesign": [
+              {
+                "constructionDesignKey": "81594f98-df4b-4bbc-96e6-b2c87da212ca",
+                "constructionDesignType": "http://uri.suomi.fi/codelist/rytj/raksuunlajit/code/01",
+                "document": [
+                  {
+                    "attachmentDocumentKey": "b0e5c1ad-e09c-45d8-895c-80457665829f",
+                    "attachmentType": "http://uri.suomi.fi/codelist/rytj/ravaasiaki/code/01",
+                    "documentIdentifier": "SUU-2024-001",
+                    "name": {
+                      "fin": "Rakennussuunnitelma",
+                      "swe": "Byggplan",
+                      "smn": "Rakennussuunnitelma",
+                      "sms": "Rakennussuunnitelma",
+                      "sme": "Rakennussuunnitelma",
+                      "eng": "Construction Design Document"
+                    },
+                    "personalDataContent": "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/3",
+                    "categoryOfPublicity": "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+                    "accessibility": true,
+                    "retentionTime": "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/01",
+                    "confirmationDate": "2023-03-29",
+                    "languages": [
+                      "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/fi"
+                    ],
+                    "fileKey": "1c949df7-722e-457a-ad50-d678d1c56bc2",
+                    "documentDate": "2023-03-16",
+                    "arrivedDate": null,
+                    "documentCreatorPersonalIdentityCode": null,
+                    "documentCreatorOtherId": null,
+                    "documentCreatorFirstName": null,
+                    "documentCreatorFamilyName": null
+                  }
+                ]
+              }
+            ],
+            "partitionReason": "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/2",
+            "partitionDescription": {
+              "fin": "Rakennuksen osan kuvaus",
+              "swe": "Beskrivning av byggnadsdel",
+              "smn": "Rakennuksen osan kuvaus",
+              "sms": "Rakennuksen osan kuvaus",
+              "sme": "Rakennuksen osan kuvaus",
+              "eng": "Building section description"
+            },
+            "civilDefenceShelter": null,
+            "relatedFinishedBuildingSection": "44117c0d-5568-477b-bcfb-0348c99b2f7e",
+            "demolitionDate": null,
+            "reasonForDemolition": null
+          }
+        ],
+        "mainPurpose": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0110",
+        "buildingObjectType": "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/1",
+        "location": {
+          "buildingObjectLocationDataKey": "87dc0f72-e0b8-4e9c-9230-e7fc77eb19ee",
+          "votingDistrictNumber": "001",
+          "pointLocation": {
+            "srid": "3067",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                335857,
+                6838795
+              ]
+            }
+          },
+          "geometry": null
+        },
+        "administrativeLocationUnit": {
+          "administrativeLocationUnitKey": "3af96d50-d603-4ddd-9732-636173d02412",
+          "propertyIdentifier": "83770500010146",
+          "unseparatedParcelIdentifier": null,
+          "unitIdentifier": null
+        },
+        "decisionAdministrativeLocationUnit": {
+          "administrativeLocationUnitKey": "4552fdff-00c2-4795-929c-e748caef056a",
+          "propertyIdentifier": "83770500010146",
+          "unseparatedParcelIdentifier": null,
+          "unitIdentifier": null
+        },
+        "buildingObjectOwner": [
+          {
+            "buildingObjectOwnerKey": "498c7970-8bcc-4be8-b19e-11e4dea03a40",
+            "ownerOperator": {
+              "personalIdentityCode": "010170-999R",
+              "businessId": null,
+              "otherId": null,
+              "isPerson": true,
+              "firstName": "Etunimi1",
+              "familyName": "Sukunimi1",
+              "organizationName": null,
+              "operatorAddress": null,
+              "languageCode": "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/fi",
+              "nationalityCode": "http://uri.suomi.fi/codelist/jhs/valtio_1_20120101/code/246",
+              "deathDate": null
+            },
+            "differentOwner": true,
+            "tenureStatus": {
+              "fin": "Hallintaperuste 1",
+              "swe": "Besittningsförhållande 1",
+              "smn": "Hallintaperuste 1",
+              "sms": "Hallintaperuste 1",
+              "sme": "Hallintaperuste 1",
+              "eng": "TenureStatus 1"
+            },
+            "ownerContactOperator": null,
+            "ownerType": "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/01"
+          }
+        ],
+        "address": [
+          {
+            "addressKey": "2603511b-b1f5-45f6-8195-214ba98a1764",
+            "addressName": {
+              "fin": "Vuokkolantie",
+              "swe": "Vuokkolavägen"
+            },
+            "numberPartOfAddressNumber": 55,
+            "subdivisionLetterOfAddressNumber": "a",
+            "postalCode": "33100",
+            "location": {
+              "srid": "3067",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  335857,
+                  6838795
+                ]
+              }
+            },
+            "addressNumber": 1,
+            "numberPartOfAddressNumber2": null,
+            "subdivisionLetterOfAddressNumber2": null
+          }
+        ],
+        "name": null,
+        "description": {
+          "fin": "Asuinkerrostalo, jossa on useita huoneistoja"
+        },
+        "buildingProductList": null,
+        "chargingPoint": null,
+        "bikespaceCount": null,
+        "climateReport": null
+      },
+      "structure": null,
+      "areaToBeBuiltForSpecificActivities": null,
+      "startDate": null,
+      "completionDate": null,
+      "commissioningDate": "2026-06-02",
+      "finishedAreaToBeBuiltForSpecificActivities": null,
+      "statusOfConstructionAction": "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/2",
+      "fullyApprovedForUse": true,
+      "businessConstruction": true,
+      "changeType": "http://uri.suomi.fi/codelist/rytj/muutostyo/code/01",
+      "dvvPermitIdentifier": "83753290-04060011010",
+      "expiryDate": null,
+      "finishedBuilding": {
+        "buildingKey": "4d7d88b9-48c2-49b8-bd01-86a7b0cf247f",
+        "permanentBuildingIdentifier": "900046789C",
+        "temporary": true,
+        "demolitionDeadline": "2123-12-29",
+        "numberOfStoreys": 2,
+        "buildingSection": [
+          {
+            "buildingSectionKey": "44117c0d-5568-477b-bcfb-0348c99b2f7e",
+            "lifeCycleState": "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/03",
+            "completionDate": null,
+            "protectionMethod": "http://uri.suomi.fi/codelist/rytj/suojtapa/code/02",
+            "cultureHistoricalSignificance": "http://uri.suomi.fi/codelist/rakrek/kulthistmer/code/1",
+            "materialData": {
+              "constructionMethod": "http://uri.suomi.fi/codelist/vtj/Rake_runkotapa/code/01",
+              "buildingMaterialOfLoadBearingStructures": [
+                {
+                  "buildingMaterialOfLoadBearingStructuresKey": "6d47756d-f287-42a6-a672-4bf8d1a6d7e8",
+                  "isPrimary": true,
+                  "buildingMaterialOfLoadBearingStructuresType": "http://uri.suomi.fi/codelist/rytj/kantavanrakenteenrakennusaine/code/01"
+                }
+              ],
+              "facadeMaterial": [
+                {
+                  "facadeMaterialKey": "2c1197c5-b721-48b0-bbb4-1bc560fc5260",
+                  "isPrimary": true,
+                  "facadeMaterialType": "http://uri.suomi.fi/codelist/rytj/julkisivunrakennusaine/code/01"
+                }
+              ],
+              "fireClass": "http://uri.suomi.fi/codelist/rytj/Paloluokka/code/00",
+              "wideBodiedBuilding": true,
+              "reusableMaterialAmount": 0
+            },
+            "energyData": {
+              "energyDataKey": "a335b222-d5e2-4517-b9ec-0681b48e80bc",
+              "energyEfficiencyRating": "http://uri.suomi.fi/codelist/rytj/Energiatehokkuusluokka/code/08",
+              "computationalEnergyEfficiencyComparand": 0,
+              "heatingMethod": [
+                {
+                  "heatingMethodKey": "7c38bdf1-543e-436d-9188-714e7bcd8cf9",
+                  "isPrimary": true,
+                  "heatingMethodType": "http://uri.suomi.fi/codelist/rytj/lammitystapa/code/01"
+                },
+                {
+                  "heatingMethodKey": "e3c13fa5-1d7f-4bb4-b694-8246e04fd3f8",
+                  "isPrimary": false,
+                  "heatingMethodType": "http://uri.suomi.fi/codelist/rytj/lammitystapa/code/02"
+                }
+              ],
+              "heatingEnergySource": [
+                {
+                  "heatingEnergySourceKey": "628ffa7d-f09e-4ad1-bd9f-498a346970bb",
+                  "isPrimary": true,
+                  "heatingEnergySourceType": "http://uri.suomi.fi/codelist/rytj/lammitysenergianlahde/code/01"
+                },
+                {
+                  "heatingEnergySourceKey": "d22faa65-9ae5-41e3-a1fa-0449aec0d474",
+                  "isPrimary": false,
+                  "heatingEnergySourceType": "http://uri.suomi.fi/codelist/rytj/lammitysenergianlahde/code/02"
+                }
+              ],
+              "coolingMethod": [
+                {
+                  "coolingMethodKey": "08697219-d2b7-48c6-ab28-cde82b9601f6",
+                  "isPrimary": true,
+                  "coolingMethodType": "http://uri.suomi.fi/codelist/rytj/jaahdytystapa/code/01"
+                },
+                {
+                  "coolingMethodKey": "b685cf46-9d3b-45e1-a224-487d18b35a1a",
+                  "isPrimary": false,
+                  "coolingMethodType": "http://uri.suomi.fi/codelist/rytj/jaahdytystapa/code/02"
+                }
+              ],
+              "coolingEnergySource": [
+                {
+                  "coolingEnergySourceKey": "eaaf2bf2-4632-43e7-a451-83bff5206b4d",
+                  "isPrimary": true,
+                  "coolingEnergySourceType": "http://uri.suomi.fi/codelist/rytj/jaahdytys/code/01"
+                },
+                {
+                  "coolingEnergySourceKey": "ea9db48f-3900-4025-8355-21529fd238b2",
+                  "isPrimary": false,
+                  "coolingEnergySourceType": "http://uri.suomi.fi/codelist/rytj/jaahdytys/code/02"
+                }
+              ],
+              "electricalEnergySource": [
+                {
+                  "electricalEnergySourceKey": "36907bb9-dbc1-43ce-9880-26253fe8df1e",
+                  "isPrimary": true,
+                  "electricalEnergySourceType": "http://uri.suomi.fi/codelist/rytj/sahkoenergianlahde/code/01"
+                },
+                {
+                  "electricalEnergySourceKey": "71281dd7-4945-4ff4-bc29-369da0fb22b1",
+                  "isPrimary": false,
+                  "electricalEnergySourceType": "http://uri.suomi.fi/codelist/rytj/sahkoenergianlahde/code/02"
+                }
+              ],
+              "netHeatedArea": 0,
+              "heatedVolume": 0,
+              "attachment": null,
+              "calculatoryDeliveredEnergyUsage": null,
+              "energyRatingSubindex": "http://uri.suomi.fi/codelist/rytj/energialuokkaAlaindeksi/code/03"
+            },
+            "interiorData": {
+              "floorArea": 120,
+              "basementArea": 100,
+              "atticArea": 10
+            },
+            "exteriorData": {
+              "numberOfStoreys": 2,
+              "height": 7,
+              "flightObstacle": true,
+              "shape": {
+                "srid": "3067",
+                "geometry": {
+                  "type": "Polygon",
+                  "coordinates": [
+                    [
+                      [
+                        386023.53933660605,
+                        6672105.533725229
+                      ],
+                      [
+                        386024.53933660605,
+                        6672105.533725229
+                      ],
+                      [
+                        386024.53933660605,
+                        6672106.533725229
+                      ],
+                      [
+                        386023.53933660605,
+                        6672106.533725229
+                      ],
+                      [
+                        386023.53933660605,
+                        6672105.533725229
+                      ]
+                    ]
+                  ]
+                }
+              },
+              "relationToGroundLevel": "http://uri.suomi.fi/codelist/rytj/Suhde_pintaan/code/01",
+              "volume": 1000,
+              "grossFloorArea": 130,
+              "permittedBuildingArea": 300,
+              "totalArea": 130
+            },
+            "buildingServicesEngineeringData": {
+              "ventilationMethod": [
+                {
+                  "ventilationMethodKey": "3ac87226-5beb-4540-9b63-842c615bd629",
+                  "ventilationMethodType": "http://uri.suomi.fi/codelist/rytj/ilmanvaihto/code/01",
+                  "isPrimary": true
+                }
+              ],
+              "sewerageMethodType": "http://uri.suomi.fi/codelist/rytj/jatevesienkasittely/code/01",
+              "householdWaterType": "http://uri.suomi.fi/codelist/rytj/talousvesi/code/01",
+              "networkConnection": [
+                {
+                  "networkConnectionKey": "845fb7c3-5438-4e95-8d2d-fb5aca192b04",
+                  "networkConnectionType": "http://uri.suomi.fi/codelist/rytj/verkliit/code/01",
+                  "connected": true,
+                  "connectionPoint": {
+                    "srid": "3067",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        386023.53933660605,
+                        6672105.533725229
+                      ]
+                    }
+                  }
+                },
+                {
+                  "networkConnectionKey": "84602211-433d-481f-8464-b2194a7e7ae6",
+                  "networkConnectionType": "http://uri.suomi.fi/codelist/rytj/verkliit/code/02",
+                  "connected": true,
+                  "connectionPoint": {
+                    "srid": "3067",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        386023.53933660605,
+                        6672105.533725229
+                      ]
+                    }
+                  }
+                },
+                {
+                  "networkConnectionKey": "60084b33-c346-484f-a197-fde7fa624aa5",
+                  "networkConnectionType": "http://uri.suomi.fi/codelist/rytj/verkliit/code/03",
+                  "connected": true,
+                  "connectionPoint": {
+                    "srid": "3067",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        386023.53933660605,
+                        6672105.533725229
+                      ]
+                    }
+                  }
+                },
+                {
+                  "networkConnectionKey": "1126012d-c74b-4bcb-8f9c-3ec07000a0bd",
+                  "networkConnectionType": "http://uri.suomi.fi/codelist/rytj/verkliit/code/04",
+                  "connected": true,
+                  "connectionPoint": {
+                    "srid": "3067",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        386023.53933660605,
+                        6672105.533725229
+                      ]
+                    }
+                  }
+                },
+                {
+                  "networkConnectionKey": "2217549b-b483-439e-84ec-608a59d32c46",
+                  "networkConnectionType": "http://uri.suomi.fi/codelist/rytj/verkliit/code/05",
+                  "connected": true,
+                  "connectionPoint": {
+                    "srid": "3067",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        386023.53933660605,
+                        6672105.533725229
+                      ]
+                    }
+                  }
+                },
+                {
+                  "networkConnectionKey": "922d5111-3d7c-4ca5-9a8c-51ecace04cb5",
+                  "networkConnectionType": "http://uri.suomi.fi/codelist/rytj/verkliit/code/07",
+                  "connected": true,
+                  "connectionPoint": {
+                    "srid": "3067",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        386023.53933660605,
+                        6672105.533725229
+                      ]
+                    }
+                  }
+                }
+              ],
+              "stormWaterTreatmentType": "http://uri.suomi.fi/codelist/rytj/hulevedenkasittely/code/01"
+            },
+            "usageData": {
+              "commissioningDate": "2026-06-02",
+              "usageStatus": null,
+              "purpose": [
+                {
+                  "purposeKey": "6af9e320-6e6e-4a90-b37d-7132274bc6f8",
+                  "isPrimary": true,
+                  "type": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0110"
+                }
+              ],
+              "usefulFloorArea": 90,
+              "intendedWorkingLife": 50,
+              "plannedUserCount": 5
+            },
+            "equipment": [
+              {
+                "equipmentKey": "7fd4f29b-fbde-461a-8746-fac4dcd19d09",
+                "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/01",
+                "equipmentCount": null
+              },
+              {
+                "equipmentKey": "de2f7ef2-cebb-4789-ab20-3feffc15800f",
+                "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/02",
+                "equipmentCount": null
+              },
+              {
+                "equipmentKey": "fcb4036c-f1c3-4245-919a-d4d4c763f914",
+                "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/03",
+                "equipmentCount": null
+              },
+              {
+                "equipmentKey": "86a041b8-1d33-469f-a071-8d98870ffb75",
+                "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/04",
+                "equipmentCount": null
+              },
+              {
+                "equipmentKey": "5bc0f0b4-1304-4225-a6e5-eb6340923c11",
+                "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/05",
+                "equipmentCount": null
+              },
+              {
+                "equipmentKey": "1d2176ef-ad4e-4909-a064-8dd10a2c88f2",
+                "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/06",
+                "equipmentCount": null
+              },
+              {
+                "equipmentKey": "fba7e46c-9bd3-4925-b9bb-513ec0d71663",
+                "equipmentType": "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/10",
+                "equipmentCount": 1
+              }
+            ],
+            "assemblyFacility": [
+              {
+                "assemblyFacilityKey": "3f9f73cf-80c5-4ad5-9f94-a51b0406f22a",
+                "capacityOfAssemblyFacilities": 10,
+                "name": {
+                  "fin": "Kokoontumistila 1"
+                },
+                "description": {
+                  "fin": "Kuvaus 1"
+                },
+                "geometry": {
+                  "srid": "3067",
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                      380111,
+                      6904111
+                    ]
+                  }
+                }
+              }
+            ],
+            "apartment": [
+              {
+                "apartmentKey": "cf301f76-f7de-40c5-91b7-ae5d8abd20ae",
+                "lifeCycleState": "http://uri.suomi.fi/codelist/rytj/huon-elinkaaren-vaihe/code/3",
+                "apartmentEquipment": [
+                  {
+                    "apartmentEquipmentKey": "475c7e44-43b4-443f-9c06-a687a3a1d907",
+                    "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/01",
+                    "numberOfEquipment": 99
+                  }
+                ],
+                "apartmentIdentifier": "800063612L",
+                "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
+                "floorArea": 28,
+                "numberOfRooms": 1,
+                "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/01",
+                "apartmentChangeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/01",
+                "commissioningDate": null,
+                "addressNumber": 1,
+                "apartmentStorey": 1,
+                "specificationOfLocationFloor": null,
+                "apartmentIdentifierLetterSuffix": "A",
+                "apartmentSubdivisionLetter": "a",
+                "apartmentNumber": 1
+              }
+            ],
+            "constructionDesign": [
+              {
+                "constructionDesignKey": "56865ac1-63dc-4be3-8e07-24889c1a1159",
+                "constructionDesignType": "http://uri.suomi.fi/codelist/rytj/raksuunlajit/code/01",
+                "document": [
+                  {
+                    "attachmentDocumentKey": "f7c31a5c-8b05-46cb-9758-afd2b0c43c6e",
+                    "attachmentType": "http://uri.suomi.fi/codelist/rytj/ravaasiaki/code/01",
+                    "documentIdentifier": "SUU-2024-001",
+                    "name": {
+                      "fin": "Rakennussuunnitelma",
+                      "swe": "Byggplan",
+                      "smn": "Rakennussuunnitelma",
+                      "sms": "Rakennussuunnitelma",
+                      "sme": "Rakennussuunnitelma",
+                      "eng": "Construction Design Document"
+                    },
+                    "personalDataContent": "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/3",
+                    "categoryOfPublicity": "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+                    "accessibility": true,
+                    "retentionTime": "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/01",
+                    "confirmationDate": "2023-03-29",
+                    "languages": [
+                      "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/fi"
+                    ],
+                    "fileKey": "1c949df7-722e-457a-ad50-d678d1c56bc2",
+                    "documentDate": "2023-03-16",
+                    "arrivedDate": null,
+                    "documentCreatorPersonalIdentityCode": null,
+                    "documentCreatorOtherId": null,
+                    "documentCreatorFirstName": null,
+                    "documentCreatorFamilyName": null
+                  }
+                ]
+              }
+            ],
+            "partitionReason": "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/2",
+            "partitionDescription": {
+              "fin": "Rakennuksen osan kuvaus",
+              "swe": "Beskrivning av byggnadsdel",
+              "smn": "Rakennuksen osan kuvaus",
+              "sms": "Rakennuksen osan kuvaus",
+              "sme": "Rakennuksen osan kuvaus",
+              "eng": "Building section description"
+            },
+            "civilDefenceShelter": null,
+            "relatedFinishedBuildingSection": null,
+            "demolitionDate": null,
+            "reasonForDemolition": null
+          }
+        ],
+        "mainPurpose": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0110",
+        "buildingObjectType": "http://uri.suomi.fi/codelist/rytj/rakkohteen-tiedon-laji/code/2",
+        "location": {
+          "buildingObjectLocationDataKey": "981a9a65-cc25-4c54-8036-160d6b6de8ef",
+          "votingDistrictNumber": "001",
+          "pointLocation": {
+            "srid": "3067",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                335857,
+                6838795
+              ]
+            }
+          },
+          "geometry": null
+        },
+        "administrativeLocationUnit": {
+          "administrativeLocationUnitKey": "7bd31960-3fe7-4a2c-89b7-79838a9237d2",
+          "propertyIdentifier": "83770500010146",
+          "unseparatedParcelIdentifier": null,
+          "unitIdentifier": null
+        },
+        "decisionAdministrativeLocationUnit": {
+          "administrativeLocationUnitKey": "de4c5dd9-e926-4057-bb5d-c10733c1b04d",
+          "propertyIdentifier": "83770500010146",
+          "unseparatedParcelIdentifier": null,
+          "unitIdentifier": null
+        },
+        "buildingObjectOwner": [
+          {
+            "buildingObjectOwnerKey": "a36f6b05-6464-4350-8233-de3d9124cc8b",
+            "ownerOperator": {
+              "personalIdentityCode": "010170-999R",
+              "businessId": null,
+              "otherId": null,
+              "isPerson": true,
+              "firstName": "Etunimi1",
+              "familyName": "Sukunimi1",
+              "organizationName": null,
+              "operatorAddress": null,
+              "languageCode": "http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes/code/fi",
+              "nationalityCode": "http://uri.suomi.fi/codelist/jhs/valtio_1_20120101/code/246",
+              "deathDate": null
+            },
+            "differentOwner": true,
+            "tenureStatus": {
+              "fin": "Hallintaperuste 1",
+              "swe": "Besittningsförhållande 1",
+              "smn": "Hallintaperuste 1",
+              "sms": "Hallintaperuste 1",
+              "sme": "Hallintaperuste 1",
+              "eng": "TenureStatus 1"
+            },
+            "ownerContactOperator": null,
+            "ownerType": "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/01"
+          }
+        ],
+        "address": [
+          {
+            "addressKey": "e481dde1-5dfe-48c5-ba7a-65762eb2959b",
+            "addressName": {
+              "fin": "Vuokkolantie",
+              "swe": "Vuokkolavägen"
+            },
+            "numberPartOfAddressNumber": 55,
+            "subdivisionLetterOfAddressNumber": "a",
+            "postalCode": "33100",
+            "location": {
+              "srid": "3067",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  335857,
+                  6838795
+                ]
+              }
+            },
+            "addressNumber": 1,
+            "numberPartOfAddressNumber2": null,
+            "subdivisionLetterOfAddressNumber2": null
+          }
+        ],
+        "name": null,
+        "description": {
+          "fin": "Asuinkerrostalo, jossa on useita huoneistoja"
+        },
+        "buildingProductList": null,
+        "chargingPoint": null,
+        "bikespaceCount": null,
+        "climateReport": null
+      }
+    }
+  ],
+  "buildingSite": {
+    "buildingSiteKey": "c972214e-e2fa-4efe-b4ce-4580c6233dab",
+    "area": 3,
+    "stormWaterTreatmentType": "http://uri.suomi.fi/codelist/rytj/hulevedenkasittely/code/01",
+    "buildingSiteAddress": [
+      {
+        "addressKey": "ca6cc18d-3fe2-4c49-ac02-fb1af384bca7",
+        "addressName": {
+          "fin": "Koulutie",
+          "swe": "Skolgatan"
+        },
+        "numberPartOfAddressNumber": 0,
+        "subdivisionLetterOfAddressNumber": "a",
+        "postalCode": "42700",
+        "location": {
+          "srid": "3067",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              386023.53933660605,
+              6672105.533725229
+            ]
+          }
+        },
+        "addressNumber": 1,
+        "numberPartOfAddressNumber2": 3,
+        "subdivisionLetterOfAddressNumber2": "a"
+      }
+    ],
+    "spatialPlan": "6706100",
+    "statusOfPlan": "http://uri.suomi.fi/codelist/vtj/Rake_kaava/code/01",
+    "name": null,
+    "description": null,
+    "geometry": {
+      "srid": "3067",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          386023.53933660605,
+          6672105.533725229
+        ]
+      }
+    },
+    "tenure": "http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste/code/1"
+  },
+  "attachment": null,
+  "constructionProject": {
+    "constructionProjectKey": "099cc35a-1837-4d56-9701-bc769b23d81f",
+    "descriptionOfConstructionProject": {
+      "fin": "Rakennushankkeen kuvaus",
+      "swe": "Beskrivning av byggprojekt",
+      "smn": "Rakennushankkeen kuvaus",
+      "sms": "Rakennushankkeen kuvaus",
+      "sme": "Rakennushankkeen kuvaus",
+      "eng": "Description of construction project"
+    },
+    "startDate": "2026-06-02",
+    "planner": null,
+    "foreman": null,
+    "inspection": [
+      {
+        "inspectionKey": "bb75e000-e726-4553-a11d-0a70d755648d",
+        "inspectionType": "http://uri.suomi.fi/codelist/rytj/Katselmuslaji/code/09",
+        "inspectionDate": "2026-06-12",
+        "requiredByPermitRegulations": true,
+        "partiality": "http://uri.suomi.fi/codelist/rytj/OsittainenLopullinen/code/02",
+        "inspectionStatus": "http://uri.suomi.fi/codelist/rytj/KatselmuksenTilanne/code/01",
+        "buildingReference": [
+          {
+            "permanentBuildingIdentifierReference": "900046789C",
+            "buildingSectionReference": [
+              "82a45598-17e4-4753-8eba-c33932edafde"
+            ]
+          }
+        ],
+        "structureReference": null,
+        "specificAreaReference": null,
+        "buildingObjectChange": null,
+        "specificationOfObjectOfInspection": {
+          "fin": "Katselmus 1",
+          "swe": "Inspektion 1",
+          "smn": "Katselmus 1",
+          "sms": "Katselmus 1",
+          "sme": "Katselmus 1",
+          "eng": "Inspection 1"
+        },
+        "inspectionRemarks": {
+          "fin": "Huomio 1",
+          "swe": "Anmärkning 1",
+          "smn": "Huomio 1",
+          "sms": "Huomio 1",
+          "sme": "Huomio 1",
+          "eng": "Remark 1"
+        },
+        "inspectionCarriedOutByFirstName": "Tarkastaja1",
+        "inspectionCarriedOutByLastName": "Sukunimi1",
+        "personsPresent": "Henkilö 1",
+        "buildingsAttachmentDocument": null
+      },
+      {
+        "inspectionKey": "167dbc92-c7a3-4cec-8eb6-e547e25ea096",
+        "inspectionType": "http://uri.suomi.fi/codelist/rytj/Katselmuslaji/code/02",
+        "inspectionDate": "2026-06-02",
+        "requiredByPermitRegulations": true,
+        "partiality": "http://uri.suomi.fi/codelist/rytj/OsittainenLopullinen/code/02",
+        "inspectionStatus": "http://uri.suomi.fi/codelist/rytj/KatselmuksenTilanne/code/01",
+        "buildingReference": [
+          {
+            "permanentBuildingIdentifierReference": "900046789C",
+            "buildingSectionReference": [
+              "82a45598-17e4-4753-8eba-c33932edafde"
+            ]
+          }
+        ],
+        "structureReference": null,
+        "specificAreaReference": null,
+        "buildingObjectChange": null,
+        "specificationOfObjectOfInspection": {
+          "fin": "Katselmus 2",
+          "swe": "Inspektion 2",
+          "smn": "Katselmus 2",
+          "sms": "Katselmus 2",
+          "sme": "Katselmus 2",
+          "eng": "Inspection 2"
+        },
+        "inspectionRemarks": {
+          "fin": "Huomio 2",
+          "swe": "Anmärkning 2",
+          "smn": "Huomio 2",
+          "sms": "Huomio 2",
+          "sme": "Huomio 2",
+          "eng": "Remark 2"
+        },
+        "inspectionCarriedOutByFirstName": "Tarkastaja2",
+        "inspectionCarriedOutByLastName": "Sukunimi2",
+        "personsPresent": "Henkilö 2",
+        "buildingsAttachmentDocument": null
+      }
+    ]
+  },
+  "updateType": "Katselmus04",
+  "updateDescription": {
+    "fin": "Osittainen loppukatselmus, rakennus käyttöönotettu kokonaisuudessaan",
+    "eng": "Partial final inspection, fully approved for use"
+  }
+}
+
+### Response: 200 OK

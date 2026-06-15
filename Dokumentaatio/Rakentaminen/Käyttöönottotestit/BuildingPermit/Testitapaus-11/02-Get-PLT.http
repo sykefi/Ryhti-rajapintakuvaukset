@@ -1,0 +1,16 @@
+POST https://ryhtiapi-dev.env.fi/building/api/PermanentIdentifiers/BuildingPermitIdentifier
+content-type: application/json
+
+{
+  "municipalityNumber": "837",
+  "municipalityPermitId": "52ed181f-f3e9-4573-b739-6ad02ca1cea1",
+  "permitType": "http://uri.suomi.fi/codelist/rytj/RakennusvalvontaAsianTyyppi/code/01"
+}
+
+### Response: 201 Created
+
+{
+  "permanentPermitIdentifier": "300004568P",
+  "response": "Pysyvä lupatunnus luotu.",
+  "created": true
+}
