@@ -3,25 +3,25 @@ content-type: application/json
 
 {
   "municipalityNumber": "837",
+  "permanentPermitId": "300004595K",
+  "dvvCaseIdentifier": "83752555-09240011010",
   "constructionAction": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
-  "permanentBuildingId": "900047283A",
-  "apartmentKey": "afc84346-f070-4259-8725-ef8d7d53581d",
-  "buildingSectionKey": "e5a12706-3023-42dc-b3f8-e3ec44986597",
-  "addressNumber": 2,
+  "permanentBuildingId": "900047044L",
+  "addressNumber": 1,
   "changeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/01",
-  "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/02",
+  "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
   "apartmentIdentifierLetterSuffix": "A",
-  "apartmentNumber": 2,
+  "apartmentNumber": 1,
   "apartmentSubdivisionLetter": "a",
-  "numberOfRooms": 1,
+  "numberOfRooms": 4,
   "kitchenType": "http://uri.suomi.fi/codelist/rytj/Keittiotyyppi/code/02",
-  "floorArea": 20
+  "floorArea": 120
 }
 
 ### Response: 201 Created
 
 {
-  "permanentApartmentIdentifier": "8000637557",
+  "permanentApartmentIdentifier": "8000636937",
   "response": "",
   "created": true
 }

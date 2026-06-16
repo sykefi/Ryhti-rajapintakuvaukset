@@ -3,14 +3,14 @@ content-type: application/json
 
 {
   "municipalityNumber": "837",
-  "municipalityPermitId": "be7d98c0-7fcb-47b5-b594-53da90c7ca23",
+  "municipalityPermitId": "4745ffd9-48d7-4634-8d8e-3c3e8d4537d0",
   "permitType": "http://uri.suomi.fi/codelist/rytj/RakennusvalvontaAsianTyyppi/code/01"
 }
 
 ### Response: 201 Created
 
 {
-  "permanentPermitIdentifier": "300004344F",
+  "permanentPermitIdentifier": "300004595K",
   "response": "Pysyvä lupatunnus luotu.",
   "created": true
 }

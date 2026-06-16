@@ -9,19 +9,21 @@ content-type: application/json
     "geometry": {
       "type": "Point",
       "coordinates": [
-        337367,
-        6840313
+        337114,
+        6841089
       ]
     }
   },
-  "typeOfPurpose": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/0110",
-  "constructionAction": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01"
+  "typeOfPurpose": "http://uri.suomi.fi/codelist/jhs/rakennus_1_20180712/code/1911",
+  "dvvCaseIdentifier": "83758547-02676011010",
+  "constructionAction": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
+  "permanentPermitIdentifier": "3000046080"
 }
 
 ### Response: 201 Created
 
 {
-  "permanentBuildingIdentifier": "900047283A",
+  "permanentBuildingIdentifier": "9000472796",
   "response": "",
   "created": true
 }
