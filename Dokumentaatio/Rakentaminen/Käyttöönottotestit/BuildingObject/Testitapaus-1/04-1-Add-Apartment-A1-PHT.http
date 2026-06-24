@@ -1,12 +1,12 @@
-POST https://ryhtiapi-test.env.fi/building/api/PermanentIdentifiers/ApartmentIdentifier
+POST https://ryhtiapi-dev.env.fi/building/api/PermanentIdentifiers/ApartmentIdentifier
 content-type: application/json
 
 {
   "municipalityNumber": "837",
   "constructionAction": "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/01",
-  "permanentBuildingId": "900044813M",
-  "apartmentKey": "34b8783d-a1da-4715-ab03-a09c900f4e39",
-  "buildingSectionKey": "5a22f190-3cce-4085-b1ba-d0f25d078d2b",
+  "permanentBuildingId": "900047283A",
+  "apartmentKey": "97c48796-365e-411b-a184-c538d3cbf57c",
+  "buildingSectionKey": "e5a12706-3023-42dc-b3f8-e3ec44986597",
   "addressNumber": 1,
   "changeType": "http://uri.suomi.fi/codelist/rytj/huoneistonmuutoksenlaji/code/01",
   "apartmentType": "http://uri.suomi.fi/codelist/rytj/Huoneistotyyppi/code/01",
@@ -18,27 +18,27 @@ content-type: application/json
   "floorArea": 120.5,
   "apartmentEquipment": [
     {
-      "apartmentEquipmentKey": "a01b81e6-c201-4f18-9f31-4fc6d79942ba",
+      "apartmentEquipmentKey": "137cf6c1-bd24-4d84-b02d-ce5a764542e1",
       "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/01",
       "numberOfEquipment": 2
     },
     {
-      "apartmentEquipmentKey": "d424a649-ef46-42d3-ae85-82df8555f80f",
+      "apartmentEquipmentKey": "ed8b9ffc-575a-48b3-96b8-6a56db8ac705",
       "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/02",
       "numberOfEquipment": 2
     },
     {
-      "apartmentEquipmentKey": "ffd592ff-28a6-4d42-80d3-f07ee90043dc",
+      "apartmentEquipmentKey": "64ed8e36-6c56-4b27-9e77-0b1fa058b2a3",
       "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/03",
       "numberOfEquipment": 1
     },
     {
-      "apartmentEquipmentKey": "5b34d1c6-909a-41f8-9d9f-af2d04c179df",
+      "apartmentEquipmentKey": "6bc7a86e-9295-4945-a0b2-27678aaf7e00",
       "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/04",
       "numberOfEquipment": 1
     },
     {
-      "apartmentEquipmentKey": "7e72642c-2509-40a4-9afb-5ff529d78cc6",
+      "apartmentEquipmentKey": "262c1c7d-a076-433d-a996-d252c900a15c",
       "apartmentEquipmentType": "http://uri.suomi.fi/codelist/rytj/HuoneistoVaruste/code/05",
       "numberOfEquipment": 1
     }
@@ -48,7 +48,7 @@ content-type: application/json
 ### Response: 201 Created
 
 {
-  "permanentApartmentIdentifier": "800062376R",
+  "permanentApartmentIdentifier": "8000637546",
   "response": "",
   "created": true
 }

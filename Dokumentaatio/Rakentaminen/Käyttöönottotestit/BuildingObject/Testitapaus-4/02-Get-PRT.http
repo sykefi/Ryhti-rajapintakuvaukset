@@ -1,5 +1,5 @@
 POST https://ryhtiapi-dev.env.fi/building/api/PermanentIdentifiers/BuildingIdentifier
-content-type: application/json
+Content-Type: application/json
 
 {
   "municipalityNumber": "837",
@@ -9,8 +9,8 @@ content-type: application/json
     "geometry": {
       "type": "Point",
       "coordinates": [
-        337367,
-        6840313
+        337264,
+        6841380
       ]
     }
   },
@@ -21,7 +21,7 @@ content-type: application/json
 ### Response: 201 Created
 
 {
-  "permanentBuildingIdentifier": "900047283A",
+  "permanentBuildingIdentifier": "900047043K",
   "response": "",
   "created": true
 }
