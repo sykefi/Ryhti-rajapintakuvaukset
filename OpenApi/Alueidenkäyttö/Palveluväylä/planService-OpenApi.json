@@ -6176,97 +6176,6 @@
         },
         "additionalProperties": false
       },
-      "AttachmentDocument": {
-        "required": [
-          "accessibility",
-          "attachmentDocumentKey",
-          "categoryOfPublicity",
-          "documentDate",
-          "documentIdentifier",
-          "fileKey",
-          "languages",
-          "name",
-          "personalDataContent",
-          "retentionTime"
-        ],
-        "type": "object",
-        "properties": {
-          "attachmentDocumentKey": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
-            "format": "uuid"
-          },
-          "documentIdentifier": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Asiakirjan pysyvä tunnus, esim. diaarinumero tai muu dokumentinhallinnan tunnus."
-          },
-          "name": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LanguageString"
-              }
-            ],
-            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
-          },
-          "personalDataContent": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Kuvaa asiakirjan henkilötietosisällön. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/henkilotietosisalto\">http://uri.suomi.fi/codelist/rytj/henkilotietosisalto</a>"
-          },
-          "categoryOfPublicity": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Kuvaa asiakirjan julkisuusluokan. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/julkisuus\">http://uri.suomi.fi/codelist/rytj/julkisuus</a>"
-          },
-          "accessibility": {
-            "type": "boolean"
-          },
-          "retentionTime": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Asiakirjan säilytysaika vuosina ennen sen hävittämistä. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/sailytysaika\">http://uri.suomi.fi/codelist/rytj/sailytysaika</a>"
-          },
-          "confirmationDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "languages": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Asiakirjan kieli tai sisältämät kielet. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/ryhtikielet\">http://uri.suomi.fi/codelist/rytj/ryhtikielet</a>"
-          },
-          "fileKey": {
-            "type": "string",
-            "description": "Erillisen rajapinnan kautta tallennetun tiedoston avain.",
-            "format": "uuid"
-          },
-          "descriptors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Descriptor"
-            },
-            "nullable": true
-          },
-          "documentDate": {
-            "minLength": 1,
-            "type": "string",
-            "format": "date"
-          },
-          "arrivedDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Liiteasiakirja (base)"
-      },
       "AttributeValue": {
         "type": "object",
         "properties": {
@@ -7400,6 +7309,29 @@
         "additionalProperties": false,
         "description": "Toimija"
       },
+      "CancelledByResponse": {
+        "type": "object",
+        "properties": {
+          "planCancellationKey": {
+            "type": "string",
+            "description": "Kumoamistiedon avain",
+            "format": "uuid"
+          },
+          "permanentPlanIdentifier": {
+            "type": "string",
+            "description": "Kumoavan kaavan pysyvä kaavatunnus",
+            "nullable": true
+          },
+          "dateOfValidity": {
+            "type": "string",
+            "description": "Voimaantulopäivämäärä",
+            "format": "date",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Kuvaa kumoamistiedon, eli minkä kaavan toimesta tämä kaava-asia on kumottu."
+      },
       "CancelledGroupRelations": {
         "required": [
           "planObjectUri",
@@ -7711,37 +7643,19 @@
         "additionalProperties": false,
         "description": "Yleismääräysryhmä"
       },
-      "GeoJsonGeometry": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Tuetut geometriatyypit"
-          }
-        },
-        "additionalProperties": false,
-        "description": "GeoJson geometria (abstrakti luokka, katso toteutukset)"
-      },
       "GeoJsonLineStringGeometry": {
         "required": [
           "coordinates",
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "LineString"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -7750,25 +7664,11 @@
                 "type": "number",
                 "format": "double"
               }
-            },
-            "description": "Koordinaatit",
-            "example": "[ [100.0, 0.0], [101.0, 1.0] ]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"lineString\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+        "description": "GeoJSON LineString"
       },
       "GeoJsonMultiLineStringGeometry": {
         "required": [
@@ -7776,12 +7676,13 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "MultiLineString"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -7793,25 +7694,11 @@
                   "format": "double"
                 }
               }
-            },
-            "description": "Koordinaatit",
-            "example": "[ [[100.0, 0.0], [101.0, 1.0]], [[101.0, 1.0], [100.0, 1.0]] ]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"lineString\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "LineString GeoJson\r\n\r\nEsimerkki: { \"type\": \"lineString\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+        "description": "GeoJSON MultiLineString"
       },
       "GeoJsonMultiPointGeometry": {
         "required": [
@@ -7819,12 +7706,13 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "MultiPoint"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -7833,25 +7721,11 @@
                 "type": "number",
                 "format": "double"
               }
-            },
-            "description": "Koordinaatit",
-            "example": "[ [100.0, 0.0], [101.0, 1.0] ]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"multiPoint\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "MultiPoint GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPoint\", \"coordinates\": [ [100.0, 0.0], [101.0, 1.0] ] }"
+        "description": "GeoJSON MultiPoint"
       },
       "GeoJsonMultiPolygonGeometry": {
         "required": [
@@ -7859,12 +7733,13 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "MultiPolygon"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -7879,25 +7754,11 @@
                   }
                 }
               }
-            },
-            "description": "Koordinaatit",
-            "example": "[ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"multiPolygon\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "MultiPolygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"multiPolygon\", \"coordinates\": [ [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0 ] ] ], [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] ] }"
+        "description": "GeoJSON MultiPolygon"
       },
       "GeoJsonPointGeometry": {
         "required": [
@@ -7905,36 +7766,23 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "Point"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
               "type": "number",
               "format": "double"
-            },
-            "description": "Koordinaatit",
-            "example": "[100.0, 0.0]"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"point\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "Point GeoJson\r\n\r\nEsimerkki: { \"type\": \"point\", \"coordinates\": [100.0, 0.0] }"
+        "description": "GeoJSON Point"
       },
       "GeoJsonPolygonGeometry": {
         "required": [
@@ -7942,12 +7790,13 @@
           "type"
         ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GeoJsonGeometry"
-          }
-        ],
         "properties": {
+          "type": {
+            "enum": [
+              "Polygon"
+            ],
+            "type": "string"
+          },
           "coordinates": {
             "type": "array",
             "items": {
@@ -7959,25 +7808,11 @@
                   "format": "double"
                 }
               }
-            },
-            "description": "Koordinaatit",
-            "example": " [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
-          },
-          "type": {
-            "enum": [
-              "Point",
-              "MultiPoint",
-              "LineString",
-              "MultiLineString",
-              "Polygon",
-              "MultiPolygon"
-            ],
-            "type": "string",
-            "description": "Geometriatyyppi. Pakollinen arvo: \"polygon\""
+            }
           }
         },
         "additionalProperties": false,
-        "description": "Polygon GeoJson\r\n\r\nEsimerkki: { \"type\": \"polygon\", \"coordinates\": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ] ] }"
+        "description": "GeoJSON Polygon"
       },
       "HandlingEvent": {
         "required": [
@@ -9500,6 +9335,14 @@
             "description": "Kumoamistieto",
             "nullable": true
           },
+          "bindingPlotDivisionCancellationInfos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BindingPlotDivisionCancellationInfo"
+            },
+            "description": "Sitovan tonttijaon kumoutumistieto.",
+            "nullable": true
+          },
           "planReport": {
             "allOf": [
               {
@@ -9900,6 +9743,14 @@
               "$ref": "#/components/schemas/PlanCancellationInfo"
             },
             "description": "Kumoamistieto",
+            "nullable": true
+          },
+          "bindingPlotDivisionCancellationInfos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BindingPlotDivisionCancellationInfo"
+            },
+            "description": "Sitovan tonttijaon kumoutumistieto.",
             "nullable": true
           }
         },
@@ -10558,11 +10409,32 @@
             "description": "Liittyvät kaava asiat (URI)",
             "nullable": true
           },
+          "effectiveLifeCycleStatus": {
+            "type": "string",
+            "description": "Ajantasainen elinkaaren tila. Jos kaavan kaikki kaavakohteet on kumottu, palautetaan kumottu (14).",
+            "nullable": true
+          },
+          "periodOfValidity": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TimePeriodDateOnly"
+              }
+            ],
+            "description": "Ajantasainen voimassaoloaika (alku- ja loppupäivämäärä).",
+            "nullable": true
+          },
           "planMatterPhases": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PlanMatterPhaseUriResponse"
             }
+          },
+          "cancelledBy": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CancelledByResponse"
+            },
+            "description": "Kumoamistieto. Kuvaa kaavan kumoamista. Kumoamistieto voi kumota kaavan kokonaan tai osittain."
           },
           "originalAdministrativeAreaIdentifiers": {
             "type": "array",
@@ -12519,7 +12391,7 @@
                 "$ref": "#/components/schemas/GeoJsonMultiPolygonGeometry"
               }
             ],
-            "description": "Geometria GeoJson rakenteella: https://geojson.org/"
+            "description": "Geometria GeoJSON rakenteella: https://geojson.org/"
           }
         },
         "additionalProperties": false
