@@ -16,6 +16,9 @@ Rakennetun ympäristön tietojärjestelmän ensimmäiset julkiset rajapinnat kaa
 
 Lisää tietoa Suomen ympäristökeskuksen sovelluskehittäjäportaalissa https://api-developer.ymparisto.fi/
 
+### Kaavasuunnitelmien validointi
+Kaavasuunnitelman validointia eli tarkistamista voi testata [Ryhti-palvelussa](https://ryhti-palvelut.syke.fi/validoi-kaava-suunnitelma). Validointi ei vaadi kirjautumista. Palveluun ladataan JSON-muotoinen kaavasuunnitelma, jonka jälkeen palvelu ilmoittaa, jos tiedostossa on virheitä.
+
 ## Rakentamisen esimerkki-jsonit
 Testatessa voi hyödyntää esimerkki-jsoneita, jotka on julkaistu GitHubiin.
 Esimerkkitiedostot löytyvät kohdasta dokumentaatio > rakentaminen > kunnille testi-jsonit.
