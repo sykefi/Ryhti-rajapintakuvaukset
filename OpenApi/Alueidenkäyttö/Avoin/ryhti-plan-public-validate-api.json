@@ -15,7 +15,7 @@
     },
     "servers": [
         {
-            "url": "https://api-test.ymparisto.fi/ryhti/plan-public"
+            "url": "https://api.ymparisto.fi/ryhti/plan-public"
         }
     ],
     "paths": {
@@ -58,7 +58,7 @@
                             "schema": {
                                 "allOf": [
                                     {
-                                        "$ref": "#/components/schemas/Plan"
+                                        "$ref": "#/components/schemas/ValidatePlan"
                                     }
                                 ],
                                 "description": "Kaava"
@@ -85,7 +85,7 @@
                                             "eng": "string"
                                         },
                                         "fileKey": "string",
-                                        "coordinateSystem": "string"
+                                        "coordinateSystem": "http://uri.suomi.fi/codelist/rakrek/ETRS89/code/EPSG3067"
                                     }
                                 ],
                                 "geographicalArea": {
@@ -176,20 +176,28 @@
                                         "planCancellationInfoUri": "string",
                                         "cancelledPlanUri": "string",
                                         "cancelsEntirePlan": true,
-                                        "cancelledPlanObjectUris": [
-                                            "string"
-                                        ],
-                                        "cancelledRegulationUris": [
-                                            "string"
-                                        ],
-                                        "cancelledRecommendationUris": [
-                                            "string"
-                                        ],
                                         "cancelledGroupRelations": [
                                             {
                                                 "planRegulationGroupUri": "string",
                                                 "planObjectUri": "string"
                                             }
+                                        ],
+                                        "planObjectCancellationInfos": [
+                                            {
+                                                "planObjectCancellationInfoKey": "string",
+                                                "cancelledPlanObjectUri": "string",
+                                                "cancelsEntirePlanObject": true,
+                                                "validityGeometry": {
+                                                    "srid": "3067",
+                                                    "geometry": {
+                                                        "coordinates": "[100.0, 0.0]",
+                                                        "type": "Point"
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "cancelledGeneralRegulationGroupUris": [
+                                            "string"
                                         ]
                                     }
                                 ],
@@ -456,6 +464,21 @@
                                         "groupNumber": 0
                                     }
                                 ],
+                                "presentationAlignments": [
+                                    {
+                                        "planObjectKey": "string",
+                                        "planRegulationGroupKey": "string",
+                                        "geometry": {
+                                            "srid": "3067",
+                                            "geometry": {
+                                                "coordinates": "[100.0, 0.0]",
+                                                "type": "Point"
+                                            }
+                                        },
+                                        "rotation": 0,
+                                        "language": "string"
+                                    }
+                                ],
                                 "periodOfValidity": {
                                     "begin": "string",
                                     "end": "string"
@@ -470,20 +493,6 @@
                                         "title": "string",
                                         "organizationName": "string",
                                         "businessId": "string"
-                                    }
-                                ],
-                                "partiallyCancelledPlanObjectInfos": [
-                                    {
-                                        "partiallyCancelledPlanObjectInfoKey": "string",
-                                        "cancelledPlanUri": "string",
-                                        "partiallyCancelledPlanObjectUri": "string",
-                                        "validityGeometry": {
-                                            "srid": "3067",
-                                            "geometry": {
-                                                "coordinates": "[100.0, 0.0]",
-                                                "type": "Point"
-                                            }
-                                        }
                                     }
                                 ],
                                 "planObjects": [
@@ -533,6 +542,9 @@
                                         },
                                         "objectNumber": 0,
                                         "relatedPlanObjectKeys": [
+                                            "string"
+                                        ],
+                                        "relatedPlanObjectUris": [
                                             "string"
                                         ]
                                     }
@@ -760,7 +772,7 @@
                             "schema": {
                                 "allOf": [
                                     {
-                                        "$ref": "#/components/schemas/Plan"
+                                        "$ref": "#/components/schemas/ValidatePlan"
                                     }
                                 ],
                                 "description": "Kaava"
@@ -787,7 +799,7 @@
                                             "eng": "string"
                                         },
                                         "fileKey": "string",
-                                        "coordinateSystem": "string"
+                                        "coordinateSystem": "http://uri.suomi.fi/codelist/rakrek/ETRS89/code/EPSG3067"
                                     }
                                 ],
                                 "geographicalArea": {
@@ -878,20 +890,28 @@
                                         "planCancellationInfoUri": "string",
                                         "cancelledPlanUri": "string",
                                         "cancelsEntirePlan": true,
-                                        "cancelledPlanObjectUris": [
-                                            "string"
-                                        ],
-                                        "cancelledRegulationUris": [
-                                            "string"
-                                        ],
-                                        "cancelledRecommendationUris": [
-                                            "string"
-                                        ],
                                         "cancelledGroupRelations": [
                                             {
                                                 "planRegulationGroupUri": "string",
                                                 "planObjectUri": "string"
                                             }
+                                        ],
+                                        "planObjectCancellationInfos": [
+                                            {
+                                                "planObjectCancellationInfoKey": "string",
+                                                "cancelledPlanObjectUri": "string",
+                                                "cancelsEntirePlanObject": true,
+                                                "validityGeometry": {
+                                                    "srid": "3067",
+                                                    "geometry": {
+                                                        "coordinates": "[100.0, 0.0]",
+                                                        "type": "Point"
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "cancelledGeneralRegulationGroupUris": [
+                                            "string"
                                         ]
                                     }
                                 ],
@@ -1158,6 +1178,21 @@
                                         "groupNumber": 0
                                     }
                                 ],
+                                "presentationAlignments": [
+                                    {
+                                        "planObjectKey": "string",
+                                        "planRegulationGroupKey": "string",
+                                        "geometry": {
+                                            "srid": "3067",
+                                            "geometry": {
+                                                "coordinates": "[100.0, 0.0]",
+                                                "type": "Point"
+                                            }
+                                        },
+                                        "rotation": 0,
+                                        "language": "string"
+                                    }
+                                ],
                                 "periodOfValidity": {
                                     "begin": "string",
                                     "end": "string"
@@ -1172,20 +1207,6 @@
                                         "title": "string",
                                         "organizationName": "string",
                                         "businessId": "string"
-                                    }
-                                ],
-                                "partiallyCancelledPlanObjectInfos": [
-                                    {
-                                        "partiallyCancelledPlanObjectInfoKey": "string",
-                                        "cancelledPlanUri": "string",
-                                        "partiallyCancelledPlanObjectUri": "string",
-                                        "validityGeometry": {
-                                            "srid": "3067",
-                                            "geometry": {
-                                                "coordinates": "[100.0, 0.0]",
-                                                "type": "Point"
-                                            }
-                                        }
                                     }
                                 ],
                                 "planObjects": [
@@ -1235,6 +1256,9 @@
                                         },
                                         "objectNumber": 0,
                                         "relatedPlanObjectKeys": [
+                                            "string"
+                                        ],
+                                        "relatedPlanObjectUris": [
                                             "string"
                                         ]
                                     }
@@ -1462,7 +1486,7 @@
                             "schema": {
                                 "allOf": [
                                     {
-                                        "$ref": "#/components/schemas/Plan"
+                                        "$ref": "#/components/schemas/ValidatePlan"
                                     }
                                 ],
                                 "description": "Kaava"
@@ -1489,7 +1513,7 @@
                                             "eng": "string"
                                         },
                                         "fileKey": "string",
-                                        "coordinateSystem": "string"
+                                        "coordinateSystem": "http://uri.suomi.fi/codelist/rakrek/ETRS89/code/EPSG3067"
                                     }
                                 ],
                                 "geographicalArea": {
@@ -1580,20 +1604,28 @@
                                         "planCancellationInfoUri": "string",
                                         "cancelledPlanUri": "string",
                                         "cancelsEntirePlan": true,
-                                        "cancelledPlanObjectUris": [
-                                            "string"
-                                        ],
-                                        "cancelledRegulationUris": [
-                                            "string"
-                                        ],
-                                        "cancelledRecommendationUris": [
-                                            "string"
-                                        ],
                                         "cancelledGroupRelations": [
                                             {
                                                 "planRegulationGroupUri": "string",
                                                 "planObjectUri": "string"
                                             }
+                                        ],
+                                        "planObjectCancellationInfos": [
+                                            {
+                                                "planObjectCancellationInfoKey": "string",
+                                                "cancelledPlanObjectUri": "string",
+                                                "cancelsEntirePlanObject": true,
+                                                "validityGeometry": {
+                                                    "srid": "3067",
+                                                    "geometry": {
+                                                        "coordinates": "[100.0, 0.0]",
+                                                        "type": "Point"
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "cancelledGeneralRegulationGroupUris": [
+                                            "string"
                                         ]
                                     }
                                 ],
@@ -1860,6 +1892,21 @@
                                         "groupNumber": 0
                                     }
                                 ],
+                                "presentationAlignments": [
+                                    {
+                                        "planObjectKey": "string",
+                                        "planRegulationGroupKey": "string",
+                                        "geometry": {
+                                            "srid": "3067",
+                                            "geometry": {
+                                                "coordinates": "[100.0, 0.0]",
+                                                "type": "Point"
+                                            }
+                                        },
+                                        "rotation": 0,
+                                        "language": "string"
+                                    }
+                                ],
                                 "periodOfValidity": {
                                     "begin": "string",
                                     "end": "string"
@@ -1874,20 +1921,6 @@
                                         "title": "string",
                                         "organizationName": "string",
                                         "businessId": "string"
-                                    }
-                                ],
-                                "partiallyCancelledPlanObjectInfos": [
-                                    {
-                                        "partiallyCancelledPlanObjectInfoKey": "string",
-                                        "cancelledPlanUri": "string",
-                                        "partiallyCancelledPlanObjectUri": "string",
-                                        "validityGeometry": {
-                                            "srid": "3067",
-                                            "geometry": {
-                                                "coordinates": "[100.0, 0.0]",
-                                                "type": "Point"
-                                            }
-                                        }
                                     }
                                 ],
                                 "planObjects": [
@@ -1937,6 +1970,9 @@
                                         },
                                         "objectNumber": 0,
                                         "relatedPlanObjectKeys": [
+                                            "string"
+                                        ],
+                                        "relatedPlanObjectUris": [
                                             "string"
                                         ]
                                     }
@@ -2632,7 +2668,7 @@
                     }
                 },
                 "additionalProperties": false,
-                "description": "Yleiskaavamääräysryhmä"
+                "description": "Yleismääräysryhmä"
             },
             "GeoJsonGeometry": {
                 "type": "object",
@@ -3186,239 +3222,6 @@
                 "additionalProperties": false,
                 "description": "MuuKaavaAineisto"
             },
-            "PartiallyCancelledPlanObjectInfo": {
-                "required": [
-                    "cancelledPlanUri",
-                    "partiallyCancelledPlanObjectInfoKey",
-                    "partiallyCancelledPlanObjectUri",
-                    "validityGeometry"
-                ],
-                "type": "object",
-                "properties": {
-                    "partiallyCancelledPlanObjectInfoKey": {
-                        "type": "string",
-                        "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
-                        "format": "uuid"
-                    },
-                    "cancelledPlanUri": {
-                        "minLength": 1,
-                        "type": "string",
-                        "description": "Kumottavan hyväkstytyn kaavan tunnus URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/plan/{planKey})"
-                    },
-                    "partiallyCancelledPlanObjectUri": {
-                        "minLength": 1,
-                        "type": "string",
-                        "description": "Kumottavan kaavakohteen tunnus uri-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planobject/{planObjectKey})"
-                    },
-                    "validityGeometry": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/RyhtiGeometry"
-                            }
-                        ],
-                        "description": "Osittain kumottavan kaavakohteen voimaan jäävän alueen geometria."
-                    }
-                },
-                "additionalProperties": false,
-                "description": "OsittainKumottavanKaavakohteenTieto"
-            },
-            "Plan": {
-                "required": [
-                    "geographicalArea",
-                    "lifeCycleStatus",
-                    "planKey",
-                    "planObjects",
-                    "planRegulationGroups"
-                ],
-                "type": "object",
-                "properties": {
-                    "planKey": {
-                        "type": "string",
-                        "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
-                        "format": "uuid"
-                    },
-                    "planUri": {
-                        "type": "string",
-                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/plan/{guid})",
-                        "readOnly": true
-                    },
-                    "lifeCycleStatus": {
-                        "enum": [
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/02",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/03",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/04",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/05",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/06",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/07",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/08",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/09",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/10",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/11",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/12",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/13",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/14",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/15",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/16",
-                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/17"
-                        ],
-                        "type": "string",
-                        "description": "Kaavan elinkaaren tila. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/kaavaelinkaari\">http://uri.suomi.fi/codelist/rytj/kaavaelinkaari</a>"
-                    },
-                    "legalEffectOfLocalMasterPlans": {
-                        "type": "array",
-                        "items": {
-                            "enum": [
-                                "http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK/code/1",
-                                "http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK/code/11",
-                                "http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK/code/12",
-                                "http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK/code/13",
-                                "http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK/code/2"
-                            ],
-                            "type": "string"
-                        },
-                        "description": "Yleiskaavan oikeusvaikutteisuuden määritykset. Käytössä ainoastaan yleiskaavan yhteydessä. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK\">http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK</a>",
-                        "nullable": true
-                    },
-                    "scale": {
-                        "type": "integer",
-                        "description": "Mittakaava",
-                        "format": "int32",
-                        "nullable": true
-                    },
-                    "officialUseOnly": {
-                        "type": "boolean",
-                        "description": "Vain viranomaiskäyttöön",
-                        "nullable": true
-                    },
-                    "planMaps": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/PlanMap"
-                        },
-                        "description": "Kaavakartat",
-                        "nullable": true
-                    },
-                    "geographicalArea": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/RyhtiGeometry"
-                            }
-                        ],
-                        "description": "Aluerajaus"
-                    },
-                    "planDescription": {
-                        "type": "string",
-                        "description": "Kaavan kuvaus",
-                        "nullable": true
-                    },
-                    "planAnnexes": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/PlanAttachmentDocument"
-                        },
-                        "description": "Kaavan liittet",
-                        "nullable": true
-                    },
-                    "otherPlanMaterials": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/OtherPlanMaterial"
-                        },
-                        "description": "Muu kaava-aineisto",
-                        "nullable": true
-                    },
-                    "planCancellationInfos": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/PlanCancellationInfo"
-                        },
-                        "description": "Kumoamistieto",
-                        "nullable": true
-                    },
-                    "planReport": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/PlanReport"
-                            }
-                        ],
-                        "description": "Kaavaselostus",
-                        "nullable": true
-                    },
-                    "generalRegulationGroups": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/GeneralRegulationGroup"
-                        },
-                        "description": "Kaavamääräysryhmät",
-                        "nullable": true
-                    },
-                    "periodOfValidity": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/TimePeriodDateOnly"
-                            }
-                        ],
-                        "description": "Voimassaoloaika",
-                        "nullable": true
-                    },
-                    "approvalDate": {
-                        "type": "string",
-                        "description": "Hyväksymispäivämäärä",
-                        "format": "date",
-                        "nullable": true
-                    },
-                    "planners": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/PlanOperator"
-                        },
-                        "description": "Laatija",
-                        "nullable": true
-                    },
-                    "partiallyCancelledPlanObjectInfos": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/PartiallyCancelledPlanObjectInfo"
-                        },
-                        "description": "// Osittain kumottavat kaavakohteet",
-                        "nullable": true
-                    },
-                    "planObjects": {
-                        "minItems": 1,
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/PlanObject"
-                        },
-                        "description": "Kaavakohteet"
-                    },
-                    "planRegulationGroups": {
-                        "minItems": 1,
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/PlanRegulationGroup"
-                        },
-                        "description": "Kaavakohteen määräysryhmät"
-                    },
-                    "planRegulationGroupRelations": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/PlanRegulationGroupRelations"
-                        },
-                        "description": "Kaavakohteen ja määräysryhmän väliset suhteet",
-                        "nullable": true
-                    },
-                    "relatedPlanObjectRegulationGroupRelations": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/RelatedPlanObjectRegulationGroupRelation"
-                        },
-                        "nullable": true
-                    }
-                },
-                "additionalProperties": false,
-                "description": "Kaava"
-            },
             "PlanAttachmentDocument": {
                 "required": [
                     "accessibility",
@@ -3572,37 +3375,33 @@
                         "type": "boolean",
                         "description": "Kumoaa kaavan kokonaan"
                     },
-                    "cancelledPlanObjectUris": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "Kumottavan kaavakohteen tunnukset URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planobject/{planObjectKey})"
-                    },
-                    "cancelledRegulationUris": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "Kumottavan määräyksen tunnukset URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planregulation/{planRegulationKey})"
-                    },
-                    "cancelledRecommendationUris": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "Kumottavan suosituksen tunnukset URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planrecommendation/{planRecommendationKey})"
-                    },
                     "cancelledGroupRelations": {
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/CancelledGroupRelations"
                         },
-                        "description": "Kumottavan ryhmän kohdistus. Kuvaa kaavakohteesta kumoutuvat kaavamääräysryhmät."
+                        "description": "Kumottavan ryhmän kohdistus. Kuvaa kaavakohteesta kumoutuvat kaavamääräysryhmät.",
+                        "nullable": true
+                    },
+                    "planObjectCancellationInfos": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PlanObjectCancellationInfo"
+                        },
+                        "description": "Kumottavat kaavakohteet",
+                        "nullable": true
+                    },
+                    "cancelledGeneralRegulationGroupUris": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Kumottavat yleismääräysryhmät",
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false,
-                "description": "Kaavan kumoamistieto"
+                "description": "Kumoamistieto. Kuvaa kaavan kumoamista. Kumoamistieto voi kumota kaavan kokonaan tai osittain.\r\nOn joko Plan- tai PlanDecision-luokan lapsi.\r\n            \r\nJos kumotaan kaavalla niin:\r\n1) Kaava kumotaan kokonaan.\r\nTällöin ei saa olla kumoamistietoja kaavakohteista, määräyksistä tai suosituksista.\r\nKumoaa aina koko kaavan. Jos se on Plan-luokalla niin kumotaan se plan, millä sijaitsee.\r\nJos se on PlanDecision-luokalla niin kumotaan se plan, mihin päätös liittyy."
             },
             "PlanMap": {
                 "required": [
@@ -3638,6 +3437,9 @@
                     },
                     "coordinateSystem": {
                         "minLength": 1,
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rakrek/ETRS89/code/EPSG3067"
+                        ],
                         "type": "string"
                     }
                 },
@@ -3766,10 +3568,51 @@
                         },
                         "description": "LiittyväKohde UUID/localID",
                         "nullable": true
+                    },
+                    "relatedPlanObjectUris": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Liittyvä jo tallennetun kaavakohten Uri",
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false,
                 "description": "Kaavakohde"
+            },
+            "PlanObjectCancellationInfo": {
+                "required": [
+                    "cancelledPlanObjectUri",
+                    "cancelsEntirePlanObject",
+                    "planObjectCancellationInfoKey"
+                ],
+                "type": "object",
+                "properties": {
+                    "planObjectCancellationInfoKey": {
+                        "type": "string",
+                        "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
+                        "format": "uuid"
+                    },
+                    "cancelledPlanObjectUri": {
+                        "type": "string",
+                        "description": "Kumottavan kaavakohteen tunnus URI-muodossa (https://uri.rakennetunymparistontietojarjestelma.fi/planobject/{planObjectKey})"
+                    },
+                    "cancelsEntirePlanObject": {
+                        "type": "boolean",
+                        "description": "Kumoaa kohteen kokonaan"
+                    },
+                    "validityGeometry": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/RyhtiGeometry"
+                            }
+                        ],
+                        "description": "Osittain kumottaessa kohteen voimaan jäävä geometria",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
             },
             "PlanOperator": {
                 "required": [
@@ -4160,11 +4003,9 @@
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/arvokasGeologinenMuodostuma",
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kulttuuriymparistoarvojenAlue",
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/merkittavaRakennettuKulttuuriymparisto",
-                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiMerkittavaRakennettuKulttuuriymparisto",
-                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaupunkiTaiKylakuvallisestiArvokasAlue",
-                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/muuArkeologinenKohde",
-                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiMerkittavaArkeologinenKohde",
+                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/arkeologinenKohde",
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/historiallinenKohde",
+                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaupunkiTaiKylakuvallisestiArvokasAlue",
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/unesconMaailmanperintokohde",
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/saamelaiskulttuurinKannaltaTarkeaAlue",
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maisemallisestiArvokasAlue",
@@ -4180,6 +4021,7 @@
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/vaaraAlue",
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojavyohyke",
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/konsultointivyohyke",
+                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kaupunginTaiKunnanosa",
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/kunnanTaiKaupunginOsa",
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/korttelialueTaiKorttelialueenOsa",
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakennuspaikka",
@@ -4255,7 +4097,13 @@
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/maaraAikainenKieltoRakennuksenRakentamiseksi",
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suunnittelumaarays",
                             "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/rakentamismaarays",
-                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojelumaarays"
+                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/suojelumaarays",
+                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/talousrakennus",
+                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/sauna",
+                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/paivakoti",
+                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiMerkittavaRakennettuKulttuuriymparisto",
+                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/valtakunnallisestiMerkittavaArkeologinenKohde",
+                            "http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji/code/muuArkeologinenKohde"
                         ],
                         "type": "string",
                         "description": "Määräys tai määräyksen osa, jolla ohjataan alueidenkäyttöä ja rakentamista. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji\">http://uri.suomi.fi/codelist/rytj/RY_Kaavamaarayslaji</a>"
@@ -4647,6 +4495,41 @@
                 "additionalProperties": false,
                 "description": "Positiivinen numeerinen arvo"
             },
+            "PresentationAlignment": {
+                "required": [
+                    "geometry",
+                    "planObjectKey",
+                    "planRegulationGroupKey"
+                ],
+                "type": "object",
+                "properties": {
+                    "planObjectKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "planRegulationGroupKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "geometry": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/RyhtiGeometry"
+                            }
+                        ]
+                    },
+                    "rotation": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "language": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
             "ProblemDetails": {
                 "type": "object",
                 "properties": {
@@ -4946,6 +4829,203 @@
                 },
                 "additionalProperties": false,
                 "description": "TimePeriod"
+            },
+            "ValidatePlan": {
+                "required": [
+                    "geographicalArea",
+                    "lifeCycleStatus",
+                    "planKey",
+                    "planObjects",
+                    "planRegulationGroups"
+                ],
+                "type": "object",
+                "properties": {
+                    "planKey": {
+                        "type": "string",
+                        "description": "Tiedon tuottajatahon tietojärjestelmän generoima kohteen versioriippumaton tunnus",
+                        "format": "uuid"
+                    },
+                    "planUri": {
+                        "type": "string",
+                        "description": "Luokan pysyvä URI -muotoinen viittaustunniste (https://uri.rakennetunymparistontietojarjestelma.fi/plan/{guid})",
+                        "readOnly": true
+                    },
+                    "lifeCycleStatus": {
+                        "enum": [
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/01",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/02",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/03",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/04",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/05",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/06",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/07",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/08",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/09",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/10",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/11",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/12",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/13",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/14",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/15",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/16",
+                            "http://uri.suomi.fi/codelist/rytj/kaavaelinkaari/code/17"
+                        ],
+                        "type": "string",
+                        "description": "Kaavan elinkaaren tila. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/kaavaelinkaari\">http://uri.suomi.fi/codelist/rytj/kaavaelinkaari</a>"
+                    },
+                    "legalEffectOfLocalMasterPlans": {
+                        "type": "array",
+                        "items": {
+                            "enum": [
+                                "http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK/code/1",
+                                "http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK/code/11",
+                                "http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK/code/12",
+                                "http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK/code/13",
+                                "http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK/code/2"
+                            ],
+                            "type": "string"
+                        },
+                        "description": "Yleiskaavan oikeusvaikutteisuuden määritykset. Käytössä ainoastaan yleiskaavan yhteydessä. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK\">http://uri.suomi.fi/codelist/rytj/oikeusvaik_YK</a>",
+                        "nullable": true
+                    },
+                    "scale": {
+                        "type": "integer",
+                        "description": "Mittakaava",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "officialUseOnly": {
+                        "type": "boolean",
+                        "description": "Vain viranomaiskäyttöön",
+                        "nullable": true
+                    },
+                    "planMaps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PlanMap"
+                        },
+                        "description": "Kaavakartat",
+                        "nullable": true
+                    },
+                    "geographicalArea": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/RyhtiGeometry"
+                            }
+                        ],
+                        "description": "Aluerajaus"
+                    },
+                    "planDescription": {
+                        "type": "string",
+                        "description": "Kaavan kuvaus",
+                        "nullable": true
+                    },
+                    "planAnnexes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PlanAttachmentDocument"
+                        },
+                        "description": "Kaavan liittet",
+                        "nullable": true
+                    },
+                    "otherPlanMaterials": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OtherPlanMaterial"
+                        },
+                        "description": "Muu kaava-aineisto",
+                        "nullable": true
+                    },
+                    "planCancellationInfos": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PlanCancellationInfo"
+                        },
+                        "description": "Kumoamistieto",
+                        "nullable": true
+                    },
+                    "planReport": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/PlanReport"
+                            }
+                        ],
+                        "description": "Kaavaselostus",
+                        "nullable": true
+                    },
+                    "generalRegulationGroups": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GeneralRegulationGroup"
+                        },
+                        "description": "Kaavamääräysryhmät",
+                        "nullable": true
+                    },
+                    "presentationAlignments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PresentationAlignment"
+                        },
+                        "description": "Esitystavankohdistus",
+                        "nullable": true
+                    },
+                    "periodOfValidity": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/TimePeriodDateOnly"
+                            }
+                        ],
+                        "description": "Voimassaoloaika",
+                        "nullable": true
+                    },
+                    "approvalDate": {
+                        "type": "string",
+                        "description": "Hyväksymispäivämäärä",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "planners": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PlanOperator"
+                        },
+                        "description": "Laatija",
+                        "nullable": true
+                    },
+                    "planObjects": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PlanObject"
+                        },
+                        "description": "Kaavakohteet"
+                    },
+                    "planRegulationGroups": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PlanRegulationGroup"
+                        },
+                        "description": "Kaavakohteen määräysryhmät"
+                    },
+                    "planRegulationGroupRelations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PlanRegulationGroupRelations"
+                        },
+                        "description": "Kaavakohteen ja määräysryhmän väliset suhteet",
+                        "nullable": true
+                    },
+                    "relatedPlanObjectRegulationGroupRelations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RelatedPlanObjectRegulationGroupRelation"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Kaava"
             },
             "ValidationProblemDetails": {
                 "type": "object",
