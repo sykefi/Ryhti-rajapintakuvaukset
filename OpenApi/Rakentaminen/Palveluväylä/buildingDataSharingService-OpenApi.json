@@ -4818,6 +4818,10 @@
             "type": "number",
             "format": "double"
           },
+          "b3Repair": {
+            "type": "number",
+            "format": "double"
+          },
           "b4ProductReplacements": {
             "type": "number",
             "format": "double"
@@ -5688,14 +5692,21 @@
             ],
             "type": "string"
           },
-          "climateReport": {
+          "buildingCarbonFootprint": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/ClimateReport"
+                "$ref": "#/components/schemas/BuildingCarbonFootprint"
               }
             ],
-            "description": "Ilmastoselvitys",
-            "nullable": true
+            "description": "Rakennuksen hiilijalanjälki"
+          },
+          "buildingCarbonHandprint": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingCarbonHandprint"
+              }
+            ],
+            "description": "Rakennuksen hiilikädenjälki"
           }
         },
         "additionalProperties": false,
@@ -5725,14 +5736,21 @@
             ],
             "type": "string"
           },
-          "climateReport": {
+          "buildingCarbonFootprint": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/ClimateReportNoPersonData"
+                "$ref": "#/components/schemas/BuildingCarbonFootprint"
               }
             ],
-            "description": "Ilmastoselvitys",
-            "nullable": true
+            "description": "Rakennuksen hiilijalanjälki"
+          },
+          "buildingCarbonHandprint": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildingCarbonHandprint"
+              }
+            ],
+            "description": "Rakennuksen hiilikädenjälki"
           }
         },
         "additionalProperties": false,
@@ -5949,6 +5967,10 @@
             "format": "double"
           },
           "b2Maintenance": {
+            "type": "number",
+            "format": "double"
+          },
+          "b3Repair": {
             "type": "number",
             "format": "double"
           },
@@ -6831,6 +6853,15 @@
             "format": "date",
             "nullable": true
           },
+          "climateReport": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ClimateReport"
+              }
+            ],
+            "description": "Ilmastoselvitys",
+            "nullable": true
+          },
           "mainPurpose1994": {
             "type": "integer",
             "format": "int32",
@@ -6844,13 +6875,6 @@
           "numberOfDeletedApartments": {
             "type": "integer",
             "format": "int32",
-            "nullable": true
-          },
-          "buildingPurposeForLowCarbonAssessment": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BuildingPurposeForLowCarbonAssessment"
-            },
             "nullable": true
           },
           "buildingProductList": {
@@ -9149,21 +9173,12 @@
             "format": "date-time",
             "nullable": true
           },
-          "buildingCarbonFootprint": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingCarbonFootprint"
-              }
-            ],
-            "description": "Rakennuksen hiilijalanjälki"
-          },
-          "buildingCarbonHandprint": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingCarbonHandprint"
-              }
-            ],
-            "description": "Rakennuksen hiilikädenjälki"
+          "buildingPurposeForLowCarbonAssessment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingPurposeForLowCarbonAssessment"
+            },
+            "nullable": true
           },
           "buildingSiteCarbonFootprint": {
             "allOf": [
@@ -9214,21 +9229,12 @@
             "format": "date-time",
             "nullable": true
           },
-          "buildingCarbonFootprint": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingCarbonFootprint"
-              }
-            ],
-            "description": "Rakennuksen hiilijalanjälki"
-          },
-          "buildingCarbonHandprint": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BuildingCarbonHandprint"
-              }
-            ],
-            "description": "Rakennuksen hiilikädenjälki"
+          "buildingPurposeForLowCarbonAssessment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BuildingPurposeForLowCarbonAssessmentNoPersonData"
+            },
+            "nullable": true
           },
           "buildingSiteCarbonFootprint": {
             "allOf": [
@@ -12087,6 +12093,15 @@
             "format": "date",
             "nullable": true
           },
+          "climateReport": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ClimateReport"
+              }
+            ],
+            "description": "Ilmastoselvitys",
+            "nullable": true
+          },
           "mainPurpose1994": {
             "type": "integer",
             "format": "int32",
@@ -12100,13 +12115,6 @@
           "numberOfDeletedApartments": {
             "type": "integer",
             "format": "int32",
-            "nullable": true
-          },
-          "buildingPurposeForLowCarbonAssessment": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BuildingPurposeForLowCarbonAssessment"
-            },
             "nullable": true
           },
           "buildingProductList": {
@@ -12313,6 +12321,15 @@
             "format": "date",
             "nullable": true
           },
+          "climateReport": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ClimateReportNoPersonData"
+              }
+            ],
+            "description": "Ilmastoselvitys",
+            "nullable": true
+          },
           "mainPurpose1994": {
             "type": "integer",
             "format": "int32",
@@ -12326,13 +12343,6 @@
           "numberOfDeletedApartments": {
             "type": "integer",
             "format": "int32",
-            "nullable": true
-          },
-          "buildingPurposeForLowCarbonAssessment": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BuildingPurposeForLowCarbonAssessmentNoPersonData"
-            },
             "nullable": true
           },
           "buildingProductList": {
