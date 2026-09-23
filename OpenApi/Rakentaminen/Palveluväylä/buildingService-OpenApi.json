@@ -6106,7 +6106,8 @@
               "http://uri.suomi.fi/codelist/rytj/RakennustuotteenLaji/code/08",
               "http://uri.suomi.fi/codelist/rytj/RakennustuotteenLaji/code/09"
             ],
-            "type": "string"
+            "type": "string",
+            "description": "Rakennustuotteen laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/RakennustuotteenLaji\">http://uri.suomi.fi/codelist/rytj/RakennustuotteenLaji</a>"
           },
           "productDescription": {
             "type": "string",
@@ -6551,7 +6552,7 @@
               "http://uri.suomi.fi/codelist/rytj/Omistajalaji/code/14"
             ],
             "type": "string",
-            "description": "Rakennuskohteen omistajan laji. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/Omistajalaji"
+            "description": "Rakennuskohteen omistajan laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/Omistajalaji\">http://uri.suomi.fi/codelist/rytj/Omistajalaji</a>"
           }
         },
         "additionalProperties": false,
@@ -7088,7 +7089,7 @@
               "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
             ],
             "type": "string",
-            "description": "Rakentamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne\">http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne</a>",
+            "description": "Rakentamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paivityksenlaji\">http://uri.suomi.fi/codelist/rytj/paivityksenlaji</a>",
             "nullable": true
           },
           "updateDescription": {
@@ -7176,6 +7177,7 @@
           },
           "protectionMethod": {
             "type": "string",
+            "description": "Rakennuksen suojelutapa. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/suojtapa\">http://uri.suomi.fi/codelist/rytj/suojtapa</a>",
             "nullable": true
           },
           "dateOfLegalValidity": {
@@ -7238,7 +7240,8 @@
               "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/8",
               "http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa/code/9"
             ],
-            "type": "string"
+            "type": "string",
+            "description": "Rakennuksen käyttötarkoitus vähähiilisyyden arvioinnissa. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa\">http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa</a>"
           },
           "buildingCarbonFootprint": {
             "allOf": [
@@ -7331,7 +7334,7 @@
               "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/99"
             ],
             "type": "string",
-            "description": "Rakennuksen osan elinkaaren vaihe. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rakrek/rakelinvaih",
+            "description": "Rakennuksen elinkaaren vaihe. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rakrek/rakelinvaih\">http://uri.suomi.fi/codelist/rakrek/rakelinvaih</a>",
             "nullable": true
           },
           "completionDate": {
@@ -7342,12 +7345,12 @@
           },
           "protectionMethod": {
             "type": "string",
-            "description": "Rakennuksen osan suojatapa. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/suojtapa",
+            "description": "Rakennuksen suojelutapa. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/suojtapa\">http://uri.suomi.fi/codelist/rytj/suojtapa</a>",
             "nullable": true
           },
           "cultureHistoricalSignificance": {
             "type": "string",
-            "description": "Rakennuksen osan kulttuurihistoriallinen merkittävyys. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rakrek/kulthistmer",
+            "description": "Kulttuurihistoriallinen merkittävyys. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rakrek/kulthistmer\">http://uri.suomi.fi/codelist/rakrek/kulthistmer</a>",
             "nullable": true
           },
           "materialData": {
@@ -7507,7 +7510,7 @@
               "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/3"
             ],
             "type": "string",
-            "description": "Rakennuksen osan osittelun laji. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji",
+            "description": "Rakennuksen osan osittelun laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji\">http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji</a>",
             "nullable": true
           },
           "partitionDescription": {
@@ -7548,7 +7551,7 @@
               "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/05"
             ],
             "type": "string",
-            "description": "Purkamisen syy. Käytetään koodistoa http://uri.suomi.fi/codelist/rytj/PurkamisenSyy",
+            "description": "Purkamisen syy. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/PurkamisenSyy\">http://uri.suomi.fi/codelist/rytj/PurkamisenSyy</a>",
             "nullable": true
           },
           "demolitionMaterialAndConstructionWasteReport": {
@@ -7598,7 +7601,7 @@
               "http://uri.suomi.fi/codelist/rytj/jatevesienkasittely/code/99"
             ],
             "type": "string",
-            "description": "Jätevesien käsittelyn laji. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/jatevesienkasittely",
+            "description": "Jätevesien käsittelyn laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/jatevesienkasittely\">http://uri.suomi.fi/codelist/rytj/jatevesienkasittely</a>",
             "nullable": true
           },
           "householdWaterType": {
@@ -7613,7 +7616,7 @@
               "http://uri.suomi.fi/codelist/rytj/talousvesi/code/04"
             ],
             "type": "string",
-            "description": "Talousveden laji. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/talousvesi",
+            "description": "Talousveden laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/talousvesi\">http://uri.suomi.fi/codelist/rytj/talousvesi</a>",
             "nullable": true
           },
           "networkConnection": {
@@ -7626,7 +7629,7 @@
           },
           "stormWaterTreatmentType": {
             "type": "string",
-            "description": "Huleveden käsittelyn laji. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/hulevedenkasittely",
+            "description": "Huleveden käsittelyn laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/hulevedenkasittely\">http://uri.suomi.fi/codelist/rytj/hulevedenkasittely</a>",
             "nullable": true
           }
         },
@@ -7741,7 +7744,8 @@
               "http://uri.suomi.fi/codelist/rytj/RakennuspaikanRakennustuotteenLaji/code/03",
               "http://uri.suomi.fi/codelist/rytj/RakennuspaikanRakennustuotteenLaji/code/04"
             ],
-            "type": "string"
+            "type": "string",
+            "description": "Rakennuspaikan rakennustuotteen laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/RakennuspaikanRakennustuotteenLaji\">http://uri.suomi.fi/codelist/rytj/RakennuspaikanRakennustuotteenLaji</a>"
           },
           "productDescription": {
             "type": "string",
@@ -8904,7 +8908,7 @@
               "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
             ],
             "type": "string",
-            "description": "Rakentamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne\">http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne</a>",
+            "description": "Rakentamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paivityksenlaji\">http://uri.suomi.fi/codelist/rytj/paivityksenlaji</a>",
             "nullable": true
           },
           "updateDescription": {
@@ -9473,6 +9477,7 @@
               "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
             ],
             "type": "string",
+            "description": "Purkamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paivityksenlaji\">http://uri.suomi.fi/codelist/rytj/paivityksenlaji</a>",
             "nullable": true
           },
           "updateDescription": {
@@ -11524,6 +11529,7 @@
           },
           "demolitionProjectType": {
             "type": "string",
+            "description": "Purkuhankkeen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/purkuhankkeentyyppi\">http://uri.suomi.fi/codelist/rytj/purkuhankkeentyyppi</a>",
             "nullable": true
           },
           "document": {
@@ -11553,6 +11559,7 @@
           },
           "demolitionProjectType": {
             "type": "string",
+            "description": "Purkuhankkeen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/purkuhankkeentyyppi\">http://uri.suomi.fi/codelist/rytj/purkuhankkeentyyppi</a>",
             "nullable": true
           },
           "document": {
@@ -11743,6 +11750,7 @@
               "http://uri.suomi.fi/codelist/rytj/LuvanSisalto/code/04"
             ],
             "type": "string",
+            "description": "Purkamislupahakemuksen lupatyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/LuvanSisalto\">http://uri.suomi.fi/codelist/rytj/LuvanSisalto</a>",
             "nullable": true
           },
           "constructionToBeStartedBy": {
@@ -11910,6 +11918,7 @@
               "http://uri.suomi.fi/codelist/rytj/LuvanSisalto/code/04"
             ],
             "type": "string",
+            "description": "Purkamislupahakemuksen lupatyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/LuvanSisalto\">http://uri.suomi.fi/codelist/rytj/LuvanSisalto</a>",
             "nullable": true
           },
           "constructionToBeStartedBy": {
@@ -12009,6 +12018,7 @@
               "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
             ],
             "type": "string",
+            "description": "Purkamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paivityksenlaji\">http://uri.suomi.fi/codelist/rytj/paivityksenlaji</a>",
             "nullable": true
           },
           "updateDescription": {
@@ -12152,6 +12162,7 @@
               "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
             ],
             "type": "string",
+            "description": "Purkamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paivityksenlaji\">http://uri.suomi.fi/codelist/rytj/paivityksenlaji</a>",
             "nullable": true
           },
           "updateDescription": {
@@ -12878,6 +12889,7 @@
               "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
             ],
             "type": "string",
+            "description": "Poikkeamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paivityksenlaji\">http://uri.suomi.fi/codelist/rytj/paivityksenlaji</a>",
             "nullable": true
           },
           "updateDescription": {
@@ -13001,6 +13013,7 @@
               "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
             ],
             "type": "string",
+            "description": "Poikkeamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paivityksenlaji\">http://uri.suomi.fi/codelist/rytj/paivityksenlaji</a>",
             "nullable": true
           },
           "updateDescription": {
@@ -13229,6 +13242,7 @@
               "http://uri.suomi.fi/codelist/rytj/Energiatehokkuusluokka/code/08"
             ],
             "type": "string",
+            "description": "Energiatehokkuusluokka. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/Energiatehokkuusluokka\">http://uri.suomi.fi/codelist/rytj/Energiatehokkuusluokka</a>",
             "nullable": true
           },
           "computationalEnergyEfficiencyComparand": {
@@ -13313,7 +13327,7 @@
           },
           "energyRatingSubindex": {
             "type": "string",
-            "description": "Energiatehokkuusluokan alaindeksi. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/energialuokkaAlaindeksi",
+            "description": "Energiatehokkuusluokan alaindeksi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/energialuokkaAlaindeksi\">http://uri.suomi.fi/codelist/rytj/energialuokkaAlaindeksi</a>",
             "nullable": true
           }
         },
@@ -13479,12 +13493,12 @@
           },
           "languageCode": {
             "type": "string",
-            "description": "IETF kielikoodi. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes",
+            "description": "IETF-kielikoodi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes\">http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes</a>",
             "nullable": true
           },
           "nationalityCode": {
             "type": "string",
-            "description": "Valtiokoodi. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/jhs/valtio_1_20120101",
+            "description": "Valtiokoodi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/jhs/valtio_1_20120101\">http://uri.suomi.fi/codelist/jhs/valtio_1_20120101</a>",
             "nullable": true
           },
           "deathDate": {
@@ -13625,7 +13639,7 @@
               "http://uri.suomi.fi/codelist/rytj/RakennusVaruste/code/10"
             ],
             "type": "string",
-            "description": "Rakennuksen varuste. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/rakennusvaruste"
+            "description": "Rakennuksen varuste. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakennusvaruste\">http://uri.suomi.fi/codelist/rytj/rakennusvaruste</a>"
           },
           "equipmentCount": {
             "type": "integer",
@@ -13904,9 +13918,9 @@
             "nullable": true
           },
           "height": {
-            "type": "integer",
+            "type": "number",
             "description": "",
-            "format": "int32",
+            "format": "double",
             "nullable": true
           },
           "flightObstacle": {
@@ -13933,7 +13947,7 @@
           },
           "relationToGroundLevel": {
             "type": "string",
-            "description": "Suhde maan pintaan. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/Suhde_pintaan",
+            "description": "Suhde maanpintaan. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/Suhde_pintaan\">http://uri.suomi.fi/codelist/rytj/Suhde_pintaan</a>",
             "nullable": true
           },
           "volume": {
@@ -14127,6 +14141,7 @@
               "http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide/code/09"
             ],
             "type": "string",
+            "description": "Rakentamistoimenpide. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide\">http://uri.suomi.fi/codelist/rytj/Rakentamistoimenpide</a>",
             "nullable": true
           },
           "descriptionOfAction": {
@@ -14152,6 +14167,7 @@
               "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/05"
             ],
             "type": "string",
+            "description": "Purkamisen syy. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/PurkamisenSyy\">http://uri.suomi.fi/codelist/rytj/PurkamisenSyy</a>",
             "nullable": true
           },
           "renovation": {
@@ -14187,6 +14203,7 @@
               "http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila/code/5"
             ],
             "type": "string",
+            "description": "Rakentamistoimenpiteen tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila\">http://uri.suomi.fi/codelist/rytj/rakkohteen-toimenpiteen-tila</a>",
             "nullable": true
           },
           "fullyApprovedForUse": {
@@ -14204,6 +14221,7 @@
               "http://uri.suomi.fi/codelist/rytj/muutostyo/code/03"
             ],
             "type": "string",
+            "description": "Muutostyön tarkenne. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/muutostyo\">http://uri.suomi.fi/codelist/rytj/muutostyo</a>",
             "nullable": true
           },
           "dvvPermitIdentifier": {
@@ -14294,6 +14312,7 @@
               "http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila/code/4"
             ],
             "type": "string",
+            "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila\">http://uri.suomi.fi/codelist/rytj/rakvalv-asian-elinkaaren-tila</a>",
             "nullable": true
           },
           "municipalityNumber": {
@@ -14309,6 +14328,7 @@
               "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
             ],
             "type": "string",
+            "description": "Lupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paivityksenlaji\">http://uri.suomi.fi/codelist/rytj/paivityksenlaji</a>",
             "nullable": true
           },
           "updateDescription": {
@@ -14850,7 +14870,7 @@
               "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
             ],
             "type": "string",
-            "description": "Rakentamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne\">http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne</a>",
+            "description": "Rakentamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paivityksenlaji\">http://uri.suomi.fi/codelist/rytj/paivityksenlaji</a>",
             "nullable": true
           },
           "updateDescription": {
@@ -14991,7 +15011,7 @@
               "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
             ],
             "type": "string",
-            "description": "Rakentamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne\">http://uri.suomi.fi/codelist/vtj/Rake_kaytossaolotilanne</a>",
+            "description": "Rakentamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paivityksenlaji\">http://uri.suomi.fi/codelist/rytj/paivityksenlaji</a>",
             "nullable": true
           },
           "updateDescription": {
@@ -15877,6 +15897,7 @@
               "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
             ],
             "type": "string",
+            "description": "Purkamislupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paivityksenlaji\">http://uri.suomi.fi/codelist/rytj/paivityksenlaji</a>",
             "nullable": true
           },
           "updateDescription": {
@@ -17284,7 +17305,7 @@
           },
           "partiality": {
             "type": "string",
-            "description": ""
+            "description": "Katselmuksen lopullisuus. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/OsittainenLopullinen\">http://uri.suomi.fi/codelist/rytj/OsittainenLopullinen</a>"
           },
           "inspectionStatus": {
             "enum": [
@@ -17838,6 +17859,7 @@
               "http://uri.suomi.fi/codelist/rytj/paivityksenlaji/code/99"
             ],
             "type": "string",
+            "description": "Maisematyölupa-asian päivityksen tyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/paivityksenlaji\">http://uri.suomi.fi/codelist/rytj/paivityksenlaji</a>",
             "nullable": true
           },
           "updateDescription": {
@@ -18515,12 +18537,12 @@
           },
           "languageCode": {
             "type": "string",
-            "description": "IETF kielikoodi. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes",
+            "description": "IETF-kielikoodi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes\">http://uri.suomi.fi/codelist/interoperabilityplatform/languagecodes</a>",
             "nullable": true
           },
           "nationalityCode": {
             "type": "string",
-            "description": "Valtiokoodi. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/jhs/valtio_1_20120101",
+            "description": "Valtiokoodi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/jhs/valtio_1_20120101\">http://uri.suomi.fi/codelist/jhs/valtio_1_20120101</a>",
             "nullable": true
           },
           "deathDate": {
@@ -18987,7 +19009,8 @@
               "http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji/code/21",
               "http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji/code/22"
             ],
-            "type": "string"
+            "type": "string",
+            "description": "Raja-arvosta poikkeamisen laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji\">http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji</a>"
           },
           "explanation": {
             "type": "string",
@@ -19604,7 +19627,7 @@
               "http://uri.suomi.fi/codelist/rakrek/rakelinvaih/code/99"
             ],
             "type": "string",
-            "description": "Rakennelman elinkaaren vaihe. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rakrek/rakelinvaih",
+            "description": "Rakennuksen elinkaaren vaihe. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rakrek/rakelinvaih\">http://uri.suomi.fi/codelist/rakrek/rakelinvaih</a>",
             "nullable": true
           },
           "completionDate": {
@@ -19615,12 +19638,12 @@
           },
           "protectionMethod": {
             "type": "string",
-            "description": "Rakennelman osan suojatapa. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/suojtapa",
+            "description": "Rakennuksen suojelutapa. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/suojtapa\">http://uri.suomi.fi/codelist/rytj/suojtapa</a>",
             "nullable": true
           },
           "cultureHistoricalSignificance": {
             "type": "string",
-            "description": "Rakennelman osan kulttuurihistoriallinen merkittävyys. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rakrek/kulthistmer",
+            "description": "Kulttuurihistoriallinen merkittävyys. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rakrek/kulthistmer\">http://uri.suomi.fi/codelist/rakrek/kulthistmer</a>",
             "nullable": true
           },
           "materialData": {
@@ -19741,7 +19764,7 @@
               "http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus/code/070"
             ],
             "type": "string",
-            "description": "Rakennelman käyttötarkoitus. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus"
+            "description": "Rakennelman käyttötarkoitus. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus\">http://uri.suomi.fi/codelist/rytj/RakennelmanKayttotarkoitus</a>"
           },
           "equipment": {
             "type": "array",
@@ -19790,7 +19813,7 @@
               "http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji/code/3"
             ],
             "type": "string",
-            "description": "Rakennelman osan osittelun laji. Käytetään koodiston URI arvoa http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji",
+            "description": "Rakennelman osan osittelun laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji\">http://uri.suomi.fi/codelist/rytj/rak-osittelun-laji</a>",
             "nullable": true
           },
           "partitionDescription": {
@@ -19823,7 +19846,7 @@
               "http://uri.suomi.fi/codelist/rytj/PurkamisenSyy/code/05"
             ],
             "type": "string",
-            "description": "Purkamisen syy. Käytetään koodistoa http://uri.suomi.fi/codelist/rytj/PurkamisenSyy",
+            "description": "Purkamisen syy. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/PurkamisenSyy\">http://uri.suomi.fi/codelist/rytj/PurkamisenSyy</a>",
             "nullable": true
           },
           "demolitionMaterialAndConstructionWasteReport": {
