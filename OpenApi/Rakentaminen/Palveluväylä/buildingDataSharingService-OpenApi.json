@@ -4554,6 +4554,7 @@
       "BuildingAttachmentDocument": {
         "required": [
           "attachmentDocumentKey",
+          "attachmentType",
           "categoryOfPublicity",
           "documentDate",
           "documentIdentifier",
@@ -4662,6 +4663,7 @@
       "BuildingAttachmentDocumentNoPersonData": {
         "required": [
           "attachmentDocumentKey",
+          "attachmentType",
           "categoryOfPublicity",
           "documentDate",
           "documentIdentifier",
@@ -4751,6 +4753,12 @@
         "additionalProperties": false
       },
       "BuildingBuildingProduct": {
+        "required": [
+          "buildingBuildingProductKey",
+          "buildingProductType",
+          "productAmount",
+          "productAmountUnit"
+        ],
         "type": "object",
         "properties": {
           "buildingBuildingProductKey": {
@@ -4797,6 +4805,22 @@
         "description": "Rakennuksen rakennustuotteet ja niiden hyödyntäminen"
       },
       "BuildingCarbonFootprint": {
+        "required": [
+          "a1_A3ManufacturingOfBuildingProducts",
+          "a4Transports",
+          "a5ConstructionSiteOperations",
+          "b1ProductUse",
+          "b2Maintenance",
+          "b3Repair",
+          "b4ProductReplacements",
+          "b6EnergyUse",
+          "buildingCarbonFootprintKey",
+          "c1Demolition",
+          "c2TransportOfDemolitionWaste",
+          "c3TreatmentOfDemolitionWaste",
+          "c4FinalDisposalOfDemolitionWaste",
+          "totalCarbonFootprint"
+        ],
         "type": "object",
         "properties": {
           "a1_A3ManufacturingOfBuildingProducts": {
@@ -4867,6 +4891,9 @@
         "description": "Rakennuksen hiilijalanjälki"
       },
       "BuildingCarbonHandprint": {
+        "required": [
+          "buildingCarbonHandprintKey"
+        ],
         "type": "object",
         "properties": {
           "carbonation": {
@@ -5188,6 +5215,20 @@
             "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
             "nullable": true
           },
+          "buildingPermitApplicationType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/01",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/02",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/03",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/04",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/05",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/06",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/07"
+            ],
+            "type": "string",
+            "description": "Rakentamislupahakemuksen hakemustyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi\">http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi</a>",
+            "nullable": true
+          },
           "applicationContent": {
             "type": "string"
           },
@@ -5216,20 +5257,6 @@
             ],
             "type": "string",
             "description": "Rakentamislupahakemuksen lupatyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/LuvanSisalto\">http://uri.suomi.fi/codelist/rytj/LuvanSisalto</a>",
-            "nullable": true
-          },
-          "buildingPermitApplicationType": {
-            "enum": [
-              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/01",
-              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/02",
-              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/03",
-              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/04",
-              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/05",
-              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/06",
-              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/07"
-            ],
-            "type": "string",
-            "description": "Rakentamislupahakemuksen hakemustyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi\">http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi</a>",
             "nullable": true
           }
         },
@@ -5353,6 +5380,9 @@
             "nullable": true
           },
           "decisionDocument": {
+            "required": [
+              "attachmentType"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingAttachmentDocument"
@@ -5519,6 +5549,9 @@
             "nullable": true
           },
           "decisionDocument": {
+            "required": [
+              "attachmentType"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
@@ -5565,6 +5598,13 @@
         "additionalProperties": false
       },
       "BuildingProductList": {
+        "required": [
+          "buildingBuildingProduct",
+          "buildingProductListKey",
+          "buildingSiteBuildingProduct",
+          "nameOfPreparer",
+          "preparationDate"
+        ],
         "type": "object",
         "properties": {
           "buildingProductListKey": {
@@ -5671,6 +5711,13 @@
         "description": "Rakennuksen suojelutapa"
       },
       "BuildingPurposeForLowCarbonAssessment": {
+        "required": [
+          "buildingCarbonFootprint",
+          "buildingCarbonHandprint",
+          "buildingPurposeForLowCarbonAssessmentKey",
+          "buildingPurposeForLowCarbonAssessmentType",
+          "isPrimary"
+        ],
         "type": "object",
         "properties": {
           "buildingPurposeForLowCarbonAssessmentKey": {
@@ -5696,6 +5743,22 @@
             "description": "Rakennuksen käyttötarkoitus vähähiilisyyden arvioinnissa. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa\">http://uri.suomi.fi/codelist/rytj/rakennuksenkayttotarkoitusvahahiilisyydenarvioinnissa</a>"
           },
           "buildingCarbonFootprint": {
+            "required": [
+              "buildingCarbonFootprintKey",
+              "a1_A3ManufacturingOfBuildingProducts",
+              "a4Transports",
+              "a5ConstructionSiteOperations",
+              "b1ProductUse",
+              "b2Maintenance",
+              "b3Repair",
+              "b4ProductReplacements",
+              "b6EnergyUse",
+              "c1Demolition",
+              "c2TransportOfDemolitionWaste",
+              "c3TreatmentOfDemolitionWaste",
+              "c4FinalDisposalOfDemolitionWaste",
+              "totalCarbonFootprint"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingCarbonFootprint"
@@ -5704,6 +5767,9 @@
             "description": "Rakennuksen hiilijalanjälki"
           },
           "buildingCarbonHandprint": {
+            "required": [
+              "buildingCarbonHandprintKey"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingCarbonHandprint"
@@ -5740,6 +5806,22 @@
             "type": "string"
           },
           "buildingCarbonFootprint": {
+            "required": [
+              "buildingCarbonFootprintKey",
+              "a1_A3ManufacturingOfBuildingProducts",
+              "a4Transports",
+              "a5ConstructionSiteOperations",
+              "b1ProductUse",
+              "b2Maintenance",
+              "b3Repair",
+              "b4ProductReplacements",
+              "b6EnergyUse",
+              "c1Demolition",
+              "c2TransportOfDemolitionWaste",
+              "c3TreatmentOfDemolitionWaste",
+              "c4FinalDisposalOfDemolitionWaste",
+              "totalCarbonFootprint"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingCarbonFootprint"
@@ -5748,6 +5830,9 @@
             "description": "Rakennuksen hiilijalanjälki"
           },
           "buildingCarbonHandprint": {
+            "required": [
+              "buildingCarbonHandprintKey"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingCarbonHandprint"
@@ -5907,6 +5992,13 @@
         "description": "Rakennuspaikka"
       },
       "BuildingSiteBuildingProduct": {
+        "required": [
+          "buildingSiteBuildingProductKey",
+          "buildingSiteBuildingProductType",
+          "buildingSiteKey",
+          "productAmount",
+          "productAmountUnit"
+        ],
         "type": "object",
         "properties": {
           "buildingSiteBuildingProductKey": {
@@ -5952,6 +6044,23 @@
         "description": "Rakennuspaikan rakennustuotteet ja niiden hyödyntäminen"
       },
       "BuildingSiteCarbonFootprint": {
+        "required": [
+          "a1_A3ManufacturingOfBuildingProducts",
+          "a4Transports",
+          "a5ConstructionSiteOperations",
+          "b1ProductUse",
+          "b2Maintenance",
+          "b3Repair",
+          "b4ProductReplacements",
+          "b6EnergyUse",
+          "buildingSiteCarbonFootprintKey",
+          "buildingSiteKey",
+          "c1Demolition",
+          "c2TransportOfDemolitionWaste",
+          "c3TreatmentOfDemolitionWaste",
+          "c4FinalDisposalOfDemolitionWaste",
+          "totalCarbonFootprint"
+        ],
         "type": "object",
         "properties": {
           "a1_A3ManufacturingOfBuildingProducts": {
@@ -6019,6 +6128,10 @@
         "description": "Rakennuspaikan hiilijalanjälki"
       },
       "BuildingSiteCarbonHandprint": {
+        "required": [
+          "buildingSiteCarbonHandprintKey",
+          "buildingSiteKey"
+        ],
         "type": "object",
         "properties": {
           "carbonation": {
@@ -6858,6 +6971,14 @@
             "nullable": true
           },
           "climateReport": {
+            "required": [
+              "climateReportKey",
+              "usedCalculationSoftware",
+              "preparationDate",
+              "buildingPurposeForLowCarbonAssessment",
+              "buildingSiteCarbonFootprint",
+              "buildingSiteCarbonHandprint"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/ClimateReport"
@@ -6882,6 +7003,13 @@
             "nullable": true
           },
           "buildingProductList": {
+            "required": [
+              "buildingProductListKey",
+              "preparationDate",
+              "nameOfPreparer",
+              "buildingBuildingProduct",
+              "buildingSiteBuildingProduct"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingProductList"
@@ -8119,6 +8247,7 @@
               "constructionDesign",
               "deviationPermitApplicationKey",
               "lifeCycleState",
+              "buildingPermitApplicationType",
               "applicationContent",
               "dateOfReception"
             ],
@@ -8950,6 +9079,9 @@
             "nullable": true
           },
           "decisionDocument": {
+            "required": [
+              "attachmentType"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingAttachmentDocument"
@@ -9079,6 +9211,9 @@
             "nullable": true
           },
           "decisionDocument": {
+            "required": [
+              "attachmentType"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
@@ -9148,6 +9283,14 @@
         "description": "Väestönsuojan muut rakennukset"
       },
       "ClimateReport": {
+        "required": [
+          "buildingPurposeForLowCarbonAssessment",
+          "buildingSiteCarbonFootprint",
+          "buildingSiteCarbonHandprint",
+          "climateReportKey",
+          "preparationDate",
+          "usedCalculationSoftware"
+        ],
         "type": "object",
         "properties": {
           "climateReportKey": {
@@ -9184,10 +9327,26 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/BuildingPurposeForLowCarbonAssessment"
-            },
-            "nullable": true
+            }
           },
           "buildingSiteCarbonFootprint": {
+            "required": [
+              "buildingSiteCarbonFootprintKey",
+              "buildingSiteKey",
+              "a1_A3ManufacturingOfBuildingProducts",
+              "a4Transports",
+              "a5ConstructionSiteOperations",
+              "b1ProductUse",
+              "b2Maintenance",
+              "b3Repair",
+              "b4ProductReplacements",
+              "b6EnergyUse",
+              "c1Demolition",
+              "c2TransportOfDemolitionWaste",
+              "c3TreatmentOfDemolitionWaste",
+              "c4FinalDisposalOfDemolitionWaste",
+              "totalCarbonFootprint"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingSiteCarbonFootprint"
@@ -9196,6 +9355,10 @@
             "description": "Rakennuspaikan hiilijalanjälki"
           },
           "buildingSiteCarbonHandprint": {
+            "required": [
+              "buildingSiteCarbonHandprintKey",
+              "buildingSiteKey"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingSiteCarbonHandprint"
@@ -9244,6 +9407,23 @@
             "nullable": true
           },
           "buildingSiteCarbonFootprint": {
+            "required": [
+              "buildingSiteCarbonFootprintKey",
+              "buildingSiteKey",
+              "a1_A3ManufacturingOfBuildingProducts",
+              "a4Transports",
+              "a5ConstructionSiteOperations",
+              "b1ProductUse",
+              "b2Maintenance",
+              "b3Repair",
+              "b4ProductReplacements",
+              "b6EnergyUse",
+              "c1Demolition",
+              "c2TransportOfDemolitionWaste",
+              "c3TreatmentOfDemolitionWaste",
+              "c4FinalDisposalOfDemolitionWaste",
+              "totalCarbonFootprint"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingSiteCarbonFootprint"
@@ -9252,6 +9432,10 @@
             "description": "Rakennuspaikan hiilijalanjälki"
           },
           "buildingSiteCarbonHandprint": {
+            "required": [
+              "buildingSiteCarbonHandprintKey",
+              "buildingSiteKey"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingSiteCarbonHandprint"
@@ -9681,6 +9865,7 @@
       "DemolitionPermitApplication": {
         "required": [
           "applicationContent",
+          "buildingPermitApplicationType",
           "dateOfReception",
           "demolitionPermitApplicationKey",
           "lifeCycleState"
@@ -9695,6 +9880,20 @@
             ],
             "type": "string",
             "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
+            "nullable": true
+          },
+          "buildingPermitApplicationType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/01",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/02",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/03",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/04",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/05",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/06",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/07"
+            ],
+            "type": "string",
+            "description": "Rakentamislupahakemuksen hakemustyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi\">http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -9887,6 +10086,9 @@
             "nullable": true
           },
           "decisionDocument": {
+            "required": [
+              "attachmentType"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingAttachmentDocument"
@@ -10048,6 +10250,9 @@
             "nullable": true
           },
           "decisionDocument": {
+            "required": [
+              "attachmentType"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
@@ -10357,6 +10562,7 @@
       "DeviationPermitApplication": {
         "required": [
           "applicationContent",
+          "buildingPermitApplicationType",
           "constructionDesign",
           "dateOfReception",
           "deviationPermitApplicationKey",
@@ -10372,6 +10578,20 @@
             ],
             "type": "string",
             "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
+            "nullable": true
+          },
+          "buildingPermitApplicationType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/01",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/02",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/03",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/04",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/05",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/06",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/07"
+            ],
+            "type": "string",
+            "description": "Rakentamislupahakemuksen hakemustyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi\">http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -10413,6 +10633,7 @@
       "DeviationPermitApplicationNoPersonData": {
         "required": [
           "applicationContent",
+          "buildingPermitApplicationType",
           "constructionDesign",
           "dateOfReception",
           "deviationPermitApplicationKey",
@@ -10428,6 +10649,20 @@
             ],
             "type": "string",
             "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
+            "nullable": true
+          },
+          "buildingPermitApplicationType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/01",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/02",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/03",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/04",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/05",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/06",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/07"
+            ],
+            "type": "string",
+            "description": "Rakentamislupahakemuksen hakemustyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi\">http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -10594,6 +10829,9 @@
             "format": "date"
           },
           "decisionDocument": {
+            "required": [
+              "attachmentType"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingAttachmentDocument"
@@ -10741,6 +10979,9 @@
             "format": "date"
           },
           "decisionDocument": {
+            "required": [
+              "attachmentType"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
@@ -10847,6 +11088,7 @@
               "constructionDesign",
               "deviationPermitApplicationKey",
               "lifeCycleState",
+              "buildingPermitApplicationType",
               "applicationContent",
               "dateOfReception"
             ],
@@ -11619,6 +11861,9 @@
             "nullable": true
           },
           "decisionDocument": {
+            "required": [
+              "attachmentType"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingAttachmentDocument"
@@ -11748,6 +11993,9 @@
             "nullable": true
           },
           "decisionDocument": {
+            "required": [
+              "attachmentType"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
@@ -12108,6 +12356,14 @@
             "nullable": true
           },
           "climateReport": {
+            "required": [
+              "climateReportKey",
+              "usedCalculationSoftware",
+              "preparationDate",
+              "buildingPurposeForLowCarbonAssessment",
+              "buildingSiteCarbonFootprint",
+              "buildingSiteCarbonHandprint"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/ClimateReport"
@@ -12132,6 +12388,13 @@
             "nullable": true
           },
           "buildingProductList": {
+            "required": [
+              "buildingProductListKey",
+              "preparationDate",
+              "nameOfPreparer",
+              "buildingBuildingProduct",
+              "buildingSiteBuildingProduct"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingProductList"
@@ -15426,6 +15689,7 @@
       "LandscapeWorkPermitApplication": {
         "required": [
           "applicationContent",
+          "buildingPermitApplicationType",
           "dateOfReception",
           "landscapeWorkPermitApplicationKey",
           "lifeCycleState"
@@ -15440,6 +15704,20 @@
             ],
             "type": "string",
             "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
+            "nullable": true
+          },
+          "buildingPermitApplicationType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/01",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/02",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/03",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/04",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/05",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/06",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/07"
+            ],
+            "type": "string",
+            "description": "Rakentamislupahakemuksen hakemustyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi\">http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -15481,6 +15759,7 @@
       "LandscapeWorkPermitApplicationNoPersonData": {
         "required": [
           "applicationContent",
+          "buildingPermitApplicationType",
           "dateOfReception",
           "landscapeWorkPermitApplicationKey",
           "lifeCycleState"
@@ -15495,6 +15774,20 @@
             ],
             "type": "string",
             "description": "Elinkaaritila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/\">http://uri.suomi.fi/codelist/rytj/lupahak-elinkaaren-tila/</a>",
+            "nullable": true
+          },
+          "buildingPermitApplicationType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/01",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/02",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/03",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/04",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/05",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/06",
+              "http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi/code/07"
+            ],
+            "type": "string",
+            "description": "Rakentamislupahakemuksen hakemustyyppi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi\">http://uri.suomi.fi/codelist/rytj/HakemuksenTyyppi</a>",
             "nullable": true
           },
           "applicationContent": {
@@ -15676,6 +15969,9 @@
             "nullable": true
           },
           "decisionDocument": {
+            "required": [
+              "attachmentType"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingAttachmentDocument"
@@ -15838,6 +16134,9 @@
             "nullable": true
           },
           "decisionDocument": {
+            "required": [
+              "attachmentType"
+            ],
             "allOf": [
               {
                 "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
@@ -16081,6 +16380,16 @@
         "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
       },
       "LocationPermitObject": {
+        "required": [
+          "address",
+          "administrativeLocationUnit",
+          "buildingObjectOwner",
+          "buildingObjectType",
+          "decisionAdministrativeLocationUnit",
+          "location",
+          "locationPermitObjectKey",
+          "locationPermitObjectType"
+        ],
         "type": "object",
         "properties": {
           "name": {
@@ -17031,6 +17340,11 @@
         "description": "Käyttötarkoitus"
       },
       "ReasonForExceedingThreshold": {
+        "required": [
+          "exceedingAmount",
+          "justificationType",
+          "reasonForExceedingThresholdKey"
+        ],
         "type": "object",
         "properties": {
           "reasonForExceedingThresholdKey": {
