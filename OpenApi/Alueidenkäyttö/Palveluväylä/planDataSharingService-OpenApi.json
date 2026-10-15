@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "Ryhti API",
+    "title": "Ryhti Plan Data Sharing Service API",
     "description": "<h2>Rakennetun ympäristön alueidenkäytön muutostietopalveluiden OpenAPI - kuvaukset</h2>",
     "contact": {
       "name": "Feedback",
