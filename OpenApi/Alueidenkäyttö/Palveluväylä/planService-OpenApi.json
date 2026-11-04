@@ -3460,6 +3460,99 @@
             "description": "Resurssia ei löydy."
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "LocalDetailedPlanMatter"
+        ],
+        "summary": "Rajapinta jo tallennetun vaiheen (asemakaava) poistamiseen.",
+        "description": "Kaava-asian vaiheen täytyy olla jo lisättynä järjestelmään.",
+        "parameters": [
+          {
+            "name": "permanentPlanIdentifier",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus kaava-asialle.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "planMatterPhaseKey",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Kaava-asian vaihe poistettu.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resurssia ei löydy."
+          }
+        }
       }
     },
     "/api/LocalDetailedPlanMatter/PermanentPlanIdentifier": {
@@ -4421,6 +4514,99 @@
         "responses": {
           "200": {
             "description": "Kaava-asian vaihe päivitetty.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resurssia ei löydy."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "LocalMasterPlanMatter"
+        ],
+        "summary": "Rajapinta jo tallennetun vaiheen (yleiskaava) poistamiseen.",
+        "description": "Kaava-asian vaiheen täytyy olla jo lisättynä järjestelmään.",
+        "parameters": [
+          {
+            "name": "permanentPlanIdentifier",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus kaava-asialle.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "planMatterPhaseKey",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Kaava-asian vaihe poistettu.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -5481,6 +5667,99 @@
         "responses": {
           "200": {
             "description": "Kaava-asian vaihe päivitetty.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Kutsun rakenne ei ole scheman mukainen.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Kutsun tietosisällössä virheitä.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resurssia ei löydy."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "RegionalPlanMatter"
+        ],
+        "summary": "Rajapinta jo tallennetun vaiheen (maakuntakaava) poistamiseen.",
+        "description": "Kaava-asian vaiheen täytyy olla jo lisättynä järjestelmään.",
+        "parameters": [
+          {
+            "name": "permanentPlanIdentifier",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus kaava-asialle.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "planMatterPhaseKey",
+            "in": "path",
+            "description": "Pysyvä yksilöivä tunnus kaava-asian vaiheelle.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Kaava-asian vaihe poistettu.",
             "content": {
               "text/plain": {
                 "schema": {
