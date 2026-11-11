@@ -5850,6 +5850,7 @@
               "climateReportKey",
               "usedCalculationSoftware",
               "preparationDate",
+              "nameOfPreparer",
               "buildingPurposeForLowCarbonAssessment",
               "buildingSiteCarbonFootprint",
               "buildingSiteCarbonHandprint"
@@ -6244,34 +6245,34 @@
       },
       "BuildingCarbonHandprint": {
         "required": [
-          "buildingCarbonHandprintKey"
+          "amountOfReusableMaterial",
+          "buildingCarbonHandprintKey",
+          "carbonation",
+          "carbonStorageEffectOfProducts",
+          "excessRenewableEnergy",
+          "recycling"
         ],
         "type": "object",
         "properties": {
           "carbonation": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "recycling": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "carbonStorageEffectOfProducts": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "amountOfReusableMaterial": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "excessRenewableEnergy": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "buildingCarbonHandprintKey": {
             "type": "string",
@@ -7235,6 +7236,11 @@
             "description": "Rakennuksen suojelutapa. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/suojtapa\">http://uri.suomi.fi/codelist/rytj/suojtapa</a>",
             "nullable": true
           },
+          "protectionStatus": {
+            "type": "string",
+            "description": "Rakennuksen suojelun tila. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/suojeluntila\">http://uri.suomi.fi/codelist/rytj/suojeluntila</a>",
+            "nullable": true
+          },
           "dateOfLegalValidity": {
             "type": "string",
             "format": "date",
@@ -7331,7 +7337,12 @@
           },
           "buildingCarbonHandprint": {
             "required": [
-              "buildingCarbonHandprintKey"
+              "buildingCarbonHandprintKey",
+              "carbonation",
+              "recycling",
+              "carbonStorageEffectOfProducts",
+              "amountOfReusableMaterial",
+              "excessRenewableEnergy"
             ],
             "allOf": [
               {
@@ -7394,7 +7405,12 @@
           },
           "buildingCarbonHandprint": {
             "required": [
-              "buildingCarbonHandprintKey"
+              "buildingCarbonHandprintKey",
+              "carbonation",
+              "recycling",
+              "carbonStorageEffectOfProducts",
+              "amountOfReusableMaterial",
+              "excessRenewableEnergy"
             ],
             "allOf": [
               {
@@ -7420,6 +7436,11 @@
             "type": "string",
             "description": "",
             "format": "uuid"
+          },
+          "buildingSectionName": {
+            "type": "string",
+            "description": "",
+            "nullable": true
           },
           "lifeCycleState": {
             "enum": [
@@ -7964,35 +7985,35 @@
       },
       "BuildingSiteCarbonHandprint": {
         "required": [
+          "amountOfReusableMaterial",
           "buildingSiteCarbonHandprintKey",
-          "buildingSiteKey"
+          "buildingSiteKey",
+          "carbonation",
+          "carbonStorageEffectOfProducts",
+          "excessRenewableEnergy",
+          "recycling"
         ],
         "type": "object",
         "properties": {
           "carbonation": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "recycling": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "carbonStorageEffectOfProducts": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "amountOfReusableMaterial": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "excessRenewableEnergy": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
           "buildingSiteCarbonHandprintKey": {
             "type": "string",
@@ -8058,6 +8079,62 @@
         },
         "additionalProperties": false,
         "description": "Määräyksestä poikkeaminen"
+      },
+      "ChangeInformationAddress": {
+        "type": "object",
+        "properties": {
+          "addressKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "addressName": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "numberPartOfAddressNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "subdivisionLetterOfAddressNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "Postinumero. Käytetään koodiston code arvoa <a href=\"https://uri.suomi.fi/codelist/statbr/postitoimipaik_1_20160607\">https://uri.suomi.fi/codelist/statbr/postitoimipaik_1_20160607</a>",
+            "nullable": true
+          },
+          "location": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RyhtiGeometry"
+              }
+            ],
+            "nullable": true
+          },
+          "numberPartOfAddressNumber2": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "subdivisionLetterOfAddressNumber2": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Osoite"
       },
       "ChangeInformationAdministrativeLocationUnit": {
         "type": "object",
@@ -8287,7 +8364,7 @@
           "address": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Address"
+              "$ref": "#/components/schemas/ChangeInformationAddress"
             },
             "nullable": true
           },
@@ -8427,7 +8504,7 @@
           "address": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Address"
+              "$ref": "#/components/schemas/ChangeInformationAddress"
             },
             "nullable": true
           },
@@ -8739,7 +8816,7 @@
           "address": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Address"
+              "$ref": "#/components/schemas/ChangeInformationAddress"
             },
             "nullable": true
           },
@@ -8775,6 +8852,7 @@
               "climateReportKey",
               "usedCalculationSoftware",
               "preparationDate",
+              "nameOfPreparer",
               "buildingPurposeForLowCarbonAssessment",
               "buildingSiteCarbonFootprint",
               "buildingSiteCarbonHandprint"
@@ -8843,6 +8921,17 @@
             "items": {
               "$ref": "#/components/schemas/BuildingProtectionMethod"
             },
+            "nullable": true
+          },
+          "culturalEnvironment": {
+            "required": [
+              "culturalEnvironmentKey"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CulturalEnvironment"
+              }
+            ],
             "nullable": true
           },
           "buildingCultureHistoricalSignificance": {
@@ -9008,15 +9097,9 @@
             }
           },
           "buildingSite": {
-            "required": [
-              "buildingSiteKey",
-              "stormWaterTreatmentType",
-              "buildingSiteAddress",
-              "tenure"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/BuildingSite"
+                "$ref": "#/components/schemas/ChangeInformationBuildingSite"
               }
             ],
             "description": "Rakennuspaikka",
@@ -9079,6 +9162,10 @@
           "buildingSectionKey": {
             "type": "string",
             "format": "uuid"
+          },
+          "buildingSectionName": {
+            "type": "string",
+            "nullable": true
           },
           "lifeCycleState": {
             "enum": [
@@ -9312,6 +9399,89 @@
         },
         "additionalProperties": false
       },
+      "ChangeInformationBuildingSite": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "description": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "geometry": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RyhtiGeometry"
+              }
+            ],
+            "nullable": true
+          },
+          "buildingSiteKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "area": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "stormWaterTreatmentType": {
+            "type": "string",
+            "description": "Huleveden käsittelyn laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/hulevedenkasittely\">http://uri.suomi.fi/codelist/rytj/hulevedenkasittely</a>",
+            "nullable": true
+          },
+          "buildingSiteAddress": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChangeInformationAddress"
+            }
+          },
+          "spatialPlan": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusOfPlan": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/vtj/Rake_kaava/code/01",
+              "http://uri.suomi.fi/codelist/vtj/Rake_kaava/code/02",
+              "http://uri.suomi.fi/codelist/vtj/Rake_kaava/code/03",
+              "http://uri.suomi.fi/codelist/vtj/Rake_kaava/code/04",
+              "http://uri.suomi.fi/codelist/vtj/Rake_kaava/code/05",
+              "http://uri.suomi.fi/codelist/vtj/Rake_kaava/code/06",
+              "http://uri.suomi.fi/codelist/vtj/Rake_kaava/code/07",
+              "http://uri.suomi.fi/codelist/vtj/Rake_kaava/code/08",
+              "http://uri.suomi.fi/codelist/vtj/Rake_kaava/code/09"
+            ],
+            "type": "string",
+            "description": "Kaavatilanne. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/vtj/Rake_kaava\">http://uri.suomi.fi/codelist/vtj/Rake_kaava</a>",
+            "nullable": true
+          },
+          "tenure": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste/code/1",
+              "http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste/code/2",
+              "http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste/code/3"
+            ],
+            "type": "string",
+            "description": "Hallintaperuste. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste\">http://uri.suomi.fi/codelist/rytj/RakennuspaikanHallintaperuste</a>",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Rakennuspaikka"
+      },
       "ChangeInformationCivilDefenceShelter": {
         "required": [
           "civilDefenceShelterCapacity",
@@ -9388,11 +9558,6 @@
         "description": "Väestönsuoja"
       },
       "ChangeInformationConstructionAction": {
-        "required": [
-          "constructionActionKey",
-          "constructionActionType",
-          "statusOfConstructionAction"
-        ],
         "type": "object",
         "properties": {
           "constructionActionKey": {
@@ -9554,6 +9719,148 @@
           }
         },
         "additionalProperties": false
+      },
+      "ChangeInformationContactAddress": {
+        "type": "object",
+        "properties": {
+          "addressKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "addressName": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "numberPartOfAddressNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "subdivisionLetterOfAddressNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "Postinumero. Käytetään koodiston code arvoa <a href=\"https://uri.suomi.fi/codelist/statbr/postitoimipaik_1_20160607\">https://uri.suomi.fi/codelist/statbr/postitoimipaik_1_20160607</a>",
+            "nullable": true
+          },
+          "location": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RyhtiGeometry"
+              }
+            ],
+            "nullable": true
+          },
+          "numberPartOfAddressNumber2": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "subdivisionLetterOfAddressNumber2": {
+            "type": "string",
+            "nullable": true
+          },
+          "apartmentIdentifierLetterSuffix": {
+            "type": "string",
+            "nullable": true
+          },
+          "apartmentIdentifierNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "apartmentIdentifierSubdivisionLetter": {
+            "type": "string",
+            "nullable": true
+          },
+          "additionalAddressAttribute": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "c_O": {
+            "type": "string",
+            "nullable": true
+          },
+          "poBoxAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "Maakoodi. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/jhs/valtio_1_20120101\">http://uri.suomi.fi/codelist/jhs/valtio_1_20120101</a>",
+            "nullable": true
+          },
+          "foreignAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "foreignPostalAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "additionalForeignAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageString"
+              }
+            ],
+            "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli.",
+            "nullable": true
+          },
+          "contactAddressType": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/yhteysosoitteenLaji/code/01",
+              "http://uri.suomi.fi/codelist/rytj/yhteysosoitteenLaji/code/02",
+              "http://uri.suomi.fi/codelist/rytj/yhteysosoitteenLaji/code/03",
+              "http://uri.suomi.fi/codelist/rytj/yhteysosoitteenLaji/code/04",
+              "http://uri.suomi.fi/codelist/rytj/yhteysosoitteenLaji/code/05",
+              "http://uri.suomi.fi/codelist/rytj/yhteysosoitteenLaji/code/06",
+              "http://uri.suomi.fi/codelist/rytj/yhteysosoitteenLaji/code/07",
+              "http://uri.suomi.fi/codelist/rytj/yhteysosoitteenLaji/code/08"
+            ],
+            "type": "string",
+            "description": "Yhteysosoitteen laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/yhteysosoitteenLaji\">http://uri.suomi.fi/codelist/rytj/yhteysosoitteenLaji</a>"
+          },
+          "source": {
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/tietolahde/code/01",
+              "http://uri.suomi.fi/codelist/rytj/tietolahde/code/02",
+              "http://uri.suomi.fi/codelist/rytj/tietolahde/code/03",
+              "http://uri.suomi.fi/codelist/rytj/tietolahde/code/04",
+              "http://uri.suomi.fi/codelist/rytj/tietolahde/code/05"
+            ],
+            "type": "string",
+            "description": "Tietolähde. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/tietolahde\">http://uri.suomi.fi/codelist/rytj/tietolahde</a>"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Yhteysosoite"
       },
       "ChangeInformationDemolitionPermitIssue": {
         "required": [
@@ -9772,7 +10079,7 @@
           "address": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Address"
+              "$ref": "#/components/schemas/ChangeInformationAddress"
             }
           },
           "locationPermitObjectType": {
@@ -10146,7 +10453,7 @@
           "operatorAddress": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ContactAddress"
+              "$ref": "#/components/schemas/ChangeInformationContactAddress"
             },
             "nullable": true
           },
@@ -10785,6 +11092,7 @@
           "buildingSiteCarbonFootprint",
           "buildingSiteCarbonHandprint",
           "climateReportKey",
+          "nameOfPreparer",
           "preparationDate",
           "usedCalculationSoftware"
         ],
@@ -10802,8 +11110,7 @@
             "format": "date-time"
           },
           "nameOfPreparer": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "assessmentPeriodLength": {
             "type": "integer",
@@ -10854,7 +11161,12 @@
           "buildingSiteCarbonHandprint": {
             "required": [
               "buildingSiteCarbonHandprintKey",
-              "buildingSiteKey"
+              "buildingSiteKey",
+              "carbonation",
+              "recycling",
+              "carbonStorageEffectOfProducts",
+              "amountOfReusableMaterial",
+              "excessRenewableEnergy"
             ],
             "allOf": [
               {
@@ -10931,7 +11243,12 @@
           "buildingSiteCarbonHandprint": {
             "required": [
               "buildingSiteCarbonHandprintKey",
-              "buildingSiteKey"
+              "buildingSiteKey",
+              "carbonation",
+              "recycling",
+              "carbonStorageEffectOfProducts",
+              "amountOfReusableMaterial",
+              "excessRenewableEnergy"
             ],
             "allOf": [
               {
@@ -12011,6 +12328,47 @@
         },
         "additionalProperties": false,
         "description": "Command for creating permanent structure identifier."
+      },
+      "CulturalEnvironment": {
+        "required": [
+          "culturalEnvironmentKey"
+        ],
+        "type": "object",
+        "properties": {
+          "culturalEnvironmentKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "vamaArea": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "rkyArea": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "varkArea": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "worldHeritageSiteArea": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "buildingHeritageActPendingArea": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "buildingHeritageActInForceArea": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "decreeProtectionArea": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "CustomValidationError": {
         "type": "object",
@@ -14708,8 +15066,7 @@
           "specificAreaReference": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "uuid"
+              "$ref": "#/components/schemas/ForemanSpecificAreaReference"
             },
             "nullable": true
           },
@@ -14978,6 +15335,18 @@
         },
         "additionalProperties": false
       },
+      "ForemanSpecificAreaReference": {
+        "required": [
+          "permanentSpecificAreaIdentifierReference"
+        ],
+        "type": "object",
+        "properties": {
+          "permanentSpecificAreaIdentifierReference": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "ForemanStructureReference": {
         "required": [
           "permanentStructureIdentifierReference"
@@ -15099,7 +15468,7 @@
           "address": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Address"
+              "$ref": "#/components/schemas/ChangeInformationAddress"
             },
             "nullable": true
           },
@@ -15135,6 +15504,7 @@
               "climateReportKey",
               "usedCalculationSoftware",
               "preparationDate",
+              "nameOfPreparer",
               "buildingPurposeForLowCarbonAssessment",
               "buildingSiteCarbonFootprint",
               "buildingSiteCarbonHandprint"
@@ -15203,6 +15573,17 @@
             "items": {
               "$ref": "#/components/schemas/BuildingProtectionMethod"
             },
+            "nullable": true
+          },
+          "culturalEnvironment": {
+            "required": [
+              "culturalEnvironmentKey"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CulturalEnvironment"
+              }
+            ],
             "nullable": true
           },
           "buildingCultureHistoricalSignificance": {
@@ -15290,7 +15671,7 @@
           "address": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Address"
+              "$ref": "#/components/schemas/ChangeInformationAddress"
             },
             "nullable": true
           },
@@ -15378,6 +15759,17 @@
             "items": {
               "$ref": "#/components/schemas/BuildingProtectionMethod"
             },
+            "nullable": true
+          },
+          "culturalEnvironment": {
+            "required": [
+              "culturalEnvironmentKey"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CulturalEnvironment"
+              }
+            ],
             "nullable": true
           },
           "buildingCultureHistoricalSignificance": {
@@ -15477,15 +15869,9 @@
             }
           },
           "buildingSite": {
-            "required": [
-              "buildingSiteKey",
-              "stormWaterTreatmentType",
-              "buildingSiteAddress",
-              "tenure"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/BuildingSite"
+                "$ref": "#/components/schemas/ChangeInformationBuildingSite"
               }
             ],
             "description": "Rakennuspaikka",
@@ -15622,15 +16008,9 @@
             }
           },
           "buildingSite": {
-            "required": [
-              "buildingSiteKey",
-              "stormWaterTreatmentType",
-              "buildingSiteAddress",
-              "tenure"
-            ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/BuildingSite"
+                "$ref": "#/components/schemas/ChangeInformationBuildingSite"
               }
             ],
             "description": "Rakennuspaikka",
@@ -15689,6 +16069,10 @@
           "buildingSectionKey": {
             "type": "string",
             "format": "uuid"
+          },
+          "buildingSectionName": {
+            "type": "string",
+            "nullable": true
           },
           "lifeCycleState": {
             "enum": [
@@ -15923,6 +16307,10 @@
           "buildingSectionKey": {
             "type": "string",
             "format": "uuid"
+          },
+          "buildingSectionName": {
+            "type": "string",
+            "nullable": true
           },
           "lifeCycleState": {
             "enum": [
@@ -16699,7 +17087,7 @@
           "address": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Address"
+              "$ref": "#/components/schemas/ChangeInformationAddress"
             }
           },
           "locationPermitObjectType": {
@@ -17075,7 +17463,7 @@
           "address": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Address"
+              "$ref": "#/components/schemas/ChangeInformationAddress"
             }
           },
           "locationPermitObjectType": {
@@ -17365,7 +17753,7 @@
           "attachment": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BuildingAttachmentDocument"
+              "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
             },
             "nullable": true
           }
@@ -17975,8 +18363,7 @@
           "specificAreaReference": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "uuid"
+              "$ref": "#/components/schemas/InspectionSpecificAreaReference"
             },
             "description": "",
             "nullable": true
@@ -18110,8 +18497,7 @@
           "specificAreaReference": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "uuid"
+              "$ref": "#/components/schemas/InspectionSpecificAreaReference"
             },
             "nullable": true
           },
@@ -18146,6 +18532,18 @@
               "$ref": "#/components/schemas/BuildingAttachmentDocumentNoPersonData"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InspectionSpecificAreaReference": {
+        "required": [
+          "permanentSpecificAreaIdentifierReference"
+        ],
+        "type": "object",
+        "properties": {
+          "permanentSpecificAreaIdentifierReference": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -19302,27 +19700,38 @@
           },
           "permitRegulationType": {
             "enum": [
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M01",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0101",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0102",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0103",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0104",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0105",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0106",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0107",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0108",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0109",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0110",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M02",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0201",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0202",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M03",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0301",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M0302",
-              "http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen/code/M04"
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/01",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0101",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0102",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0103",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0104",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0105",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0106",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0107",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0108",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0109",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0110",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/02",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0201",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0202",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/03",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0301",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0302",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/04",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0401",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0402",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0403",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0404",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0405",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0406",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0407",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0408",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0409",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/0499",
+              "http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji/code/99"
             ],
             "type": "string",
-            "description": "Lupamääräys. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen\">http://uri.suomi.fi/codelist/rytj/Lupamaarayshierarkinen</a>"
+            "description": "Lupamääräys. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji\">http://uri.suomi.fi/codelist/rytj/lupamaarayksenlaji</a>"
           },
           "textOfPermitRegulation": {
             "allOf": [
@@ -19387,8 +19796,7 @@
           "specificAreaReference": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "uuid"
+              "$ref": "#/components/schemas/PlannerSpecificAreaReference"
             },
             "nullable": true
           },
@@ -19430,6 +19838,18 @@
               "format": "uuid"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlannerSpecificAreaReference": {
+        "required": [
+          "permanentSpecificAreaIdentifierReference"
+        ],
+        "type": "object",
+        "properties": {
+          "permanentSpecificAreaIdentifierReference": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -19661,6 +20081,7 @@
       "ReasonForExceedingThreshold": {
         "required": [
           "exceedingAmount",
+          "explanation",
           "justificationType",
           "reasonForExceedingThresholdKey"
         ],
@@ -19686,8 +20107,7 @@
             "description": "Raja-arvosta poikkeamisen laji. Käytetään koodiston URI arvoa <a href=\"http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji\">http://uri.suomi.fi/codelist/rytj/is-raja-arvoista-poikkeamisen-laji</a>"
           },
           "explanation": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "exceedingAmount": {
             "type": "number",
