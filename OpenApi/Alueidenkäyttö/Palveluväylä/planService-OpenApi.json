@@ -6591,12 +6591,21 @@
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
           },
           "personalDataContent": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/1",
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/2",
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/3"
+            ],
             "type": "string",
             "description": "Kuvaa asiakirjan henkilötietosisällön. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/henkilotietosisalto\">http://uri.suomi.fi/codelist/rytj/henkilotietosisalto</a>"
           },
           "categoryOfPublicity": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/2",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/3",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/4"
+            ],
             "type": "string",
             "description": "Kuvaa asiakirjan julkisuusluokan. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/julkisuus\">http://uri.suomi.fi/codelist/rytj/julkisuus</a>"
           },
@@ -6604,7 +6613,27 @@
             "type": "boolean"
           },
           "retentionTime": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/01",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/02",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0201",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020101",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020102",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020103",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0202",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020201",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020202",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020203",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0203",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020301",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020302",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020303",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0204",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020401",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020402",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020403",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0205"
+            ],
             "type": "string",
             "description": "Asiakirjan säilytysaika vuosina ennen sen hävittämistä. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/sailytysaika\">http://uri.suomi.fi/codelist/rytj/sailytysaika</a>"
           },
@@ -6617,6 +6646,14 @@
             "minItems": 1,
             "type": "array",
             "items": {
+              "enum": [
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/fi",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/sv",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/en",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/smn",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/sms",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/se"
+              ],
               "type": "string"
             },
             "description": "Asiakirjan kieli tai sisältämät kielet. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/ryhtikielet\">http://uri.suomi.fi/codelist/rytj/ryhtikielet</a>"
@@ -7436,12 +7473,21 @@
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
           },
           "personalDataContent": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/1",
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/2",
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/3"
+            ],
             "type": "string",
             "description": "Kuvaa asiakirjan henkilötietosisällön. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/henkilotietosisalto\">http://uri.suomi.fi/codelist/rytj/henkilotietosisalto</a>"
           },
           "categoryOfPublicity": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/2",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/3",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/4"
+            ],
             "type": "string",
             "description": "Kuvaa asiakirjan julkisuusluokan. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/julkisuus\">http://uri.suomi.fi/codelist/rytj/julkisuus</a>"
           },
@@ -7449,7 +7495,27 @@
             "type": "boolean"
           },
           "retentionTime": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/01",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/02",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0201",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020101",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020102",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020103",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0202",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020201",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020202",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020203",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0203",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020301",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020302",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020303",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0204",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020401",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020402",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020403",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0205"
+            ],
             "type": "string",
             "description": "Asiakirjan säilytysaika vuosina ennen sen hävittämistä. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/sailytysaika\">http://uri.suomi.fi/codelist/rytj/sailytysaika</a>"
           },
@@ -7462,6 +7528,14 @@
             "minItems": 1,
             "type": "array",
             "items": {
+              "enum": [
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/fi",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/sv",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/en",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/smn",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/sms",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/se"
+              ],
               "type": "string"
             },
             "description": "Asiakirjan kieli tai sisältämät kielet. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/ryhtikielet\">http://uri.suomi.fi/codelist/rytj/ryhtikielet</a>"
@@ -8444,12 +8518,21 @@
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
           },
           "personalDataContent": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/1",
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/2",
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/3"
+            ],
             "type": "string",
             "description": "Kuvaa asiakirjan henkilötietosisällön. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/henkilotietosisalto\">http://uri.suomi.fi/codelist/rytj/henkilotietosisalto</a>"
           },
           "categoryOfPublicity": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/2",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/3",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/4"
+            ],
             "type": "string",
             "description": "Kuvaa asiakirjan julkisuusluokan. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/julkisuus\">http://uri.suomi.fi/codelist/rytj/julkisuus</a>"
           },
@@ -8457,7 +8540,27 @@
             "type": "boolean"
           },
           "retentionTime": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/01",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/02",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0201",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020101",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020102",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020103",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0202",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020201",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020202",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020203",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0203",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020301",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020302",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020303",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0204",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020401",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020402",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020403",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0205"
+            ],
             "type": "string",
             "description": "Asiakirjan säilytysaika vuosina ennen sen hävittämistä. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/sailytysaika\">http://uri.suomi.fi/codelist/rytj/sailytysaika</a>"
           },
@@ -8470,6 +8573,14 @@
             "minItems": 1,
             "type": "array",
             "items": {
+              "enum": [
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/fi",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/sv",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/en",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/smn",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/sms",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/se"
+              ],
               "type": "string"
             },
             "description": "Asiakirjan kieli tai sisältämät kielet. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/ryhtikielet\">http://uri.suomi.fi/codelist/rytj/ryhtikielet</a>"
@@ -9461,12 +9572,21 @@
             "nullable": true
           },
           "personalDataContent": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/1",
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/2",
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/3"
+            ],
             "type": "string",
             "description": "Kuvaa muun kaava-aineiston henkilötietosisällön. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/henkilotietosisalto\">http://uri.suomi.fi/codelist/rytj/henkilotietosisalto</a>"
           },
           "categoryOfPublicity": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/2",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/3",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/4"
+            ],
             "type": "string",
             "description": "Kuvaa muun kaava-aineiston julkisuusluokan. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/julkisuus\">http://uri.suomi.fi/codelist/rytj/julkisuus</a>"
           }
@@ -9751,12 +9871,21 @@
             "description": "Lokalisoitu merkkijono-luokka eri kielille. Lisää vähintään yksi kieli."
           },
           "personalDataContent": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/1",
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/2",
+              "http://uri.suomi.fi/codelist/rytj/henkilotietosisalto/code/3"
+            ],
             "type": "string",
             "description": "Kuvaa asiakirjan henkilötietosisällön. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/henkilotietosisalto\">http://uri.suomi.fi/codelist/rytj/henkilotietosisalto</a>"
           },
           "categoryOfPublicity": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/1",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/2",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/3",
+              "http://uri.suomi.fi/codelist/rytj/julkisuus/code/4"
+            ],
             "type": "string",
             "description": "Kuvaa asiakirjan julkisuusluokan. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/julkisuus\">http://uri.suomi.fi/codelist/rytj/julkisuus</a>"
           },
@@ -9764,7 +9893,27 @@
             "type": "boolean"
           },
           "retentionTime": {
-            "minLength": 1,
+            "enum": [
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/01",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/02",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0201",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020101",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020102",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020103",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0202",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020201",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020202",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020203",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0203",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020301",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020302",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020303",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0204",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020401",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020402",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/020403",
+              "http://uri.suomi.fi/codelist/rytj/sailytysaika/code/0205"
+            ],
             "type": "string",
             "description": "Asiakirjan säilytysaika vuosina ennen sen hävittämistä. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/sailytysaika\">http://uri.suomi.fi/codelist/rytj/sailytysaika</a>"
           },
@@ -9777,6 +9926,14 @@
             "minItems": 1,
             "type": "array",
             "items": {
+              "enum": [
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/fi",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/sv",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/en",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/smn",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/sms",
+                "http://uri.suomi.fi/codelist/rytj/ryhtikielet/code/se"
+              ],
               "type": "string"
             },
             "description": "Asiakirjan kieli tai sisältämät kielet. Käytetään koodistoa <a href=\"http://uri.suomi.fi/codelist/rytj/ryhtikielet\">http://uri.suomi.fi/codelist/rytj/ryhtikielet</a>"
@@ -10882,6 +11039,14 @@
               "type": "string"
             },
             "description": "Liittyvät kaava asiat (URI)",
+            "nullable": true
+          },
+          "originalAdministrativeAreaIdentifiers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "alkuperäinen hallinnollisen alueen tunnus. Jos arvoa ei anneta, olemassa oleva arvo säilyy.",
             "nullable": true
           }
         },
